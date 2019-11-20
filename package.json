@@ -1,0 +1,21 @@
+{
+  "name": "face.land",
+  "version": "0.0.0-development",
+  "description": "Website for face.land",
+  "main": "index.js",
+  "repository": "https://github.com/PixelOutlaw/face.land.git",
+  "author": "Richard Harrah",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.23.7"
+  },
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "dependencies": {
+    "bulma": "^0.8.0"
+  }
+}
