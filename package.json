@@ -1,9 +1,9 @@
 {
-  "name": "face.land",
+  "name": "faceland.github.io",
   "version": "0.0.0-development",
   "description": "Website for face.land",
   "main": "index.js",
-  "repository": "https://github.com/PixelOutlaw/face.land.git",
+  "repository": "https://github.com/Faceland/faceland.github.io.git",
   "author": "Richard Harrah",
   "license": "MIT",
   "private": true,
