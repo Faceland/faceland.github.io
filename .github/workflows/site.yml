@@ -2,7 +2,7 @@ name: Site Publish CI
 on:
   push:
     branches:
-      - master
+      - develop
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -29,5 +29,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v2.5.0
         env:
           ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          PUBLISH_BRANCH: gh-pages
+          PUBLISH_BRANCH: master
           PUBLISH_DIR: ./dist
