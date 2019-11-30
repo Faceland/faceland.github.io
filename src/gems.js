@@ -7,23 +7,33 @@ function searchFilter() {
   const input = document.getElementById("search-text");
   const filter = input.value.toUpperCase();
   const table = document.getElementById("gem-table");
-  const tr = table.getElementsByTagName("tr");
+  const tbody = table.getElementsByTagName("tbody")[0];
+  const tr = tbody.getElementsByTagName("tr");
 
   for (let i = 0; i < tr.length; i++) {
-    let td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      const txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
+    let name = tr[i].getElementsByTagName("td")[0];
+    let itemGroups = tr[i].getElementsByTagName("td")[1];
+    let effects = tr[i].getElementsByTagName("td")[2];
+    let show = false;
+    if (name) {
+      const txtValue = name.textContent || name.innerText;
+      show = show || txtValue.toUpperCase().indexOf(filter) > -1;
     }
+    if (itemGroups) {
+      const txtValue = itemGroups.textContent || itemGroups.innerText;
+      show = show || txtValue.toUpperCase().indexOf(filter) > -1;
+    }
+    if (effects) {
+      const txtValue = effects.textContent || effects.innerText;
+      show = show || txtValue.toUpperCase().indexOf(filter) > -1;
+    }
+
+    tr[i].style.display = show ? "" : "none";
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const gemTable = document.getElementById("gem-table");
+  const gemTable = document.getElementById("gem-table").getElementsByTagName("tbody")[0];
 
   const gemKeys = Object.keys(gems).filter(gem => gem !== "version");
   gemKeys.forEach(gem => {
