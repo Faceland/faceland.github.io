@@ -3,6 +3,25 @@ import MinecraftTextJS from "minecraft-text-js";
 import { chatColorize } from "./chatColors";
 import gems from "./gems.yml";
 
+function searchFilter() {
+  const input = document.getElementById("search-text");
+  const filter = input.value.toUpperCase();
+  const table = document.getElementById("gem-table");
+  const tr = table.getElementsByTagName("tr");
+
+  for (let i = 0; i < tr.length; i++) {
+    let td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      const txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const gemTable = document.getElementById("gem-table");
 
@@ -28,4 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
       gems[gem]["lore"].map(lineOfLore => chatColorize(lineOfLore)).join("\n")
     );
   });
+
+  document.getElementById("search-text").onkeyup = searchFilter;
 });

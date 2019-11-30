@@ -1,29 +1,54 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" href="./index.scss">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/android-icon-192x192.png"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./index.scss" />
 
     <title>Faceland</title>
-    <meta name="description" content="the great rpg with the dumb name"/>
+    <meta name="description" content="the great rpg with the dumb name" />
 
     <script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
       new Crate({
@@ -32,73 +57,95 @@
         shard: 'https://disweb.dashflo.net'
       })
     </script>
-</head>
-<body>
-<nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
+  </head>
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
         <a class="navbar-item" href="/">
-            <img src="/facelandlogo.png" alt="Faceland Logo">
+          <img src="/facelandlogo.png" alt="Faceland Logo" />
         </a>
 
-        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-           data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
+        <a
+          role="button"
+          class="navbar-burger burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
-    </div>
+      </div>
 
-    <div id="navbarBasicExample" class="navbar-menu">
+      <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-            <a class="navbar-item" href="/">
-                Home
-            </a>
+          <a class="navbar-item" href="/">
+            Home
+          </a>
 
-            <a class="navbar-item" href="/gems">
-                Gems
-            </a>
+          <a class="navbar-item" href="/gems">
+            Gems
+          </a>
 
-            <a class="navbar-item" href="https://discord.gg/nmWYKvf">
-                Discord
-            </a>
+          <a class="navbar-item" href="https://discord.gg/nmWYKvf">
+            Discord
+          </a>
 
-            <a class="navbar-item" href="http://play.face.land:8135">
-                Dynmap
-            </a>
+          <a class="navbar-item" href="http://play.face.land:8135">
+            Dynmap
+          </a>
 
-            <a class="navbar-item" href="https://plug.dj/faceland">
-                plug.dj
-            </a>
+          <a class="navbar-item" href="https://plug.dj/faceland">
+            plug.dj
+          </a>
         </div>
-    </div>
-</nav>
-<div id="wrapper">
-    <div class="container">
+      </div>
+    </nav>
+    <div id="wrapper">
+      <div class="container">
         <h1 class="title is-1">Socket Gems</h1>
+        <div class="field">
+          <label class="label" for="search-text">Search</label>
+          <p class="control has-icons-right">
+            <input
+              class="input"
+              id="search-text"
+              type="text"
+              placeholder="Search..."
+            />
+            <span class="icon is-small is-right">
+              <i class="fas fa-search-plus"></i>
+            </span>
+          </p>
+        </div>
         <table id="gem-table" class="table">
-            <thead>
+          <thead>
             <tr>
-                <th>Name</th>
-                <th>Item Groups</th>
-                <th>Effects</th>
+              <th>Name</th>
+              <th>Item Groups</th>
+              <th>Effects</th>
             </tr>
-            </thead>
-            <tbody>
-            </tbody>
+          </thead>
+          <tbody></tbody>
         </table>
+      </div>
     </div>
-</div>
-<footer class="footer">
-    <div class="content has-text-centered">
+    <footer class="footer">
+      <div class="content has-text-centered">
         <p>
-            <strong>face.land</strong> by <a href="https://richardharrah.com/">Richard Harrah</a>. The source code is
-            licensed
-            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+          <strong>face.land</strong> by
+          <a href="https://richardharrah.com/">Richard Harrah</a>. The source
+          code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The
+          website content is licensed
+          <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+            >CC BY NC SA 4.0</a
+          >.
         </p>
-    </div>
-</footer>
-<script type="application/javascript" src="./index.js"></script>
-<script type="application/javascript" src="./gems.js"></script>
-</body>
+      </div>
+    </footer>
+    <script type="application/javascript" src="./index.js"></script>
+    <script type="application/javascript" src="./gems.js"></script>
+  </body>
 </html>

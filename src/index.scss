@@ -2,6 +2,11 @@
 
 @import "../node_modules/bulma/sass/utilities/initial-variables";
 @import "../node_modules/bulma/bulma";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+
+$fa-font-path: "../node_modules/@fortawesome/fontawesome-free/webfonts";
+
+@import "../node_modules/@fortawesome/fontawesome-free/scss/solid";
 
 body {
   display: flex;
