@@ -1,17 +1,7 @@
-version: 0.0.5
-Transmute:
-  broadcast: false
-  lore:
-  - <red>ERROR! WHY DO YOU SEE THIS
-  weight: 0
-  weight-per-level: 0
-  bonus-weight: 0
-  item-groups:
-  - None
 Life I:
   broadcast: false
   lore:
-  - <gold>+5 Maximum Life
+  - "&6+3 Maximum Life"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
@@ -20,7 +10,7 @@ Life I:
 Life II:
   broadcast: false
   lore:
-  - <gold>+6 Maximum Life
+  - "&6+4 Maximum Life"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -29,7 +19,7 @@ Life II:
 Life III:
   broadcast: false
   lore:
-  - <gold>+7 Maximum Life
+  - "&6+5 Maximum Life"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -39,7 +29,7 @@ Life IV:
   broadcast: true
   prefix: Tenacious
   lore:
-  - <gold>+8 Maximum Life
+  - "&6+6 Maximum Life"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -48,7 +38,7 @@ Life IV:
 Barrier I:
   broadcast: false
   lore:
-  - <gold>+3 Maximum Barrier
+  - "&6+3 Maximum Barrier"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
@@ -57,7 +47,7 @@ Barrier I:
 Barrier II:
   broadcast: false
   lore:
-  - <gold>+4 Maximum Barrier
+  - "&6+4 Maximum Barrier"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -66,7 +56,7 @@ Barrier II:
 Barrier III:
   broadcast: false
   lore:
-  - <gold>+5 Maximum Barrier
+  - "&6+5 Maximum Barrier"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -76,16 +66,62 @@ Barrier IV:
   broadcast: true
   suffix: of Negation
   lore:
-  - <gold>+6 Maximum Barrier
+  - "&6+6 Maximum Barrier"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
   item-groups:
   - Armor
+Energy I:
+  broadcast: false
+  lore:
+  - "&6+10 Maximum Energy"
+  weight: 2000
+  weight-per-level: -2
+  bonus-weight: 0
+  item-groups:
+  - Armor
+Energy II:
+  broadcast: false
+  lore:
+  - "&6+12 Maximum Energy"
+  weight: 500
+  weight-per-level: -1
+  bonus-weight: 150
+  item-groups:
+  - Armor
+Energy III:
+  broadcast: false
+  lore:
+  - "&6+14 Maximum Energy"
+  weight: 50
+  weight-per-level: 0
+  bonus-weight: 50
+  item-groups:
+  - Armor
+Energy IV:
+  broadcast: true
+  prefix: Energetic
+  lore:
+  - "&6+16 Maximum Energy"
+  weight: 5
+  weight-per-level: 0
+  bonus-weight: 5
+  item-groups:
+  - Armor
+Strong Constitution:
+  broadcast: false
+  lore:
+  - "&6+12% Poison Resistance"
+  weight: 50
+  weight-per-level: 0
+  bonus-weight: 50
+  item-groups:
+  - Armor
 Resistance I:
   broadcast: false
   lore:
-  - <gold>+3% Elemental Resist
+  - "&6+2% Elemental Resist"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
@@ -94,7 +130,7 @@ Resistance I:
 Resistance II:
   broadcast: false
   lore:
-  - <gold>+4% Elemental Resist
+  - "&6+3% Elemental Resist"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -103,7 +139,7 @@ Resistance II:
 Resistance III:
   broadcast: false
   lore:
-  - <gold>+5% Elemental Resist
+  - "&6+4% Elemental Resist"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -113,7 +149,7 @@ Resistance IV:
   broadcast: true
   prefix: Elemental
   lore:
-  - <gold>+6% Elemental Resist
+  - "&6+5% Elemental Resist"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -123,7 +159,7 @@ Shards of Beauty:
   broadcast: true
   prefix: Wonderful
   lore:
-  - <gold>+3 Reflected Damage
+  - "&6+3 Reflected Damage"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -134,172 +170,28 @@ Chiseled Runes:
   broadcast: true
   prefix: Chiseled
   lore:
-  - <gold>+4 Armor
-  - <gold>+5 Movement Speed
+  - "&6+4 Armor"
+  - "&6+5 Movement Speed"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
   item-groups:
   - Diamond
   - Armor
-Miserable Heart:
-  broadcast: false
-  prefix: Leeching
-  lore:
-  - <gold>+2 Shadow Damage
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Chestplate
-Misery:
-  broadcast: false
-  lore:
-  - <gold>+4% Corrupt Chance
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Armor
 Tectonic Plate:
   broadcast: true
   lore:
-  - <gold>+2 Earth Damage
+  - "&6+1 Earth Damage"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
   item-groups:
   - Heavy
   - Armor
-Electrified Steel:
-  broadcast: false
-  lore:
-  - <gold>+1 Lightning Damage
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Iron
-  - Armor
-Hardness I:
-  broadcast: false
-  lore:
-  - <gold>+2 Armor
-  weight: 2000
-  weight-per-level: -2
-  bonus-weight: 0
-  item-groups:
-  - Diamond
-  - Armor
-Hardness II:
-  broadcast: false
-  lore:
-  - <gold>+3 Armor
-  weight: 500
-  weight-per-level: -1
-  bonus-weight: 150
-  item-groups:
-  - Diamond
-  - Armor
-Hardness III:
-  broadcast: false
-  lore:
-  - <gold>+4 Armor
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Diamond
-  - Armor
-Hardness IV:
-  broadcast: true
-  prefix: Shimmering
-  lore:
-  - <gold>+5 Armor
-  weight: 5
-  weight-per-level: 0
-  bonus-weight: 5
-  item-groups:
-  - Diamond
-  - Armor
-Rings of Steel I:
-  broadcast: false
-  lore:
-  - <gold>+1 Armor
-  weight: 2000
-  weight-per-level: -2
-  bonus-weight: 0
-  item-groups:
-  - Chainmail
-  - Armor
-Rings of Steel II:
-  broadcast: false
-  lore:
-  - <gold>+2 Armor
-  weight: 500
-  weight-per-level: -1
-  bonus-weight: 150
-  item-groups:
-  - Chainmail
-  - Armor
-Rings of Steel III:
-  broadcast: false
-  lore:
-  - <gold>+3 Armor
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Chainmail
-  - Armor
-Rings of Steel IV:
-  broadcast: true
-  prefix: Polished
-  lore:
-  - <gold>+4 Armor
-  weight: 5
-  weight-per-level: 0
-  bonus-weight: 5
-  item-groups:
-  - Chainmail
-  - Armor
-Well Fitted:
-  broadcast: false
-  prefix: Lightweight
-  lore:
-  - <gold>+6 Evasion
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Leather
-  - Armor
-Light Metal:
-  broadcast: false
-  prefix: Lightweight
-  lore:
-  - <gold>+5 Evasion
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Chainmail
-  - Armor
-Roguish Charm:
-  broadcast: false
-  prefix: Snazzy
-  lore:
-  - <gold>+10 Life Regeneration
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Light
-  - Armor
 Reinforcement I:
   broadcast: false
   lore:
-  - <gold>+1 Armor
+  - "&6+1 Armor"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
@@ -308,7 +200,7 @@ Reinforcement I:
 Reinforcement II:
   broadcast: false
   lore:
-  - <gold>+2 Armor
+  - "&6+2 Armor"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -317,7 +209,7 @@ Reinforcement II:
 Reinforcement III:
   broadcast: false
   lore:
-  - <gold>+3 Armor
+  - "&6+3 Armor"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -327,62 +219,17 @@ Reinforcement IV:
   broadcast: true
   prefix: Armored
   lore:
-  - <gold>+4 Armor
+  - "&6+4 Armor"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
   item-groups:
-  - Armor
-Radiance I:
-  broadcast: false
-  lore:
-  - <gold>+1 Armor
-  - <gold>+1 Maximum Life
-  weight: 2000
-  weight-per-level: -2
-  bonus-weight: 0
-  item-groups:
-  - Gold
-  - Armor
-Radiance II:
-  broadcast: false
-  lore:
-  - <gold>+2 Armor
-  - <gold>+1 Maximum Life
-  weight: 500
-  weight-per-level: -1
-  bonus-weight: 150
-  item-groups:
-  - Gold
-  - Armor
-Radiance III:
-  broadcast: false
-  lore:
-  - <gold>+2 Armor
-  - <gold>+2 Maximum Life
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Gold
-  - Armor
-Radiance IV:
-  broadcast: true
-  prefix: Glorious
-  lore:
-  - <gold>+3 Armor
-  - <gold>+2 Maximum Life
-  weight: 5
-  weight-per-level: 0
-  bonus-weight: 5
-  item-groups:
-  - Gold
   - Armor
 Earth Aspect:
   broadcast: true
   prefix: Towering
   lore:
-  - <gold>+3 Earth Damage
+  - "&6+3 Earth Damage"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -392,7 +239,7 @@ Strong Footing:
   broadcast: false
   prefix: Heavy
   lore:
-  - <gold>+10 Block
+  - "&6+10 Block"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -402,173 +249,182 @@ Stonewall:
   broadcast: true
   prefix: Towering
   lore:
-  - <gold>+6 Block
-  - <gold>+2 Earth Damage
+  - "&6+6 Block"
+  - "&6+2 Earth Damage"
   weight: 0
   weight-per-level: 0
   bonus-weight: 10
   item-groups:
   - Shield
+
+Page Turner:
+  broadcast: false
+  lore:
+  - "&6+3% Attack Speed"
+  weight: 50
+  weight-per-level: 0
+  bonus-weight: 50
+  item-groups:
+  - Battletome
+Booksmarts:
+  broadcast: true
+  lore:
+  - "&6+4% Combat XP"
+  weight: 5
+  weight-per-level: 0
+  bonus-weight: 5
+  item-groups:
+  - Battletome
+
 Glimmer:
   broadcast: true
   lore:
-  - <gold>+5% Item Discovery
+  - "&6+4% Loot Bonus"
+  weight: 5
+  weight-per-level: 0
+  bonus-weight: 5
+  item-groups:
+  - Offhand
+Glint:
+  broadcast: true
+  lore:
+  - "&6+4% Loot Rarity"
   weight: 0
   weight-per-level: 0
-  bonus-weight: 10
+  bonus-weight: 5
   item-groups:
-  - Battletome
-Cyrenaicism:
-  broadcast: false
-  lore:
-  - <gold>+12 Life Regeneration
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Battletome
-Peripateticism:
-  broadcast: false
-  lore:
-  - <gold>+1% Critical Chance
-  - <gold>+1% Critical Damage
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Battletome
-Speed Reader:
-  broadcast: false
-  lore:
-  - <gold>+6 Movement Speed
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Battletome
-Harsh Tone:
-  broadcast: false
-  lore:
-  - <gold>+2% Critical Chance
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Battletome
-Stoicism:
-  broadcast: false
-  lore:
-  - <gold>+2 Armor
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Battletome
-Epicureanism:
-  broadcast: false
-  lore:
-  - <gold>+1 Magical Damage
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Battletome
-Draining Lecture:
-  broadcast: false
-  lore:
-  - <gold>+1% Life Steal
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Battletome
-Invigorating Speech:
-  broadcast: false
-  lore:
-  - <gold>+2 Life On Hit
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Battletome
-Meme Magic:
+  - Offhand
+Eager Elements:
   broadcast: true
-  prefix: Dank
   lore:
-  - <gold>+3 Physical Damage
-  - <gold>+3 Magical Damage
+  - "&6+5% Elemental Status Chance"
+  weight: 50
+  weight-per-level: 0
+  bonus-weight: 50
+  item-groups:
+  - Offhand
+Elemental Enhancement:
+  broadcast: true
+  lore:
+  - "&6+3% Elemental Damage"
+  weight: 50
+  weight-per-level: 0
+  bonus-weight: 50
+  item-groups:
+  - Offhand
+Subtle Healing:
+  broadcast: false
+  lore:
+  - "&6+1 Life Regeneration"
+  weight: 50
+  weight-per-level: 0
+  bonus-weight: 50
+  item-groups:
+  - Offhand
+Joint Seeker:
+  broadcast: false
+  lore:
+  - "&6+2% Critical Chance"
+  weight: 50
+  weight-per-level: 0
+  bonus-weight: 50
+  item-groups:
+  - Offhand
+Hint Of Magic:
+  broadcast: false
+  lore:
+  - "&6+1 Magical Damage"
+  weight: 50
+  weight-per-level: 0
+  bonus-weight: 50
+  item-groups:
+  - Offhand
+Hint Of Strength:
+  broadcast: false
+  lore:
+  - "&6+1 Physical Damage"
+  weight: 50
+  weight-per-level: 0
+  bonus-weight: 50
+  item-groups:
+  - Offhand
+Leeching Hit:
+  broadcast: false
+  lore:
+  - "&6+1% Life Steal"
+  weight: 50
+  weight-per-level: 0
+  bonus-weight: 50
+  item-groups:
+  - Offhand
+Healing Hit:
+  broadcast: false
+  lore:
+  - "&6+2 Life On Hit"
+  weight: 50
+  weight-per-level: 0
+  bonus-weight: 50
+  item-groups:
+  - Offhand
+Soul Eater:
+  broadcast: false
+  lore:
+  - "&6+3 Life On Kill"
+  weight: 50
+  weight-per-level: 0
+  bonus-weight: 50
+  item-groups:
+  - Offhand
+Touch Of Heat:
+  broadcast: false
+  lore:
+  - "&6+1 Fire Damage"
   weight: 0
   weight-per-level: 0
   bonus-weight: 0
   item-groups:
-  - Battletome
-Words of Passion:
+  - Offhand
+Touch Of Malice:
   broadcast: false
   lore:
-  - <gold>+1 Fire Damage
+  - "&6+1 Shadow Damage"
+  weight: 0
+  weight-per-level: 0
+  bonus-weight: 0
+  item-groups:
+  - Offhand
+Touch Of Thunder:
+  broadcast: false
+  lore:
+  - "&6+1 Lightning Damage"
+  weight: 0
+  weight-per-level: 0
+  bonus-weight: 0
+  item-groups:
+  - Offhand
+Touch Of Dirt:
+  broadcast: false
+  lore:
+  - "&6+1 Earth Damage"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
   item-groups:
-  - Battletome
-Words of Contempt:
+  - Offhand
+Touch Of Cold:
   broadcast: false
   lore:
-  - <gold>+1 Shadow Damage
+  - "&6+1 Ice Damage"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
   item-groups:
-  - Battletome
-Words of Wit:
+  - Offhand
+
+Fletching:
   broadcast: false
   lore:
-  - <gold>+1 Lightning Damage
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Battletome
-Words of Will:
-  broadcast: false
-  lore:
-  - <gold>+1 Earth Damage
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Battletome
-Words of Indifference:
-  broadcast: false
-  lore:
-  - <gold>+1 Ice Damage
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Battletome
-Superior Fletching:
-  broadcast: false
-  lore:
-  - <gold>+3 Accuracy
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Quiver
-Joint Seeker:
-  broadcast: false
-  lore:
-  - <gold>+2% Critical Chance
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Quiver
-Overdraw:
-  broadcast: false
-  lore:
-  - <gold>+5% Overcharge
+  - "&6+3 Accuracy"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -577,70 +433,17 @@ Overdraw:
 Blood Trail:
   broadcast: false
   lore:
-  - <gold>+4% Bleed Chance
+  - "&6+4% Bleed Chance"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
   item-groups:
   - Quiver
-Leeching Shot:
-  broadcast: false
-  lore:
-  - <gold>+2% Life Steal
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Quiver
-Blazing Arrows:
-  broadcast: false
-  lore:
-  - <gold>+2 Fire Damage
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Quiver
-Sinister Arrows:
-  broadcast: false
-  lore:
-  - <gold>+2 Shadow Damage
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Quiver
-Quick Arrows:
-  broadcast: false
-  lore:
-  - <gold>+2 Lightning Damage
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Quiver
-Frigid Arrows:
-  broadcast: false
-  lore:
-  - <gold>+2 Ice Damage
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Quiver
-Stone Arrows:
-  broadcast: false
-  lore:
-  - <gold>+2 Earth Damage
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Quiver
+
 Lightweight I:
   broadcast: false
   lore:
-  - <gold>+2 Movement Speed
+  - "&6+2 Movement Speed"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
@@ -649,7 +452,7 @@ Lightweight I:
 Lightweight II:
   broadcast: false
   lore:
-  - <gold>+4 Movement Speed
+  - "&6+4 Movement Speed"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -658,7 +461,7 @@ Lightweight II:
 Lightweight III:
   broadcast: false
   lore:
-  - <gold>+6 Movement Speed
+  - "&6+6 Movement Speed"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -668,7 +471,7 @@ Lightweight IV:
   broadcast: true
   prefix: Speedy
   lore:
-  - <gold>+8 Movement Speed
+  - "&6+8 Movement Speed"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -678,26 +481,26 @@ Swiftness:
   broadcast: true
   suffix: of Swiftness
   lore:
-  - <gold>+10 Movement Speed
+  - "&6+10 Movement Speed"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
   item-groups:
   - Boots
-Respite:
-  broadcast: true
-  prefix: Refreshing
-  lore:
-  - <gold>+100 Life Regeneration
-  weight: 0
-  weight-per-level: 0
-  bonus-weight: 0
-  item-groups:
-  - Armor
+#Respite:
+#  broadcast: true
+#  prefix: Refreshing
+#  lore:
+#  - "&6+100 Life Regeneration
+#  weight: 0
+#  weight-per-level: 0
+#  bonus-weight: 0
+#  item-groups:
+#  - Armor
 Respite I:
   broadcast: false
   lore:
-  - <gold>+2 Life Regeneration
+  - "&6+1 Life Regeneration"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
@@ -706,7 +509,7 @@ Respite I:
 Respite II:
   broadcast: false
   lore:
-  - <gold>+4 Life Regeneration
+  - "&6+2 Life Regeneration"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -715,7 +518,7 @@ Respite II:
 Respite III:
   broadcast: false
   lore:
-  - <gold>+6 Life Regeneration
+  - "&6+3 Life Regeneration"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -725,7 +528,7 @@ Respite IV:
   broadcast: true
   prefix: Refreshing
   lore:
-  - <gold>+8 Life Regeneration
+  - "&6+4 Life Regeneration"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -735,7 +538,7 @@ Recharge:
   broadcast: true
   prefix: Refreshing
   lore:
-  - <gold>+6 Barrier Regeneration
+  - "&6+5 Barrier Regeneration"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -744,7 +547,7 @@ Recharge:
 Evade I:
   broadcast: false
   lore:
-  - <gold>+1 Evasion
+  - "&6+1 Evasion"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
@@ -753,7 +556,7 @@ Evade I:
 Evade II:
   broadcast: false
   lore:
-  - <gold>+2 Evasion
+  - "&6+2 Evasion"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -762,7 +565,7 @@ Evade II:
 Evade III:
   broadcast: false
   lore:
-  - <gold>+3 Evasion
+  - "&6+3 Evasion"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -772,7 +575,7 @@ Evade IV:
   broadcast: true
   prefix: Evasive
   lore:
-  - <gold>+4 Evasion
+  - "&6+4 Evasion"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -782,7 +585,7 @@ Mark of Strength:
   broadcast: false
   prefix: Physical
   lore:
-  - <gold>+1 Physical Damage
+  - "&6+1 Physical Damage"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -792,7 +595,7 @@ Mark of the Mage:
   broadcast: false
   prefix: Wizard's
   lore:
-  - <gold>+1 Magical Damage
+  - "&6+1 Magical Damage"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -802,7 +605,7 @@ Bloodstains:
   broadcast: false
   prefix: Bloody
   lore:
-  - <gold>+5% Critical Damage
+  - "&6+5% Critical Damage"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -811,7 +614,7 @@ Bloodstains:
 Hawk Eyes:
   broadcast: true
   lore:
-  - <gold>+2 Physical Damage
+  - "&6+2 Physical Damage"
   weight: 0
   weight-per-level: 0
   bonus-weight: 5
@@ -820,16 +623,34 @@ Hawk Eyes:
 Insight:
   broadcast: true
   lore:
-  - <gold>+6% Experience Gain
+  - "&6+6% Combat XP"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
   item-groups:
   - Helmet
+Enlightenment:
+  broadcast: true
+  lore:
+  - "&6+8% Skill XP"
+  weight: 0
+  weight-per-level: 0
+  bonus-weight: 0
+  item-groups:
+  - Helmet
+Muscle Memory:
+  broadcast: true
+  lore:
+  - "&6+8% Combat XP"
+  weight: 0
+  weight-per-level: 0
+  bonus-weight: 0
+  item-groups:
+  - Helmet
 Aptitude:
   broadcast: false
   lore:
-  - <gold>+2% Experience Gain
+  - "&6+2% Combat XP"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -838,7 +659,7 @@ Aptitude:
 Aptitude I:
   broadcast: false
   lore:
-  - <gold>+2% Experience Gain
+  - "&6+2% Combat XP"
   weight: 0
   weight-per-level: 0
   bonus-weight: 0
@@ -847,7 +668,7 @@ Aptitude I:
 Aptitude II:
   broadcast: false
   lore:
-  - <gold>+3% Experience Gain
+  - "&6+3% Combat XP"
   weight: 0
   weight-per-level: 0
   bonus-weight: 0
@@ -856,7 +677,7 @@ Aptitude II:
 Aptitude III:
   broadcast: false
   lore:
-  - <gold>+4% Experience Gain
+  - "&6+4% Combat XP"
   weight: 0
   weight-per-level: 0
   bonus-weight: 0
@@ -865,7 +686,7 @@ Aptitude III:
 Aptitude IV:
   broadcast: true
   lore:
-  - <gold>+5% Experience Gain
+  - "&6+5% Combat XP"
   weight: 0
   weight-per-level: 0
   bonus-weight: 0
@@ -874,7 +695,7 @@ Aptitude IV:
 Discovery I:
   broadcast: false
   lore:
-  - <gold>+4% Item Discovery
+  - "&6+4% Loot Bonus"
   weight: 320
   weight-per-level: 0
   item-groups:
@@ -882,7 +703,7 @@ Discovery I:
 Discovery II:
   broadcast: false
   lore:
-  - <gold>+6% Item Discovery
+  - "&6+6% Loot Bonus"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -891,7 +712,7 @@ Discovery II:
 Discovery III:
   broadcast: false
   lore:
-  - <gold>+8% Item Discovery
+  - "&6+8% Loot Bonus"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -900,7 +721,7 @@ Discovery III:
 Discovery IV:
   broadcast: true
   lore:
-  - <gold>+10% Item Discovery
+  - "&6+10% Loot Bonus"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -909,7 +730,7 @@ Discovery IV:
 Fortune I:
   broadcast: false
   lore:
-  - <gold>+2% Item Discovery
+  - "&6+2% Loot Bonus"
   weight: 320
   weight-per-level: 0
   item-groups:
@@ -917,7 +738,7 @@ Fortune I:
 Fortune II:
   broadcast: false
   lore:
-  - <gold>+3% Item Discovery
+  - "&6+3% Loot Bonus"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -926,7 +747,7 @@ Fortune II:
 Fortune III:
   broadcast: false
   lore:
-  - <gold>+4% Item Discovery
+  - "&6+4% Loot Bonus"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -935,27 +756,16 @@ Fortune III:
 Fortune IV:
   broadcast: true
   lore:
-  - <gold>+5% Item Discovery
+  - "&6+5% Loot Bonus"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
   item-groups:
   - Armor
-'Krogath''s Fury':
-  broadcast: false
-  lore:
-  - <gold>+1 Physical Damage
-  - <gold>+10% Overcharge
-  weight: 0
-  weight-per-level: 0
-  bonus-weight: 0
-  item-groups:
-  - Melee
-  - Weapon
 Sharpen I:
   broadcast: false
   lore:
-  - <gold>+1 Physical Damage
+  - "&6+1 Physical Damage"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
@@ -965,7 +775,7 @@ Sharpen I:
 Sharpen II:
   broadcast: false
   lore:
-  - <gold>+2 Physical Damage
+  - "&6+2 Physical Damage"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -975,7 +785,7 @@ Sharpen II:
 Sharpen III:
   broadcast: false
   lore:
-  - <gold>+3 Physical Damage
+  - "&6+3 Physical Damage"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -986,7 +796,7 @@ Sharpen IV:
   broadcast: true
   prefix: Champion's
   lore:
-  - <gold>+4 Physical Damage
+  - "&6+4 Physical Damage"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -996,7 +806,7 @@ Sharpen IV:
 Shoot I:
   broadcast: false
   lore:
-  - <gold>+1 Physical Damage
+  - "&6+1 Physical Damage"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
@@ -1006,7 +816,7 @@ Shoot I:
 Shoot II:
   broadcast: false
   lore:
-  - <gold>+2 Physical Damage
+  - "&6+2 Physical Damage"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -1016,7 +826,7 @@ Shoot II:
 Shoot III:
   broadcast: false
   lore:
-  - <gold>+3 Physical Damage
+  - "&6+3 Physical Damage"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -1027,7 +837,7 @@ Shoot IV:
   broadcast: true
   prefix: Sniper's
   lore:
-  - <gold>+4 Physical Damage
+  - "&6+4 Physical Damage"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1037,7 +847,7 @@ Shoot IV:
 Focus I:
   broadcast: false
   lore:
-  - <gold>+1 Magical Damage
+  - "&6+1 Magical Damage"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
@@ -1047,7 +857,7 @@ Focus I:
 Focus II:
   broadcast: false
   lore:
-  - <gold>+2 Magical Damage
+  - "&6+2 Magical Damage"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -1057,7 +867,7 @@ Focus II:
 Focus III:
   broadcast: false
   lore:
-  - <gold>+3 Magical Damage
+  - "&6+3 Magical Damage"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -1066,9 +876,9 @@ Focus III:
   - Weapon
 Focus IV:
   broadcast: true
-  prefix: Ancient 
+  prefix: Ancient
   lore:
-  - <gold>+4 Magical Damage
+  - "&6+4 Magical Damage"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1078,42 +888,35 @@ Focus IV:
 Frenzy I:
   broadcast: false
   lore:
-  - <gold>+5% Attack Speed
-  - <gold>+3% Critical Chance
+  - "&6+5% Attack Speed"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
   item-groups:
-  - Melee
   - Weapon
 Frenzy II:
   broadcast: false
   lore:
-  - <gold>+6% Attack Speed
-  - <gold>+4% Critical Chance
+  - "&6+6% Attack Speed"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
   item-groups:
-  - Melee
   - Weapon
 Frenzy III:
   broadcast: false
   lore:
-  - <gold>+7% Attack Speed
-  - <gold>+5% Critical Chance
+  - "&6+7% Attack Speed"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
   item-groups:
-  - Melee
   - Weapon
 Frenzy IV:
   broadcast: true
   prefix: Insane
   lore:
-  - <gold>+8% Attack Speed
-  - <gold>+6% Critical Chance
+  - "&6+8% Attack Speed"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1123,7 +926,7 @@ Frenzy IV:
 Precise I:
   broadcast: false
   lore:
-  - <gold>+4 Accuracy
+  - "&6+4 Accuracy"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
@@ -1132,7 +935,7 @@ Precise I:
 Precise II:
   broadcast: false
   lore:
-  - <gold>+6 Accuracy
+  - "&6+6 Accuracy"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -1141,7 +944,7 @@ Precise II:
 Precise III:
   broadcast: false
   lore:
-  - <gold>+8 Accuracy
+  - "&6+8 Accuracy"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -1151,7 +954,7 @@ Precise IV:
   broadcast: true
   prefix: Precise
   lore:
-  - <gold>+10 Accuracy
+  - "&6+10 Accuracy"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1161,7 +964,7 @@ Seeking Eyes:
   broadcast: false
   prefix: Seeking
   lore:
-  - <gold>+8 Accuracy
+  - "&6+8 Accuracy"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -1171,8 +974,8 @@ Superior Dexterity:
   broadcast: true
   prefix: Dexterous
   lore:
-  - <gold>+8 Accuracy
-  - <gold>+5% Critical Chance
+  - "&6+8 Accuracy"
+  - "&6+5% Critical Chance"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1183,7 +986,7 @@ Agile Archery:
   broadcast: true
   prefix: Elven
   lore:
-  - <gold>+8 Movement Speed
+  - "&6+8 Movement Speed"
   weight: 0
   weight-per-level: 0
   bonus-weight: 5
@@ -1192,48 +995,8 @@ Agile Archery:
 Consistency:
   broadcast: true
   lore:
-  - <gold>+20% Critical Chance
-  - <red>-10% Critical Damage
-  weight: 5
-  weight-per-level: 0
-  bonus-weight: 5
-  item-groups:
-  - Weapon
-Zeal:
-  broadcast: false
-  lore:
-  - <gold>+8% Attack Speed
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Weapon
-Cleave:
-  broadcast: true
-  prefix: Ruining
-  lore:
-  - <gold>+12% Overcharge
-  weight: 5
-  weight-per-level: 0
-  bonus-weight: 5
-  item-groups:
-  - Axe
-Pummel:
-  broadcast: true
-  prefix: Crushing
-  lore:
-  - <gold>+12% Overcharge
-  weight: 5
-  weight-per-level: 0
-  bonus-weight: 5
-  item-groups:
-  - Blunt
-  - Weapon
-Patience:
-  broadcast: true
-  prefix: Virtuous
-  lore:
-  - <gold>+10% Overcharge
+  - "&6+20% Critical Chance"
+  - "&c-10% Critical Damage"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1242,7 +1005,7 @@ Patience:
 Bloodsucker:
   broadcast: false
   lore:
-  - <gold>+8 Life On Kill
+  - "&6+8 Life On Kill"
   weight: 500
   weight-per-level: -1
   bonus-weight: 0
@@ -1252,7 +1015,7 @@ Blooddrinker:
   broadcast: false
   prefix: Thirsty
   lore:
-  - <gold>+12 Life On Kill
+  - "&6+12 Life On Kill"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1262,8 +1025,8 @@ Bloodletting:
   broadcast: true
   suffix: of the Harvest
   lore:
-  - <gold>+10 Life On Kill
-  - <gold>+10% Bleed Chance
+  - "&6+10 Life On Kill"
+  - "&6+10% Bleed Chance"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1272,7 +1035,7 @@ Bloodletting:
 Burn I:
   broadcast: false
   lore:
-  - <gold>+1 Fire Damage
+  - "&6+1 Fire Damage"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
@@ -1281,7 +1044,7 @@ Burn I:
 Burn II:
   broadcast: false
   lore:
-  - <gold>+2 Fire Damage
+  - "&6+2 Fire Damage"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -1290,7 +1053,7 @@ Burn II:
 Burn III:
   broadcast: false
   lore:
-  - <gold>+3 Fire Damage
+  - "&6+3 Fire Damage"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -1300,17 +1063,17 @@ Burn IV:
   broadcast: true
   prefix: Burning
   lore:
-  - <gold>+4 Fire Damage
+  - "&6+4 Fire Damage"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
   item-groups:
   - Weapon
-Ignite:
+Imbue:
   broadcast: true
   prefix: Burning
   lore:
-  - <gold>+16% Ignite Chance
+  - "&6+10% Elemental Status Chance"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1319,7 +1082,7 @@ Ignite:
 Smash I:
   broadcast: false
   lore:
-  - <gold>+2 Earth Damage
+  - "&6+2 Earth Damage"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
@@ -1328,7 +1091,7 @@ Smash I:
 Smash II:
   broadcast: false
   lore:
-  - <gold>+3 Earth Damage
+  - "&6+3 Earth Damage"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -1337,7 +1100,7 @@ Smash II:
 Smash III:
   broadcast: false
   lore:
-  - <gold>+4 Earth Damage
+  - "&6+4 Earth Damage"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -1347,7 +1110,7 @@ Smash IV:
   broadcast: true
   prefix: Rough
   lore:
-  - <gold>+5 Earth Damage
+  - "&6+5 Earth Damage"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1356,7 +1119,7 @@ Smash IV:
 Zap I:
   broadcast: false
   lore:
-  - <gold>+1 Lightning Damage
+  - "&6+1 Lightning Damage"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
@@ -1365,7 +1128,7 @@ Zap I:
 Zap II:
   broadcast: false
   lore:
-  - <gold>+2 Lightning Damage
+  - "&6+2 Lightning Damage"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -1374,7 +1137,7 @@ Zap II:
 Zap III:
   broadcast: false
   lore:
-  - <gold>+3 Lightning Damage
+  - "&6+3 Lightning Damage"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -1384,17 +1147,7 @@ Zap IV:
   broadcast: true
   prefix: Shocking
   lore:
-  - <gold>+4 Lightning Damage
-  weight: 5
-  weight-per-level: 0
-  bonus-weight: 5
-  item-groups:
-  - Weapon
-Shock:
-  broadcast: true
-  prefix: Shocking
-  lore:
-  - <gold>+16% Shock Chance
+  - "&6+4 Lightning Damage"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1403,7 +1156,7 @@ Shock:
 Chill I:
   broadcast: false
   lore:
-  - <gold>+1 Ice Damage
+  - "&6+1 Ice Damage"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
@@ -1412,7 +1165,7 @@ Chill I:
 Chill II:
   broadcast: false
   lore:
-  - <gold>+2 Ice Damage
+  - "&6+2 Ice Damage"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -1421,7 +1174,7 @@ Chill II:
 Chill III:
   broadcast: false
   lore:
-  - <gold>+3 Ice Damage
+  - "&6+3 Ice Damage"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -1431,17 +1184,7 @@ Chill IV:
   broadcast: true
   prefix: Frozen
   lore:
-  - <gold>+4 Ice Damage
-  weight: 5
-  weight-per-level: 0
-  bonus-weight: 5
-  item-groups:
-  - Weapon
-Freeze:
-  broadcast: true
-  prefix: Frozen
-  lore:
-  - <gold>+16% Freeze Chance
+  - "&6+4 Ice Damage"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1450,7 +1193,7 @@ Freeze:
 Shade I:
   broadcast: false
   lore:
-  - <gold>+1 Shadow Damage
+  - "&6+1 Shadow Damage"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
@@ -1459,7 +1202,7 @@ Shade I:
 Shade II:
   broadcast: false
   lore:
-  - <gold>+2 Shadow Damage
+  - "&6+2 Shadow Damage"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -1468,7 +1211,7 @@ Shade II:
 Shade III:
   broadcast: false
   lore:
-  - <gold>+3 Shadow Damage
+  - "&6+3 Shadow Damage"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -1478,17 +1221,7 @@ Shade IV:
   broadcast: true
   prefix: Darkened
   lore:
-  - <gold>+4 Shadow Damage
-  weight: 5
-  weight-per-level: 0
-  bonus-weight: 5
-  item-groups:
-  - Weapon
-Corrupt:
-  broadcast: true
-  prefix: Darkened
-  lore:
-  - <gold>+16% Corrupt Chance
+  - "&6+4 Shadow Damage"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1498,32 +1231,29 @@ Grim Reminder:
   broadcast: false
   prefix: Reaping
   lore:
-  - <gold>+6% Corrupt Chance
-  - <gold>+4 Shadow Damage
+  - "&6+4 Shadow Damage"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
   item-groups:
   - Kama
-Master of the Elements:
+Master of the Arcane:
   broadcast: true
   prefix: Chromatic
   lore:
-  - <gold>+3 Fire Damage
-  - <gold>+3 Lightning Damage
-  - <gold>+3 Ice Damage
-  weight: 2
+  - "&6+3 Fire Damage"
+  - "&6+3 Lightning Damage"
+  - "&6+3 Ice Damage"
+  weight: 0
   weight-per-level: 0
-  bonus-weight: 2
+  bonus-weight: 0
   item-groups:
   - Weapon
-Chaotic Trinity:
+Elemental Energy:
   broadcast: true
   prefix: Unstable
   lore:
-  - <gold>+10% Ignite Chance
-  - <gold>+10% Shock Chance
-  - <gold>+10% Freeze Chance
+  - "&6+12% Elemental Status Chance"
   weight: 2
   weight-per-level: 0
   bonus-weight: 2
@@ -1532,7 +1262,7 @@ Chaotic Trinity:
 Lethality I:
   broadcast: false
   lore:
-  - <gold>+6% Critical Chance
+  - "&6+6% Critical Chance"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
@@ -1541,7 +1271,7 @@ Lethality I:
 Lethality II:
   broadcast: false
   lore:
-  - <gold>+7% Critical Chance
+  - "&6+7% Critical Chance"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -1550,7 +1280,7 @@ Lethality II:
 Lethality III:
   broadcast: false
   lore:
-  - <gold>+8% Critical Chance
+  - "&6+8% Critical Chance"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -1560,7 +1290,7 @@ Lethality IV:
   broadcast: true
   prefix: Lethal
   lore:
-  - <gold>+10% Critical Chance
+  - "&6+10% Critical Chance"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1569,7 +1299,7 @@ Lethality IV:
 Brutality I:
   broadcast: false
   lore:
-  - <gold>+10% Critical Damage
+  - "&6+10% Critical Damage"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
@@ -1578,7 +1308,7 @@ Brutality I:
 Brutality II:
   broadcast: false
   lore:
-  - <gold>+12% Critical Damage
+  - "&6+12% Critical Damage"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -1587,7 +1317,7 @@ Brutality II:
 Brutality III:
   broadcast: false
   lore:
-  - <gold>+14% Critical Damage
+  - "&6+14% Critical Damage"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -1597,7 +1327,7 @@ Brutality IV:
   broadcast: true
   prefix: Brutal
   lore:
-  - <gold>+16% Critical Damage
+  - "&6+16% Critical Damage"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1606,44 +1336,48 @@ Brutality IV:
 Sunder I:
   broadcast: false
   lore:
-  - <gold>+6 Armor Penetration
+  - "&6+6 Armor Penetration"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
   item-groups:
+  - Physical
   - Weapon
 Sunder II:
   broadcast: false
   lore:
-  - <gold>+8 Armor Penetration
+  - "&6+8 Armor Penetration"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
   item-groups:
+  - Physical
   - Weapon
 Sunder III:
   broadcast: false
   lore:
-  - <gold>+10 Armor Penetration
+  - "&6+10 Armor Penetration"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
   item-groups:
+  - Physical
   - Weapon
 Sunder IV:
   broadcast: true
   prefix: Phased
   lore:
-  - <gold>+12 Armor Penetration
+  - "&6+12 Armor Penetration"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
   item-groups:
+  - Physical
   - Weapon
 Deflect I:
   broadcast: false
   lore:
-  - <gold>+4 Block
+  - "&6+4 Block"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
@@ -1653,7 +1387,7 @@ Deflect I:
 Deflect II:
   broadcast: false
   lore:
-  - <gold>+6 Block
+  - "&6+6 Block"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -1663,7 +1397,7 @@ Deflect II:
 Deflect III:
   broadcast: false
   lore:
-  - <gold>+8 Block
+  - "&6+8 Block"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -1674,7 +1408,7 @@ Deflect IV:
   broadcast: true
   prefix: Knight's
   lore:
-  - <gold>+10 Block
+  - "&6+10 Block"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1684,7 +1418,7 @@ Deflect IV:
 Block I:
   broadcast: false
   lore:
-  - <gold>+6 Block
+  - "&6+6 Block"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
@@ -1693,7 +1427,7 @@ Block I:
 Block II:
   broadcast: false
   lore:
-  - <gold>+8 Block
+  - "&6+8 Block"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -1702,7 +1436,7 @@ Block II:
 Block III:
   broadcast: false
   lore:
-  - <gold>+10 Block
+  - "&6+10 Block"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -1712,7 +1446,7 @@ Block IV:
   broadcast: true
   prefix: Knight's
   lore:
-  - <gold>+12 Block
+  - "&6+12 Block"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1722,8 +1456,7 @@ Mighty Charge:
   broadcast: true
   prefix: Mighty
   lore:
-  - <gold>+8 Movement Speed
-  - <gold>+8% Overcharge
+  - "&6+8 Movement Speed"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1733,7 +1466,7 @@ Sacred Barrier:
   broadcast: true
   prefix: Holy
   lore:
-  - <gold>+10 Barrier Regeneration
+  - "&6+10 Barrier Regeneration"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1743,8 +1476,8 @@ Deflecting Magic:
   broadcast: true
   prefix: Thorny
   lore:
-  - <gold>+2 Maximum Barrier
-  - <gold>+2 Reflected Damage
+  - "&6+2 Maximum Barrier"
+  - "&6+2 Reflected Damage"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1754,8 +1487,8 @@ Heroic Heart:
   broadcast: true
   prefix: Heroic
   lore:
-  - <gold>+2 Maximum Life
-  - <gold>+10 Block
+  - "&6+2 Maximum Life"
+  - "&6+10 Block"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1765,8 +1498,8 @@ Final Stand:
   broadcast: true
   prefix: Final
   lore:
-  - <gold>+5 Life Regeneration
-  - <gold>+10 Block
+  - "&6+2 Life Regeneration"
+  - "&6+10 Block"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1776,8 +1509,8 @@ Gluttony:
   broadcast: true
   prefix: Gluttonous
   lore:
-  - <gold>+2 Life On Hit
-  - <gold>+2% Life Steal
+  - "&6+2 Life On Hit"
+  - "&6+2% Life Steal"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1787,7 +1520,7 @@ Reap:
   broadcast: true
   prefix: Sanguine
   lore:
-  - <gold>+8% Life Steal
+  - "&6+8% Life Steal"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1797,7 +1530,7 @@ Decapitate:
   broadcast: true
   prefix: Slicing
   lore:
-  - <gold>+2% Head Drop
+  - "&6+2% Head Drop"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -1806,7 +1539,7 @@ Decapitate:
 Lifesteal I:
   broadcast: false
   lore:
-  - <gold>+2% Life Steal
+  - "&6+2% Life Steal"
   weight: 2000
   weight-per-level: -2
   bonus-weight: 0
@@ -1815,7 +1548,7 @@ Lifesteal I:
 Lifesteal II:
   broadcast: false
   lore:
-  - <gold>+3% Life Steal
+  - "&6+3% Life Steal"
   weight: 500
   weight-per-level: -1
   bonus-weight: 150
@@ -1824,7 +1557,7 @@ Lifesteal II:
 Lifesteal III:
   broadcast: false
   lore:
-  - <gold>+4% Life Steal
+  - "&6+4% Life Steal"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -1834,13 +1567,40 @@ Lifesteal IV:
   broadcast: true
   prefix: Sanguine
   lore:
-  - <gold>+5% Life Steal
+  - "&6+5% Life Steal"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
   item-groups:
   - Weapon
+
 ######################################## EFFECT GEMS ######################
+First Blood:
+  broadcast: true
+  lore:
+  - "&6&nOn Hit Effect - First Blood"
+  - " &eDeals &c15 Physical Damage &eif"
+  - " &ethe target has not been affected"
+  - " &eby this effect within &f1 minute"
+  weight: 5
+  weight-per-level: 0
+  bonus-weight: 5
+  item-groups:
+  - Physical
+  - Weapon
+Magic Unleashed:
+  broadcast: true
+  lore:
+  - "&6&nOn Hit Effect - Magic Unleashed"
+  - " &eLaunches a magical chaser that"
+  - " &edeals &93 + 25% Magical Damage"
+  - " &eon contact"
+  weight: 5
+  weight-per-level: 0
+  bonus-weight: 5
+  item-groups:
+  - Magic
+  - Weapon
 Fire Warrior:
   broadcast: false
   lore:
@@ -2031,13 +1791,28 @@ Divine Strike:
   prefix: Celestial
   lore:
   - "&6&nOn Hit Effect - Divine Strike"
-  - " &eRestores &f10 &elife"
-  - " &eDeal &f10 &eadditional true damage"
+  - " &eRestores &f10 Life"
+  - " &eDeal &f10 &eadditional &fTrue Damage"
   - " &f[8s Cooldown]"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
   item-groups:
+  - Weapon
+Righteous Strike:
+  broadcast: true
+  suffix: Of Justice
+  lore:
+  - "&6&nOn Hit Effect - Righteous Strike"
+  - " &eDeal &f15 &eadditional &fLight Damage"
+  - " &eRestores &f5% Maximum Life &eto"
+  - "  &enearby party members"
+  - " &f[12s Cooldown]"
+  weight: 5
+  weight-per-level: 0
+  bonus-weight: 5
+  item-groups:
+  - Blunt
   - Weapon
 Harden:
   broadcast: false
@@ -2115,17 +1890,6 @@ Fleet:
   lore:
   - "&6&nWhen Hit Effect - Fleet"
   - " &eGrants &fSpeed I &efor &b25s"
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Armor
-Detection:
-  broadcast: true
-  prefix: Perceptive
-  lore:
-  - "&6&nWhen Hit Effect - Detection"
-  - " &eRemoves &fInvisibility &efrom attackers"
   weight: 50
   weight-per-level: 0
   bonus-weight: 50
@@ -2222,7 +1986,7 @@ Annoying Critical:
   - " &e? ? ?"
   weight: 0
   weight-per-level: 0
-  bonus-weight: 50
+  bonus-weight: 0
   item-groups:
   - Weapon
 Falter:
@@ -2249,29 +2013,15 @@ Kinetic Absorption:
   bonus-weight: 5
   item-groups:
   - Shield
-Vigilant Strike:
-  broadcast: false
-  prefix: Vigilant
+Defender:
+  broadcast: true
+  prefix: Earthy
   lore:
-  - "&6&nOn Block Effect - Vigilance"
-  - " &eGrants &fPower VI &efor &b1s"
-  - " &eGrants &fImmobilized &efor &b1s"
-  weight: 50
+  - "&6&nOn Block Effect - Defender"
+  - " &eHeals allies for &f0.8% &eof your max. life"
+  weight: 5
   weight-per-level: 0
-  bonus-weight: 50
-  item-groups:
-  - Melee
-  - Weapon
-Vigilant Bulwark:
-  broadcast: false
-  prefix: Vigilant
-  lore:
-  - "&6&nOn Block Effect - Vigilance"
-  - " &eGrants &fPower VI &efor &b1s"
-  - " &eGrants &fImmobilized &efor &b1s"
-  weight: 50
-  weight-per-level: 0
-  bonus-weight: 50
+  bonus-weight: 5
   item-groups:
   - Shield
 Deflect:
@@ -2329,7 +2079,7 @@ Annoying Evade:
   - " &e? ? ?"
   weight: 0
   weight-per-level: 0
-  bonus-weight: 50
+  bonus-weight: 0
   item-groups:
   - Armor
 Escape:
@@ -2354,6 +2104,29 @@ Opportunist:
   bonus-weight: 50
   item-groups:
   - Weapon
+Dark Harvest:
+  broadcast: false
+  prefix: Haunted
+  lore:
+  - "&6&nOn Kill Effect - Dark Harvest"
+  - ' &eSummons a &fSpirit Of Decay &efor &b30s'
+  weight: 5
+  weight-per-level: 0
+  bonus-weight: 5
+  item-groups:
+  - Weapon
+Minion Frenzy:
+  broadcast: false
+  prefix: Rabid
+  lore:
+  - "&6&nOn Kill Effect - Minion Frenzy"
+  - " &eGrants &fPower V &eto minions for &b5s"
+  - " &eGrants &fSpeed V &eto minions for &b5s"
+  weight: 5
+  weight-per-level: 0
+  bonus-weight: 5
+  item-groups:
+  - Weapon
 Grand Slayer:
   broadcast: true
   prefix: Champion's
@@ -2365,11 +2138,69 @@ Grand Slayer:
   bonus-weight: 5
   item-groups:
   - Weapon
+Wildfire:
+  broadcast: true
+  prefix: Champion's
+  lore:
+  - "&6&nOn Kill Effect - Wildfire"
+  - "&c[Condition: Target Burning]"
+  - " &eIgnites nearby enemies for &b5s"
+  weight: 5
+  weight-per-level: 0
+  bonus-weight: 5
+  item-groups:
+  - Weapon
+
+Ocean Dancer:
+  broadcast: true
+  prefix: Dolphin's
+  lore:
+  - "&6&nPassive Effect - Ocean Dancer"
+  - " &eApplies &fDolphin's Grace I"
+  weight: 0
+  weight-per-level: 0
+  bonus-weight: 5
+  item-groups:
+  - Boots
+Frog Aspect:
+  broadcast: true
+  prefix: Ribbiting
+  lore:
+  - "&6&nPassive Effect - Frog Aspect"
+  - " &eApplies &fJump Boost II"
+  weight: 0
+  weight-per-level: 0
+  bonus-weight: 5
+  item-groups:
+  - Boots
+Conduit:
+  broadcast: true
+  prefix: Powered
+  lore:
+  - "&6&nPassive Effect - Conduit"
+  - " &eApplies &fConduit Power"
+  weight: 0
+  weight-per-level: 0
+  bonus-weight: 5
+  item-groups:
+  - Chestplate
+
+Blue Flame:
+  broadcast: true
+  prefix: Surging
+  lore:
+  - "&6&nPassive Effect - Blue Flame"
+  - ' &eIgnore &fhalf &eof enemy &fFire Resistance'
+  weight: 0
+  weight-per-level: 0
+  bonus-weight: 0
+  item-groups:
+  - Weapon
 Surge:
   broadcast: true
   prefix: Surging
   lore:
-  - "&6&nPassive Effect - Surge"
+  - "&6&nAbility Mod - Surge"
   - " &eUpgrades &f&nRush&e to also grant"
   - " &fHaste II &efor &b6s"
   weight: 5
@@ -2432,7 +2263,7 @@ Prismatic Regen:
   bonus-weight: 5
   item-groups:
   - Armor
-Prismatic Rage:
+Prismatic Regen:
   broadcast: true
   lore:
   - "&6&nAbility Mod - Prismatic Rage"
@@ -2443,12 +2274,52 @@ Prismatic Rage:
   bonus-weight: 5
   item-groups:
   - Armor
+Prismatic Energy:
+  broadcast: true
+  lore:
+  - "&6&nAbility Mod - Prismatic Energy"
+  - " &eUpgrades &f&nPrismatic Aura&e to"
+  - " &egrant &fEnergize I"
+  weight: 5
+  weight-per-level: 0
+  bonus-weight: 5
+  item-groups:
+  - Armor
+Vampiric Blade:
+  broadcast: true
+  prefix: Crimson
+  lore:
+  - "&6&nAbility Mod - Vampiric Blade"
+  - " &eUpgrades &f&nVampiric Bite &eto grant"
+  - " &ea buff for &b12s"
+  - "  &eGrants &f+10% Life Steal"
+  - "  &eGrants &f+35% Bleed Chance"
+  - "  &eGrants &f+20% Bleed Damage"
+  weight: 5
+  weight-per-level: 0
+  bonus-weight: 5
+  item-groups:
+  - Melee
+  - Weapon
+Pumpkin Bomb:
+  broadcast: true
+  prefix: Pumpkin Spice
+  lore:
+  - "&6&nAbility Mod - Pumpkin Bomb"
+  - " &eUpgrades &f&nBomb Toss&e:"
+  - "  &5Shadow Damage Multiplier: 1.4x"
+  - "  &7Applies &5&n10 Corruption"
+  weight: 0
+  weight-per-level: 0
+  bonus-weight: 0
+  item-groups:
+  - Weapon
 ####################### PLAYER DESIGNED GEMS ###########################
 Luck of PSwag:
   broadcast: true
   lore:
-  - <gold>+7% Gold Find
-  - <gold>+2% Swagger
+  - "&6+7% Gold Bonus"
+  - "&6+2% Swagger"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -2457,7 +2328,7 @@ Luck of PSwag:
 Heart of Gold:
   broadcast: true
   lore:
-  - <gold>+10% Gold Find
+  - "&6+10% Gold Bonus"
   weight: 5
   weight-per-level: 0
   bonus-weight: 5
@@ -2467,9 +2338,9 @@ Heart of Gold:
 xXx Doritos xXx:
   broadcast: true
   lore:
-  - <gold>+420 Taste
-  - <gold>-20 Munchies
-  - <gold>+1 Sick as FUCK
+  - "&6+420 Taste"
+  - "&6-20 Munchies"
+  - "&6+1 Sick as FUCK"
   weight: 0
   weight-per-level: 0
   bonus-weight: 0
@@ -2478,8 +2349,8 @@ xXx Doritos xXx:
 x mTn dew bois x:
   broadcast: true
   lore:
-  - <gold>+69x CoD XP
-  - <gold>(lol DAE get 69?? xD)
+  - "&6+69x CoD XP"
+  - "&6(lol DAE get 69?? xD)"
   weight: 0
   weight-per-level: 0
   bonus-weight: 0
@@ -2488,9 +2359,9 @@ x mTn dew bois x:
 meme dreamfz:
   broadcast: true
   lore:
-  - <gold>JUST
-  - <gold>DO
-  - <gold>IT
+  - "&6JUST"
+  - "&6DO"
+  - "&6IT"
   weight: 0
   weight-per-level: 0
   bonus-weight: 0
@@ -2500,7 +2371,7 @@ meme dreamfz:
 #Bobber of Terror:
 #  broadcast: true
 #  lore:
-#  - <gold>+6 Physical Damage
+#  - "&6+6 Physical Damage
 #  weight: 0
 #  distance-weight: 0
 #  weight-per-level: 0
@@ -2510,8 +2381,8 @@ meme dreamfz:
 #Impact I:
 #  broadcast: false
 #  lore:
-#  - <gold>+1 Physical Damage
-#  - <gold>+5% Overcharge
+#  - "&6+1 Physical Damage
+#  - "&6+5% Overcharge
 #  - <red>-7% Attack Speed
 #  weight: 0
 #  distance-weight: 0
@@ -2523,8 +2394,8 @@ meme dreamfz:
 #Impact II:
 #  broadcast: false
 #  lore:
-#  - <gold>+2 Physical Damage
-#  - <gold>+6% Overcharge
+#  - "&6+2 Physical Damage
+#  - "&6+6% Overcharge
 #  - <red>-8% Attack Speed
 #  weight: 0
 #  distance-weight: 0
@@ -2536,8 +2407,8 @@ meme dreamfz:
 #Impact III:
 #  broadcast: false
 #  lore:
-#  - <gold>+3 Physical Damage
-#  - <gold>+7% Overcharge
+#  - "&6+3 Physical Damage
+#  - "&6+7% Overcharge
 #  - <red>-9% Attack Speed
 #  weight: 0
 #  distance-weight: 0
@@ -2550,8 +2421,8 @@ meme dreamfz:
 #  broadcast: true
 #  prefix: Heavy
 #  lore:
-#  - <gold>+4 Physical Damage
-#  - <gold>+8% Overcharge
+#  - "&6+4 Physical Damage
+#  - "&6+8% Overcharge
 #  - <red>-10% Attack Speed
 #  weight: 0
 #  distance-weight: 0
@@ -2564,9 +2435,9 @@ meme dreamfz:
 #  broadcast: true
 #  prefix: Scalding
 #  lore:
-#  - <gold>+8 Armor Penetration
-#  - <gold>+5 Fire Damage
-#  - <gold>+5% Ignite Chance
+#  - "&6+8 Armor Penetration
+#  - "&6+5 Fire Damage
+#  - "&6+5% Ignite Chance
 #  weight: 0
 #  distance-weight: 0
 #  weight-per-level: 0
@@ -2577,9 +2448,9 @@ meme dreamfz:
 #  broadcast: true
 #  prefix: Frigid
 #  lore:
-#  - <gold>+12% Critical Damage
-#  - <gold>+4 Ice Damage
-#  - <gold>+5% Freeze Chance
+#  - "&6+12% Critical Damage
+#  - "&6+4 Ice Damage
+#  - "&6+5% Freeze Chance
 #  weight: 0
 #  distance-weight: 0
 #  weight-per-level: 0
@@ -2590,9 +2461,9 @@ meme dreamfz:
 #  broadcast: true
 #  prefix: Thundering
 #  lore:
-#  - <gold>+8% Overcharge
-#  - <gold>+4 Lightning Damage
-#  - <gold>+5% Shock Chance
+#  - "&6+8% Overcharge
+#  - "&6+4 Lightning Damage
+#  - "&6+5% Shock Chance
 #  weight: 0
 #  distance-weight: 0
 #  weight-per-level: 0
@@ -2603,9 +2474,9 @@ meme dreamfz:
 #  broadcast: true
 #  prefix: Frigid
 #  lore:
-#  - <gold>+4% Life Steal
-#  - <gold>+4 Shadow Damage
-#  - <gold>+5% Corrupt Chance
+#  - "&6+4% Life Steal
+#  - "&6+4 Shadow Damage
+#  - "&6+5% Corrupt Chance
 #  weight: 0
 #  distance-weight: 0
 #  weight-per-level: 0
