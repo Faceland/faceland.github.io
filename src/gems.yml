@@ -2263,7 +2263,7 @@ Prismatic Regen:
   bonus-weight: 5
   item-groups:
   - Armor
-Prismatic Regen:
+Prismatic Rage:
   broadcast: true
   lore:
   - "&6&nAbility Mod - Prismatic Rage"
