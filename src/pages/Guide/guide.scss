@@ -1,5 +1,20 @@
 .Guide {
 
+  .infoBanner {
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+    color: whitesmoke;
+    background-color: #3f6ee3;
+
+    p {
+      font-weight: 650;
+      font-size: 1.3em;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
   .buffer {
     padding-top: 20px;
   }
@@ -36,7 +51,7 @@
 
     text-align: left;
     font-weight: 600;
-    z-index: 200;
+    z-index: 3;
 
     &:focus {
       outline: none;

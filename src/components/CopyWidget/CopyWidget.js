@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { ReactComponent as CopyIcon } from "../../assets/copy.svg"
+import {ReactComponent as CopyIcon} from "../../assets/copy.svg"
 import './copyWidget.scss'
 import "../Tooltip/tooltip.scss"
 
@@ -18,16 +18,18 @@ export const CopyWidget = (props) => {
 
     return (
         <div
-            className="copyButton theme-primary shadow-normal"
+            className="copyContainer theme-primary shadow-normal"
             onClick={() => {
                 copyTransition();
                 navigator.clipboard.writeText(props.copyText);
             }}
             data-tooltip={copyStatus}
         >
-            <CopyIcon style={{fill: 'whitesmoke', height: 18}}/>
-            <span className="divider"/>
-            <span>{props.copyText}</span>
+            <div className="copyButton">
+                <CopyIcon style={{fill: 'whitesmoke'}}/>
+                <div className="divider"/>
+                <p style={{marginTop: 0, marginBottom: 2}}>{props.copyText}</p>
+            </div>
         </div>
     );
 }

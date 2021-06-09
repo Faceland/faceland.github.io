@@ -34,10 +34,8 @@ export const HeaderBar = (props) => {
     const mobileHeader = (
         <div className="headerBar" style={{background: 'white', transition: 'none'}}>
             <div className="logo mx-1">
-                <Link to="/">
-                    <img
-                        src="https://i.imgur.com/FSMeukV.png"
-                        alt="Website Img"/>
+                <Link className="logoButton" to="/">
+                    <img src="https://i.imgur.com/FSMeukV.png" alt="Website Img"/>
                 </Link>
                 <div/>
             </div>
@@ -50,10 +48,8 @@ export const HeaderBar = (props) => {
     const desktopHeader = (
         <div className="headerBar shadow-normal" style={props.fancy ? scrollStyle : {background: 'white'}}>
             <div className="logo mx-1">
-                <Link to="/">
-                    <img
-                        src="https://i.imgur.com/FSMeukV.png"
-                        alt="Website Img"/>
+                <Link to="/" alt="FACELAND ARE PEE GEE CLICK 2 GO HOME">
+                    <img className="logoButton" src="https://i.imgur.com/FSMeukV.png" alt="Website Img"/>
                 </Link>
                 <div/>
                 <Link className="floatingButton theme-white" to="/">Home</Link>

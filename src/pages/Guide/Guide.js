@@ -30,6 +30,9 @@ export const Guide = (props) => {
                     <img style={{display: "block", width: '100vw', height: '100%', objectFit: "cover"}}
                          src="https://i.imgur.com/YgPsqNH.png" alt="info background"/>
                 </div>
+                <div className="infoBanner shadow-normal">
+                    <p>🛈 Faceland Info 🛈</p>
+                </div>
                 <Accordion style={{backgroundColor: "#57423F", borderRadius: 0}} allowMultipleExpanded={true}
                            allowZeroExpanded={true} preExpanded={["basicOne"]}>
                     <AccordionItem uuid="basicOne">
@@ -138,49 +141,70 @@ export const Guide = (props) => {
                     <AccordionItem>
                         <AccordionItemHeading>
                             <AccordionItemButton>
-                                Leveling Up Skills
+                                Energy? Why Is My Food Bar Weird?
                             </AccordionItemButton>
                         </AccordionItemHeading>
                         <AccordionItemPanel>
-                            <p>
-                                fuck you
-                            </p>
+                            <p>On Faceland, your vanilla food bar reflects your energy, rather than hunger. Energy
+                                automatically recharges over time, or can be recovered with items such as potions.
+                                Energy is used to attack, sprint, and cast abilities. These actions may not work if your
+                                energy is too low. Leveling and some stats can increase your maximum energy or how fast
+                                your energy comes back. Watch your energy! You become far less effective when it hits
+                                zero!</p>
                         </AccordionItemPanel>
                     </AccordionItem>
                     <AccordionItem>
                         <AccordionItemHeading>
                             <AccordionItemButton>
-                                Why isn't this guide finished?
+                                Skills And Leveling
                             </AccordionItemButton>
                         </AccordionItemHeading>
                         <AccordionItemPanel>
-                            <p>
-                                fuck you
-                            </p>
+                            <p>When you kill enemies, you get experience. Your normal Minecraft experience bar and level
+                                show you your progress and current level. While you lose some experience on death,
+                                there's no way to go down in levels. Instead of being used for enchanting, your level
+                                gives you Levelpoints, which can be used to increase your stats. Use /levelup every time
+                                you go up a level and get stronger!</p>
+                            <div className="buffer"/>
+                            <p>Skills can be view by using /skills. Each skill unlocks more abilities, increased skill
+                                rewards, or improved skill odds what performing various tasks. For example, to gain
+                                Enchanting experience you just need to enchant. As you go up in levels, your
+                                enchantments become stronger. For combat abilities, the more skilled you become, the
+                                more options you have for abilities of that type.</p>
                         </AccordionItemPanel>
                     </AccordionItem>
                     <AccordionItem>
                         <AccordionItemHeading>
                             <AccordionItemButton>
-                                Why isn't this guide finished?
+                                Quests And QuestPoints
                             </AccordionItemButton>
                         </AccordionItemHeading>
                         <AccordionItemPanel>
-                            <p>
-                                fuck you
-                            </p>
+                            <p>Quests are important on Faceland! Doing /quests will bring up your quest menu, and give
+                                you a guide of your current tasks. Completing quests grants various rewards such as
+                                items, experience, and unlocking additional quests. Quests are automatically sorted from
+                                easiest to hardest in your available quests menu, so doing them in order is
+                                recommended.</p>
+                            <div className="buffer"/>
+                            <p>Quests also grant QuestPoints when completed. Your QuestPoints are a measure of the
+                                quantity and difficulty of quests you've completed. They cannot be spent on anything,
+                                but instead are kept and unlock things when you have a certain amount. The most common
+                                benefits of QuestPoints are extra bank storage pages that unlock when you have enough,
+                                and decreasing the amount of Bits (Money) you drop when you die.</p>
                         </AccordionItemPanel>
                     </AccordionItem>
                     <AccordionItem>
                         <AccordionItemHeading>
                             <AccordionItemButton>
-                                Why isn't this guide finished?
+                                Food And Hunger
                             </AccordionItemButton>
                         </AccordionItemHeading>
                         <AccordionItemPanel>
-                            <p>
-                                fuck you
-                            </p>
+                            <p>Just like real life, on Faceland you need to eat a balanced diet to make it so you're
+                                less likely to die. Food can be eaten every 5 minutes, and doing so grants life, energy,
+                                and extra effects. Foods also have nutrient values to keep you in good shape. When you
+                                have good nutrition, your maximum life increases, and when your nutrition is poor, it
+                                decreases. Check /health to see your current bonuses and nutrient levels.</p>
                         </AccordionItemPanel>
                     </AccordionItem>
                     <AccordionItem>

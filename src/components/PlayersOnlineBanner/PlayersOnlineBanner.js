@@ -19,7 +19,11 @@ export const PlayersOnlineBanner = (props) => {
             .then(
                 (result) => {
                     console.log("result", result)
-                    setPlayersMessage("There are " + result?.players.online + " gamers GAMING!")
+                    if (!result || !result.online || result.players === undefined) {
+                        setPlayersMessage("Dang son! Faceland appears to be offline!");
+                    } else {
+                        setPlayersMessage("There are " + result.players.online + " gamers GAMING!")
+                    }
                 },
                 // Note: it's important to handle errors here
                 // instead of a catch() block so that we don't swallow

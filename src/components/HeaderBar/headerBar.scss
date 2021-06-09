@@ -9,7 +9,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  z-index: 2;
+  z-index: 4;
 
   transition: background-color 0.15s;
   transition-timing-function: ease-in-out;
@@ -83,6 +83,11 @@
     justify-content: space-between;
     margin-right: 5px;
     margin-left: 5px;
+
+    .logoButton {
+      margin-top: 3px;
+      margin-left: 5px;
+    }
 
     img {
       height: 100%;
