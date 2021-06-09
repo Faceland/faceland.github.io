@@ -1,0 +1,37 @@
+.quoteTicker {
+  background-color: #DE4040;
+  height: 140px;
+
+  .ticker {
+    height: 100% !important;
+  }
+
+  .ticker__element {
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .quoteText {
+    margin-right: 160px;
+    max-width: 280px;
+
+    .quoteBody {
+      margin: 0;
+      color: whitesmoke;
+      font-weight: 550;
+      font-style: italic;
+    }
+
+    .quoteSubtext {
+      margin: 0;
+      float: right;
+      color: whitesmoke;
+      font-weight: 350;
+      font-style: italic;
+    }
+  }
+
+
+}

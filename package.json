@@ -1,26 +1,56 @@
 {
-  "name": "faceland.github.io",
-  "version": "0.0.0-development",
-  "description": "Website for face.land",
-  "main": "index.js",
-  "repository": "https://github.com/Faceland/faceland.github.io.git",
-  "author": "Richard Harrah",
-  "license": "MIT",
+  "homepage": "/",
+  "name": "dumb-react-template",
+  "version": "0.1.0",
   "private": true,
-  "devDependencies": {
-    "cpy-cli": "^2.0.0",
-    "parcel-bundler": "^1.12.4",
-    "prettier": "^1.19.1",
-    "sass": "^1.23.7",
-    "typescript": "^3.7.2"
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "lodash": "^4.17.21",
+    "mctext-react": "^1.1.0",
+    "node-sass": "^5.0.0",
+    "react": "^17.0.1",
+    "react-accessible-accordion": "^3.3.4",
+    "react-dom": "^17.0.1",
+    "react-flexbox-grid": "^2.1.2",
+    "react-modal": "^3.12.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.3",
+    "react-spring": "^8.0.27",
+    "react-ticker": "^1.2.2",
+    "styled-components": "^5.2.1",
+    "use-sound": "^2.0.1",
+    "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html && cpy CNAME dist"
+    "start": "node_modules/.bin/react-scripts start",
+    "build": "node_modules/.bin/react-scripts build",
+    "test": "node_modules/.bin/react-scripts test",
+    "eject": "node_modules/.bin/react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "node_modules/.bin/gh-pages -d build"
   },
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.11.2",
-    "bulma": "^0.8.0",
-    "minecraft-text-js": "^1.1.3"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0",
+    "history": "^5.0.0"
   }
 }

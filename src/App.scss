@@ -1,0 +1,167 @@
+button, input[type="submit"], input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.theme-primary {
+  color: whitesmoke;
+  background-color: #48ba3b;
+
+  &:hover {
+    background-color: #6ad45e
+  }
+}
+
+.theme-white {
+  color: black;
+  background-color: #ffffff;
+
+  &:hover {
+    background-color: #d2d2d2;
+  }
+}
+
+.mx-1 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.circle-border {
+  border-radius: 300px;
+}
+
+.border-5 {
+  border-radius: 5px;
+}
+
+.centerContent {
+  justify-content: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.flexCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.width25 {
+  width: 25%;
+}
+
+.width40 {
+  width: 40%;
+}
+
+.width50 {
+  width: 50%;
+}
+
+.width60 {
+  width: 60%;
+}
+
+.width100 {
+  width: 100%;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.pixelImage {
+  image-rendering: optimizeSpeed;             /* Older versions of FF          */
+  image-rendering: -moz-crisp-edges;          /* FF 6.0+                       */
+  image-rendering: -webkit-optimize-contrast; /* Safari                        */
+  image-rendering: -o-crisp-edges;            /* OS X & Windows Opera (12.02+) */
+  image-rendering: pixelated;                 /* Awesome future-browsers       */
+  -ms-interpolation-mode: nearest-neighbor;   /* IE                            */
+}
+
+.thin-underline {
+  border-bottom: solid;
+  border-width: 1px;
+  color: white;
+}
+
+.no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.bodySection {
+  width: 100%;
+  background-color: #b33d3d;
+  //#9E8683
+}
+
+.bodyPadding {
+  padding: 0;
+}
+
+.shadow-normal {
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.2));
+}
+
+.shadow-dark {
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
+}
+
+.shadow-darker {
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.5));
+}
+
+.basicPage {
+  width: 100%;
+  background-color: #eeeeee;
+}
+
+.floatingButton {
+  border: none;
+  margin: 0px 10px;
+  outline: 0;
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 4px;
+
+  &:hover {
+    transition: background-color 0.2s;
+    transition-timing-function: ease-in-out;
+  }
+}

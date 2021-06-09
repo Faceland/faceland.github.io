@@ -1,0 +1,143 @@
+.headerBar {
+  top: 0;
+  right: 0;
+  position: fixed;
+  background-color: #316adb;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+
+  transition: background-color 0.15s;
+  transition-timing-function: ease-in-out;
+
+  .gemButton {
+    border: none;
+    margin: 0px 10px;
+    outline: 0;
+    cursor: pointer;
+    width: 180px;
+    height: 27px;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    background-image: linear-gradient(#c645ef, #911bb1);
+    border-radius: 10px;
+
+    &:hover {
+      background-image: linear-gradient(#d474ff, #b12ed4);
+    }
+
+    .gemDisplay {
+      color: #ffffff;
+      height: 100%;
+      font-weight: 600;
+      justify-content: center;
+      justify-items: center;
+      display: flex;
+      flex-direction: row;
+
+      p {
+        margin: 2px 0 0 0;
+      }
+
+      img {
+        margin-left: 6px;
+        height: 100%;
+      }
+    }
+
+    .buyGems {
+      color: black;
+      background-image: linear-gradient(#ffdf3e, #e7b231);
+      padding: 8px 10px 8px 10px;
+      margin-left: -30px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 20px;
+
+      &:hover {
+        background-image: linear-gradient(to bottom left, #ffffff, #e7b231);
+      }
+    }
+  }
+
+  .profileSection {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 5px;
+    margin-left: 5px;
+
+    img {
+      height: 100%;
+      margin-right: 15px;
+    }
+
+    /* For making the logo text not-styled */
+    a {
+      text-decoration: none;
+    }
+
+    p {
+      color: black;
+      font-weight: 1000;
+      margin-right: 30px;
+      margin-left: 10px;
+    }
+  }
+
+  .fa {
+    padding: 10px;
+    margin-right: 8px
+  }
+}
+
+.burgerContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+
+.burgerNav {
+  background-color: #316adb;
+  position: fixed;
+  top: 50px;
+  right: 0;
+  padding: 1px 0px 5px;
+  width: 100%;
+  height: auto;
+
+  z-index: 1000;
+
+  transition: background-color 0.15s;
+  transition-timing-function: ease-in-out;
+
+  a {
+    display: block;
+    width: 200px;
+    text-align: left;
+    padding: 15px 100% 15px 15px;
+    font-weight: 500;
+    text-decoration: none;
+    color: white;
+  }
+}

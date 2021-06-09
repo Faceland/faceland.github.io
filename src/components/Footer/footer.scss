@@ -1,0 +1,17 @@
+.Footer {
+
+  position: relative;
+
+  .footer {
+    position: relative;
+    width: 100%;
+    background-color: #282c34;
+    z-index: 10;
+
+    .footerSection {
+      color: white;
+      margin: 30px;
+      align-items: center;
+    }
+  }
+}

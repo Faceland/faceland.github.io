@@ -1,0 +1,29 @@
+.discordContainer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+
+    z-index: 1000;
+
+    padding-right: 20px;
+    padding-bottom: 20px;
+
+    :hover {
+        cursor: pointer;
+    }
+
+    .discordIcon {
+        position: relative;
+        color: #ffffff;
+        width: 60%;
+        top: 22%;
+    }
+
+    button {
+        position: absolute;
+        bottom: 18px;
+        right: 18px;
+        font-size: 1.5rem;
+        color: white;
+    }
+}
