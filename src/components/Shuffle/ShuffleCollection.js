@@ -4,6 +4,7 @@ import "./Shuffle.scss"
 import "../Tooltip/tooltip.scss"
 import gems from "./gems.json"
 import tomes from "./tomes.json"
+import uniques from "./uniques.json"
 import McText from "mctext-react/lib/McText";
 
 export const ShuffleCollection = () => {
@@ -50,6 +51,22 @@ export const ShuffleCollection = () => {
                 item.img = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/50/Book_JE2_BE2.png";
                 item.background = "#1243d9";
                 item.rarity = value.weight > 500 ? "Common" : value.weight > 200 ? "Uncommon" : "Rare";
+                newItems.push(item);
+            }
+
+            for (const [key, value] of Object.entries(uniques)) {
+                if (!value.broadcast) {
+                    continue;
+                }
+                const item = {};
+                item.title = "UNIQUE ITEM";
+                item.name = value['display-name'];
+                item.type = "unique";
+                item.description = value.lore;
+                //item.tags = mapGroupsToTags(value['item-groups'])
+                item.img = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/50/Book_JE2_BE2.png";
+                item.background = "#d99712";
+                item.rarity = value.weight > 1000 ? "Common" : value.weight > 100 ? "Uncommon" : value.weight > 10 ? "Rare" : "Epic";
                 newItems.push(item);
             }
             setItems(newItems);
@@ -192,6 +209,7 @@ export const ShuffleCollection = () => {
                 </button>
                 {itemTypeButton("itemType", "gem")}
                 {itemTypeButton("itemType", "tome")}
+                {itemTypeButton("itemType", "unique")}
             </div>
             <div>
                 <div>FILTER BY RARITY</div>
@@ -230,9 +248,7 @@ export const ShuffleCollection = () => {
                         <div className="shuffleContent">
                             <div className="shuffleElement">
                                 <div className="title">{item?.title}</div>
-                                <div className="subtitle">
-                                    <div className="shuffleElement">{item?.name}</div>
-                                </div>
+                                <McText className="subtitle shuffleElement" prefix={"&"}>{item?.name}</McText>
                                 <div>
                                     {item?.tags?.map((tag, index2) =>
                                         <button
