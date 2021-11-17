@@ -21,7 +21,8 @@ export const CopyWidget = (props) => {
             className="copyContainer theme-primary shadow-normal"
             onClick={() => {
                 copyTransition();
-                navigator.clipboard.writeText(props.copyText);
+                //navigator.clipboard.writeText(props.copyText);
+                navigator.clipboard.writeText("PLAY.FACE.LAND:25566");
             }}
             data-tooltip={copyStatus}
         >
