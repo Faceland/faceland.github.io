@@ -5,6 +5,7 @@ import "../Tooltip/tooltip.scss"
 import gems from "./gems.json"
 import tomes from "./tomes.json"
 import uniques from "./uniques.json"
+import scrolls from "./scrolls.json"
 import McText from "mctext-react/lib/McText";
 
 export const ShuffleCollection = () => {
@@ -24,49 +25,32 @@ export const ShuffleCollection = () => {
     useEffect(() => {
         if (items.length === 0) {
             const newItems = [];
-            for (const [key, gem] of Object.entries(gems)) {
-                const item = {};
-                item.title = "SOCKET GEM"
-                item.name = key;
+            for (const [key, value] of Object.entries(gems)) {
+                const item = value;
                 item.type = "gem"
-                item.description = gem.lore;
-                item.special = gem.weight === 0 && gem['bonus-weight'] > 0 ?
-                    "transmute" : gem.event === true ?
-                        "event" : gem.discontinued === true ?
-                            "discontinued" : undefined;
-                item.tags = mapGroupsToTags(gem['item-groups'])
                 item.img = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/2/26/Emerald_JE3_BE3.png";
                 item.background = "#10c810";
-                item.rarity = gem.weight > 500 ? "Common" : gem.weight > 50 ? "Uncommon" : gem.weight > 5 ? "Rare" : gem.weight > 0 ? "Epic" : "Unique";
                 newItems.push(item);
             }
-
             for (const [key, value] of Object.entries(tomes)) {
-                const item = {};
-                item.title = "ENCHANTMENT TOME";
-                item.name = key;
+                const item = value;
                 item.type = "tome";
-                item.description = [value.description];
-                item.tags = mapGroupsToTags(value['item-groups'])
                 item.img = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/50/Book_JE2_BE2.png";
                 item.background = "#1243d9";
-                item.rarity = value.weight > 500 ? "Common" : value.weight > 200 ? "Uncommon" : "Rare";
                 newItems.push(item);
             }
-
             for (const [key, value] of Object.entries(uniques)) {
-                if (!value.broadcast) {
-                    continue;
-                }
-                const item = {};
-                item.title = "UNIQUE ITEM";
-                item.name = value['display-name'];
+                const item = value;
                 item.type = "unique";
-                item.description = value.lore;
-                //item.tags = mapGroupsToTags(value['item-groups'])
                 item.img = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/50/Book_JE2_BE2.png";
                 item.background = "#d99712";
-                item.rarity = value.weight > 1000 ? "Common" : value.weight > 100 ? "Uncommon" : value.weight > 10 ? "Rare" : "Epic";
+                newItems.push(item);
+            }
+            for (const [key, value] of Object.entries(scrolls)) {
+                const item = value;
+                item.type = "scroll";
+                item.img = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/f/f2/Paper_JE2_BE2.png";
+                item.background = "#34981a";
                 newItems.push(item);
             }
             setItems(newItems);
@@ -80,25 +64,13 @@ export const ShuffleCollection = () => {
 
     useEffect(() => {
         const set = new Set(uniqueTags);
-        if (set.size !== uniqueTags.length) {
-            setUniqueTags(Array.from(set));
-        }
-    }, [uniqueTags])
-
-    const mapGroupsToTags = (groups) => {
-        const tags = []
-        groups.forEach((group) => {
-            if (!group.startsWith("-")) {
-                const tag = group.toLowerCase();
-                tags.push(tag);
-                if (!uniqueTags.includes(tag)) {
-                    setUniqueTags(uniqueTags => [...uniqueTags, tag]);
-                }
-            }
+        items.forEach((item) => {
+            item.groupNames.forEach((tag) => {
+                set.add(tag);
+            })
         });
-        console.log("test", tags)
-        return tags;
-    }
+        setUniqueTags(Array.from(set));
+    }, [items]);
 
     const applyFilters = () => {
         setFilteredItems(items.filter(item => itemMatches(item) && itemMatchesSearch(item)));
@@ -124,7 +96,7 @@ export const ShuffleCollection = () => {
     const tagsApplicable = (item) => {
         if (searchTags.length === 0) return true;
         for (const tag of searchTags) {
-            if (!item.tags.includes(tag)) return false
+            if (!item.groupNames.includes(tag)) return false
         }
         return true;
     }
@@ -134,7 +106,7 @@ export const ShuffleCollection = () => {
             item.name?.toLowerCase().includes(searchText) ||
             item.title?.toLowerCase().includes(searchText) ||
             item.description?.join(" ").toLowerCase().includes(searchText) ||
-            item.tags?.join(" ").toLowerCase().includes(searchText))
+            item.groupNames?.join(" ").toLowerCase().includes(searchText))
     }
 
     const toggleTag = (tag) => {
@@ -209,6 +181,7 @@ export const ShuffleCollection = () => {
                 </button>
                 {itemTypeButton("itemType", "gem")}
                 {itemTypeButton("itemType", "tome")}
+                {itemTypeButton("itemType", "scroll")}
                 {itemTypeButton("itemType", "unique")}
             </div>
             <div>
@@ -221,7 +194,6 @@ export const ShuffleCollection = () => {
                 {rarityButton("rarity", "Uncommon")}
                 {rarityButton("rarity", "Rare")}
                 {rarityButton("rarity", "Epic")}
-                {rarityButton("rarity", "Unique")}
 
             </div>
             <div>
@@ -239,18 +211,17 @@ export const ShuffleCollection = () => {
                             <p></p>
                         </div>
 
-                        {item.special ?
-                            <div className={`shadow-dark specialBanner special-${item.special}`}>
-                                <a className="bannerHitbox" data-tooltip={`${bannerText[item?.special]}`}/>
+                        {item.specialFlag ?
+                            <div className={`shadow-dark specialBanner special-${item.specialFlag}`}>
+                                <a className="bannerHitbox" data-tooltip={`${bannerText[item?.specialFlag]}`}/>
                                 <p></p>
                             </div> : undefined}
 
                         <div className="shuffleContent">
                             <div className="shuffleElement">
-                                <div className="title">{item?.title}</div>
                                 <McText className="subtitle shuffleElement" prefix={"&"}>{item?.name}</McText>
                                 <div>
-                                    {item?.tags?.map((tag, index2) =>
+                                    {item?.groupNames?.map((tag, index2) =>
                                         <button
                                             className="tag"
                                             key={`tag${index2}`}
