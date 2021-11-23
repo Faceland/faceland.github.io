@@ -77,6 +77,7 @@ export const ShuffleCollection = () => {
         item.background = "#34981a";
         newItems.push(item);
       }
+
       setCardItems(newItems);
       setSelectedTags([]);
     }
@@ -104,7 +105,11 @@ export const ShuffleCollection = () => {
 
   const applyFilters = () => {
     setFilteredItems(
-      cardItems.filter(item => itemMatchesFilters(item) && tagsApplicable(item) && itemMatchesSearch(item))
+      cardItems
+        .filter(item => itemMatchesFilters(item) && tagsApplicable(item) && itemMatchesSearch(item))
+        .sort(function(a, b) {
+          return a.strippedName < b.strippedName ? -1 : a.strippedName > b.strippedName ? 1 : 0;
+        })
     );
   }
 
