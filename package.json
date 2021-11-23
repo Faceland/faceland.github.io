@@ -12,6 +12,7 @@
     "node-sass": "^5.0.0",
     "react": "^17.0.1",
     "react-accessible-accordion": "^3.3.4",
+    "react-debounce-input": "^3.2.5",
     "react-dom": "^17.0.1",
     "react-flexbox-grid": "^2.1.2",
     "react-modal": "^3.12.1",
