@@ -137,15 +137,19 @@ export const ShuffleCollection = () => {
       item.groupNames?.join(" ").toLowerCase().includes(searchText));
   }
 
-  const forceTag = (tag) => {
-    /*
-    if (searchTags.includes(tag)) return;
-    const newTags = Object.assign([], searchTags);
-    newTags.push(tag);
-    setSearchTags(newTags);
-    setSearchText("");
-    setFilter({...filter, type: undefined})
-    */
+  const forceTag = (newTag) => {
+    let exists = false;
+    selectedTags.forEach((tag) => {
+      if (tag.value === newTag) {
+        exists = true;
+      }
+    });
+    if (exists) {
+      return;
+    }
+    const newTags = Object.assign([], selectedTags);
+    newTags.push({value: newTag, label: newTag});
+    setSelectedTags(newTags);
   }
 
   const clearAllFilters = () => {
