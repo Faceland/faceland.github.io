@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {debounce} from 'lodash';
+import Select from "react-select";
+import "react-select/dist/react-select.cjs";
 import "./Shuffle.scss"
 import "../Tooltip/tooltip.scss"
 import gems from "./gems.json"
@@ -10,20 +12,41 @@ import McText from "mctext-react/lib/McText";
 
 export const ShuffleCollection = () => {
 
-    const [items, setItems] = useState([]);
+    const [cardItems, setCardItems] = useState([]);
     const [filteredItems, setFilteredItems] = useState([{name: "loading", meme: "yes"}]);
-    const [filter, setFilter] = useState({});
-    const [searchText, setSearchText] = useState("");
-    const [searchTags, setSearchTags] = useState([]);
-    const [uniqueTags, setUniqueTags] = useState([]);
+
+    const [availableTags, setAvailableTags] = useState([]);
+
+    const [selectedTags, setSelectedTags] = useState([]);
+    const [selectedType, setSelectedType] = useState({value: "gem", label: "Gems"});
+    const [selectedRarity, setSelectedRarity] = useState();
+    const [searchText, setSearchText] = useState();
+
+    const [filterTags, setFilterTags] = useState([]);
 
     const bannerText = {};
     bannerText.event = "Event Reward"
     bannerText.transmute = "Transmutation Only"
     bannerText.discontinued = "Discontinued"
 
+    const typeOptions = [
+        {value: "any", label: "Any"},
+        {value: "gem", label: "Gems"},
+        {value: "tome", label: "Tomes"},
+        {value: "scroll", label: "Scrolls"},
+        {value: "unique", label: "Uniques"}
+    ]
+
+    const rarityOptions = [
+        {value: "any", label: "Any"},
+        {value: "Common", label: "Common"},
+        {value: "Uncommon", label: "Uncommon"},
+        {value: "Rare", label: "Rare"},
+        {value: "Epic", label: "Epic"}
+    ]
+
     useEffect(() => {
-        if (items.length === 0) {
+        if (cardItems.length === 0) {
             const newItems = [];
             for (const [key, value] of Object.entries(gems)) {
                 const item = value;
@@ -53,50 +76,52 @@ export const ShuffleCollection = () => {
                 item.background = "#34981a";
                 newItems.push(item);
             }
-            setItems(newItems);
-            setSearchTags([]);
+            setCardItems(newItems);
+            setSelectedTags([]);
         }
     }, []);
 
     useEffect(() => {
         applyFilters()
-    }, [filter, searchText, searchTags]);
+    }, [searchText, selectedTags, selectedRarity, selectedType]);
 
     useEffect(() => {
-        const set = new Set(uniqueTags);
-        items.forEach((item) => {
+        const set = new Set(availableTags);
+        cardItems.forEach((item) => {
             item.groupNames.forEach((tag) => {
                 set.add(tag);
             })
         });
-        setUniqueTags(Array.from(set));
-    }, [items]);
+        setAvailableTags(Array.from(set));
+
+        const tags = []
+        set.forEach((tag) => {
+            tags.push({value: tag, label: tag})
+        });
+        setFilterTags(tags);
+    }, [cardItems]);
 
     const applyFilters = () => {
-        setFilteredItems(items.filter(item => itemMatches(item) && itemMatchesSearch(item)));
+        setFilteredItems(cardItems.filter(item => itemMatchesFilters(item) && itemMatchesSearch(item)));
     }
 
-    const checkMatch = (property, value, strict) => {
-        return strict ? property === value : property.includes(value);
-    }
-
-    const itemMatches = (item) => {
-        let match = true;
-        for (const prop in filter) {
-            if (match && Object.prototype.hasOwnProperty.call(filter, prop) && filter[prop]) {
-                if (!checkMatch(item[prop], filter[prop].value, filter[prop].strict)) {
-                    match = false;
-                    break;
-                }
-            }
+    const itemMatchesFilters = (item) => {
+        if (selectedRarity && selectedRarity.value !== "any" && item.rarity !== selectedRarity.value) {
+            return false;
         }
-        return match;
+        if (selectedType && selectedType.value !== "any" && item.type !== selectedType.value) {
+            return false;
+        }
+        if (selectedTags.length > 0 && !tagsApplicable(item)) {
+            return false;
+        }
+        return true
     }
 
     const tagsApplicable = (item) => {
-        if (searchTags.length === 0) return true;
-        for (const tag of searchTags) {
-            if (!item.groupNames.includes(tag)) return false
+        if (selectedTags.length === 0) return true;
+        for (const tag of selectedTags) {
+            if (!item.groupNames.includes(tag.value)) return false
         }
         return true;
     }
@@ -109,20 +134,55 @@ export const ShuffleCollection = () => {
             item.groupNames?.join(" ").toLowerCase().includes(searchText))
     }
 
-    const toggleTag = (tag) => {
-        const newTags = Object.assign([], searchTags);
-        searchTags.includes(tag) ? newTags.splice(newTags.indexOf(tag), 1) : newTags.push(tag);
-        setSearchTags(newTags);
-    }
-
     const forceTag = (tag) => {
+        /*
         if (searchTags.includes(tag)) return;
         const newTags = Object.assign([], searchTags);
         newTags.push(tag);
         setSearchTags(newTags);
         setSearchText("");
         setFilter({...filter, type: undefined})
+        */
     }
+
+    const filterSection = (
+        <div className="width100 flexRow align-left padding-full-10">
+            <div className="width40 margin-full-5">
+                <Select
+                    placeholder="Item Tags"
+                    isMulti
+                    value={selectedTags}
+                    options={filterTags}
+                    onChange={setSelectedTags}
+                />
+            </div>
+            <div className="width15 margin-full-5">
+                <Select
+                    placeholder="Type"
+                    value={selectedType}
+                    options={typeOptions}
+                    onChange={setSelectedType}
+                />
+            </div>
+            <div className="width15 margin-full-5">
+                <Select
+                    placeholder="Rarity"
+                    value={selectedRarity}
+                    options={rarityOptions}
+                    onChange={setSelectedRarity}
+                />
+            </div>
+            <div className="width20 margin-full-5 searchBox">
+                <input
+                    placeholder="Search"
+                    onChange={debounce((e) => setSearchText(e.target.value.toLowerCase()), 1000)}
+                />
+            </div>
+            <div className="width5 margin-full-5 clearButton">
+                <button onClick={debounce((e) => setSearchText(e.target.value.toLowerCase()), 1000)}>X</button>
+            </div>
+        </div>
+    )
 
     const yeHaplessBuffoon = (
         <div className="shuffleCard" style={{borderColor: "#AA0000"}} key="invalid-search">
@@ -141,65 +201,9 @@ export const ShuffleCollection = () => {
         </div>
     )
 
-    const rarityButton = (prop, text) => (
-        <button className={`selectorButton-${filter.rarity?.value === `${text}` ? "active" : "inactive"}`}
-                onClick={() => setFilter({...filter, rarity: {value: `${text}`, strict: "true"}})}>
-            {text}
-        </button>
-    )
-
-    const itemTypeButton = (prop, text) => (
-        <button className={`selectorButton-${filter.type?.value === `${text}` ? "active" : "inactive"}`}
-                onClick={() => setFilter({...filter, type: {value: `${text}`, strict: "true"}})}>
-            {text}
-        </button>
-    )
-
     return (
         <div>
-            <div>
-                <div>FILTER BY TAG</div>
-                {uniqueTags.map((tag, index) =>
-                    <button
-                        className={`selectorButton-${searchTags.includes(tag) ? "active" : "inactive"}`}
-                        key={"toggle" + index}
-                        onClick={() => toggleTag(tag)}>
-                        {tag}
-                    </button>
-                )}
-                <button type="checkbox" className="selectorButton-clear" onClick={() => setSearchTags([])}>Clear
-                </button>
-            </div>
-            <div>
-                <div>FILTER BY ITEM TYPE</div>
-                <button className={`selectorButton-${!filter.type?.value ? "active" : "inactive"}`}
-                        onClick={() => setFilter({
-                            ...filter,
-                            type: undefined
-                        })}>
-                    ANY
-                </button>
-                {itemTypeButton("itemType", "gem")}
-                {itemTypeButton("itemType", "tome")}
-                {itemTypeButton("itemType", "scroll")}
-                {itemTypeButton("itemType", "unique")}
-            </div>
-            <div>
-                <div>FILTER BY RARITY</div>
-                <button className={`selectorButton-${!filter.rarity?.value ? "active" : "inactive"}`}
-                        onClick={() => setFilter({...filter, rarity: undefined})}>
-                    ANY
-                </button>
-                {rarityButton("rarity", "Common")}
-                {rarityButton("rarity", "Uncommon")}
-                {rarityButton("rarity", "Rare")}
-                {rarityButton("rarity", "Epic")}
-
-            </div>
-            <div>
-                <div>SEARCH</div>
-                <input onChange={debounce((e) => setSearchText(e.target.value.toLowerCase()), 1000)}/>
-            </div>
+            {filterSection}
             <div className="shuffleCards">
                 {filteredItems?.length === 0 ? yeHaplessBuffoon : filteredItems.map((item, index) =>
                     <div className="shuffleCard shadow-dark"
@@ -232,18 +236,18 @@ export const ShuffleCollection = () => {
                                     <img src={item?.img} alt="Loading..."/>
                                 </div>
                                 <div style={{backgroundColor: "black", borderRadius: "5px", margin: "0px 10px"}}>
-                                <div className="shuffleElement">
-                                    {item?.description?.map((line, index2) => (
-                                        <div>
-                                            <McText
-                                                className="lore"
-                                                prefix={"&"}
-                                                key={`lore${index2}`}>
-                                                {line}
-                                            </McText>
-                                        </div>)
-                                    )}
-                                </div>
+                                    <div className="shuffleElement">
+                                        {item?.description?.map((line, index2) => (
+                                            <div>
+                                                <McText
+                                                    className="lore"
+                                                    prefix={"&"}
+                                                    key={`lore${index2}`}>
+                                                    {line}
+                                                </McText>
+                                            </div>)
+                                        )}
+                                    </div>
                                 </div>
                                 <div style={{marginTop: '10px'}}/>
                             </div>
