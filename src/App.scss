@@ -99,6 +99,10 @@ input:focus, textarea:focus, select:focus{
   padding: 10px;
 }
 
+.padding-full-15 {
+  padding: 15px;
+}
+
 .flexCol {
   display: flex;
   flex-direction: column;
@@ -107,6 +111,7 @@ input:focus, textarea:focus, select:focus{
 .flexRow {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .flex-grow-1 {
@@ -145,6 +150,10 @@ input:focus, textarea:focus, select:focus{
   width: 25%;
 }
 
+.width30 {
+  width: 30%;
+}
+
 .width40 {
   width: 40%;
 }
@@ -159,6 +168,10 @@ input:focus, textarea:focus, select:focus{
 
 .width100 {
   width: 100%;
+}
+
+.width-full {
+  width: 90vw;
 }
 
 .App {

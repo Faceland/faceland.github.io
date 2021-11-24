@@ -19,7 +19,7 @@ export const ShuffleCollection = () => {
   const [availableTags, setAvailableTags] = useState([]);
 
   const [selectedTags, setSelectedTags] = useState([]);
-  const [selectedType, setSelectedType] = useState({value: "gem", label: "Gems"});
+  const [selectedType, setSelectedType] = useState({value: "gem", label: "Gem"});
   const [selectedRarity, setSelectedRarity] = useState();
   const [searchText, setSearchText] = useState();
 
@@ -32,10 +32,10 @@ export const ShuffleCollection = () => {
 
   const typeOptions = [
     {value: "any", label: "Any"},
-    {value: "gem", label: "Gems"},
-    {value: "tome", label: "Tomes"},
-    {value: "scroll", label: "Scrolls"},
-    {value: "unique", label: "Uniques"}
+    {value: "gem", label: "Gem"},
+    {value: "tome", label: "Tome"},
+    {value: "scroll", label: "Scroll"},
+    {value: "unique", label: "Unique"}
   ]
 
   const rarityOptions = [
@@ -107,7 +107,7 @@ export const ShuffleCollection = () => {
     setFilteredItems(
       cardItems
         .filter(item => itemMatchesFilters(item) && tagsApplicable(item) && itemMatchesSearch(item))
-        .sort(function(a, b) {
+        .sort(function (a, b) {
           return a.strippedName < b.strippedName ? -1 : a.strippedName > b.strippedName ? 1 : 0;
         })
     );
@@ -165,35 +165,39 @@ export const ShuffleCollection = () => {
   }
 
   const filterSection = (
-    <div className="width100 flexRow align-left padding-full-10">
-      <div className="width40 margin-full-5">
+    <div className="flexRow align-left padding-full-15">
+      <div className="width40">
+        <span className="filterTitles">Filter Tags</span>
         <Select
-          placeholder="Item Tags"
+          placeholder="Select"
           isMulti
           value={selectedTags}
           options={filterTags}
           onChange={setSelectedTags}
         />
       </div>
-      <div className="width15 margin-full-5">
+      <div className="width15">
+        <span className="filterTitles">Rarity</span>
         <Select
-          placeholder="Type"
-          value={selectedType}
-          options={typeOptions}
-          onChange={setSelectedType}
-        />
-      </div>
-      <div className="width15 margin-full-5">
-        <Select
-          placeholder="Rarity"
+          placeholder="Select"
           value={selectedRarity}
           options={rarityOptions}
           onChange={setSelectedRarity}
         />
       </div>
-      <div className="width20 margin-full-5 searchBox">
+      <div className="width15">
+        <span className="filterTitles">Item Type</span>
+        <Select
+          placeholder="Select"
+          value={selectedType}
+          options={typeOptions}
+          onChange={setSelectedType}
+        />
+      </div>
+      <div className="width20 searchBox">
+        <span className="filterTitles">Search</span>
         <DebounceInput
-          placeholder="Search Items..."
+          placeholder="Enter whatever :O"
           debounceTimeout={1000}
           value={searchText}
           forceNotifyByEnter={true}
@@ -202,9 +206,13 @@ export const ShuffleCollection = () => {
           onChange={(e) => setSearchText(e.target.value)}
         />
       </div>
-      <div className="width5 margin-full-5 clearButton align-center"
-           onClick={clearAllFilters}>
-        X</div>
+      <div className="width5">
+        <span className="filterTitles">Clear</span>
+        <div className="clearButton align-center"
+             onClick={clearAllFilters}>
+          X
+        </div>
+      </div>
     </div>
   )
 
