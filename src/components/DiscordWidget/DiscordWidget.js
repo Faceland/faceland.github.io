@@ -10,7 +10,7 @@ export const DiscordWidget = () => {
     }
 
     const button = (
-        <div className="shadow-normal" style={{height: 80, width: 80, backgroundColor: "#7289DA", borderRadius: 100}} onClick={toggleWidget}>
+        <div className="shadow-normal" style={{height: 80, width: 80, backgroundColor: "#5865F2", borderRadius: 100}} onClick={toggleWidget}>
             <svg
                 className="discordIcon"
                 xmlns="http://www.w3.org/2000/svg"
