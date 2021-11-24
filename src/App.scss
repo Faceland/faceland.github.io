@@ -30,6 +30,24 @@ input:focus, textarea:focus, select:focus{
   }
 }
 
+.theme-red {
+  color: whitesmoke;
+  background-color: #b33d3d;
+
+  &:hover {
+    background-color: #c94b4b;
+  }
+}
+
+.theme-gray {
+  color: whitesmoke;
+  background-color: #282c34;
+
+  &:hover {
+    background-color: #30343b;
+  }
+}
+
 .mx-1 {
   margin-left: 1.25rem;
   margin-right: 1.25rem;

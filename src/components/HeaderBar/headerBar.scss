@@ -1,8 +1,38 @@
+.barStyle-solid {
+  background-color: #1b1d23;
+}
+
+.barStyle-transparent {
+  background-color: transparent;
+}
+
+.navButton {
+  color: whitesmoke;
+  background-color: #1b1d23;
+
+  border: none;
+  margin: 0px 10px;
+  outline: 0;
+  padding: 7px 10px 9px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 4px;
+
+  &:hover {
+    transition: background-color 0.2s;
+    transition-timing-function: ease-in-out;
+    background-color: #2d303a;
+  }
+}
+
 .headerBar {
   top: 0;
   right: 0;
+  padding-top: 3px;
+  padding-bottom: 3px;
   position: fixed;
-  background-color: #316adb;
   width: 100%;
   height: 50px;
   display: flex;
@@ -109,7 +139,8 @@
 
   .fa {
     padding: 10px;
-    margin-right: 8px
+    margin-right: 8px;
+    color: white;
   }
 }
 
@@ -123,9 +154,9 @@
 }
 
 .burgerNav {
-  background-color: #316adb;
+  background-color: #23292f;
   position: fixed;
-  top: 50px;
+  top: 56px;
   right: 0;
   padding: 1px 0px 5px;
   width: 100%;
