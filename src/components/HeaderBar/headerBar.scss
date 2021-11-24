@@ -1,5 +1,5 @@
 .barStyle-solid {
-  background-color: #1b1d23;
+  background-color: #212121;
 }
 
 .barStyle-transparent {
@@ -8,7 +8,7 @@
 
 .navButton {
   color: whitesmoke;
-  background-color: #1b1d23;
+  background-color: #212121;
 
   border: none;
   margin: 0px 10px;
@@ -23,7 +23,7 @@
   &:hover {
     transition: background-color 0.2s;
     transition-timing-function: ease-in-out;
-    background-color: #2d303a;
+    background-color: #282828;
   }
 }
 
@@ -154,7 +154,7 @@
 }
 
 .burgerNav {
-  background-color: #23292f;
+  background-color: #191919;
   position: fixed;
   top: 56px;
   right: 0;
