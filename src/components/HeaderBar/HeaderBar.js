@@ -26,6 +26,7 @@ export const HeaderBar = (props) => {
                 <Link to="/">Home</Link>
                 <Link to="/guide">Guide</Link>
                 <Link to="/about">Items</Link>
+                <a href="https://discord.gg/VUkE7Db4a8" target="_blank">Discord</a>
                 <a href="https://faceland-rpg.craftingstore.net/category/247715" target="_blank">Buy Gems</a>
             </div>
         </div>
@@ -55,6 +56,7 @@ export const HeaderBar = (props) => {
                 <Link className="navButton" to="/">Home</Link>
                 <Link className="navButton" to="/guide">Guide</Link>
                 <Link className="navButton" to="/about">Items</Link>
+                <a className="navButton" href="https://discord.gg/VUkE7Db4a8" target="_blank">Discord</a>
             </div>
             <div className="profileSection">
                 <a className="gemButton" href="https://faceland-rpg.craftingstore.net/category/247715" target="_blank">

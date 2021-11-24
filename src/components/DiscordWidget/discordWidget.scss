@@ -1,29 +1,30 @@
 .discordContainer {
-    position: fixed;
-    bottom: 0;
-    right: 0;
 
-    z-index: 1000;
+  position: fixed;
+  bottom: 0;
+  right: 0;
 
-    padding-right: 20px;
-    padding-bottom: 20px;
+  z-index: 1000;
 
-    :hover {
-        cursor: pointer;
-    }
+  padding-right: 20px;
+  padding-bottom: 20px;
 
-    .discordIcon {
-        position: relative;
-        color: #ffffff;
-        width: 60%;
-        top: 22%;
-    }
+  :hover {
+    cursor: pointer;
+  }
 
-    button {
-        position: absolute;
-        bottom: 18px;
-        right: 18px;
-        font-size: 1.5rem;
-        color: white;
-    }
+  .discordIcon {
+    position: relative;
+    color: #ffffff;
+    width: 60%;
+    top: 22%;
+  }
+
+  button {
+    position: absolute;
+    bottom: 18px;
+    right: 18px;
+    font-size: 1.5rem;
+    color: white;
+  }
 }

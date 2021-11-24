@@ -10,7 +10,7 @@ export const DiscordWidget = () => {
     }
 
     const button = (
-        <div className="shadow-normal" style={{height: 80, width: 80, backgroundColor: "#5865F2", borderRadius: 100}} onClick={toggleWidget}>
+        <div className="shadow-normal" style={{height: 80, width: 80, backgroundColor: "#5865F2", borderRadius: 5}} onClick={toggleWidget}>
             <svg
                 className="discordIcon"
                 xmlns="http://www.w3.org/2000/svg"
@@ -28,11 +28,11 @@ export const DiscordWidget = () => {
         <div>
             <button style={{position: "relative", float: "right", top: -7}} onClick={toggleWidget}>x</button>
             <iframe
-                src="https://discord.com/widget?id=133012942890336256&theme=dark"
-                width="350" height="500"
-                allowTransparency="true"
-                frameBorder="0"
-                sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+              src="https://discord.com/widget?id=133012942890336256&theme=dark"
+              width="350" height="500"
+              allowTransparency="true"
+              frameBorder="0"
+              sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
             </iframe>
         </div>
     )
