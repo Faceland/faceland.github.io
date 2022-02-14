@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback, useMemo} from "react";
+import React, {useState, useEffect, useCallback, useMemo, useContext} from "react";
 import {debounce} from 'lodash';
 import Select from "react-select";
 import "react-select/dist/react-select.cjs";
@@ -10,8 +10,11 @@ import uniques from "./uniques.json"
 import scrolls from "./scrolls.json"
 import McText from "mctext-react/lib/McText";
 import {DebounceInput} from "react-debounce-input";
+import {Context} from "../../Store";
 
 export const ShuffleCollection = () => {
+
+  const [state] = useContext(Context);
 
   const [cardItems, setCardItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([{name: "loading", meme: "yes"}]);
@@ -164,7 +167,7 @@ export const ShuffleCollection = () => {
     setSearchText("");
   }
 
-  const filterSection = (
+  const desktopFilterSection = (
     <div className="flexRow align-left padding-full-15">
       <div className="width40">
         <span className="filterTitles">Filter Tags</span>
@@ -216,6 +219,62 @@ export const ShuffleCollection = () => {
     </div>
   )
 
+  const mobileFilterSection = (
+    <>
+      <div className="flexRow align-left padding-full-15">
+        <div className="width100">
+          <span className="filterTitles">Filter Tags</span>
+          <Select
+            placeholder="Select"
+            isMulti
+            value={selectedTags}
+            options={filterTags}
+            onChange={setSelectedTags}
+          />
+        </div>
+      </div>
+      <div className="flexRow align-left padding-full-15">
+        <div className="width20">
+          <span className="filterTitles">Rarity</span>
+          <Select
+            placeholder="Select"
+            value={selectedRarity}
+            options={rarityOptions}
+            onChange={setSelectedRarity}
+          />
+        </div>
+        <div className="width20">
+          <span className="filterTitles">Item Type</span>
+          <Select
+            placeholder="Select"
+            value={selectedType}
+            options={typeOptions}
+            onChange={setSelectedType}
+          />
+        </div>
+        <div className="width40 searchBox">
+          <span className="filterTitles">Search</span>
+          <DebounceInput
+            placeholder="Enter whatever :O"
+            debounceTimeout={1000}
+            value={searchText}
+            forceNotifyByEnter={true}
+            forceNotifyOnBlur={true}
+            minLength={0}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+        </div>
+        <div className="width10">
+          <span className="filterTitles">Clear</span>
+          <div className="clearButton align-center"
+               onClick={clearAllFilters}>
+            X
+          </div>
+        </div>
+      </div>
+    </>
+  )
+
   const yeHaplessBuffoon = (
     <div className="shuffleCard" style={{borderColor: "#AA0000"}} key="invalid-search">
       <div className="shuffleContent">
@@ -235,7 +294,7 @@ export const ShuffleCollection = () => {
 
   return (
     <div>
-      {filterSection}
+      {state.mobile ? mobileFilterSection : desktopFilterSection}
       <div className="shuffleCards">
         {filteredItems?.length === 0 ? yeHaplessBuffoon : filteredItems.map((item, index) =>
           <div className="shuffleCard shadow-dark" id={`card-${index}`}
