@@ -25,7 +25,7 @@ export const HeaderBar = (props) => {
             <div className="burgerNav">
                 <Link to="/">Home</Link>
                 <Link to="/guide">Guide</Link>
-                <Link to="/map">Map</Link>
+                <a href="http://199.127.61.235:8100/#Quest_world:27:0:893:506:0:0:0:0:perspective" target="_blank">Map</a>
                 <Link to="/about">Items</Link>
                 <a href="https://discord.gg/VUkE7Db4a8" target="_blank">Discord</a>
                 <a href="https://faceland-rpg.craftingstore.net/category/247715" target="_blank">Buy Gems</a>
@@ -56,7 +56,7 @@ export const HeaderBar = (props) => {
                 <div/>
                 <Link className="navButton" to="/">Home</Link>
                 <Link className="navButton" to="/guide">Guide</Link>
-                <Link className="navButton" to="/map">Map</Link>
+                <a className="navButton" href="http://199.127.61.235:8100/#Quest_world:27:0:893:506:0:0:0:0:perspective" target="_blank">Map</a>
                 <Link className="navButton" to="/about">Items</Link>
                 <a className="navButton" href="https://discord.gg/VUkE7Db4a8" target="_blank">Discord</a>
             </div>
