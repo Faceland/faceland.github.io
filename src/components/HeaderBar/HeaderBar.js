@@ -28,7 +28,7 @@ export const HeaderBar = (props) => {
                 <a href="http://199.127.61.235:8100/#Quest_world:27:0:893:506:0:0:0:0:perspective" target="_blank">Map</a>
                 <Link to="/about">Items</Link>
                 <a href="https://discord.gg/VUkE7Db4a8" target="_blank">Discord</a>
-                <a href="https://faceland-rpg.craftingstore.net/category/247715" target="_blank">Buy Gems</a>
+                <a href="http://shop.face.land/category/336956" target="_blank">Buy Gems</a>
             </div>
         </div>
     )
@@ -61,7 +61,7 @@ export const HeaderBar = (props) => {
                 <a className="navButton" href="https://discord.gg/VUkE7Db4a8" target="_blank">Discord</a>
             </div>
             <div className="profileSection">
-                <a className="gemButton" href="https://faceland-rpg.craftingstore.net/category/247715" target="_blank">
+                <a className="gemButton" href="http://shop.face.land/category/336956" target="_blank">
                     <div className="gemDisplay">
                         <p>Buy FaceGems!</p><img src="https://i.imgur.com/Sy2kgca.png" alt="gem icon"/>
                     </div>
