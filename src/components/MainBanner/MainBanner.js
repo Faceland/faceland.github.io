@@ -16,7 +16,7 @@ export const MainBanner = () => {
                 background video
             </video>
             <div className={state.mobile ? "mobileTitle" : "desktopTitle"}>
-                <img src="https://i.imgur.com/EOXkN9z.png" alt="Website Img"/>
+                <img src="https://i.imgur.com/AtRhZD2.png" alt="Website Img"/>
                 <div style={{position: "relative", top: '-10%'}}>
                     <CopyWidget copyText="PLAY.FACE.LAND"/>
                 </div>

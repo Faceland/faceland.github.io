@@ -10,7 +10,7 @@ export const Footer = (props) => {
             <div className="footer">
                 <div className="flexRow width100">
                     <div className="footerSection flexCol width40">
-                        <img className="pixelImage width40" style={{opacity: 0.4}} src="https://i.imgur.com/Uf1s8wX.png"
+                        <img className="pixelImage width40" style={{opacity: 0.4}} src="https://i.imgur.com/0gTVxe3.png"
                              alt="emboss_logo"/>
                     </div>
                     <div className="footerSection flexCol width60">

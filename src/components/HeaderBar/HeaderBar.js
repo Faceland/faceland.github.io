@@ -37,7 +37,7 @@ export const HeaderBar = (props) => {
         <div className={`headerBar barStyle-${scrollStyle}`}>
             <div className="logo mx-1">
                 <Link className="logoButton" to="/">
-                    <img src="https://i.imgur.com/FSMeukV.png" alt="Website Img"/>
+                    <img src="https://i.imgur.com/u57KsyA.png" alt="Website Img"/>
                 </Link>
                 <div/>
             </div>
@@ -51,7 +51,7 @@ export const HeaderBar = (props) => {
         <div className={`headerBar barStyle-${scrollStyle} shadow-normal`}>
             <div className="logo mx-1">
                 <Link to="/" alt="FACELAND ARE PEE GEE CLICK 2 GO HOME">
-                    <img className="logoButton" src="https://i.imgur.com/FSMeukV.png" alt="Website Img"/>
+                    <img className="logoButton" src="https://i.imgur.com/u57KsyA.png" alt="Website Img"/>
                 </Link>
                 <div/>
                 <Link className="navButton" to="/">Home</Link>
@@ -63,7 +63,7 @@ export const HeaderBar = (props) => {
             <div className="profileSection">
                 <a className="gemButton" href="http://shop.face.land/category/336956" target="_blank">
                     <div className="gemDisplay">
-                        <p>Buy FaceGems!</p><img src="https://i.imgur.com/Sy2kgca.png" alt="gem icon"/>
+                        <p>Buy FaceGems!</p><img src="https://i.imgur.com/AjRWtUR.png" alt="gem icon"/>
                     </div>
                 </a>
             </div>
