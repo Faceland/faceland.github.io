@@ -283,7 +283,7 @@ export const ShuffleCollection = () => {
           <div className="subtitle">HALT! YOU'VE FOUND NO RESULTS!</div>
         </div>
         <div className="shuffleElement">
-          <img src="https://i.imgur.com/Coc4Unz.gif" alt="aaaaaaaaaa"/>
+          <img src="https://i.imgur.com/eb3dM.gif" alt="aaaaaaaaaa"/>
         </div>
         <div className="shuffleElement">
           <p className="lore">Please refine your search and/or yourself, ye hapless buffoon</p>

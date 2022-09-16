@@ -55,7 +55,7 @@ function About() {
     <div className="App">
       <HeaderBar fancy={false}/>
       <div className="basicPage pixelImage"
-           style={{marginTop: "50px", backgroundImage: "url(https://i.imgur.com/rb0H7eH.png)", backgroundSize: 64}}>
+           style={{marginTop: "50px", backgroundImage: "url(https://i.imgur.com/qiV4xVw.png)", backgroundSize: 128}}>
         <ShuffleCollection/>
       </div>
       <DiscordWidget/>
