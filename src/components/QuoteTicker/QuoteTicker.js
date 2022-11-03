@@ -12,7 +12,7 @@ export const QuoteTicker = () => {
         {text: "Wow! Another Minecraft RPG!", author: "minecraft-servers-list.gov"},
         {text: "I need OP to review your server, or it will be removed...", author: "PMC Server Reviewer"},
         {text: "Uninspired!", author: "Some Dominion Clown"},
-        {text: "Please call home son, we don't know what we did wrong but we miss you.", author: "My Mom"}
+        {text: "Ability contest results WHEN?!", author: "Faceland Community"}
     ]
 
     const getQuote = (index) => {
