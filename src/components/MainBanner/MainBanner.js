@@ -10,7 +10,7 @@ export const MainBanner = () => {
     return (
         <div className="mainBanner" style={state.mobile ? {marginTop: '50px'} : {marginTop: '0'}}>
             <video className="videoBg" style={state.mobile ? {top: '50px'} : {top: '0'}} playsInline autoPlay muted loop
-                   src="https://m1.afileditch.ch/EchlXnMcTsAsRURtIST.mp4"
+                   src="https://m1.afileditch.ch/OXtYaxrZhXWFaKsmXKWg.mp4"
                    poster="https://i.imgur.com/WMtrkuV.png"
             >
                 background video
