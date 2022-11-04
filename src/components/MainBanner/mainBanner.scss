@@ -7,6 +7,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #2e2e2e;
 
   .videoBg {
     position: absolute;
@@ -18,6 +19,7 @@
     min-height: 350px;
     z-index: -1;
     object-fit: cover; /* combined with 'absolute', works like background-size, but for DOM elements */
+    background: url('https://i.imgur.com/833uyRq.png') 50% 50% / cover no-repeat;
   }
 
   .desktopTitle {
