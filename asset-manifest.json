@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "/static/css/main.b22caeaa.chunk.css",
-    "main.js": "/static/js/main.5d6521b1.chunk.js",
-    "main.js.map": "/static/js/main.5d6521b1.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.53681519.js",
-    "runtime-main.js.map": "/static/js/runtime-main.53681519.js.map",
-    "static/js/2.d73e99ab.chunk.js": "/static/js/2.d73e99ab.chunk.js",
-    "static/js/2.d73e99ab.chunk.js.map": "/static/js/2.d73e99ab.chunk.js.map",
-    "static/js/3.d3941439.chunk.js": "/static/js/3.d3941439.chunk.js",
-    "static/js/3.d3941439.chunk.js.map": "/static/js/3.d3941439.chunk.js.map",
-    "static/js/4.461dd6eb.chunk.js": "/static/js/4.461dd6eb.chunk.js",
-    "static/js/4.461dd6eb.chunk.js.map": "/static/js/4.461dd6eb.chunk.js.map",
+    "main.js": "/static/js/main.72e2b35f.chunk.js",
+    "main.js.map": "/static/js/main.72e2b35f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.551dba03.js",
+    "runtime-main.js.map": "/static/js/runtime-main.551dba03.js.map",
+    "static/js/2.c4c92500.chunk.js": "/static/js/2.c4c92500.chunk.js",
+    "static/js/2.c4c92500.chunk.js.map": "/static/js/2.c4c92500.chunk.js.map",
+    "static/js/3.2181e340.chunk.js": "/static/js/3.2181e340.chunk.js",
+    "static/js/3.2181e340.chunk.js.map": "/static/js/3.2181e340.chunk.js.map",
+    "static/js/4.56754d1e.chunk.js": "/static/js/4.56754d1e.chunk.js",
+    "static/js/4.56754d1e.chunk.js.map": "/static/js/4.56754d1e.chunk.js.map",
     "index.html": "/index.html",
     "static/css/main.b22caeaa.chunk.css.map": "/static/css/main.b22caeaa.chunk.css.map",
-    "static/js/2.d73e99ab.chunk.js.LICENSE.txt": "/static/js/2.d73e99ab.chunk.js.LICENSE.txt",
-    "static/js/3.d3941439.chunk.js.LICENSE.txt": "/static/js/3.d3941439.chunk.js.LICENSE.txt",
+    "static/js/2.c4c92500.chunk.js.LICENSE.txt": "/static/js/2.c4c92500.chunk.js.LICENSE.txt",
+    "static/js/3.2181e340.chunk.js.LICENSE.txt": "/static/js/3.2181e340.chunk.js.LICENSE.txt",
     "static/media/Player_hurt1.4e4a02a9.ogg": "/static/media/Player_hurt1.4e4a02a9.ogg",
     "static/media/copy.a04eaa81.svg": "/static/media/copy.a04eaa81.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.53681519.js",
-    "static/js/2.d73e99ab.chunk.js",
+    "static/js/runtime-main.551dba03.js",
+    "static/js/2.c4c92500.chunk.js",
     "static/css/main.b22caeaa.chunk.css",
-    "static/js/main.5d6521b1.chunk.js"
+    "static/js/main.72e2b35f.chunk.js"
   ]
 }
