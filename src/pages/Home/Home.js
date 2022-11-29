@@ -34,8 +34,8 @@ export const Home = (props) => {
     const homeImageTwo = (
         <img
             className="fillImg"
-            src="https://i.imgur.com/vSD8DGq.gif"
-            alt="regretz"/>
+            src="https://i.imgur.com/mM864sG.gif"
+            alt="pupcup"/>
     )
 
     const bodyTwo = (
