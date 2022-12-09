@@ -27,6 +27,7 @@ export const HeaderBar = (props) => {
                 <Link to="/guide">Guide</Link>
                 <a href="http://199.127.61.235:8100/#Quest_world:27:0:893:506:0:0:0:0:perspective" target="_blank">Map</a>
                 <Link to="/about">Items</Link>
+                <Link to="/facepals">FacePals</Link>
                 <a href="https://discord.gg/VUkE7Db4a8" target="_blank">Discord</a>
                 <a href="http://shop.face.land/category/336956" target="_blank">Buy Gems</a>
             </div>
@@ -58,6 +59,7 @@ export const HeaderBar = (props) => {
                 <Link className="navButton" to="/guide">Guide</Link>
                 <a className="navButton" href="http://199.127.61.235:8100/#Quest_world:27:0:893:506:0:0:0:0:perspective" target="_blank">Map</a>
                 <Link className="navButton" to="/about">Items</Link>
+                <Link className="navButton" to="/facepals">FacePals</Link>
                 <a className="navButton" href="https://discord.gg/VUkE7Db4a8" target="_blank">Discord</a>
             </div>
             <div className="profileSection">

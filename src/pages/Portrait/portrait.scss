@@ -1,0 +1,107 @@
+.Portrait {
+
+  .palsBox {
+    width: 100%;
+    height: calc(100vh - 58px);
+    padding-top: 7px;
+    padding-bottom: 1px;
+    background-color: #3b5998;
+    display: flex;
+
+    .imageZone {
+      flex-grow: 4;
+      border-radius: 10px;
+      margin: 40px;
+      background-color: #294072;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .image {
+        position: relative;
+        background-color: #060a1f;
+        width: 60%;
+
+        .tintedIcon {
+          position: absolute;
+          right: 0;
+          left: 0;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .image:after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+      }
+    }
+
+    .listZone {
+      flex-grow: 2;
+      min-width: 425px;
+      border-radius: 10px;
+      margin: 40px 40px 40px 0;
+      background-color: #294072;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .itemBkg {
+        background-color: #387dc7;
+      }
+
+      .addBkg {
+        border-color: #47dba4;
+        color: #47dba4;
+        height: 32px;
+        border-style: dashed;
+        border-width: 1px;
+
+        font-weight: 1000;
+        font-size: 24px;
+
+        &:hover {
+          border-color: white;
+          color: white;
+          background-color: rgba(99, 234, 184, 0.31)
+        }
+
+        p {
+          text-align: center;
+          width: 100%;
+          height: 100%;
+          margin: -2px 0px 0px;
+        }
+      }
+
+      .entryItem {
+        margin: 5px auto;
+        padding: 10px;
+        border-radius: 10px;
+        width: 70%;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .selectContainer {
+          min-width: 200px;
+          text-align: left;
+          margin-left: 5px;
+        }
+
+        .delete {
+          margin-left: 5px;
+          background-color: #c73636;
+          border-radius: 20px;
+          text-align: center;
+          width: 38px;
+          color: white;
+        }
+      }
+    }
+  }
+}

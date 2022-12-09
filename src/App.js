@@ -16,6 +16,7 @@ import {Home} from "./pages/Home/Home";
 import {DiscordWidget} from "./components/DiscordWidget/DiscordWidget"
 import {Guide} from "./pages/Guide/Guide";
 import {Map} from "./pages/Map/Map";
+import {Portrait} from "./pages/Portrait/Portrait";
 
 function App() {
   // Handle discord subdomain, redirect to invite
@@ -40,6 +41,9 @@ function App() {
           </Route>
           <Route path="/map">
             <Map/>
+          </Route>
+          <Route path="/facepals">
+            <Portrait/>
           </Route>
           <Route path="/">
             <Home/>
