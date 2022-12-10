@@ -41,7 +41,11 @@ export const Portrait = (props) => {
           <div className={"imageZone"}>
             <div className={"image"}>
               {cardItems.map((item, index) =>
-                item.texture !== null && <IconTint className="pixelImage tintedIcon" src={item.texture} color={item.color} alt=""/>
+                item.texture !== null &&
+                <>
+                  <IconTint className="pixelImage tintedIcon" src={item.texture} color={item.color} alt=""/>
+                  <img className="pixelImage tintedIcon fade" src={item.texture} alt=""/>)
+                </>
               )}
             </div>
           </div>
