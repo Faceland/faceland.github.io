@@ -63,15 +63,21 @@
     }
 
     .listZone {
-      flex-grow: 2;
       min-width: 425px;
       border-radius: 10px;
       margin: 40px 40px 40px 0;
       background-color: #294072;
 
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      flex-direction: column;
+
+      .scrollZone {
+        position: relative;
+
+        overflow: auto;
+        display: flex;
+        flex-direction: column-reverse;
+      }
 
       .itemBkg {
         background-color: #387dc7;
@@ -80,12 +86,13 @@
       .addBkg {
         border-color: #47dba4;
         color: #47dba4;
-        height: 32px;
         border-style: dashed;
         border-width: 1px;
 
         font-weight: 1000;
         font-size: 24px;
+
+        min-height: 3.5vh;
 
         &:hover {
           border-color: white;
@@ -105,7 +112,7 @@
         margin: 5px auto;
         padding: 10px;
         border-radius: 10px;
-        width: 70%;
+        width: 75%;
 
         display: flex;
         flex-direction: row;
@@ -118,12 +125,14 @@
         }
 
         .delete {
-          margin-left: 5px;
           background-color: #c73636;
           border-radius: 20px;
-          text-align: center;
           width: 38px;
           color: white;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
       }
     }
