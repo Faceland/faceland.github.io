@@ -26,6 +26,7 @@ export const Portrait = (props) => {
     layer.id = uuid;
     layer.color = "#5DBDEC"
     layer.texture = null;
+    layer.configId = null;
 
     const newArray = cardItems.slice()
     newArray.push(layer)
@@ -53,9 +54,16 @@ export const Portrait = (props) => {
             <Scrollbar>
               {cardItems.map((item, index) =>
                 <div className="entryItem itemBkg no-select" key={item.id}>
-                  <ColorPickerPopout changeColor={(newColor) => item.color = newColor}/>
+                  <ColorPickerPopout changeColor={(newColor) => {
+                    item.color = newColor
+                    setCardItems([...cardItems])
+                  }}/>
                   <div className="selectContainer">
-                    <TextureSelector changeTexture={(newTexture) => item.texture = newTexture}/>
+                    <TextureSelector changeTexture={(newTexture, configId) => {
+                      item.texture = newTexture
+                      item.configId = configId
+                      setCardItems([...cardItems])
+                    }}/>
                   </div>
                   <div className="delete" onClick={() => {
                     setCardItems(cardItems.filter(loopItem => loopItem.id !== item.id))
