@@ -16,6 +16,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
+
+      .modal-button {
+        position: absolute;
+        font-size: 32px;
+        bottom: 10px;
+        left: 10px;
+      }
 
       .image {
         position: relative;

@@ -198,6 +198,10 @@ input:focus, textarea:focus, select:focus{
   -ms-interpolation-mode: nearest-neighbor;   /* IE                            */
 }
 
+.preserve-whitespace {
+  white-space: pre;
+}
+
 .thin-underline {
   border-bottom: solid;
   border-width: 1px;
