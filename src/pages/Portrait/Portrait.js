@@ -83,7 +83,7 @@ export const Portrait = (props) => {
                 item.texture !== null &&
                 <>
                   <IconTint className="pixelImage tintedIcon" src={item.texture} color={item.color} alt="" draggable="false"/>
-                  <img className="pixelImage tintedIcon fade" src={item.texture} alt="" draggable="false"/>)
+                  <img className="pixelImage tintedIcon fade" src={item.texture} alt="" draggable="false"/>
                 </>
               )}
             </div>
