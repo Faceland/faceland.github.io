@@ -72,7 +72,7 @@ export const textureOptions = [
   { value: 'https://i.imgur.com/bAgIfEi.png', configId: "nose-long", label: 'Nose (Long)' },
   { value: 'https://i.imgur.com/O2OH5G3.png', configId: "nose-round", label: 'Nose (Round)' },
   { value: 'https://i.imgur.com/Ud2ze9I.png', configId: "nose-villager", label: 'Villager Nose' },
-  { value: 'https://i.imgur.com/W79LA7v.png', configId: "nose-pig", label: 'Pig Nose' },
+  { value: 'https://i.imgur.com/MVGkiJh.png', configId: "nose-pig", label: 'Pig Nose' },
   { value: 'https://i.imgur.com/MVGkiJh.png', configId: "nose-dog", label: 'Dog Nose' },
 
   { value: 'https://i.imgur.com/YLkJ4GO.png', configId: "mouth-big-smile", label: 'Mouth (Big Smile)' },
