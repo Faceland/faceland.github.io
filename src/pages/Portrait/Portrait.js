@@ -7,15 +7,33 @@ import {Scrollbar} from 'react-scrollbars-custom';
 import { v4 as uuidv4 } from 'uuid';
 import ColorPickerPopout from "../../components/Portrait/ColorPickerPopout";
 import TextureSelector from "../../components/Portrait/TextureSelector";
-import IconTint from 'react-icon-tint';
 import Modal from 'react-modal';
+import {ImageTint} from "../../components/Portrait/ImageTint";
 
 export const Portrait = (props) => {
 
   const [state] = useContext(Context);
   const [cardItems, setCardItems] = useState([]);
+  const [layerStack, setLayerStack] = useState();
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [copyText, setCopyText] = React.useState(false);
+
+  useEffect(() => {
+    rebuildLayers(cardItems)
+  }, [cardItems]);
+
+  const rebuildLayers = () => {
+    console.log("rebuild")
+    setLayerStack(null)
+    setLayerStack(
+      cardItems.map((item, index) =>
+        item.display !== null &&
+        <>
+          {item.display}
+        </>
+      )
+    )
+  }
 
   const openModal = () => {
     setIsOpen(true)
@@ -51,11 +69,25 @@ export const Portrait = (props) => {
     layer.color = "#5DBDEC"
     layer.texture = null
     layer.configId = null
+    layer.display = null
 
     const newArray = cardItems.slice()
     newArray.push(layer)
     console.log("new uuid: " + uuid)
     setCardItems(newArray)
+  }
+
+  const buildTintObject = (layer) => {
+    if (layer.texture == null) { return }
+    layer.display = (
+      <ImageTint
+        className="tintedIcon pixelImage"
+        canvas={{ height: 52, width: 52, renderer: 'P2D' }}
+        tint={layer.color}
+        src={layer.texture}
+        draggable="false"
+      />
+    )
   }
 
   const buildConfigOutput = () => {
@@ -79,13 +111,7 @@ export const Portrait = (props) => {
           <div className={"imageZone"}>
             <button className={"modal-button"} onClick={openModal}>🤓</button>
             <div className={"image"}>
-              {cardItems.map((item, index) =>
-                item.texture !== null &&
-                <>
-                  <IconTint className="pixelImage tintedIcon" src={item.texture} color={item.color} alt="" draggable="false"/>
-                  <img className="pixelImage tintedIcon fade" src={item.texture} alt="" draggable="false"/>
-                </>
-              )}
+              {layerStack}
             </div>
           </div>
           <div className={"listZone"}>
@@ -94,13 +120,23 @@ export const Portrait = (props) => {
                 <div className="entryItem itemBkg no-select" key={item.id}>
                   <ColorPickerPopout changeColor={(newColor) => {
                     item.color = newColor
+                    item.display = null;
                     setCardItems([...cardItems])
+                    setTimeout(function() {
+                      buildTintObject(item)
+                      setCardItems([...cardItems])
+                    }, 0);
                   }}/>
                   <div className="selectContainer">
                     <TextureSelector changeTexture={(newTexture, configId) => {
                       item.texture = newTexture
                       item.configId = configId
+                      item.display = null;
                       setCardItems([...cardItems])
+                      setTimeout(function() {
+                        buildTintObject(item)
+                        setCardItems([...cardItems])
+                      }, 2);
                     }}/>
                   </div>
                   <div className="delete" onClick={() => {
