@@ -6,7 +6,7 @@ import './portrait.scss'
 import { v4 as uuidv4 } from 'uuid';
 import ColorPickerPopout from "../../components/Portrait/ColorPickerPopout";
 import TextureSelector from "../../components/Portrait/TextureSelector";
-import IconTint from 'react-icon-tint';
+import Modal from 'react-modal';
 import {ImageTint} from "../../components/Portrait/ImageTint";
 
 export const Portrait = (props) => {
@@ -19,15 +19,57 @@ export const Portrait = (props) => {
   const [copyText, setCopyText] = React.useState(false);
 
   useEffect(() => {
-
+    rebuildLayers(cardItems)
   }, [cardItems]);
+
+  const rebuildLayers = () => {
+    console.log("rebuild")
+    setLayerStack(null)
+    setLayerStack(
+      cardItems.map((item, index) =>
+        item.display !== null &&
+        <>
+          {item.display}
+        </>
+      )
+    )
+  }
+
+  const openModal = () => {
+    setIsOpen(true)
+    setCopyText(buildConfigOutput)
+  }
+
+  const closeModal = () => {
+    setIsOpen(false)
+  }
+
+  const modalStyle = {
+    overlay: {
+      backgroundColor: 'transparent'
+    },
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      padding: '100px',
+      backgroundColor: 'black',
+      color: 'green',
+      borderColor: 'green',
+      transform: 'translate(-50%, -50%)',
+    },
+  };
 
   const addNewLayer = () => {
     const uuid = uuidv4()
     const layer = {}
     layer.id = uuid
     layer.color = "#5DBDEC"
-    layer.texture = null;
+    layer.texture = null
+    layer.configId = null
+    layer.display = null
 
     const newArray = cardItems.slice()
     newArray.push(layer)
@@ -71,45 +113,54 @@ export const Portrait = (props) => {
       <div className="basicPage">
         <div className={"palsBox"}>
           <div className={"imageZone"}>
+            <button className={"modal-button"} onClick={openModal}>🤓</button>
             <div className={"image"}>
-              {cardItems.map((item, index) =>
-                item.texture !== null && <IconTint className="pixelImage tintedIcon" src={item.texture} color={item.color} alt=""/>
-              )}
+              {layerStack}
             </div>
           </div>
           <div className={"listZone"}>
-            <div className="scrollZone" ref={scrollContainer}>
-              {cardItems.map((item, index) =>
-                <div className="entryItem itemBkg no-select" key={item.id}>
-                  <ColorPickerPopout changeColor={(newColor) => {
-                    item.color = newColor
-                    item.display = null;
-                    setCardItems([...cardItems])
-                    setTimeout(function() {
-                      buildTintObject(item)
-                      setCardItems([...cardItems])
-                    }, 0);
-                  }}/>
-                  <div className="selectContainer">
-                    <TextureSelector changeTexture={(newTexture, configId) => {
-                      item.texture = newTexture
-                      item.configId = configId
+            <div className="scrollZone">
+              <div ref={scrollContainer}>
+                {cardItems.map((item, index) =>
+                  <div className="entryItem itemBkg no-select" key={item.id}>
+                    <ColorPickerPopout changeColor={(newColor) => {
+                      item.color = newColor
                       item.display = null;
                       setCardItems([...cardItems])
                       setTimeout(function() {
                         buildTintObject(item)
                         setCardItems([...cardItems])
-                      }, 2);
+                      }, 0);
                     }}/>
+                    <div className="selectContainer">
+                      <TextureSelector changeTexture={(newTexture, configId) => {
+                        item.texture = newTexture
+                        item.configId = configId
+                        item.display = null;
+                        setCardItems([...cardItems])
+                        setTimeout(function() {
+                          buildTintObject(item)
+                          setCardItems([...cardItems])
+                        }, 2);
+                      }}/>
+                    </div>
+                    <div className="delete" onClick={() => {
+                      setCardItems(cardItems.filter(loopItem => loopItem.id !== item.id))
+                    }}>X</div>
                   </div>
-                  <div className="delete" onClick={() => {
-                    setCardItems(cardItems.filter(loopItem => loopItem.id !== item.id))
-                  }}>X</div>
-                </div>
-              )}
+                )}
+              </div>  
             </div>
             <div className="entryItem addBkg no-select" onClick={() => { addNewLayer(); scrollDown(); }}><p>+</p></div>
           </div>
+          <Modal
+            isOpen={modalIsOpen}
+            onRequestClose={closeModal}
+            style={modalStyle}
+            contentLabel="npc copypasta"
+          >
+            {copyText}
+          </Modal>
         </div>
       </div>
       <DiscordWidget/>
