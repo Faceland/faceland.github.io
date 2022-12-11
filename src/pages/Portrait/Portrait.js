@@ -5,6 +5,7 @@ import './portrait.scss'
 import {v4 as uuidv4} from 'uuid';
 import Modal from 'react-modal';
 import {DragContainer} from "./DragContainer";
+import {ImageTint} from "../../components/Portrait/ImageTint";
 
 export const Portrait = (props) => {
 
@@ -37,15 +38,22 @@ export const Portrait = (props) => {
 
   const rebuildLayers = () => {
     console.log("rebuild")
-    setLayerStack(null)
-    setLayerStack(
-      cardItems.map((item, index) =>
-        item.display !== null &&
-        <>
-          {item.display}
-        </>
+    setLayerStack([])
+    setTimeout(() => {
+      setLayerStack(cardItems.map((layer, index) =>
+          layer.texture !== null &&
+          <>
+            <ImageTint
+              className="tintedIcon pixelImage"
+              canvas={{ height: 52, width: 52, renderer: 'P2D' }}
+              tint={layer.color}
+              src={layer.texture}
+              draggable="false"
+            />
+          </>
+        )
       )
-    )
+    }, 5);
   }
 
   const openModal = () => {
@@ -131,7 +139,12 @@ export const Portrait = (props) => {
           <div className={"listZone"}>
             <div className="scrollZone">
               <div ref={scrollContainer}>
-                <DragContainer layers={cardItems} setLayers={setCardItems}/>
+                <DragContainer
+                  layers={cardItems}
+                  setLayers={setCardItems}
+                  updateLayers={updateLayers}
+                  deleteLayer={deleteLayer}
+                />
                 <div className="entryItem addBkg no-select" onClick={() => {
                   addNewLayer();
                   scrollDown();

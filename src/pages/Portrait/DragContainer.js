@@ -54,20 +54,22 @@ export class DragContainer extends Component {
                           ↕
                         </div>
                         <ColorPickerPopout
-                          contenteditable
-                          changeColor={(newColor) => { layer.color = newColor }}
+                          changeColor={(newColor) => {
+                            layer.color = newColor
+                            this.props.updateLayers()
+                          }}
                         />
                         <button className="selectContainer" onClick={()=>{}}>
                           <TextureSelector
-                            contenteditable
                             changeTexture={(newTexture, configId) => {
-                            layer.texture = newTexture
-                            layer.configId = configId
+                              layer.texture = newTexture
+                              layer.configId = configId
+                              this.props.updateLayers()
                           }}/>
                         </button>
                         <button
                           className="delete"
-                          onClick={() => { deleteLayer(layer)}}
+                          onClick={() => {this.props.deleteLayer(layer)}}
                         >
                           🗑
                         </button>

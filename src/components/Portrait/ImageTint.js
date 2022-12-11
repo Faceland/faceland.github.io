@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import p5 from "p5";
 /**
   A React component that uses Processing to apply image processing filter.
