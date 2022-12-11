@@ -28,7 +28,9 @@
       .image {
         position: relative;
         background-color: #060a1f;
-        width: 60%;
+        height: 90%;
+        max-width: 90%;
+        aspect-ratio: 1 / 1;
 
         .fade {
           opacity: 0.33;
@@ -53,12 +55,6 @@
             height: 100% !important;
           }
         }
-      }
-
-      .image:after {
-        content: "";
-        display: block;
-        padding-bottom: 100%;
       }
     }
 
