@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.51e0a307.chunk.css",
+    "main.css": "/static/css/main.86961241.chunk.css",
     "main.js": "/static/js/main.6b7de2a7.chunk.js",
     "main.js.map": "/static/js/main.6b7de2a7.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.499ba999.js",
@@ -12,7 +12,7 @@
     "static/js/4.3df4458c.chunk.js": "/static/js/4.3df4458c.chunk.js",
     "static/js/4.3df4458c.chunk.js.map": "/static/js/4.3df4458c.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.51e0a307.chunk.css.map": "/static/css/main.51e0a307.chunk.css.map",
+    "static/css/main.86961241.chunk.css.map": "/static/css/main.86961241.chunk.css.map",
     "static/js/2.f69765ed.chunk.js.LICENSE.txt": "/static/js/2.f69765ed.chunk.js.LICENSE.txt",
     "static/js/3.4c5c795e.chunk.js.LICENSE.txt": "/static/js/3.4c5c795e.chunk.js.LICENSE.txt",
     "static/media/Player_hurt1.4e4a02a9.ogg": "/static/media/Player_hurt1.4e4a02a9.ogg",
@@ -21,7 +21,7 @@
   "entrypoints": [
     "static/js/runtime-main.499ba999.js",
     "static/js/2.f69765ed.chunk.js",
-    "static/css/main.51e0a307.chunk.css",
+    "static/css/main.86961241.chunk.css",
     "static/js/main.6b7de2a7.chunk.js"
   ]
 }
