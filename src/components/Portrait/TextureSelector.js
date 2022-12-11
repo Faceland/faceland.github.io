@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
 import Select from 'react-select';
 import {textureOptions} from "./DropdownOptions";
@@ -21,7 +22,8 @@ export default (props) => (
       menu: (provided, state) => ({
         ...provided,
         border: "none",
-        boxShadow: "none"
+        boxShadow: "none",
+        display: "block"
       }),
       option: (provided, state) => ({
         ...provided,

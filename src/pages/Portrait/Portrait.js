@@ -1,9 +1,8 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect, useState, useRef} from "react";
 import {HeaderBar} from "../../components/HeaderBar/HeaderBar";
 import {Context} from "../../Store";
 import {DiscordWidget} from "../../components/DiscordWidget/DiscordWidget"
 import './portrait.scss'
-import {Scrollbar} from 'react-scrollbars-custom';
 import { v4 as uuidv4 } from 'uuid';
 import ColorPickerPopout from "../../components/Portrait/ColorPickerPopout";
 import TextureSelector from "../../components/Portrait/TextureSelector";
@@ -12,6 +11,7 @@ import {ImageTint} from "../../components/Portrait/ImageTint";
 
 export const Portrait = (props) => {
 
+  const scrollContainer = useRef();
   const [state] = useContext(Context);
   const [cardItems, setCardItems] = useState([]);
   const [layerStack, setLayerStack] = useState();
@@ -103,6 +103,10 @@ export const Portrait = (props) => {
     )
   }
 
+  const scrollDown = () => {
+    scrollContainer.current.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+  }
+
   return (
     <div className="App Portrait">
       <HeaderBar fancy={false}/>
@@ -115,37 +119,39 @@ export const Portrait = (props) => {
             </div>
           </div>
           <div className={"listZone"}>
-            <Scrollbar>
-              {cardItems.map((item, index) =>
-                <div className="entryItem itemBkg no-select" key={item.id}>
-                  <ColorPickerPopout changeColor={(newColor) => {
-                    item.color = newColor
-                    item.display = null;
-                    setCardItems([...cardItems])
-                    setTimeout(function() {
-                      buildTintObject(item)
-                      setCardItems([...cardItems])
-                    }, 0);
-                  }}/>
-                  <div className="selectContainer">
-                    <TextureSelector changeTexture={(newTexture, configId) => {
-                      item.texture = newTexture
-                      item.configId = configId
+            <div className="scrollZone">
+              <div ref={scrollContainer}>
+                {cardItems.map((item, index) =>
+                  <div className="entryItem itemBkg no-select" key={item.id}>
+                    <ColorPickerPopout changeColor={(newColor) => {
+                      item.color = newColor
                       item.display = null;
                       setCardItems([...cardItems])
                       setTimeout(function() {
                         buildTintObject(item)
                         setCardItems([...cardItems])
-                      }, 2);
+                      }, 0);
                     }}/>
+                    <div className="selectContainer">
+                      <TextureSelector changeTexture={(newTexture, configId) => {
+                        item.texture = newTexture
+                        item.configId = configId
+                        item.display = null;
+                        setCardItems([...cardItems])
+                        setTimeout(function() {
+                          buildTintObject(item)
+                          setCardItems([...cardItems])
+                        }, 2);
+                      }}/>
+                    </div>
+                    <div className="delete" onClick={() => {
+                      setCardItems(cardItems.filter(loopItem => loopItem.id !== item.id))
+                    }}>X</div>
                   </div>
-                  <div className="delete" onClick={() => {
-                    setCardItems(cardItems.filter(loopItem => loopItem.id !== item.id))
-                  }}>X</div>
-                </div>
-              )}
-              <div className="entryItem addBkg no-select" onClick={addNewLayer}><p>+</p></div>
-            </Scrollbar>;
+                )}
+              </div>  
+            </div>
+            <div className="entryItem addBkg no-select" onClick={() => { addNewLayer(); scrollDown(); }}><p>+</p></div>
           </div>
           <Modal
             isOpen={modalIsOpen}
