@@ -6,10 +6,11 @@ import {v4 as uuidv4} from 'uuid';
 import Modal from 'react-modal';
 import {DragContainer} from "./DragContainer";
 import {ImageTint} from "../../components/Portrait/ImageTint";
+import {Scrollbars} from 'react-custom-scrollbars';
 
 export const Portrait = (props) => {
 
-  const scrollContainer = useRef();
+  const scrollBar = useRef();
   const [state] = useContext(Context);
   const [cardItems, setCardItems] = useState([]);
   const [layerStack, setLayerStack] = useState();
@@ -45,7 +46,7 @@ export const Portrait = (props) => {
           <>
             <ImageTint
               className="tintedIcon pixelImage"
-              canvas={{ height: 52, width: 52, renderer: 'P2D' }}
+              canvas={{height: 52, width: 52, renderer: 'P2D'}}
               tint={layer.color}
               src={layer.texture}
               draggable="false"
@@ -96,6 +97,7 @@ export const Portrait = (props) => {
     newArray.push(layer)
     console.log("new uuid: " + uuid)
     setCardItems(newArray)
+    scrollBar.current.scrollToBottom()
   }
 
   const updateLayers = () => {
@@ -121,10 +123,6 @@ export const Portrait = (props) => {
     )
   }
 
-  const scrollDown = () => {
-    scrollContainer.current.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
-  }
-
   return (
     <div className="App Portrait">
       <HeaderBar fancy={false}/>
@@ -137,20 +135,17 @@ export const Portrait = (props) => {
             </div>
           </div>
           <div className={"listZone"}>
-            <div className="scrollZone">
-              <div ref={scrollContainer}>
-                <DragContainer
-                  layers={cardItems}
-                  setLayers={setCardItems}
-                  updateLayers={updateLayers}
-                  deleteLayer={deleteLayer}
-                />
-                <div className="entryItem addBkg no-select" onClick={() => {
-                  addNewLayer();
-                  scrollDown();
-                }}><p>+</p></div>
-              </div>
-            </div>
+            <Scrollbars ref={scrollBar}>
+              <DragContainer
+                layers={cardItems}
+                setLayers={setCardItems}
+                updateLayers={updateLayers}
+                deleteLayer={deleteLayer}
+              />
+              <div className="entryItem addBkg no-select" onClick={() => {
+                addNewLayer();
+              }}><p>+</p></div>
+            </Scrollbars>
           </div>
           <Modal
             isOpen={modalIsOpen}

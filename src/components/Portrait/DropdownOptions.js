@@ -63,11 +63,11 @@ export const extraHair = [
 ]
 
 export const eyeOptions = [
-  { value: 'https://i.imgur.com/hxoHQMv.png', configId: "eyebrow-angry", label: 'Eyebrows (Angry)' },
-  { value: 'https://i.imgur.com/Bmpz81S.png', configId: "eyebrow-raised", label: 'Eyebrows (Raised)' },
-  { value: 'https://i.imgur.com/a29TSPR.png', configId: "eyebrow-low", label: 'Eyebrows (Low)' },
-  { value: 'https://i.imgur.com/PFywPks.png', configId: "eyebrow-high", label: 'Eyebrows' },
-  { value: 'https://i.imgur.com/PFywPks.png', configId: "eyebrow-concern", label: 'Eyebrows (Concerned)' },
+  { value: 'https://i.imgur.com/PFywPks.png', configId: "eyebrow-high", label: 'Normal Eyebrows' },
+  { value: 'https://i.imgur.com/hxoHQMv.png', configId: "eyebrow-angry", label: 'Angry Eyebrows' },
+  { value: 'https://i.imgur.com/Bmpz81S.png', configId: "eyebrow-raised", label: 'Raised Eyebrow' },
+  { value: 'https://i.imgur.com/a29TSPR.png', configId: "eyebrow-low", label: 'Low Eyebrows' },
+  { value: 'https://i.imgur.com/PFywPks.png', configId: "eyebrow-concern", label: 'Concerned Eyebrows' },
 
   { value: 'https://i.imgur.com/Jwj03Bm.png', configId: "eyes-plain", label: 'Eyes (Plain)' },
   { value: 'https://i.imgur.com/rDsh3JA.png', configId: "eyes-lashes", label: 'Eyes (Lashed)' },

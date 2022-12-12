@@ -16,6 +16,7 @@
     "react-accessible-accordion": "^3.3.4",
     "react-beautiful-dnd": "^13.1.1",
     "react-color": "^2.19.3",
+    "react-custom-scrollbars": "^4.2.1",
     "react-debounce-input": "^3.2.5",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
