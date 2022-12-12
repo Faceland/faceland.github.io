@@ -5,7 +5,7 @@ import {
   backgroundOptions,
   bodyTypes,
   categoryOption, clothesOptions,
-  extraHair,
+  extraHair, eyeOptions,
   faceOptions,
   hairOptions,
   headwearOptions,
@@ -28,6 +28,8 @@ export default (props) => {
         return extraHair;
       case "noseOptions":
         return noseOptions;
+      case "eyeOptions":
+        return eyeOptions;
       case "mouthOptions":
         return mouthOptions;
       case "faceOptions":
