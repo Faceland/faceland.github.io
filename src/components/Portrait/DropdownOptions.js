@@ -1,6 +1,16 @@
-export const textureOptions = [
-  { value: 'https://i.imgur.com/7cmrX2x.png', configId: "frame", label: 'Background (Frame)' },
+export const categoryOption = [
+  { value: "headwearOptions", label: '🎩' },
+  { value: "hairOptions", label: '💇' },
+  { value: "extraHair", label: '✂️' },
+  { value: "noseOptions", label: '👃' },
+  { value: "mouthOptions", label: '👄' },
+  { value: "faceOptions", label: '😀' },
+  { value: "clothesOptions", label: '👗' },
+  { value: "bodyTypes", label: '🧍' },
+  { value: "backgroundOptions", label: '🗺️' },
+]
 
+export const headwearOptions = [
   { value: 'https://i.imgur.com/7O89fjJ.png', configId: "goggles", label: 'Goggles' },
   { value: 'https://i.imgur.com/d7MxUyA.png', configId: "tricorne", label: 'Tricorne' },
   { value: 'https://i.imgur.com/Ad7K2aS.png', configId: "medium-hat", label: 'Medium Hat' },
@@ -18,7 +28,6 @@ export const textureOptions = [
   { value: 'https://i.imgur.com/ZdfY0BK.png', configId: "headband", label: 'Headband' },
   { value: 'https://i.imgur.com/QV2IACD.png', configId: "hood", label: 'Hood' },
   { value: 'https://i.imgur.com/1ZiXxCm.png', configId: "hood-trim", label: 'Hood Trim' },
-
   { value: 'https://i.imgur.com/cJQ0AVQ.png', configId: "hair-flower", label: 'Hair Flower' },
   { value: 'https://i.imgur.com/HzZMUUO.png', configId: "flower-crown-warm", label: 'Flower Crown (Warm)' },
   { value: 'https://i.imgur.com/cQxLRgG.png', configId: "flower-crown-cool", label: 'Flower Crown (Cool)' },
@@ -26,8 +35,10 @@ export const textureOptions = [
   { value: 'https://i.imgur.com/YDcjqdO.png', configId: "hair-bow", label: 'Hair Bow' },
   { value: 'https://i.imgur.com/t0WYguh.png', configId: "monocle", label: 'Monocle' },
   { value: 'https://i.imgur.com/zAjl0ek.png', configId: "eyepatch-left", label: 'Eyepatch L' },
-  { value: 'https://i.imgur.com/VPJDqfs.png', configId: "eyepatch-right", label: 'Eyepatch R' },
+  { value: 'https://i.imgur.com/VPJDqfs.png', configId: "eyepatch-right", label: 'Eyepatch R' }
+]
 
+export const hairOptions = [
   { value: 'https://i.imgur.com/xbtbthu.png', configId: "hair-afro", label: 'Hair (Afro)' },
   { value: 'https://i.imgur.com/S5LckvD.png', configId: "hair-spiked", label: 'Hair (Spiked)' },
   { value: 'https://i.imgur.com/iNSm6oU.png', configId: "hair-messy", label: 'Hair (Messy)' },
@@ -35,8 +46,10 @@ export const textureOptions = [
   { value: 'https://i.imgur.com/PUqtEX4.png', configId: "hair-bangs-short", label: 'Hair (Short Bangs)' },
   { value: 'https://i.imgur.com/rop8Hr3.png', configId: "hair-eye-covered", label: 'Hair (Eye Covered)' },
   { value: 'https://i.imgur.com/rV2k4TS.png', configId: "hair-split-short", label: 'Hair (Split Short)' },
-  { value: 'https://i.imgur.com/CBdk8Hw.png', configId: "hair-split-long", label: 'Hair (Split Long)' },
+  { value: 'https://i.imgur.com/CBdk8Hw.png', configId: "hair-split-long", label: 'Hair (Split Long)' }
+]
 
+export const extraHair = [
   { value: 'https://i.imgur.com/1ABS4IT.png', configId: "long-hair", label: 'Hair Extension' },
   { value: 'https://i.imgur.com/kt3czqI.png', configId: "long-braids", label: 'Hair Extension (Braids)' },
   { value: 'https://i.imgur.com/CQkLJNl.png', configId: "shoulder-hair", label: 'Hair Extension (Shoulder)' },
@@ -45,27 +58,10 @@ export const textureOptions = [
   { value: 'https://i.imgur.com/RhqjZjP.png', configId: "handlebar", label: 'Handlebar' },
   { value: 'https://i.imgur.com/pZUyKdm.png', configId: "beard-full", label: 'Beard (Full)' },
   { value: 'https://i.imgur.com/dVpnNX4.png', configId: "beard-goat", label: 'Beard (Goat)' },
-  { value: 'https://i.imgur.com/ehPD842.png', configId: "long-beard", label: 'Beard (Long)' },
+  { value: 'https://i.imgur.com/ehPD842.png', configId: "long-beard", label: 'Beard (Long)' }
+]
 
-  { value: 'https://i.imgur.com/hxoHQMv.png', configId: "eyebrow-angry", label: 'Eyebrows (Angry)' },
-  { value: 'https://i.imgur.com/Bmpz81S.png', configId: "eyebrow-raised", label: 'Eyebrows (Raised)' },
-  { value: 'https://i.imgur.com/a29TSPR.png', configId: "eyebrow-low", label: 'Eyebrows (Low)' },
-  { value: 'https://i.imgur.com/PFywPks.png', configId: "eyebrow-high", label: 'Eyebrows' },
-  { value: 'https://i.imgur.com/PFywPks.png', configId: "eyebrow-concern", label: 'Eyebrows (Concerned)' },
-
-  { value: 'https://i.imgur.com/Jwj03Bm.png', configId: "eyes-plain", label: 'Eyes (Plain)' },
-  { value: 'https://i.imgur.com/rDsh3JA.png', configId: "eyes-lashes", label: 'Eyes (Lashed)' },
-  { value: 'https://i.imgur.com/grilVRt.png', configId: "eyes-lashes-long", label: 'Eyes (Long Lashes)' },
-  { value: 'https://i.imgur.com/PG024CS.png', configId: "eyes-angry", label: 'Eyes (Angry)' },
-  { value: 'https://i.imgur.com/wgQJ84n.png', configId: "eyes-closed", label: 'Eyes (Closed)' },
-  { value: 'https://i.imgur.com/4Txvdm9.png', configId: "eyes-sus", label: 'Eyes (Sus)' },
-  { value: 'https://i.imgur.com/3O89OiF.png', configId: "eyes-happy", label: 'Eyes (Happy)' },
-  { value: 'https://i.imgur.com/f06HkXj.png', configId: "eyes-surprised", label: 'Eyes (Surprised)' },
-
-  { value: 'https://i.imgur.com/kX3utmb.png', configId: "pupil-dots", label: 'Pupils (Dots)' },
-  { value: 'https://i.imgur.com/VYe2aaS.png', configId: "pupil-normal", label: 'Pupils (Normal)' },
-  { value: 'https://i.imgur.com/9fwQrjb.png', configId: "pupil-dark", label: 'Pupils (Dark)' },
-
+export const noseOptions = [
   { value: 'https://i.imgur.com/SUSDs4e.png', configId: "nose-small", label: 'Nose (Small)' },
   { value: 'https://i.imgur.com/W79LA7v.png', configId: "nose-medium", label: 'Nose (Medium)' },
   { value: 'https://i.imgur.com/7yOwMKy.png', configId: "nose-large", label: 'Nose (large)' },
@@ -73,20 +69,24 @@ export const textureOptions = [
   { value: 'https://i.imgur.com/O2OH5G3.png', configId: "nose-round", label: 'Nose (Round)' },
   { value: 'https://i.imgur.com/Ud2ze9I.png', configId: "nose-villager", label: 'Villager Nose' },
   { value: 'https://i.imgur.com/MVGkiJh.png', configId: "nose-pig", label: 'Pig Nose' },
-  { value: 'https://i.imgur.com/MVGkiJh.png', configId: "nose-dog", label: 'Dog Nose' },
+  { value: 'https://i.imgur.com/MO1v95o.png', configId: "nose-dog", label: 'Dog Nose' }
+]
 
-  { value: 'https://i.imgur.com/YLkJ4GO.png', configId: "mouth-big-smile", label: 'Mouth (Big Smile)' },
-  { value: 'https://i.imgur.com/wqRnWlR.png', configId: "mouth-smug", label: 'Mouth (Smug)' },
-  { value: 'https://i.imgur.com/0ntzVFA.png', configId: "mouth-blep", label: 'Mouth (Blep)' },
-  { value: 'https://i.imgur.com/r1DUD2u.png', configId: "mouth-orc", label: 'Mouth (Orc)' },
-  { value: 'https://i.imgur.com/ZivNfrG.png', configId: "mouth-fang-frown", label: 'Mouth (Fanged Frown)' },
-  { value: 'https://i.imgur.com/ZivNfrG.png', configId: "mouth-fang-smile", label: 'Mouth (Fanged Smile)' },
-  { value: 'https://i.imgur.com/D3N3dRo.png', configId: "mouth-fang", label: 'Mouth (Fangs)' },
-  { value: 'https://i.imgur.com/c4NRmWf.png', configId: "mouth-smile", label: 'Mouth (Smile)' },
-  { value: 'https://i.imgur.com/Io1qy1b.png', configId: "mouth-frown", label: 'Mouth (Frown)' },
-  { value: 'https://i.imgur.com/Sqwb1Rg.png', configId: "mouth-cheek", label: 'Mouth (Cheek)' },
-  { value: 'https://i.imgur.com/g3IsVMy.png', configId: "mouth-normal", label: 'Mouth (Normal)' },
+export const mouthOptions = [
+  { value: 'https://i.imgur.com/g3IsVMy.png', configId: "mouth-normal", label: 'Neutral' },
+  { value: 'https://i.imgur.com/YLkJ4GO.png', configId: "mouth-big-smile", label: 'Big Smile' },
+  { value: 'https://i.imgur.com/wqRnWlR.png', configId: "mouth-smug", label: 'Smug' },
+  { value: 'https://i.imgur.com/0ntzVFA.png', configId: "mouth-blep", label: 'Blep' },
+  { value: 'https://i.imgur.com/r1DUD2u.png', configId: "mouth-orc", label: 'Orc' },
+  { value: 'https://i.imgur.com/ZivNfrG.png', configId: "mouth-fang-frown", label: 'Fanged Frown' },
+  { value: 'https://i.imgur.com/ZivNfrG.png', configId: "mouth-fang-smile", label: 'Fanged Smile' },
+  { value: 'https://i.imgur.com/D3N3dRo.png', configId: "mouth-fang", label: 'Fangs' },
+  { value: 'https://i.imgur.com/c4NRmWf.png', configId: "mouth-smile", label: 'Smile' },
+  { value: 'https://i.imgur.com/Io1qy1b.png', configId: "mouth-frown", label: 'Frown' },
+  { value: 'https://i.imgur.com/Sqwb1Rg.png', configId: "mouth-cheek", label: 'Cheek' }
+]
 
+export const faceOptions = [
   { value: 'https://i.imgur.com/fPgRuQi.png', configId: "blush", label: 'Blush' },
   { value: 'https://i.imgur.com/4pQbo7u.png', configId: "single-tear", label: 'Crying (Single)' },
   { value: 'https://i.imgur.com/Qy2o2qs.png', configId: "crying", label: 'Crying (Normal)' },
@@ -97,7 +97,9 @@ export const textureOptions = [
   { value: 'https://i.imgur.com/WCBEuD1.png', configId: "left-eye-scar", label: 'Eye Scar (Left)' },
   { value: 'https://i.imgur.com/XUKmrYw.png', configId: "freckles", label: 'Freckles 1' },
   { value: 'https://i.imgur.com/4wLTYUi.png', configId: "freckles2", label: 'Freckles 2' },
+]
 
+export const clothesOptions = [
   { value: 'https://i.imgur.com/dU0DmML.png', configId: "suspenders", label: 'Hair1' },
   { value: 'https://i.imgur.com/CiDrKgE.png', configId: "overalls", label: 'Overalls' },
   { value: 'https://i.imgur.com/ZY3ApSE.png', configId: "shawl", label: 'Shawl/Scarf' },
@@ -124,28 +126,35 @@ export const textureOptions = [
   { value: 'https://i.imgur.com/LQAg1Yn.png', configId: "heavy-armor", label: 'Clothes (Heavy Armor)' },
   { value: 'https://i.imgur.com/0h9V7uV.png', configId: "tie", label: 'Clothes (Tie)' },
   { value: 'https://i.imgur.com/fXqGw2Q.png', configId: "undertexture-vneck", label: 'Undertexture (Vneck)' },
-  { value: 'https://i.imgur.com/nwufrnw.png', configId: "undertexture-plain", label: 'Undertexture (Plain)' },
+  { value: 'https://i.imgur.com/nwufrnw.png', configId: "undertexture-plain", label: 'Undertexture (Plain)' }
+]
 
+export const bodyTypes = [
   { value: 'https://i.imgur.com/h5EdwQL.png', configId: "base-skin", label: 'Body (Basic)' },
-  { value: 'https://i.imgur.com/muPpnGU.png', configId: "doge-skin", label: 'Body (Doge)' },
+  { value: 'https://i.imgur.com/muPpnGU.png', configId: "doge-skin", label: 'Body (Doge)' }
+]
 
+export const extraOptions = [
   { value: 'https://i.imgur.com/LeSlGRW.png', configId: "knight-helmet-flare", label: 'Extra (Helm Flare)' },
   { value: 'https://i.imgur.com/W79LA7v.png', configId: "feather", label: 'Extra (Feather)' },
-  { value: 'https://i.imgur.com/LeSlGRW.png', configId: "backpack", label: 'Extra (Backpack)' },
+  { value: 'https://i.imgur.com/LeSlGRW.png', configId: "backpack", label: 'Extra (Backpack)' }
+]
 
-  { value: 'https://i.imgur.com/FrLUEev.png', configId: "tree1", label: 'Background (Tree 1)' },
-  { value: 'https://i.imgur.com/TG8Ophr.png', configId: "bkg-weapons", label: 'Background (Weapons)' },
-  { value: 'https://i.imgur.com/ht2XZLY.png', configId: "bkg-mushroom", label: 'Background (Mushroom)' },
-  { value: 'https://i.imgur.com/pY8YId2.png', configId: "cave1", label: 'Background (Cave 1)' },
-  { value: 'https://i.imgur.com/PoCPliV.png', configId: "bkg-swamp", label: 'Background (Swamp)' },
-  { value: 'https://i.imgur.com/aGkTWZI.png', configId: "bkg-shop", label: 'Background (Shop)' },
-  { value: 'https://i.imgur.com/8gPg6yi.png', configId: "bkg-pasture", label: 'Background (Pasture)' },
-  { value: 'https://i.imgur.com/Lku2mDn.png', configId: "bkg-mill", label: 'Background (Mill)' },
-  { value: 'https://i.imgur.com/KTtER0K.png', configId: "windmill", label: 'Background (Windmill)' },
-  { value: 'https://i.imgur.com/UJHThcd.png', configId: "desert", label: 'Background (Desert)' },
-  { value: 'https://i.imgur.com/2iyquL8.png', configId: "desert-ruins", label: 'Background (Desert Ruins)' },
-  { value: 'https://i.imgur.com/ZMyGm06.png', configId: "forest", label: 'Background (Forest)' },
-  { value: 'https://i.imgur.com/yWk0MK5.png', configId: "outpost", label: 'Background (Outpost)' },
-  { value: 'https://i.imgur.com/7Qo6BTl.png', configId: "mountain", label: 'Background (Mountain)' },
-  { value: 'https://i.imgur.com/QPpHgJc.png', configId: "plains", label: 'Background (Plains)' }
+export const backgroundOptions = [
+  { value: 'https://i.imgur.com/7cmrX2x.png', configId: "frame", label: 'Frame' },
+  { value: 'https://i.imgur.com/FrLUEev.png', configId: "tree1", label: 'Tree 1' },
+  { value: 'https://i.imgur.com/TG8Ophr.png', configId: "bkg-weapons", label: 'Weapons' },
+  { value: 'https://i.imgur.com/ht2XZLY.png', configId: "bkg-mushroom", label: 'Mushroom' },
+  { value: 'https://i.imgur.com/pY8YId2.png', configId: "cave1", label: 'Cave 1' },
+  { value: 'https://i.imgur.com/PoCPliV.png', configId: "bkg-swamp", label: 'Swamp' },
+  { value: 'https://i.imgur.com/aGkTWZI.png', configId: "bkg-shop", label: 'Shop' },
+  { value: 'https://i.imgur.com/8gPg6yi.png', configId: "bkg-pasture", label: 'Pasture' },
+  { value: 'https://i.imgur.com/Lku2mDn.png', configId: "bkg-mill", label: 'Mill' },
+  { value: 'https://i.imgur.com/KTtER0K.png', configId: "windmill", label: 'Windmill' },
+  { value: 'https://i.imgur.com/UJHThcd.png', configId: "desert", label: 'Desert' },
+  { value: 'https://i.imgur.com/2iyquL8.png', configId: "desert-ruins", label: 'Desert Ruins' },
+  { value: 'https://i.imgur.com/ZMyGm06.png', configId: "forest", label: 'Forest' },
+  { value: 'https://i.imgur.com/yWk0MK5.png', configId: "outpost", label: 'Outpost' },
+  { value: 'https://i.imgur.com/7Qo6BTl.png', configId: "mountain", label: 'Mountain' },
+  { value: 'https://i.imgur.com/QPpHgJc.png', configId: "plains", label: 'Plains' }
 ]

@@ -4,11 +4,11 @@
     margin: 5px auto;
     padding: 5px;
     border-radius: 10px;
-    width: 75%;
+    width: 92%;
 
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
 
     .move-prompt {
       width: 24px;
@@ -18,9 +18,20 @@
     }
 
     .selectContainer {
+      flex-grow: 20;
       min-width: 200px;
       text-align: left;
       margin-left: 5px;
+      display: flex;
+
+      .categoryDropdown {
+        width: 79px;
+      }
+
+      .textureDropdown {
+        flex-grow: 20;
+        margin-left: 5px;
+      }
     }
 
     .delete {
