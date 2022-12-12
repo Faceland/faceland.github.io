@@ -2,6 +2,7 @@ export const categoryOption = [
   { value: "headwearOptions", label: '🎩' },
   { value: "hairOptions", label: '💇' },
   { value: "extraHair", label: '✂️' },
+  { value: "eyeOptions", label: '👀️' },
   { value: "noseOptions", label: '👃' },
   { value: "mouthOptions", label: '👄' },
   { value: "faceOptions", label: '😀' },
@@ -59,6 +60,27 @@ export const extraHair = [
   { value: 'https://i.imgur.com/pZUyKdm.png', configId: "beard-full", label: 'Beard (Full)' },
   { value: 'https://i.imgur.com/dVpnNX4.png', configId: "beard-goat", label: 'Beard (Goat)' },
   { value: 'https://i.imgur.com/ehPD842.png', configId: "long-beard", label: 'Beard (Long)' }
+]
+
+export const eyeOptions = [
+  { value: 'https://i.imgur.com/hxoHQMv.png', configId: "eyebrow-angry", label: 'Eyebrows (Angry)' },
+  { value: 'https://i.imgur.com/Bmpz81S.png', configId: "eyebrow-raised", label: 'Eyebrows (Raised)' },
+  { value: 'https://i.imgur.com/a29TSPR.png', configId: "eyebrow-low", label: 'Eyebrows (Low)' },
+  { value: 'https://i.imgur.com/PFywPks.png', configId: "eyebrow-high", label: 'Eyebrows' },
+  { value: 'https://i.imgur.com/PFywPks.png', configId: "eyebrow-concern", label: 'Eyebrows (Concerned)' },
+
+  { value: 'https://i.imgur.com/Jwj03Bm.png', configId: "eyes-plain", label: 'Eyes (Plain)' },
+  { value: 'https://i.imgur.com/rDsh3JA.png', configId: "eyes-lashes", label: 'Eyes (Lashed)' },
+  { value: 'https://i.imgur.com/grilVRt.png', configId: "eyes-lashes-long", label: 'Eyes (Long Lashes)' },
+  { value: 'https://i.imgur.com/PG024CS.png', configId: "eyes-angry", label: 'Eyes (Angry)' },
+  { value: 'https://i.imgur.com/wgQJ84n.png', configId: "eyes-closed", label: 'Eyes (Closed)' },
+  { value: 'https://i.imgur.com/4Txvdm9.png', configId: "eyes-sus", label: 'Eyes (Sus)' },
+  { value: 'https://i.imgur.com/3O89OiF.png', configId: "eyes-happy", label: 'Eyes (Happy)' },
+  { value: 'https://i.imgur.com/f06HkXj.png', configId: "eyes-surprised", label: 'Eyes (Surprised)' },
+
+  { value: 'https://i.imgur.com/kX3utmb.png', configId: "pupil-dots", label: 'Pupils (Dots)' },
+  { value: 'https://i.imgur.com/VYe2aaS.png', configId: "pupil-normal", label: 'Pupils (Normal)' },
+  { value: 'https://i.imgur.com/9fwQrjb.png', configId: "pupil-dark", label: 'Pupils (Dark)' }
 ]
 
 export const noseOptions = [
