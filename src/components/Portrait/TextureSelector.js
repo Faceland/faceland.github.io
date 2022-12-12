@@ -48,7 +48,7 @@ export default (props) => {
           unstyled
           name="texture"
           options={categoryOption}
-          defaultInputValue={"🎩"}
+          defaultValue={{ value: "headwearOptions", label: '🎩' }}
           onChange={(ev) => {
             console.log(ev)
             setOptions(getList(ev.value))
