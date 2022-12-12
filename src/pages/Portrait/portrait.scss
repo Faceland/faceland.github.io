@@ -60,7 +60,7 @@
     display: flex;
 
     .imageZone {
-      flex-grow: 4;
+      width: 60%;
       border-radius: 10px;
       margin: 40px;
       background-color: #294072;
@@ -110,6 +110,7 @@
     }
 
     .listZone {
+      width: 40%;
       min-width: 425px;
       border-radius: 10px;
       margin: 40px 40px 40px 0;
