@@ -12,16 +12,16 @@ export const Portrait = (props) => {
 
   const scrollBar = useRef();
   const [state] = useContext(Context);
-  const [cardItems, setCardItems] = useState([]);
+  const [layerItems, setLayerItems] = useState([]);
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [copyText, setCopyText] = React.useState(false);
 
   // a little function to help us with reordering the result
   const reorder = (list, startIndex, endIndex) => {
-    const result = Array.from(cardItems);
+    const result = Array.from(layerItems);
     const [removed] = result.splice(startIndex, 1);
     result.splice(endIndex, 0, removed);
-    setCardItems(result)
+    setLayerItems(result)
   };
 
   const onDragEnd = (result) => {
@@ -29,7 +29,7 @@ export const Portrait = (props) => {
     if (!result.destination) {
       return;
     }
-    reorder(cardItems, result.source.index.result.destination.index)
+    reorder(layerItems, result.source.index.result.destination.index)
   }
 
   const openModal = () => {
@@ -66,18 +66,18 @@ export const Portrait = (props) => {
     layer.color = "#ffffff"
     layer.texture = null
     layer.configId = null
-    const newArray = cardItems.slice()
+    const newArray = layerItems.slice()
     newArray.push(layer)
-    setCardItems(newArray)
+    setLayerItems(newArray)
     scrollBar.current.scrollToBottom()
   }
 
   const updateLayers = () => {
-    setCardItems([...cardItems])
+    setLayerItems([...layerItems])
   }
 
   const deleteLayer = (layer) => {
-    setCardItems(cardItems.filter((loopLayer) => {
+    setLayerItems(layerItems.filter((loopLayer) => {
       return loopLayer.id !== layer.id
     }));
   }
@@ -86,10 +86,14 @@ export const Portrait = (props) => {
     return (
       <>
         <div className={"preserve-whitespace"}>npc-id-here:</div>
-        <div className={"preserve-whitespace"}> prebuilt-colors: []</div>
-        <div className={"preserve-whitespace"}> layers:</div>
-        {cardItems.map((item, index) =>
-          <div className={"preserve-whitespace"} key={index}> - "{item.configId},{item.color.toUpperCase()}"</div>
+        <div className={"preserve-whitespace"}>   prebuilt-colors: []</div>
+        <div className={"preserve-whitespace"}>   layers:</div>
+        {layerItems.map((item, index) => {
+            if (item.configId) {
+              const colorData = item.color.toUpperCase() === "#FFFFFF" ? "" : "," + item.color.toUpperCase()
+              return (<div className={"preserve-whitespace"} key={index}>   - "{item.configId}{colorData}"</div>)
+            }
+          }
         )}
       </>
     )
@@ -105,15 +109,15 @@ export const Portrait = (props) => {
             <div className={"image"}>
               <ImageRenderer
                 canvas={{height: 52, width: 52, renderer: 'P2D'}}
-                layers={cardItems}
+                layers={layerItems}
               />
             </div>
           </div>
           <div className={"listZone"}>
             <Scrollbars ref={scrollBar}>
               <DragContainer
-                layers={cardItems}
-                setLayers={setCardItems}
+                layers={layerItems}
+                setLayers={setLayerItems}
                 updateLayers={updateLayers}
                 deleteLayer={deleteLayer}
               />
