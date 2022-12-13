@@ -1,5 +1,4 @@
 import React from "react";
-import '../../App.scss'
 import './primaryButton.scss'
 
 export const PrimaryButton = (props) => {

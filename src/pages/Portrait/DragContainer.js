@@ -49,7 +49,7 @@ export class DragContainer extends Component {
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
                     >
-                      <div className="entryItem itemBkg no-select animate pop" key={layer.id}>
+                      <div className="entryItem itemBkg no-select animate pop speed-1 delay-0" key={layer.id}>
                         <div className="move-prompt">
                           ↕
                         </div>

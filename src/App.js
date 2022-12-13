@@ -1,4 +1,5 @@
 import './App.scss';
+import './animations.scss';
 
 import React from 'react';
 import {

@@ -1,6 +1,5 @@
 import React, {useState, useContext} from 'react';
 import './headerBar.scss'
-import '../../App.scss'
 import {Link} from "react-router-dom";
 import {Context} from "../../Store";
 
