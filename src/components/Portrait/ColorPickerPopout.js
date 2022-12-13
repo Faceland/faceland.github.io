@@ -7,7 +7,7 @@ import { SketchPicker } from 'react-color'
 export const ColorPickerPopout = (props) => {
 
   const [displayPicker, setDisplayPicker] = useState(false)
-  const [color, setColor] = useState({r: '93', g: '198', b: '236', a: '1'})
+  const [color, setColor] = useState({r: '255', g: '140', b: '70', a: '1'})
 
   const handleChange = (color) => {
     setColor(color.rgb)

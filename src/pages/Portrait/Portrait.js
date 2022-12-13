@@ -5,21 +5,16 @@ import './portrait.scss'
 import {v4 as uuidv4} from 'uuid';
 import Modal from 'react-modal';
 import {DragContainer} from "./DragContainer";
-import {ImageTint} from "../../components/Portrait/ImageTint";
 import {Scrollbars} from 'react-custom-scrollbars';
+import {ImageRenderer} from "../../components/Portrait/ImageRenderer";
 
 export const Portrait = (props) => {
 
   const scrollBar = useRef();
   const [state] = useContext(Context);
   const [cardItems, setCardItems] = useState([]);
-  const [layerStack, setLayerStack] = useState();
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [copyText, setCopyText] = React.useState(false);
-
-  useEffect(() => {
-    rebuildLayers(cardItems)
-  }, [cardItems]);
 
   // a little function to help us with reordering the result
   const reorder = (list, startIndex, endIndex) => {
@@ -35,26 +30,6 @@ export const Portrait = (props) => {
       return;
     }
     reorder(cardItems, result.source.index.result.destination.index)
-  }
-
-  const rebuildLayers = () => {
-    console.log("rebuild")
-    setLayerStack([])
-    setTimeout(() => {
-      setLayerStack(cardItems.map((layer, index) =>
-          layer.texture !== null &&
-          <>
-            <ImageTint
-              className="tintedIcon pixelImage"
-              canvas={{height: 52, width: 52, renderer: 'P2D'}}
-              tint={layer.color}
-              src={layer.texture}
-              draggable="false"
-            />
-          </>
-        )
-      )
-    }, 5);
   }
 
   const openModal = () => {
@@ -88,14 +63,11 @@ export const Portrait = (props) => {
     const uuid = uuidv4()
     const layer = {}
     layer.id = uuid
-    layer.color = "#5DBDEC"
+    layer.color = "#ffffff"
     layer.texture = null
     layer.configId = null
-    layer.display = null
-
     const newArray = cardItems.slice()
     newArray.push(layer)
-    console.log("new uuid: " + uuid)
     setCardItems(newArray)
     scrollBar.current.scrollToBottom()
   }
@@ -131,7 +103,10 @@ export const Portrait = (props) => {
           <div className={"imageZone"}>
             <button className={"modal-button"} onClick={openModal}>🤓</button>
             <div className={"image"}>
-              {layerStack}
+              <ImageRenderer
+                canvas={{height: 52, width: 52, renderer: 'P2D'}}
+                layers={cardItems}
+              />
             </div>
           </div>
           <div className={"listZone"}>
