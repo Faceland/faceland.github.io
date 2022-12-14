@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React, {useState} from 'react';
+import React from 'react';
 import Select from 'react-select';
 import {
   backgroundOptions,
@@ -14,9 +14,6 @@ import {
 } from "./DropdownOptions";
 
 export default (props) => {
-
-  const [texture, setTexture] = useState();
-  const [options, setOptions] = useState(backgroundOptions);
 
   const getList = (value) => {
     switch (value) {
@@ -43,6 +40,27 @@ export default (props) => {
     }
   }
 
+  const selectStyle = {
+    control: (provided, state) => ({
+      ...provided,
+      boxShadow: "none",
+      border: state.isFocused && "none",
+      borderWidth: '0px',
+      borderRadius: '0px'
+    }),
+    menu: (provided, state) => ({
+      ...provided,
+      border: "none",
+      boxShadow: "none",
+      display: "block"
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor: state.isFocused && "lightgray",
+      color: state.isFocused && "black"
+    })
+  }
+
   return (
     <>
       <div className="categoryDropdown">
@@ -50,66 +68,19 @@ export default (props) => {
           unstyled
           name="texture"
           options={categoryOption}
-          defaultValue={{ value: "backgroundOptions", label: '🗺️' }}
-          onChange={(ev) => {
-            console.log(ev)
-            setOptions(getList(ev.value))
-            setTexture(null)
-            props.changeTexture(null, null)
-          }}
-          styles={{
-            control: (provided, state) => ({
-              ...provided,
-              boxShadow: "none",
-              border: state.isFocused && "none",
-              borderWidth: '0px',
-              borderRadius: '0px'
-            }),
-            menu: (provided, state) => ({
-              ...provided,
-              border: "none",
-              boxShadow: "none",
-              display: "block"
-            }),
-            option: (provided, state) => ({
-              ...provided,
-              backgroundColor: state.isFocused && "lightgray",
-              color: state.isFocused && "black"
-            })
-          }}
+          defaultValue={props.layer.options || {value: "backgroundOptions", label: '🗺️'}}
+          onChange={(ev) => {props.changeOptions(ev)}}
+          styles={selectStyle}
         />
       </div>
       <div className="textureDropdown">
         <Select
           name="texture"
-          options={options}
-          onChange={(ev) => {
-            console.log(ev)
-            setTexture(ev)
-            props.changeTexture(ev.value, ev.configId)
-          }}
-          value={texture}
-
-          styles={{
-            control: (provided, state) => ({
-              ...provided,
-              boxShadow: "none",
-              border: state.isFocused && "none",
-              borderWidth: '0px',
-              borderRadius: '0px'
-            }),
-            menu: (provided, state) => ({
-              ...provided,
-              border: "none",
-              boxShadow: "none",
-              display: "block"
-            }),
-            option: (provided, state) => ({
-              ...provided,
-              backgroundColor: state.isFocused && "lightgray",
-              color: state.isFocused && "black"
-            })
-          }}
+          options={props.layer.options ? getList(props.layer.options.value) : backgroundOptions}
+          onChange={(ev) => {props.changeTexture(ev)}}
+          defaultValue={props.layer.selection || null}
+          value={props.layer.selection || null}
+          styles={selectStyle}
         />
       </div>
     </>

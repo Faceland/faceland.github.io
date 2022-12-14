@@ -54,6 +54,7 @@ export class DragContainer extends Component {
                           ↕
                         </div>
                         <ColorPickerPopout
+                          layer={layer}
                           changeColor={(newColor) => {
                             layer.color = newColor
                             this.props.updateLayers()
@@ -61,11 +62,17 @@ export class DragContainer extends Component {
                         />
                         <button className="selectContainer" onClick={()=>{}}>
                           <TextureSelector
-                            changeTexture={(newTexture, configId) => {
-                              layer.texture = newTexture
-                              layer.configId = configId
+                            layer={layer}
+                            changeOptions={(options) => {
+                              layer.selection = null
+                              layer.options = options
                               this.props.updateLayers()
-                          }}/>
+                            }}
+                            changeTexture={(selection) => {
+                              layer.selection = selection
+                              this.props.updateLayers()
+                            }}
+                          />
                         </button>
                         <button
                           className="delete"

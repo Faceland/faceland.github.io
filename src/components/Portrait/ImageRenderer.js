@@ -37,15 +37,15 @@ export const ImageRenderer = ({canvas, layers}) => {
 
   const cacheImages = (s, layers) => {
     layers.map((layer, index) => {
-      if (layer.texture && !getImage(layer.texture)) {
+      if (layer.selection && !getImage(layer.selection.value)) {
         s.loadImage(
-          layer.texture,
+          layer.selection.value,
           (img) => {
             console.log("[CACHED NEW IMAGE]")
-            imageCache[layer.texture] = img
+            imageCache[layer.selection.value] = img
           },
           (event) => {
-            console.warn("[FAILED TO LOAD IMAGE - " + layer.texture + "]")
+            console.warn("[FAILED TO LOAD IMAGE - " + layer.selection.value + "]")
             console.warn(event)
           });
       }
@@ -66,10 +66,12 @@ export const ImageRenderer = ({canvas, layers}) => {
     s.clear()
     s.noSmooth();
     layers.map((layer, index) => {
-      const image = getImage(layer.texture)
-      if (image) {
-        applyTint(s, layer.color)
-        s.image(image, 0, 0)
+      if (layer.selection) {
+        const image = getImage(layer.selection.value)
+        if (image) {
+          applyTint(s, layer.color?.hex || "#FFFFFF")
+          s.image(image, 0, 0)
+        }
       }
     })
   }

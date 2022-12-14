@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState, useRef, useCallback} from "react";
+import React, {useContext, useEffect, useState, useRef} from "react";
 import {HeaderBar} from "../../components/HeaderBar/HeaderBar";
 import {Context} from "../../Store";
 import './portrait.scss'
@@ -7,14 +7,23 @@ import Modal from 'react-modal';
 import {DragContainer} from "./DragContainer";
 import {Scrollbars} from 'react-custom-scrollbars';
 import {ImageRenderer} from "../../components/Portrait/ImageRenderer";
+import {defaultChoices} from "../../components/Portrait/DropdownOptions";
 
 export const Portrait = (props) => {
 
-  const scrollBar = useRef();
   const [state] = useContext(Context);
-  const [layerItems, setLayerItems] = useState([]);
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-  const [copyText, setCopyText] = React.useState(false);
+
+  const [layerItems, setLayerItems] = useState(defaultChoices)
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [copyText, setCopyText] = useState(false);
+
+  const scrollBar = useRef();
+
+  useEffect(() => {
+    setTimeout(() => {
+      updateLayers()
+    }, 3);
+  }, []);
 
   // a little function to help us with reordering the result
   const reorder = (list, startIndex, endIndex) => {
@@ -59,13 +68,13 @@ export const Portrait = (props) => {
     },
   };
 
-  const addNewLayer = () => {
+  const addNewLayer = (color, options, selection) => {
     const uuid = uuidv4()
     const layer = {}
     layer.id = uuid
-    layer.color = "#ffffff"
-    layer.texture = null
-    layer.configId = null
+    layer.color = color
+    layer.selection = selection
+    layer.options = options
     const newArray = layerItems.slice()
     newArray.push(layer)
     setLayerItems(newArray)
@@ -86,12 +95,18 @@ export const Portrait = (props) => {
     return (
       <>
         <div className={"preserve-whitespace"}>npc-id-here:</div>
-        <div className={"preserve-whitespace"}>   prebuilt-colors: []</div>
-        <div className={"preserve-whitespace"}>   layers:</div>
-        {layerItems.map((item, index) => {
-            if (item.configId) {
-              const colorData = item.color.toUpperCase() === "#FFFFFF" ? "" : "," + item.color.toUpperCase()
-              return (<div className={"preserve-whitespace"} key={index}>   - "{item.configId}{colorData}"</div>)
+        <div className={"preserve-whitespace"}> prebuilt-colors: []</div>
+        <div className={"preserve-whitespace"}> layers:</div>
+        {layerItems.map((layer, index) => {
+            if (layer.selection.configId) {
+              let colorData
+              if (layer.color) {
+                colorData = layer.color.hex.toUpperCase()
+                colorData = colorData !== "#FFFFFF" ? colorData : ''
+              } else {
+                colorData = ''
+              }
+              return (<div className={"preserve-whitespace"} key={index}> - "{layer.selection.configId}{colorData}"</div>)
             }
           }
         )}
@@ -122,7 +137,7 @@ export const Portrait = (props) => {
                 deleteLayer={deleteLayer}
               />
               <div className="entryItem addBkg no-select" onClick={() => {
-                addNewLayer();
+                addNewLayer(undefined, undefined, undefined);
               }}><p>+</p></div>
             </Scrollbars>
           </div>

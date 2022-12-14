@@ -7,11 +7,11 @@ import { SketchPicker } from 'react-color'
 export const ColorPickerPopout = (props) => {
 
   const [displayPicker, setDisplayPicker] = useState(false)
-  const [color, setColor] = useState({r: '255', g: '140', b: '70', a: '1'})
+  const [color, setColor] = useState(props.layer.color || {r: '255', g: '140', b: '70', a: '1'})
 
   const handleChange = (color) => {
     setColor(color.rgb)
-    props.changeColor(color.hex)
+    props.changeColor(color)
   };
 
   const handleClick = () => {
@@ -58,7 +58,10 @@ export const ColorPickerPopout = (props) => {
       </div>
       {displayPicker ? <div style={styles.popover}>
         <div style={styles.cover} onClick={handleClose}/>
-        <SketchPicker color={color} onChange={handleChange} contenteditable/>
+        <SketchPicker
+          color={color}
+          onChange={handleChange}
+        />
       </div> : null}
     </button>
   )
