@@ -62,8 +62,7 @@ export const ImageRenderer = ({canvas, layers}) => {
     }, 50);
     cacheImages(s, layers)
     s.clear()
-    const loopArray = [...layers].reverse()
-    loopArray.map((layer, index) => {
+    layers.map((layer, index) => {
       const image = getImage(layer.texture)
       if (image) {
         applyTint(s, layer.color)

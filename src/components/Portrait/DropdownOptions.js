@@ -1,14 +1,14 @@
 export const categoryOption = [
-  { value: "headwearOptions", label: '🎩' },
+  { value: "backgroundOptions", label: '🗺️' },
+  { value: "bodyTypes", label: '🧍' },
+  { value: "clothesOptions", label: '👗' },
   { value: "hairOptions", label: '💇' },
   { value: "eyeOptions", label: '👀️' },
   { value: "noseOptions", label: '👃' },
   { value: "mouthOptions", label: '👄' },
-  { value: "faceOptions", label: '😀' },
   { value: "extraHair", label: '🧔️' },
-  { value: "clothesOptions", label: '👗' },
-  { value: "bodyTypes", label: '🧍' },
-  { value: "backgroundOptions", label: '🗺️' },
+  { value: "faceOptions", label: '😀' },
+  { value: "headwearOptions", label: '🎩' }
 ]
 
 export const headwearOptions = [

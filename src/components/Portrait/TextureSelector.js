@@ -16,7 +16,7 @@ import {
 export default (props) => {
 
   const [texture, setTexture] = useState();
-  const [options, setOptions] = useState(headwearOptions);
+  const [options, setOptions] = useState(backgroundOptions);
 
   const getList = (value) => {
     switch (value) {
@@ -50,7 +50,7 @@ export default (props) => {
           unstyled
           name="texture"
           options={categoryOption}
-          defaultValue={{ value: "headwearOptions", label: '🎩' }}
+          defaultValue={{ value: "backgroundOptions", label: '🗺️' }}
           onChange={(ev) => {
             console.log(ev)
             setOptions(getList(ev.value))

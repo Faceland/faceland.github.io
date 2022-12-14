@@ -67,7 +67,7 @@ export const Portrait = (props) => {
     layer.texture = null
     layer.configId = null
     const newArray = layerItems.slice()
-    newArray.unshift(layer)
+    newArray.push(layer)
     setLayerItems(newArray)
     scrollBar.current.scrollToTop()
   }

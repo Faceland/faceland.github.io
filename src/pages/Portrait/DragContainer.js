@@ -42,14 +42,14 @@ export class DragContainer extends Component {
               ref={provided.innerRef}
             >
               {this.props.layers.map((layer, index) => (
-                <Draggable key={layer.id} draggableId={layer.id} index={index}>
+                <Draggable className="no-select" key={layer.id} draggableId={layer.id} index={index}>
                   {(provided, snapshot) => (
                     <div
                       ref={provided.innerRef}
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
                     >
-                      <div className="entryItem itemBkg no-select animate pop speed-1 delay-0" key={layer.id}>
+                      <div className="entryItem itemBkg" key={layer.id}>
                         <div className="move-prompt">
                           ↕
                         </div>
