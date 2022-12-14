@@ -97,6 +97,18 @@
         }
 
         .p5Canvas {
+
+          -ms-interpolation-mode: nearest-neighbor;
+          image-rendering: -webkit-optimize-contrast;
+
+          image-rendering: pixelated;
+          image-rendering: -o-pixelated;
+
+          image-rendering: crisp-edges;
+          image-rendering: -webkit-crisp-edges;
+          image-rendering: -moz-crisp-edges;
+          image-rendering: -o-crisp-edges;
+
           position: absolute;
           display: block;
           top: 0;

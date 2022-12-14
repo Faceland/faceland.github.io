@@ -26,6 +26,8 @@ export const ImageRenderer = ({canvas, layers}) => {
       const p5Canvas = s.createCanvas(canvas.width, canvas.height)
       setTimeout(() => {
         p5Canvas.parent("canvas-container");
+        ///const imgCanvas = document.getElementById('canvas-container')
+        ///imgCanvas.context.imageSmoothingEnabled = false
       }, 50);
     }
     s.draw = () => {
@@ -62,6 +64,7 @@ export const ImageRenderer = ({canvas, layers}) => {
     }, 50);
     cacheImages(s, layers)
     s.clear()
+    s.noSmooth();
     layers.map((layer, index) => {
       const image = getImage(layer.texture)
       if (image) {
@@ -86,6 +89,6 @@ export const ImageRenderer = ({canvas, layers}) => {
   }
 
   return (
-    <div id="canvas-container" className="pixelImage"/>
+    <div id="canvas-container"/>
   )
 }

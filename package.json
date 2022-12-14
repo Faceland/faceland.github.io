@@ -24,6 +24,7 @@
     "react-flexbox-grid": "^2.1.2",
     "react-icon-tint": "^2.4.2",
     "react-modal": "^3.12.1",
+    "react-router": "^6.4.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "react-select": "^5.2.1",
