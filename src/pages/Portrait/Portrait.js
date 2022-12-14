@@ -8,6 +8,7 @@ import {DragContainer} from "./DragContainer";
 import {Scrollbars} from 'react-custom-scrollbars';
 import {ImageRenderer} from "../../components/Portrait/ImageRenderer";
 import {defaultChoices} from "../../components/Portrait/DropdownOptions";
+import {Footer} from "../../components/Footer/Footer";
 
 export const Portrait = (props) => {
 
@@ -151,6 +152,7 @@ export const Portrait = (props) => {
           </Modal>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }
