@@ -1,8 +1,9 @@
-import React, {Component} from "react";
+import React, {Component, useContext} from "react";
 import {DragDropContext, Droppable, Draggable} from "react-beautiful-dnd";
 import './portrait.scss'
 import TextureSelector from "../../components/Portrait/TextureSelector";
 import {ColorPickerPopout} from "../../components/Portrait/ColorPickerPopout";
+import {Context} from "../../Store";
 
 const reorder = (list, startIndex, endIndex) => {
   const result = Array.from(list);
@@ -11,85 +12,80 @@ const reorder = (list, startIndex, endIndex) => {
   return result;
 };
 
-export class DragContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.onDragEnd = this.onDragEnd.bind(this);
-  }
+export const DragContainer = (props) => {
 
-  onDragEnd(result) {
-    // dropped outside the list
+  const [state] = useContext(Context);
+
+  const onDragEnd = (result) => {
     if (!result.destination) {
       return;
     }
     const items = reorder(
-      this.props.layers,
+      props.layers,
       result.source.index,
       result.destination.index
     );
-    this.props.setLayers(items)
+    props.setLayers(items)
   }
 
-  // Normally you would want to split things out into separate components.
-  // But in this example everything is just done in one place for simplicity
-  render() {
-    return (
-      <DragDropContext onDragEnd={this.onDragEnd}>
-        <Droppable droppableId="droppable">
-          {(provided, snapshot) => (
-            <div
-              {...provided.droppableProps}
-              ref={provided.innerRef}
-            >
-              {this.props.layers.map((layer, index) => (
-                <Draggable className="no-select" key={layer.id} draggableId={layer.id} index={index}>
-                  {(provided, snapshot) => (
-                    <div
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                    >
-                      <div className="entryItem itemBkg" key={layer.id}>
-                        <div className="move-prompt">
-                          ↕
-                        </div>
-                        <ColorPickerPopout
+  const MoveButton = () => {
+    return <div className="move-prompt">↕</div>
+  }
+
+  const DeleteButton = (layer) => {
+    return <button className="delete" onClick={() => {props.deleteLayer(layer)}}>🗑</button>
+  }
+
+  return (
+    <DragDropContext onDragEnd={onDragEnd}>
+      <Droppable droppableId="droppable">
+        {(provided, snapshot) => (
+          <div
+            {...provided.droppableProps}
+            ref={provided.innerRef}
+          >
+            {props.layers.map((layer, index) => (
+              <Draggable className="no-select" key={layer.id} draggableId={layer.id} index={index}>
+                {(provided, snapshot) => (
+                  <div
+                    ref={provided.innerRef}
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                  >
+                    <div className="entryItem itemBkg" key={layer.id}>
+                      {state.mobile ? <DeleteButton layer={layer}/> : <MoveButton/>}
+                      <ColorPickerPopout
+                        layer={layer}
+                        changeColor={(newColor) => {
+                          layer.color = newColor
+                          props.updateLayers()
+                        }}
+                      />
+                      <button className="selectContainer" onClick={() => {
+                      }}>
+                        <TextureSelector
                           layer={layer}
-                          changeColor={(newColor) => {
-                            layer.color = newColor
-                            this.props.updateLayers()
+                          changeOptions={(options) => {
+                            layer.selection = undefined
+                            layer.options = options
+                            props.updateLayers()
+                          }}
+                          changeTexture={(selection) => {
+                            layer.selection = selection
+                            props.updateLayers()
                           }}
                         />
-                        <button className="selectContainer" onClick={()=>{}}>
-                          <TextureSelector
-                            layer={layer}
-                            changeOptions={(options) => {
-                              layer.selection = undefined
-                              layer.options = options
-                              this.props.updateLayers()
-                            }}
-                            changeTexture={(selection) => {
-                              layer.selection = selection
-                              this.props.updateLayers()
-                            }}
-                          />
-                        </button>
-                        <button
-                          className="delete"
-                          onClick={() => {this.props.deleteLayer(layer)}}
-                        >
-                          🗑
-                        </button>
-                      </div>
+                      </button>
+                      {state.mobile ? <MoveButton/> : <DeleteButton layer={layer}/>}
                     </div>
-                  )}
-                </Draggable>
-              ))}
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable>
-      </DragDropContext>
-    );
-  }
+                  </div>
+                )}
+              </Draggable>
+            ))}
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
+    </DragDropContext>
+  );
 }

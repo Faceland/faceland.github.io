@@ -4,12 +4,11 @@ import {Context} from "../../Store";
 import './portrait.scss'
 import {v4 as uuidv4} from 'uuid';
 import Modal from 'react-modal';
-import {DragContainer} from "./DragContainer";
 import {Scrollbars} from 'react-custom-scrollbars';
 import {ImageRenderer} from "../../components/Portrait/ImageRenderer";
 import {defaultChoices, getDataFromConfigId} from "../../components/Portrait/DropdownOptions";
-import {Footer} from "../../components/Footer/Footer";
 import {useSearchParams} from "react-router-dom";
+import {DragContainer} from "./DragContainer";
 
 export const Portrait = (props) => {
 
@@ -167,44 +166,83 @@ export const Portrait = (props) => {
     )
   }
 
-  return (
-    <div className="App Portrait">
-      <HeaderBar fancy={false}/>
-      <div className="basicPage">
-        <div className={"palsBox"}>
-          <div className={"imageZone"}>
-            <button className={"modal-button"} onClick={openModal}>🤓</button>
-            <div className={"image"}>
+  const modal = (
+    <Modal
+      isOpen={modalIsOpen}
+      onRequestClose={closeModal}
+      style={modalStyle}
+      contentLabel="npc copypasta"
+    >
+      {copyText}
+    </Modal>
+  )
+
+  const desktopLayout = (
+    <div className="basicPage">
+      <div className={"palsBox"}>
+        <div className={"imageZone"}>
+          <button className={"modal-button"} onClick={openModal}>🤓</button>
+          <div className={"image"}>
+            <ImageRenderer
+              canvas={{height: 52, width: 52, renderer: 'P2D'}}
+              layers={layerItems}
+            />
+          </div>
+        </div>
+        <div className={"listZone"}>
+          <Scrollbars ref={scrollBar}>
+            <DragContainer
+              layers={layerItems}
+              setLayers={setLayerItems}
+              updateLayers={updateLayers}
+              deleteLayer={deleteLayer}
+            />
+            <div className="entryItem addBkg no-select" onClick={() => {
+              addNewLayer({hex: "#FFFFFF", rgb: {r: 255, g: 255, b: 255, a: 1}}, undefined, undefined);
+            }}><p>+</p></div>
+          </Scrollbars>
+        </div>
+        {modal}
+      </div>
+    </div>
+  )
+
+  const mobileLayout = (
+    <div className="basicPage">
+      <div className="mobileContainer">
+        <div className="portraitContainer">
+          <div className="mobileImageZone">
+            <button className="modal-button" onClick={openModal}>🤓</button>
+            <div className="image">
               <ImageRenderer
                 canvas={{height: 52, width: 52, renderer: 'P2D'}}
                 layers={layerItems}
               />
             </div>
           </div>
-          <div className={"listZone"}>
-            <Scrollbars ref={scrollBar}>
-              <DragContainer
-                layers={layerItems}
-                setLayers={setLayerItems}
-                updateLayers={updateLayers}
-                deleteLayer={deleteLayer}
-              />
-              <div className="entryItem addBkg no-select" onClick={() => {
-                addNewLayer({hex: "#FFFFFF", rgb: {r: 255, g: 255, b: 255, a: 1}}, undefined, undefined);
-              }}><p>+</p></div>
-            </Scrollbars>
-          </div>
-          <Modal
-            isOpen={modalIsOpen}
-            onRequestClose={closeModal}
-            style={modalStyle}
-            contentLabel="npc copypasta"
-          >
-            {copyText}
-          </Modal>
+        </div>
+        <div className="listContainer">
+          <Scrollbars ref={scrollBar}>
+            <DragContainer
+              layers={layerItems}
+              setLayers={setLayerItems}
+              updateLayers={updateLayers}
+              deleteLayer={deleteLayer}
+            />
+            <div className="entryItem addBkg no-select" onClick={() => {
+              addNewLayer({hex: "#FFFFFF", rgb: {r: 255, g: 255, b: 255, a: 1}}, undefined, undefined);
+            }}><p>+</p></div>
+          </Scrollbars>
+          {modal}
         </div>
       </div>
-      <Footer/>
+    </div>
+  )
+
+  return (
+    <div className="App Portrait">
+      <HeaderBar fancy={false}/>
+      {state.mobile ? mobileLayout : desktopLayout}
     </div>
   );
 }
