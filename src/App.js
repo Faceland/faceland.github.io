@@ -2,7 +2,7 @@ import './App.scss';
 import './animations.scss';
 
 import React from 'react';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import {HashRouter as Router, Routes, Route} from "react-router-dom";
 import Store from './Store'
 
 import {HeaderBar} from "./components/HeaderBar/HeaderBar";
