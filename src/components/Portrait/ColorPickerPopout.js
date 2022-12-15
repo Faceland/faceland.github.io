@@ -7,10 +7,10 @@ import { SketchPicker } from 'react-color'
 export const ColorPickerPopout = (props) => {
 
   const [displayPicker, setDisplayPicker] = useState(false)
-  const [color, setColor] = useState(props.layer.color || {r: '255', g: '140', b: '70', a: '1'})
+  const [color, setColor] = useState(props.layer.color)
 
   const handleChange = (color) => {
-    setColor(color.rgb)
+    setColor(color)
     props.changeColor(color)
   };
 
@@ -28,7 +28,7 @@ export const ColorPickerPopout = (props) => {
         width: '28px',
         height: '28px',
         borderRadius: '2px',
-        background: `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`,
+        background: `rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, ${color.rgb.a})`,
       },
       swatch: {
         padding: '5px',
@@ -59,7 +59,7 @@ export const ColorPickerPopout = (props) => {
       {displayPicker ? <div style={styles.popover}>
         <div style={styles.cover} onClick={handleClose}/>
         <SketchPicker
-          color={color}
+          color={props.layer.color.rgb}
           onChange={handleChange}
         />
       </div> : null}

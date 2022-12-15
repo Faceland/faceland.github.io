@@ -7,9 +7,9 @@ import Modal from 'react-modal';
 import {DragContainer} from "./DragContainer";
 import {Scrollbars} from 'react-custom-scrollbars';
 import {ImageRenderer} from "../../components/Portrait/ImageRenderer";
-import {defaultChoices} from "../../components/Portrait/DropdownOptions";
+import {defaultChoices, getDataFromConfigId} from "../../components/Portrait/DropdownOptions";
 import {Footer} from "../../components/Footer/Footer";
-import { useSearchParams } from "react-router-dom";
+import {useSearchParams} from "react-router-dom";
 
 export const Portrait = (props) => {
 
@@ -24,14 +24,60 @@ export const Portrait = (props) => {
   const scrollBar = useRef();
 
   useEffect(() => {
-    setTimeout(() => {
-      if (searchParams.get("data")) {
-        setLayerItems([])
-      } else {
-        setLayerItems(defaultChoices)
-      }
-    }, 3);
+    if (searchParams.get("data")) {
+      setLayerItems(parseQueryData(searchParams.get("data")))
+    } else {
+      setLayerItems(defaultChoices)
+    }
   }, []);
+
+  useEffect(() => {
+    buildQueryData(layerItems)
+  }, [layerItems]);
+
+  const buildQueryData = (layerItems) => {
+    let dataLayers = []
+    for (let l of layerItems) {
+      if (l.selection) {
+        dataLayers.push(l.selection.configId + (l.color ? "_" + l.color.hex.replace("#", '') : "_FFFFFF"))
+      }
+    }
+    if (dataLayers.length === 0) {
+      setSearchParams({})
+    } else {
+      setSearchParams({data: dataLayers.join("~")})
+    }
+  }
+
+  const parseQueryData = (data) => {
+    const newLayerItems = []
+    const layers = data.split('~')
+    for (let l of layers) {
+      let color = {}
+      let configId
+      const layerAndColor = l.split('_')
+      configId = layerAndColor[0]
+      if (layerAndColor.length === 1) {
+        color.hex = "#FFFFFF"
+      } else {
+        color.hex = "#" + layerAndColor[1]
+      }
+      color.rgb = hexToRgba(color.hex)
+      const selectionData = getDataFromConfigId(configId)
+      newLayerItems.push(createLayer(color, selectionData.option, selectionData.selection))
+    }
+    return newLayerItems
+  }
+
+  const hexToRgba = (hex) => {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16),
+      a: 1
+    } : null;
+  }
 
   // a little function to help us with reordering the result
   const reorder = (list, startIndex, endIndex) => {
@@ -76,13 +122,12 @@ export const Portrait = (props) => {
     },
   };
 
+  const createLayer = (color, options, selection) => {
+    return {id: uuidv4(), color: color, selection: selection, options: options}
+  }
+
   const addNewLayer = (color, options, selection) => {
-    const uuid = uuidv4()
-    const layer = {}
-    layer.id = uuid
-    layer.color = color
-    layer.selection = selection
-    layer.options = options
+    const layer = createLayer(color, selection, options)
     const newArray = layerItems.slice()
     newArray.push(layer)
     setLayerItems(newArray)
@@ -91,7 +136,6 @@ export const Portrait = (props) => {
 
   const updateLayers = () => {
     setLayerItems([...layerItems])
-    //setSearchParams({ hello: "world"  });
   }
 
   const deleteLayer = (layer) => {
@@ -146,7 +190,7 @@ export const Portrait = (props) => {
                 deleteLayer={deleteLayer}
               />
               <div className="entryItem addBkg no-select" onClick={() => {
-                addNewLayer(undefined, undefined, undefined);
+                addNewLayer({hex: "#FFFFFF", rgb: {r: 255, g: 255, b: 255, a: 1}}, undefined, undefined);
               }}><p>+</p></div>
             </Scrollbars>
           </div>

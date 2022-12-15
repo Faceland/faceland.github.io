@@ -6,39 +6,14 @@ import {
   bodyTypes,
   categoryOption, clothesOptions,
   extraHair, eyeOptions,
-  faceOptions,
+  faceOptions, getOptions, getSelections,
   hairOptions,
   headwearOptions,
   mouthOptions,
-  noseOptions
+  noseOptions, textureSelections
 } from "./DropdownOptions";
 
 export default (props) => {
-
-  const getList = (value) => {
-    switch (value) {
-      case "headwearOptions":
-        return headwearOptions;
-      case "hairOptions":
-        return hairOptions;
-      case "extraHair":
-        return extraHair;
-      case "noseOptions":
-        return noseOptions;
-      case "eyeOptions":
-        return eyeOptions;
-      case "mouthOptions":
-        return mouthOptions;
-      case "faceOptions":
-        return faceOptions;
-      case "clothesOptions":
-        return clothesOptions;
-      case "bodyTypes":
-        return bodyTypes;
-      case "backgroundOptions":
-        return backgroundOptions;
-    }
-  }
 
   const selectStyle = {
     control: (provided, state) => ({
@@ -67,8 +42,8 @@ export default (props) => {
         <Select
           unstyled
           name="texture"
-          options={categoryOption}
-          defaultValue={props.layer.options || {value: "backgroundOptions", label: '🗺️'}}
+          options={getOptions()}
+          defaultValue={props.layer.options || textureSelections[0].option}
           onChange={(ev) => {props.changeOptions(ev)}}
           styles={selectStyle}
         />
@@ -76,7 +51,9 @@ export default (props) => {
       <div className="textureDropdown">
         <Select
           name="texture"
-          options={props.layer.options ? getList(props.layer.options.value) : backgroundOptions}
+          options={props.layer.options ?
+            getSelections(props.layer.options) :
+            getSelections(textureSelections[0].option)}
           onChange={(ev) => {props.changeTexture(ev)}}
           defaultValue={props.layer.selection || null}
           value={props.layer.selection || null}
