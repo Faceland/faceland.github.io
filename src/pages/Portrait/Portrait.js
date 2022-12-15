@@ -9,8 +9,11 @@ import {Scrollbars} from 'react-custom-scrollbars';
 import {ImageRenderer} from "../../components/Portrait/ImageRenderer";
 import {defaultChoices} from "../../components/Portrait/DropdownOptions";
 import {Footer} from "../../components/Footer/Footer";
+import { useSearchParams } from "react-router-dom";
 
 export const Portrait = (props) => {
+
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const [state] = useContext(Context);
 
@@ -23,6 +26,9 @@ export const Portrait = (props) => {
   useEffect(() => {
     setTimeout(() => {
       updateLayers()
+      //console.log(searchParams.get("hello"))
+      //setSearchParams({ hello: "world"  });
+      //console.log(searchParams.toString())
     }, 3);
   }, []);
 

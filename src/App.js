@@ -2,11 +2,7 @@ import './App.scss';
 import './animations.scss';
 
 import React from 'react';
-import {
-  HashRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Store from './Store'
 
 import {HeaderBar} from "./components/HeaderBar/HeaderBar";
@@ -16,40 +12,21 @@ import {ShuffleCollection} from "./components/Shuffle/ShuffleCollection";
 import {Home} from "./pages/Home/Home";
 import {DiscordWidget} from "./components/DiscordWidget/DiscordWidget"
 import {Guide} from "./pages/Guide/Guide";
-import {Map} from "./pages/Map/Map";
 import {Portrait} from "./pages/Portrait/Portrait";
 
 function App() {
-  // Handle discord subdomain, redirect to invite
-  let host = window.location.host;
-  let parts = host.split(".");
-  if (parts.length >= 2) {
-    if (parts[0] === "discord") {
-      window.location.href = 'https://discord.gg/VUkE7Db4a8';
-      return <div>Redirecting To Discord...</div>
-    }
-  }
+
   return (
     <Router>
       <Store>
         <MobileStateHandler/>
-        <Switch>
-          <Route path="/about">
-            <About/>
-          </Route>
-          <Route path="/guide">
-            <Guide/>
-          </Route>
-          <Route path="/map">
-            <Map/>
-          </Route>
-          <Route path="/facepals">
-            <Portrait/>
-          </Route>
-          <Route path="/">
-            <Home/>
-          </Route>
-        </Switch>
+        <Routes>
+          <Route index element={<Home/>}/>
+          <Route path="about" element={<About/>}/>
+          <Route path="guide" element={<Guide/>}/>
+          <Route path="facepals/*" element={<Portrait/>}/>
+          <Route path="*" element={<Home/>}/>
+        </Routes>
       </Store>
     </Router>
   );
@@ -59,8 +36,9 @@ function About() {
   return (
     <div className="App">
       <HeaderBar fancy={false}/>
-      <div className="basicPage pixelImage"
-           style={{marginTop: "50px", backgroundImage: "url(https://i.imgur.com/qiV4xVw.png)", backgroundSize: 128}}>
+      <div
+        className="basicPage pixelImage"
+        style={{marginTop: "50px", backgroundImage: "url(https://i.imgur.com/qiV4xVw.png)", backgroundSize: 128}}>
         <ShuffleCollection/>
       </div>
       <DiscordWidget/>
