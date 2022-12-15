@@ -155,7 +155,7 @@ export const Portrait = (props) => {
               let colorData
               if (layer.color) {
                 colorData = layer.color.hex.toUpperCase()
-                colorData = colorData !== "#FFFFFF" ? colorData : ''
+                colorData = colorData !== "#FFFFFF" ? "," + colorData : ''
               } else {
                 colorData = ''
               }
