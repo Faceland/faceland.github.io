@@ -76,7 +76,7 @@ export const Portrait = (props) => {
       g: parseInt(result[2], 16),
       b: parseInt(result[3], 16),
       a: 1
-    } : null;
+    } : {r: 255, g: 255, b: 255, a: 1};
   }
 
   // a little function to help us with reordering the result

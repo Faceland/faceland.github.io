@@ -28,7 +28,7 @@ export const ColorPickerPopout = (props) => {
         width: '28px',
         height: '28px',
         borderRadius: '2px',
-        background: `rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, ${color.rgb.a})`,
+        background: `rgba(${color.rgb?.r || 255}, ${color.rgb?.g || 255}, ${color.rgb?.b || 255}, 1)`,
       },
       swatch: {
         padding: '5px',
