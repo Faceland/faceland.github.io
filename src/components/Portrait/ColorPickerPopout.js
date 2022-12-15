@@ -22,13 +22,21 @@ export const ColorPickerPopout = (props) => {
     setDisplayPicker(false)
   };
 
+  const swatchStyleFallback = () => {
+    if (color.rgb) {
+      return color.rgb.r + "," + color.rgb.g + "," + + color.rgb.b + "," + 1
+    } else {
+      return "255,255,255,1"
+    }
+  }
+
   const styles = reactCSS({
     'default': {
       color: {
         width: '28px',
         height: '28px',
         borderRadius: '2px',
-        background: `rgba(${color.rgb?.r || 255}, ${color.rgb?.g || 255}, ${color.rgb?.b || 255}, 1)`,
+        background: `rgba(${swatchStyleFallback})`,
       },
       swatch: {
         padding: '5px',
