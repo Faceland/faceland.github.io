@@ -51,12 +51,10 @@ export default (props) => {
       <div className="textureDropdown">
         <Select
           name="texture"
-          options={props.layer.options ?
-            getSelections(props.layer.options) :
-            getSelections(textureSelections[0].option)}
+          options={props.layer.options ? getSelections(props.layer.options) : getSelections(textureSelections[0].option)}
           onChange={(ev) => {props.changeTexture(ev)}}
-          defaultValue={props.layer.selection || null}
-          value={props.layer.selection || null}
+          defaultValue={props.layer.selection}
+          value={props.layer.selection}
           styles={selectStyle}
         />
       </div>

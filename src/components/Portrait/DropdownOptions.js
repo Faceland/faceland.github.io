@@ -197,7 +197,7 @@ export const getOptions = () => {
 
 export const getSelections = (option) => {
   for (let obj of textureSelections) {
-    if (obj.option === option) {
+    if (obj.option.value === option.value) {
       return obj.textures
     }
   }
@@ -218,26 +218,32 @@ export const getDataFromConfigId = (configId) => {
 export const defaultChoices = [
   {
     id: uuidv4(),
-    color: undefined,
+    color: {rgb: {r: 216, g: 255, b: 178, a: 1}, hex: "#D8FFB2"},
     options: {value: "backgroundOptions", label: '🗺️'},
     selection: {value: 'https://i.imgur.com/QPpHgJc.png', configId: "plains", label: 'Plains'}
   },
   {
     id: uuidv4(),
-    color: undefined,
+    color: {rgb: {r: 255, g: 242, b: 224, a: 1}, hex: "#FFF2E0"},
     options: {value: "bodyTypes", label: '🧍'},
     selection: {value: 'https://i.imgur.com/h5EdwQL.png', configId: "base-skin", label: 'Body (Basic)'}
   },
   {
     id: uuidv4(),
-    color: {r: 209, g: 37, b: 58, a: 1, hex: "#D1253A"},
+    color: {rgb: {r: 209, g: 37, b: 58, a: 1}, hex: "#D1253A"},
     options: {value: "clothesOptions", label: '👗'},
     selection: {value: 'https://i.imgur.com/jXSFyPx.png', configId: "short-sleeve-shirt", label: 'Short Sleeve Shirt'}
   },
   {
     id: uuidv4(),
-    color: undefined,
+    color: {rgb: {r: 255, g: 255, b: 255, a: 1}, hex: "#ffffff"},
     options: {value: "eyeOptions", label: '👀️'},
-    selection: {value: 'https://i.imgur.com/kX3utmb.png', configId: "pupil-dots", label: 'Pupils (Dots)'}
+    selection: {value: 'https://i.imgur.com/Jwj03Bm.png', configId: "eyes-plain", label: 'Eyes (Plain)'}
+  },
+  {
+    id: uuidv4(),
+    color: {rgb: {r: 92, g: 171, b: 255, a: 1}, hex: "#5CABFF"},
+    options: {value: "eyeOptions", label: '👀️'},
+    selection: {value: 'https://i.imgur.com/VYe2aaS.png', configId: "pupil-normal", label: 'Pupils (Normal)'}
   }
 ]

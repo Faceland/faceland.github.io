@@ -64,7 +64,7 @@ export class DragContainer extends Component {
                           <TextureSelector
                             layer={layer}
                             changeOptions={(options) => {
-                              layer.selection = null
+                              layer.selection = undefined
                               layer.options = options
                               this.props.updateLayers()
                             }}
