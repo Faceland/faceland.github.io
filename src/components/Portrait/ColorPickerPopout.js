@@ -23,10 +23,10 @@ export const ColorPickerPopout = (props) => {
   };
 
   const swatchStyleFallback = () => {
-    if (color.rgb) {
-      return color.rgb.r + "," + color.rgb.g + "," + + color.rgb.b + "," + 1
+    if (color && color.rgb) {
+      return color.rgb.r + "," + color.rgb.g + "," + + color.rgb.b + ",1"
     } else {
-      return "255,255,255,1"
+      return "53,255,209,1"
     }
   }
 
@@ -67,7 +67,7 @@ export const ColorPickerPopout = (props) => {
       {displayPicker ? <div style={styles.popover}>
         <div style={styles.cover} onClick={handleClose}/>
         <SketchPicker
-          color={props.layer.color.rgb}
+          color={props.layer.color ? props.layer.color.rgb : {r: 53, g: 255, b: 209}}
           onChange={handleChange}
         />
       </div> : null}

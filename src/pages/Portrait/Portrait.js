@@ -24,13 +24,11 @@ export const Portrait = (props) => {
   const scrollBar = useRef();
 
   useEffect(() => {
-    setTimeout(() => {
-      if (searchParams.get("data")) {
-        setLayerItems(parseQueryData(searchParams.get("data")))
-      } else {
-        setLayerItems(defaultChoices)
-      }
-    }, 50)
+    if (searchParams.get("data")) {
+      setLayerItems(parseQueryData(searchParams.get("data")))
+    } else {
+      setLayerItems(defaultChoices)
+    }
   }, []);
 
   useEffect(() => {
