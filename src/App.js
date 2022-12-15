@@ -13,6 +13,7 @@ import {Home} from "./pages/Home/Home";
 import {DiscordWidget} from "./components/DiscordWidget/DiscordWidget"
 import {Guide} from "./pages/Guide/Guide";
 import {Portrait} from "./pages/Portrait/Portrait";
+import {Map} from "./pages/Map/Map";
 
 function App() {
 
@@ -24,7 +25,8 @@ function App() {
           <Route index element={<Home/>}/>
           <Route path="about" element={<About/>}/>
           <Route path="guide" element={<Guide/>}/>
-          <Route path="facepals/*" element={<Portrait/>}/>
+          <Route path="map" element={<Map/>}/>
+          <Route path="facepals" element={<Portrait/>}/>
           <Route path="*" element={<Home/>}/>
         </Routes>
       </Store>

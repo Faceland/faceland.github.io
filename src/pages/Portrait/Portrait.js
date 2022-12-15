@@ -17,7 +17,7 @@ export const Portrait = (props) => {
 
   const [state] = useContext(Context);
 
-  const [layerItems, setLayerItems] = useState(defaultChoices)
+  const [layerItems, setLayerItems] = useState([])
   const [modalIsOpen, setIsOpen] = useState(false);
   const [copyText, setCopyText] = useState(false);
 
@@ -25,10 +25,11 @@ export const Portrait = (props) => {
 
   useEffect(() => {
     setTimeout(() => {
-      updateLayers()
-      //console.log(searchParams.get("hello"))
-      //setSearchParams({ hello: "world"  });
-      //console.log(searchParams.toString())
+      if (searchParams.get("data")) {
+        setLayerItems([])
+      } else {
+        setLayerItems(defaultChoices)
+      }
     }, 3);
   }, []);
 
@@ -90,6 +91,7 @@ export const Portrait = (props) => {
 
   const updateLayers = () => {
     setLayerItems([...layerItems])
+    //setSearchParams({ hello: "world"  });
   }
 
   const deleteLayer = (layer) => {

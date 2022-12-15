@@ -1,7 +1,7 @@
 {
-  "homepage": "/",
-  "name": "dumb-react-template",
-  "version": "0.1.0",
+  "homepage": "https://face.land",
+  "name": "faceland-website",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
