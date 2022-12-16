@@ -1,4 +1,4 @@
-import React, {Component, useContext} from "react";
+import React, {useContext} from "react";
 import {DragDropContext, Droppable, Draggable} from "react-beautiful-dnd";
 import './portrait.scss'
 import TextureSelector from "../../components/Portrait/TextureSelector";

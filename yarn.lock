@@ -8459,6 +8459,11 @@
     "@babel/runtime" "^7.3.1"
     "prop-types" "^15.5.8"
 
+"react-swipeable@^7.0.0":
+  "integrity" "sha512-NI7KGfQ6gwNFN0Hor3vytYW3iRfMMaivGEuxcADOOfBCx/kqwXE8IfHFxEcxSUkxCYf38COLKYd9EMYZghqaUA=="
+  "resolved" "https://registry.npmjs.org/react-swipeable/-/react-swipeable-7.0.0.tgz"
+  "version" "7.0.0"
+
 "react-ticker@^1.2.2":
   "integrity" "sha512-PXUujoPJvajxwOfosuuujlrBUrjgGp4FB4haWFOI25ujhMppW4SuLkiOdQ9AylrWN3yTHWdk2kbQWe3n9SjFGA=="
   "resolved" "https://registry.npmjs.org/react-ticker/-/react-ticker-1.2.2.tgz"

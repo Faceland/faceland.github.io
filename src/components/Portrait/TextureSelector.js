@@ -48,6 +48,7 @@ export default (props) => {
           styles={selectStyle}
           isSearchable={false}
           focusInputOnMenuOpen={false}
+          components={{ DropdownIndicator:() => null, IndicatorSeparator:() => null }}
         />
       </div>
       <div className="textureDropdown">
@@ -60,6 +61,7 @@ export default (props) => {
           styles={selectStyle}
           isSearchable={false}
           focusInputOnMenuOpen={false}
+          components={{ DropdownIndicator:() => null, IndicatorSeparator:() => null }}
         />
       </div>
     </>

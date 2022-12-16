@@ -105,7 +105,8 @@ export const Portrait = (props) => {
 
   const modalStyle = {
     overlay: {
-      backgroundColor: 'transparent'
+      backgroundColor: 'transparent',
+      zIndex: 200
     },
     content: {
       top: '50%',
