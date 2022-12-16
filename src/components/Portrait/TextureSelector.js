@@ -41,6 +41,7 @@ export default (props) => {
       <div className="categoryDropdown">
         <Select
           unstyled
+          className="categoryPicker"
           name="texture"
           options={getOptions()}
           defaultValue={props.layer.options || textureSelections[0].option}

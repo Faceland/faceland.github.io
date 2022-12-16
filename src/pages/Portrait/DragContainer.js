@@ -38,7 +38,7 @@ export const DragContainer = (props) => {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <Droppable droppableId="droppable">
+      <Droppable droppableId="droppable" style={{width: "calc(100% - 17px)"}}>
         {(provided, snapshot) => (
           <div
             {...provided.droppableProps}

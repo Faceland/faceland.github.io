@@ -1,5 +1,9 @@
 .Portrait {
 
+  .droppable {
+    width: calc(100% - 17px)
+  }
+
   .mobileContainer {
     width: 100%;
     height: calc(100vh - 58px);
@@ -35,10 +39,9 @@
   }
 
   .entryItem {
-    margin: 10px auto 0 auto;
-    padding: 5px;
+    padding: 8px;
+    margin: 4px;
     border-radius: 10px;
-    width: 92%;
 
     display: flex;
     flex-direction: row;
@@ -53,29 +56,35 @@
     }
 
     .selectContainer {
-      flex-grow: 10;
-      min-width: 150px;
+      flex-grow: 4;
       text-align: left;
-      margin-left: 8px;
-      margin-right: 8px;
+      min-width: 100px;
+      margin-left: 6px;
+      margin-right: 6px;
       display: flex;
 
       .categoryDropdown {
-        width: 40px;
-        min-width: 40px;
+        width: 52px;
+        min-width: 52px;
+
+        .categoryPicker {
+          text-align: center;
+          text-align-last: center;
+          -moz-text-align-last: center;
+        }
       }
 
       .textureDropdown {
         flex-grow: 20;
-        margin-left: 8px;
+        margin-left: 6px;
       }
     }
 
     .delete {
       background-color: #c73636;
       border-radius: 20px;
-      margin-left: 5px;
-      margin-right: 4px;
+      margin-left: 3px;
+      margin-right: 2px;
       width: 38px;
       min-width: 38px;
       font-size: 24px;
