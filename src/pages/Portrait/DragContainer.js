@@ -32,10 +32,6 @@ export const DragContainer = (props) => {
     return <div className="move-prompt">↕</div>
   }
 
-  const DeleteButton = (layer) => {
-    return <button className="delete" onClick={() => {props.deleteLayer(layer)}}>🗑</button>
-  }
-
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <Droppable droppableId="droppable" style={{width: "calc(100% - 17px)"}}>
@@ -53,7 +49,10 @@ export const DragContainer = (props) => {
                     {...provided.dragHandleProps}
                   >
                     <div className="entryItem itemBkg" key={layer.id}>
-                      {state.mobile ? <DeleteButton layer={layer}/> : <MoveButton/>}
+                      {state.mobile ?
+                        <button className="delete" onClick={() => props.deleteLayer(layer)}>🗑</button> :
+                        <MoveButton/>
+                      }
                       <ColorPickerPopout
                         layer={layer}
                         changeColor={(newColor) => {
@@ -76,7 +75,10 @@ export const DragContainer = (props) => {
                           }}
                         />
                       </button>
-                      {state.mobile ? <MoveButton/> : <DeleteButton layer={layer}/>}
+                      {state.mobile ?
+                        <MoveButton/> :
+                        <button className="delete" onClick={() => props.deleteLayer(layer)}>🗑</button>
+                      }
                     </div>
                   </div>
                 )}
