@@ -133,7 +133,12 @@ export const Portrait = (props) => {
     const newArray = layerItems.slice()
     newArray.push(layer)
     setLayerItems(newArray)
-    scrollBar.current.scrollToTop()
+    setTimeout(() => {
+      scrollBar.current.view.scroll({
+        top: 1000000,
+        behavior: 'smooth',
+      })
+    }, 10);
   }
 
   const updateLayers = () => {
