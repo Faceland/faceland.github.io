@@ -46,6 +46,8 @@ export default (props) => {
           defaultValue={props.layer.options || textureSelections[0].option}
           onChange={(ev) => {props.changeOptions(ev)}}
           styles={selectStyle}
+          isSearchable={false}
+          focusInputOnMenuOpen={false}
         />
       </div>
       <div className="textureDropdown">
@@ -56,6 +58,8 @@ export default (props) => {
           defaultValue={props.layer.selection}
           value={props.layer.selection}
           styles={selectStyle}
+          isSearchable={false}
+          focusInputOnMenuOpen={false}
         />
       </div>
     </>
