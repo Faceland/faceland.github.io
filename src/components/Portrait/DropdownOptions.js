@@ -25,8 +25,9 @@ export const textureSelections = [
   {
     option: {value: "bodyTypes", label: '🧍'},
     textures: [
-      {value: 'https://i.imgur.com/h5EdwQL.png', configId: "base-skin", label: 'Body (Basic)'},
-      {value: 'https://i.imgur.com/muPpnGU.png', configId: "doge-skin", label: 'Body (Doge)'}
+      {value: 'https://i.imgur.com/h5EdwQL.png', configId: "base-skin", label: 'Basic'},
+      {value: 'https://i.imgur.com/muPpnGU.png', configId: "doge-skin", label: 'Doge'},
+      {value: 'https://i.imgur.com/Alt7lbH.png', configId: "fuzzy-skin", label: 'Fuzzy'}
     ]
   },
   {
@@ -91,6 +92,9 @@ export const textureSelections = [
       {value: 'https://i.imgur.com/3O89OiF.png', configId: "eyes-happy", label: 'Happy'},
       {value: 'https://i.imgur.com/f06HkXj.png', configId: "eyes-surprised", label: 'Surprised'},
 
+      {value: 'https://i.imgur.com/vgUImcf.png', configId: "eyes-single-normal", label: 'Single Plain'},
+      {value: 'https://i.imgur.com/yFLTX78.png', configId: "eyes-single-dark", label: 'Single Dark'},
+
       {value: 'https://i.imgur.com/PFywPks.png', configId: "eyebrow-high", label: 'Normal Eyebrows'},
       {value: 'https://i.imgur.com/hxoHQMv.png', configId: "eyebrow-angry", label: 'Angry Eyebrows'},
       {value: 'https://i.imgur.com/Bmpz81S.png', configId: "eyebrow-raised", label: 'Raised Eyebrow'},
@@ -99,9 +103,18 @@ export const textureSelections = [
     ]
   },
   {
+    option: {value: "earOptions", label: '👂'},
+    textures: [
+      {value: 'https://i.imgur.com/ee0BJTS.png', configId: "ears-human", label: 'Normal'},
+      {value: 'https://i.imgur.com/K16yMTk.png', configId: "ears-pointed", label: 'Pointed'},
+      {value: 'https://i.imgur.com/QtZFfvU.png', configId: "ears-bunny", label: 'Bunny'},
+      {value: 'https://i.imgur.com/d8e4y87.png', configId: "ears-cat", label: 'Cat'}
+    ]
+  },
+  {
     option: {value: "noseOptions", label: '👃'},
     textures: [
-      {value: 'https://i.imgur.com/SUSDs4e.png', configId: "nose-small", label: 'Normal'},
+      {value: 'https://i.imgur.com/j1oOrZt.png', configId: "nose-small", label: 'Normal'},
       //{value: 'https://i.imgur.com/W79LA7v.png', configId: "nose-medium", label: 'Nose (Medium)'},
       {value: 'https://i.imgur.com/7yOwMKy.png', configId: "nose-large", label: 'Large'},
       {value: 'https://i.imgur.com/bAgIfEi.png', configId: "nose-long", label: 'Long'},
@@ -118,7 +131,11 @@ export const textureSelections = [
       {value: 'https://i.imgur.com/YLkJ4GO.png', configId: "mouth-big-smile", label: 'Big Smile'},
       {value: 'https://i.imgur.com/wqRnWlR.png', configId: "mouth-smug", label: 'Smug'},
       {value: 'https://i.imgur.com/0ntzVFA.png', configId: "mouth-blep", label: 'Blep'},
+      {value: 'https://i.imgur.com/26gXB8O.png', configId: "mouth-nervous", label: 'Nervous'},
+      {value: 'https://i.imgur.com/cvqAn1t.png', configId: "mouth-shocked", label: 'Shocked'},
       {value: 'https://i.imgur.com/r1DUD2u.png', configId: "mouth-orc", label: 'Orc'},
+      {value: 'https://i.imgur.com/Yln1x3z.png', configId: "mouth-orc2", label: 'Ogre'},
+      {value: 'https://i.imgur.com/Li8VI1x.png', configId: "mouth-orc3", label: 'Ogre 2'},
       {value: 'https://i.imgur.com/D3N3dRo.png', configId: "mouth-fang-frown", label: 'Fanged Frown'},
       {value: 'https://i.imgur.com/ZivNfrG.png', configId: "mouth-fang-smile", label: 'Fanged Smile'},
       {value: 'https://i.imgur.com/KU6jB3r.png', configId: "mouth-fang", label: 'Fangs'},
@@ -136,9 +153,9 @@ export const textureSelections = [
       {value: 'https://i.imgur.com/wsPhRFB.png', configId: "pony-tail", label: 'Ponytail'},
       {value: 'https://i.imgur.com/QmrWll5.png', configId: "moustache", label: 'Moustache'},
       {value: 'https://i.imgur.com/RhqjZjP.png', configId: "handlebar", label: 'Handlebar'},
-      {value: 'https://i.imgur.com/pZUyKdm.png', configId: "beard-full", label: 'Beard (Full)'},
-      {value: 'https://i.imgur.com/dVpnNX4.png', configId: "beard-goat", label: 'Beard (Goat)'},
-      {value: 'https://i.imgur.com/ehPD842.png', configId: "long-beard", label: 'Beard (Long)'}
+      {value: 'https://i.imgur.com/pZUyKdm.png', configId: "beard-full", label: 'Beard'},
+      {value: 'https://i.imgur.com/FvqW9Kt.png', configId: "beard-goat", label: 'Goatee'},
+      {value: 'https://i.imgur.com/ehPD842.png', configId: "long-beard", label: 'Long Beard'}
     ]
   },
   {
@@ -154,6 +171,9 @@ export const textureSelections = [
       {value: 'https://i.imgur.com/WCBEuD1.png', configId: "left-eye-scar", label: 'Eye Scar (Left)'},
       {value: 'https://i.imgur.com/XUKmrYw.png', configId: "freckles", label: 'Freckles 1'},
       {value: 'https://i.imgur.com/4wLTYUi.png', configId: "freckles2", label: 'Freckles 2'},
+      {value: 'https://i.imgur.com/AizM687.png', configId: "face-dirty", label: 'Dirty Face'},
+      {value: 'https://i.imgur.com/yHwkwJO.png', configId: "face-scar-cross1", label: 'Cross Scar 1'},
+      {value: 'https://i.imgur.com/uLOzeQN.png', configId: "face-scar-cross2", label: 'Cross Scar 2'},
     ]
   },
   {
