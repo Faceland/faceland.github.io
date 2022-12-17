@@ -132,7 +132,7 @@ export const textureSelections = [
       {value: 'https://i.imgur.com/wqRnWlR.png', configId: "mouth-smug", label: 'Smug'},
       {value: 'https://i.imgur.com/0ntzVFA.png', configId: "mouth-blep", label: 'Blep'},
       {value: 'https://i.imgur.com/26gXB8O.png', configId: "mouth-nervous", label: 'Nervous'},
-      {value: 'https://i.imgur.com/cvqAn1t.png', configId: "mouth-shocked", label: 'Shocked'},
+      {value: 'https://i.imgur.com/hMvqysT.png', configId: "mouth-shocked", label: 'Shocked'},
       {value: 'https://i.imgur.com/r1DUD2u.png', configId: "mouth-orc", label: 'Orc'},
       {value: 'https://i.imgur.com/Yln1x3z.png', configId: "mouth-orc2", label: 'Ogre'},
       {value: 'https://i.imgur.com/Li8VI1x.png', configId: "mouth-orc3", label: 'Ogre 2'},
