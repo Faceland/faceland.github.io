@@ -34,7 +34,7 @@ export const HeaderBar = (props) => {
     )
 
     const mobileHeader = (
-        <div className={`headerBar barStyle-${scrollStyle}`}>
+        <div className={`headerBar barStyle-solid`}>
             <div className="logo mx-1">
                 <Link className="logoButton" to="/">
                     <img src="https://i.imgur.com/u57KsyA.png" alt="Website Img"/>
