@@ -9,6 +9,7 @@ import {ImageRenderer} from "../../components/Portrait/ImageRenderer";
 import {defaultChoices, getDataFromConfigId} from "../../components/Portrait/DropdownOptions";
 import {useSearchParams} from "react-router-dom";
 import {DragContainer} from "./DragContainer";
+import {Footer} from "../../components/Footer/Footer";
 
 export const Portrait = (props) => {
 
@@ -212,6 +213,7 @@ export const Portrait = (props) => {
         </div>
         {modal}
       </div>
+      <Footer/>
     </div>
   )
 
@@ -244,6 +246,7 @@ export const Portrait = (props) => {
           {modal}
         </div>
       </div>
+      <Footer/>
     </div>
   )
 
