@@ -11,7 +11,7 @@ import {useSearchParams} from "react-router-dom";
 import {DragContainer} from "./DragContainer";
 import {Footer} from "../../components/Footer/Footer";
 
-export const Portrait = (props) => {
+export const Portrait = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -81,22 +81,6 @@ export const Portrait = (props) => {
     } : {r: 255, g: 255, b: 255, a: 1};
   }
 
-  // a little function to help us with reordering the result
-  const reorder = (list, startIndex, endIndex) => {
-    const result = Array.from(layerItems);
-    const [removed] = result.splice(startIndex, 1);
-    result.splice(endIndex, 0, removed);
-    setLayerItems(result)
-  };
-
-  const onDragEnd = (result) => {
-    // dropped outside the list
-    if (!result.destination) {
-      return;
-    }
-    reorder(layerItems, result.source.index.result.destination.index)
-  }
-
   const openModal = () => {
     setIsOpen(true)
     setCopyText(buildConfigOutput)
@@ -159,7 +143,7 @@ export const Portrait = (props) => {
         <div className={"preserve-whitespace"}> prebuilt-colors: []</div>
         <div className={"preserve-whitespace"}> layers:</div>
         {layerItems.map((layer, index) => {
-            if (layer.selection.configId) {
+            if (layer.selection && layer.selection.configId) {
               let colorData
               if (layer.color) {
                 colorData = layer.color.hex.toUpperCase()
