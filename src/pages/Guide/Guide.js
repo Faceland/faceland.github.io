@@ -28,7 +28,7 @@ export const Guide = (props) => {
                     overflow: "hidden"
                 }}>
                     <img style={{display: "block", width: '100vw', height: '100%', objectFit: "cover"}}
-                         src="https://i.imgur.com/YgPsqNH.png" alt="info background"/>
+                         src="https://i.imgur.com/q5Czwlv.jpg" alt="info background"/>
                 </div>
                 <div className="infoBanner shadow-normal">
                     <p>🛈 Faceland Info 🛈</p>

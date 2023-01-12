@@ -24,6 +24,7 @@ export const HeaderBar = (props) => {
             <div className="burgerNav">
                 <Link to="/">Home</Link>
                 <Link to="/guide">Guide</Link>
+                <Link to="/vote">Vote</Link>
                 <a href="http://199.127.61.235:8100/#Quest_world:27:0:893:506:0:0:0:0:perspective" target="_blank">Map</a>
                 <Link to="/about">Items</Link>
                 <Link to="/facepals">FacePals™</Link>
@@ -56,6 +57,7 @@ export const HeaderBar = (props) => {
                 <div/>
                 <Link className="navButton" to="/">Home</Link>
                 <Link className="navButton" to="/guide">Guide</Link>
+                <Link className="navButton" to="/vote">Vote</Link>
                 <a className="navButton" href="http://199.127.61.235:8100/#Quest_world:27:0:893:506:0:0:0:0:perspective" target="_blank">Map</a>
                 <Link className="navButton" to="/about">Items</Link>
                 <Link className="navButton" to="/facepals">FacePals™</Link>
