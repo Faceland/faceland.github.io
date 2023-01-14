@@ -19,7 +19,7 @@ export const Vote = (props) => {
     return (
         <div className="App Guide">
             <HeaderBar fancy={false}/>
-            <div className="basicPage">
+            <div className="basicPage">>
                 <div style={{
                     maxWidth: '100%',
                     display: "flex",
@@ -30,35 +30,36 @@ export const Vote = (props) => {
                     <img style={{display: "block", width: '100vw', height: '100%', objectFit: "cover"}}
                          src="https://i.imgur.com/q5Czwlv.jpg" alt="info background"/>
                 </div>
-                <div className="infoBanner shadow-normal">
+                <div className="infoBanner shadow-darker">
                     <p>Vote for Faceland!</p>
                     <p>Rewards reset on the first of every month!</p>
                     <p>Be sure to login to collect rewards!</p>
                 </div>
-                <div style={{
+                <div className="pixelImage" style={{
                     maxWidth: '100%',
                     display: "flex",
                     justifyContent: "center",
                     padding: 30,
                     flexWrap: "wrap",
-                    backgroundColor: "black"
+                    backgroundImage: "url(https://i.imgur.com/NTfIQxD.png)",
+                    backgroundSize: 128
                 }}>
-                    <div style={{ backgroundColor: "gray", margin: 10, padding: 20, borderRadius: 6 }}>
+                    <div className="shadow-darker" style={{ backgroundColor: "gray", margin: 10, padding: 20, borderRadius: 6 }}>
                         <a href="https://minecraft-mp.com/server-s314207" target="_blank"><img src="https://minecraft-mp.com/banner-314207.png" border="0"/></a>
                     </div>
-                    <div style={{ backgroundColor: "gray", margin: 10, padding: 20, borderRadius: 6 }}>
+                    <div className="shadow-darker" style={{ backgroundColor: "gray", margin: 10, padding: 20, borderRadius: 6 }}>
                         <a href="https://minecraft-mp.com/server-s314207" target="_blank"><img src="https://minecraft-mp.com/banner-314207.png" border="0"/></a>
                     </div>
-                    <div style={{ backgroundColor: "gray", margin: 10, padding: 20, borderRadius: 6 }}>
+                    <div className="shadow-darker" style={{ backgroundColor: "gray", margin: 10, padding: 20, borderRadius: 6 }}>
                         <a href="https://minecraft-mp.com/server-s314207" target="_blank"><img src="https://minecraft-mp.com/banner-314207.png" border="0"/></a>
                     </div>
-                    <div style={{ backgroundColor: "gray", margin: 10, padding: 20, borderRadius: 6 }}>
+                    <div className="shadow-darker" style={{ backgroundColor: "gray", margin: 10, padding: 20, borderRadius: 6 }}>
                         <a href="https://minecraft-mp.com/server-s314207" target="_blank"><img src="https://minecraft-mp.com/banner-314207.png" border="0"/></a>
                     </div>
-                    <div style={{ backgroundColor: "gray", margin: 10, padding: 20, borderRadius: 6 }}>
+                    <div className="shadow-darker" style={{ backgroundColor: "gray", margin: 10, padding: 20, borderRadius: 6 }}>
                         <a href="https://minecraft-mp.com/server-s314207" target="_blank"><img src="https://minecraft-mp.com/banner-314207.png" border="0"/></a>
                     </div>
-                    <div style={{ backgroundColor: "gray", margin: 10, padding: 20, borderRadius: 6 }}>
+                    <div className="shadow-darker" style={{ backgroundColor: "gray", margin: 10, padding: 20, borderRadius: 6 }}>
                         <a href="https://minecraft-mp.com/server-s314207" target="_blank"><img src="https://minecraft-mp.com/banner-314207.png" border="0"/></a>
                     </div>
                 </div>
