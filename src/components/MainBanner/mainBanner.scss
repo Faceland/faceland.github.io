@@ -20,6 +20,11 @@
     object-fit: cover; /* combined with 'absolute', works like background-size, but for DOM elements */
   }
 
+  .blur {
+    filter: blur(5px);
+    background-color: #3b5998;
+  }
+
   .desktopTitle {
     position: relative;
     display: flex;
