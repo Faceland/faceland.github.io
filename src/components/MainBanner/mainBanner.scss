@@ -22,7 +22,12 @@
 
   .blur {
     filter: blur(5px);
-    background-color: #3b5998;
+  }
+
+  .m-fadeOut {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
   }
 
   .desktopTitle {
