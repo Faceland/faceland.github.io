@@ -4,13 +4,6 @@ import {Footer} from "../../components/Footer/Footer";
 import {Context} from "../../Store";
 import {DiscordWidget} from "../../components/DiscordWidget/DiscordWidget"
 import './guide.scss'
-import {
-    Accordion,
-    AccordionItem,
-    AccordionItemButton,
-    AccordionItemHeading,
-    AccordionItemPanel
-} from "react-accessible-accordion";
 
 export const Vote = (props) => {
 
@@ -19,7 +12,7 @@ export const Vote = (props) => {
     return (
         <div className="App Guide">
             <HeaderBar fancy={false}/>
-            <div className="basicPage">>
+            <div className="basicPage">
                 <div style={{
                     maxWidth: '100%',
                     display: "flex",

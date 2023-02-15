@@ -18,7 +18,7 @@ export const Footer = (props) => {
           <address>
             1234 ImNotGivingYouWeirdosMyAddress Blvd 42069
             <p>&copy; 2023 Faceland LLC. All rights reserved.</p>
-            <p>Faceland proudly uses textures from the amazing <a style={{color: "white", textDecoration: "underline"}} href="https://mizunomcmemo.blogspot.com/">Mizuno's 16x</a></p>
+            <p>Faceland proudly uses textures from the amazing <a style={{color: "white", textDecoration: "underline"}} href="https://www.curseforge.com/minecraft/texture-packs/excalibur">Excalibur 16x</a></p>
           </address>
         </div>
 

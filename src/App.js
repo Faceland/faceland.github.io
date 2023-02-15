@@ -42,7 +42,7 @@ function About() {
       <HeaderBar fancy={false}/>
       <div
         className="basicPage pixelImage"
-        style={{marginTop: "50px", backgroundImage: "url(https://i.imgur.com/qiV4xVw.png)", backgroundSize: 128}}>
+        style={{marginTop: "50px", backgroundImage: "url(https://i.imgur.com/Ggdi5KL.png)", backgroundSize: 64}}>
         <ShuffleCollection/>
       </div>
       <DiscordWidget/>

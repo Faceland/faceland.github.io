@@ -1,5 +1,4 @@
-import React, {useState, useEffect, useCallback, useMemo, useContext} from "react";
-import {debounce} from 'lodash';
+import React, {useState, useEffect, useContext} from "react";
 import Select from "react-select";
 import "react-select/dist/react-select.cjs";
 import "./Shuffle.scss"

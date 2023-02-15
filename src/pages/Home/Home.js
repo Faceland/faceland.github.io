@@ -17,10 +17,10 @@ export const Home = (props) => {
     // Use images with a height of 300px or greater with
     // the 'action' in the center for best results
     const homeImageOne = (
-        <img
-            className="fillImg"
-            src="https://media4.giphy.com/media/iGjy1NDdcHop9y7YPI/giphy.gif"
-            alt="horse hours"/>
+        <video
+            className="fillImg" playsInline autoPlay muted loop
+            src="https://s1.fileditch.ch/ydRCAzgsJREGRuuAvJYw.mp4"
+        />
     )
 
     const bodyOne = (
@@ -32,10 +32,10 @@ export const Home = (props) => {
     )
 
     const homeImageTwo = (
-        <img
-            className="fillImg"
-            src="https://i.imgur.com/mM864sG.gif"
-            alt="pupcup"/>
+        <video
+            className="fillImg" playsInline autoPlay muted loop
+            src="https://s1.fileditch.ch/nQsCmZBSoLdmwICzykfP.mp4"
+        />
     )
 
     const bodyTwo = (
@@ -47,10 +47,10 @@ export const Home = (props) => {
     )
 
     const homeImageThree = (
-        <img
-            className="fillImg"
-            src="https://media2.giphy.com/media/8JYGM40BDpt8kzgN6C/giphy.gif"
-            alt="regretz"/>
+        <video
+            className="fillImg" playsInline autoPlay muted loop
+            src="https://s1.fileditch.ch/AUnorqyJvBTjnMVyLJV.mp4"
+        />
     )
 
     const bodyThree = (
