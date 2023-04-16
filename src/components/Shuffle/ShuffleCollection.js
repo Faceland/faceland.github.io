@@ -137,11 +137,12 @@ export const ShuffleCollection = () => {
     if (!searchText) {
       return true;
     }
+    const lowered = searchText.toLowerCase()
     return (
-      item.name?.toLowerCase().includes(searchText) ||
-      item.title?.toLowerCase().includes(searchText) ||
-      item.description?.join(" ").toLowerCase().includes(searchText) ||
-      item.groupNames?.join(" ").toLowerCase().includes(searchText));
+      item.name?.toLowerCase().includes(lowered) ||
+      item.title?.toLowerCase().includes(lowered) ||
+      item.description?.join(" ").toLowerCase().includes(lowered) ||
+      item.groupNames?.join(" ").toLowerCase().includes(lowered));
   }
 
   const forceTag = (newTag) => {
