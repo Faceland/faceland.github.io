@@ -234,7 +234,7 @@ export const ShuffleCollection = () => {
         </div>
       </div>
       <div className="flexRow align-left padding-full-15">
-        <div className="width20">
+        <div className="width45">
           <span className="filterTitles">Rarity</span>
           <Select
             placeholder="Select"
@@ -243,7 +243,7 @@ export const ShuffleCollection = () => {
             onChange={setSelectedRarity}
           />
         </div>
-        <div className="width20">
+        <div className="width45">
           <span className="filterTitles">Item Type</span>
           <Select
             placeholder="Select"
@@ -252,7 +252,7 @@ export const ShuffleCollection = () => {
             onChange={setSelectedType}
           />
         </div>
-        <div className="width40 searchBox">
+        <div className="width75 searchBox">
           <span className="filterTitles">Search</span>
           <DebounceInput
             placeholder="Enter whatever :O"
@@ -264,8 +264,9 @@ export const ShuffleCollection = () => {
             onChange={(e) => setSearchText(e.target.value)}
           />
         </div>
-        <div className="width10">
-          <span className="filterTitles">Clear</span>
+      </div>
+      <div className="flexRow align-left padding-full-15">
+        <div className="width100">
           <div className="clearButton align-center"
                onClick={clearAllFilters}>
             X
