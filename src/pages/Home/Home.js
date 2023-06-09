@@ -19,7 +19,8 @@ export const Home = (props) => {
     const homeImageOne = (
         <video
             className="fillImg" playsInline autoPlay muted loop
-            src="https://s1.fileditch.ch/ydRCAzgsJREGRuuAvJYw.mp4"
+            src="https://cdn.storx.to/file/3ae6ac0c138c4ab2caf783774b55f211.mp4"
+            crossorigin="anonymous"
         />
     )
 
@@ -34,7 +35,8 @@ export const Home = (props) => {
     const homeImageTwo = (
         <video
             className="fillImg" playsInline autoPlay muted loop
-            src="https://s1.fileditch.ch/nQsCmZBSoLdmwICzykfP.mp4"
+            src="https://cdn.storx.to/file/247fb4c81afcb1f81e902e9a2f03282a.mp4"
+            crossorigin="anonymous"
         />
     )
 
@@ -49,7 +51,8 @@ export const Home = (props) => {
     const homeImageThree = (
         <video
             className="fillImg" playsInline autoPlay muted loop
-            src="https://s1.fileditch.ch/AUnorqyJvBTjnMVyLJV.mp4"
+            src="https://cdn.storx.to/file/c95f3b13e142f61128f661a97d84df85.mp4"
+            crossorigin="anonymous"
         />
     )
 
