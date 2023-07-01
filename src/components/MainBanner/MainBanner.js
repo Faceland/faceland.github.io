@@ -10,7 +10,7 @@ export const MainBanner = () => {
     <div className="mainBanner" style={state.mobile ? {marginTop: '50px'} : {marginTop: '0'}}>
       <video className="videoBg" style={state.mobile ? {top: '50px'} : {top: '0'}} playsInline
              autoPlay muted loop
-             src="https://cdn.storx.to/file/d3d6a904ea7e10497065d2849df5d165.mp4"
+             src="https://i.imgur.com/hDTyol4.mp4"
              poster="https://i.imgur.com/yCr2iAD.jpg"
              crossorigin="anonymous"
       >
