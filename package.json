@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@material-tailwind/react": "^2.1.4",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
@@ -63,7 +64,12 @@
     ]
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.16",
     "gh-pages": "^3.1.0",
-    "history": "^5.0.0"
+    "history": "^5.0.0",
+    "postcss": "^8.4.31",
+    "prettier": "^3.1.0",
+    "prettier-plugin-tailwindcss": "^0.5.7",
+    "tailwindcss": "^3.3.5"
   }
 }
