@@ -302,24 +302,19 @@ export const ShuffleCollection = () => {
 
   const yeHaplessBuffoon = (
     <div
-      className="shuffleCard"
-      style={{ borderColor: '#AA0000' }}
+      className="flex w-80 flex-col items-center gap-3 rounded-md border-t-8 border-red-900 bg-gray-900 p-3 font-bold text-white"
       key="invalid-search"
     >
-      <div className="shuffleContent">
-        <div className="shuffleElement">
-          <div className="title">⚠ IMPOTENT QUERIER DETECTED ⚠</div>
-          <div className="subtitle">HALT! YOU'VE FOUND NO RESULTS!</div>
-        </div>
-        <div className="shuffleElement">
-          <img src="https://i.imgur.com/eb3dM.gif" alt="aaaaaaaaaa" />
-        </div>
-        <div className="shuffleElement">
-          <p className="lore">
-            Please refine your search and/or yourself, ye hapless buffoon
-          </p>
-        </div>
+      <div>
+        <div>⚠ IMPOTENT QUERIER DETECTED ⚠</div>
+        <div>HALT! YOU'VE FOUND NO RESULTS!</div>
       </div>
+      <img
+        src="https://i.imgur.com/eb3dM.gif"
+        alt="aaaaaaaaaa"
+        className="h-28 w-28"
+      />
+      <p>Please refine your search and/or yourself, ye hapless buffoon</p>
     </div>
   );
 
@@ -327,82 +322,78 @@ export const ShuffleCollection = () => {
     <div>
       {state.mobile ? mobileFilterSection : desktopFilterSection}
       <div className="shuffleCards">
-        {filteredItems?.length === 0
-          ? yeHaplessBuffoon
-          : filteredItems.map((item, index) => (
+        {filteredItems?.length === 0 ? (
+          <div className="flex place-content-center">{yeHaplessBuffoon}</div>
+        ) : (
+          filteredItems.map((item, index) => (
+            <div
+              className="shuffleCard shadow-dark"
+              id={`card-${index}`}
+              key={`Card-${item.name}-${item?.type}-${index}`}
+              style={{ borderColor: `${item?.background}` }}
+            >
               <div
-                className="shuffleCard shadow-dark"
-                id={`card-${index}`}
-                key={`Card-${item.name}-${item?.type}-${index}`}
-                style={{ borderColor: `${item?.background}` }}
+                className={`shadow-dark rarityBanner rarity-${item?.rarity}`}
               >
+                <a
+                  className="bannerHitbox"
+                  data-tooltip={`Rarity: ${item?.rarity}`}
+                />
+                <p></p>
+              </div>
+
+              {item.specialFlag ? (
                 <div
-                  className={`shadow-dark rarityBanner rarity-${item?.rarity}`}
+                  className={`shadow-dark specialBanner special-${item.specialFlag}`}
                 >
                   <a
                     className="bannerHitbox"
-                    data-tooltip={`Rarity: ${item?.rarity}`}
+                    data-tooltip={`${bannerText[item?.specialFlag]}`}
                   />
                   <p></p>
                 </div>
+              ) : undefined}
 
-                {item.specialFlag ? (
-                  <div
-                    className={`shadow-dark specialBanner special-${item.specialFlag}`}
-                  >
-                    <a
-                      className="bannerHitbox"
-                      data-tooltip={`${bannerText[item?.specialFlag]}`}
-                    />
-                    <p></p>
+              <div className="shuffleContent">
+                <div className="shuffleElement flex flex-col items-center px-2">
+                  <McText className="subtitle shuffleElement pt-1" prefix={'&'}>
+                    {item?.name}
+                  </McText>
+                  <div>
+                    {item?.groupNames?.map((tag, index2) => (
+                      <button
+                        className="tag"
+                        key={`tag${index2}`}
+                        onClick={() => forceTag(tag)}
+                      >
+                        {tag}
+                      </button>
+                    ))}
                   </div>
-                ) : undefined}
-
-                <div className="shuffleContent">
-                  <div className="shuffleElement">
-                    <McText className="subtitle shuffleElement" prefix={'&'}>
-                      {item?.name}
-                    </McText>
-                    <div>
-                      {item?.groupNames?.map((tag, index2) => (
-                        <button
-                          className="tag"
-                          key={`tag${index2}`}
-                          onClick={() => forceTag(tag)}
-                        >
-                          {tag}
-                        </button>
+                  <div>
+                    <img src={item?.img} alt="Loading..." />
+                  </div>
+                  <div className="w-full rounded-md bg-black p-1">
+                    <div className="shuffleElement">
+                      {item?.description?.map((line, index2) => (
+                        <div>
+                          <McText
+                            className="lore"
+                            prefix={'&'}
+                            key={`lore${index2}`}
+                          >
+                            {line}
+                          </McText>
+                        </div>
                       ))}
                     </div>
-                    <div className="shuffleElement">
-                      <img src={item?.img} alt="Loading..." />
-                    </div>
-                    <div
-                      style={{
-                        backgroundColor: 'black',
-                        borderRadius: '5px',
-                        margin: '0px 10px',
-                      }}
-                    >
-                      <div className="shuffleElement">
-                        {item?.description?.map((line, index2) => (
-                          <div>
-                            <McText
-                              className="lore"
-                              prefix={'&'}
-                              key={`lore${index2}`}
-                            >
-                              {line}
-                            </McText>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    <div style={{ marginTop: '10px' }} />
                   </div>
+                  <div style={{ marginTop: '10px' }} />
                 </div>
               </div>
-            ))}
+            </div>
+          ))
+        )}
       </div>
     </div>
   );
