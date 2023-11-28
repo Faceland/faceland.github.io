@@ -10,7 +10,7 @@ export const DiscordWidget = () => {
 
   const button = (
     <div
-      className="shadow-normal"
+      className="shadow-normal flex flex-col place-content-center"
       style={{
         height: 80,
         width: 80,
@@ -20,7 +20,7 @@ export const DiscordWidget = () => {
       onClick={toggleWidget}
     >
       <svg
-        className="discordIcon"
+        className="h-12"
         xmlns="http://www.w3.org/2000/svg"
         fill={'#ffffff'}
         viewBox="0 0 16 16"

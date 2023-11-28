@@ -99,15 +99,19 @@ export const HeaderBar = (props) => {
           Discord
         </a>
       </div>
-      <div className="profileSection">
+      <div className="profileSection h-fit">
         <a
-          className="gemButton"
+          className="m-2 rounded-lg bg-gradient-to-b from-purple-300 to-purple-600 px-4"
           href="http://shop.face.land/category/336956"
           target="_blank"
         >
-          <div className="gemDisplay">
+          <div className="flex items-center whitespace-nowrap font-bold text-white">
             <p>Buy FaceGems!</p>
-            <img src="https://i.imgur.com/AjRWtUR.png" alt="gem icon" />
+            <img
+              src="https://i.imgur.com/AjRWtUR.png"
+              alt="gem icon"
+              className="m-1 h-8"
+            />
           </div>
         </a>
       </div>
