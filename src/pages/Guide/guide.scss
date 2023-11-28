@@ -1,5 +1,4 @@
 .Guide {
-
   .infoBanner {
     width: 100%;
     padding: 15px 0;
@@ -42,12 +41,12 @@
 
   .accordion__button {
     position: relative;
-    width: calc(100% - 36px);
+    width: auto !important;
     padding: 14px;
     margin: 0px 4px 0 4px;
     border-radius: 5px;
     color: whitesmoke;
-    background-color: #DE4040;
+    background-color: #de4040;
 
     text-align: left;
     font-weight: 600;
@@ -59,7 +58,7 @@
   }
 
   .accordion__item {
-    margin-bottom: 10px
+    margin-bottom: 10px;
   }
 
   .accordion__panel {
