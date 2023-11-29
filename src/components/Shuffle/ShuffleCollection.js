@@ -325,7 +325,7 @@ export const ShuffleCollection = () => {
   return (
     <div className="relative min-h-[76vh]">
       {state.mobile ? mobileFilterSection : desktopFilterSection}
-      <div className="flex" style={{ flexFlow: 'wrap' }}>
+      <div className="flex place-content-center" style={{ flexFlow: 'wrap' }}>
         {filteredItems?.length === 0 ? (
           <div className="flex place-content-center">{yeHaplessBuffoon}</div>
         ) : (
@@ -350,7 +350,7 @@ export const ShuffleCollection = () => {
                     {item?.name}
                   </McText>
                 </div>
-                <div className="text-left">
+                <div className="mb-2 text-left">
                   {item?.specialFlag && (
                     <div className="m-0.5 inline-flex text-[10px] font-semibold uppercase text-white">
                       <div
