@@ -305,20 +305,29 @@ export const ShuffleCollection = () => {
   );
 
   const yeHaplessBuffoon = (
-    <div
-      className="flex w-80 flex-col items-center gap-3 rounded-md border-t-8 border-red-900 bg-gray-900 p-3 font-bold text-white"
-      key="invalid-search"
-    >
-      <div>
-        <div>⚠ IMPOTENT QUERIER DETECTED ⚠</div>
-        <div>HALT! YOU'VE FOUND NO RESULTS!</div>
+    <div className="shuffleCard border-red-900 text-white">
+      <div
+        className={`from-aubergine flex h-full flex-col items-center bg-gradient-to-bl from-10% to-black p-2 font-semibold`}
+      >
+        <div>
+          <div>⚠ IMPOTENT QUERIER DETECTED ⚠</div>
+          <div>HALT! YOU'VE FOUND NO RESULTS!</div>
+        </div>
+        <img
+          src="https://i.imgur.com/eb3dM.gif"
+          alt="aaaaaaaaaa"
+          className="h-28 w-28"
+        />
+        <div className="h-full w-full rounded-md bg-black bg-opacity-50 px-1 py-2">
+          <div className="flex h-full flex-col justify-center leading-tight">
+            <div>
+              <p className="lore">
+                Please refine your search and/or yourself, ye hapless buffoon
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-      <img
-        src="https://i.imgur.com/eb3dM.gif"
-        alt="aaaaaaaaaa"
-        className="h-28 w-28"
-      />
-      <p>Please refine your search and/or yourself, ye hapless buffoon</p>
     </div>
   );
 
@@ -369,7 +378,7 @@ export const ShuffleCollection = () => {
                   </div>
                   {item?.groupNames?.map((tag, index2) => (
                     <button
-                      className="bg-chambray hover:bg-san-marino m-0.5 inline-flex rounded-sm px-1 py-0.5 text-[10px] font-semibold uppercase text-white"
+                      className="m-0.5 inline-flex rounded-sm bg-chambray px-1 py-0.5 text-[10px] font-semibold uppercase text-white hover:bg-san-marino"
                       key={`tag${index2}`}
                       onClick={() => forceTag(tag)}
                     >
