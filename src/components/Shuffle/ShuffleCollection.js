@@ -61,6 +61,7 @@ export const ShuffleCollection = () => {
         item.img =
           'https://static.wikia.nocookie.net/minecraft_gamepedia/images/2/26/Emerald_JE3_BE3.png';
         item.background = '#10c810';
+        item.gradient = `bg-gradient-to-bl from-gordons-green from-10% to-black`;
         newItems.push(item);
       }
       for (const [key, value] of Object.entries(tomes)) {
@@ -69,6 +70,7 @@ export const ShuffleCollection = () => {
         item.img =
           'https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/50/Book_JE2_BE2.png';
         item.background = '#1243d9';
+        item.gradient = `bg-gradient-to-bl from-murder-brown from-10% to-black`;
         newItems.push(item);
       }
       for (const [key, value] of Object.entries(uniques)) {
@@ -77,6 +79,7 @@ export const ShuffleCollection = () => {
         item.img =
           'https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/50/Book_JE2_BE2.png';
         item.background = '#d99712';
+        item.gradient = `bg-gradient-to-bl from-kilamanjaro from-10% to-black`;
         newItems.push(item);
       }
       for (const [key, value] of Object.entries(scrolls)) {
@@ -85,6 +88,7 @@ export const ShuffleCollection = () => {
         item.img =
           'https://static.wikia.nocookie.net/minecraft_gamepedia/images/f/f2/Paper_JE2_BE2.png';
         item.background = '#34981a';
+        item.gradient = `bg-gradient-to-bl from-black-forest from-10% to-black`;
         newItems.push(item);
       }
 
@@ -319,76 +323,74 @@ export const ShuffleCollection = () => {
   );
 
   return (
-    <div>
+    <div className="relative min-h-[76vh]">
       {state.mobile ? mobileFilterSection : desktopFilterSection}
-      <div className="shuffleCards">
+      <div className="flex place-content-center" style={{ flexFlow: 'wrap' }}>
         {filteredItems?.length === 0 ? (
           <div className="flex place-content-center">{yeHaplessBuffoon}</div>
         ) : (
           filteredItems.map((item, index) => (
             <div
-              className="shuffleCard shadow-dark"
+              className="shuffleCard"
               id={`card-${index}`}
               key={`Card-${item.name}-${item?.type}-${index}`}
               style={{ borderColor: `${item?.background}` }}
             >
               <div
-                className={`shadow-dark rarityBanner rarity-${item?.rarity}`}
+                className={`flex h-full flex-col items-start ${item?.gradient} p-2 font-semibold`}
               >
-                <a
-                  className="bannerHitbox"
-                  data-tooltip={`Rarity: ${item?.rarity}`}
+                <img
+                  src={item?.img}
+                  alt="Loading..."
+                  className="absolute h-9 w-9"
+                  style={{ right: '4px', top: '4px' }}
                 />
-                <p></p>
-              </div>
-
-              {item.specialFlag ? (
-                <div
-                  className={`shadow-dark specialBanner special-${item.specialFlag}`}
-                >
-                  <a
-                    className="bannerHitbox"
-                    data-tooltip={`${bannerText[item?.specialFlag]}`}
-                  />
-                  <p></p>
-                </div>
-              ) : undefined}
-
-              <div className="shuffleContent">
-                <div className="shuffleElement flex flex-col items-center px-2">
-                  <McText className="subtitle shuffleElement pt-1" prefix={'&'}>
+                <div className="flex w-full flex-row place-content-between">
+                  <McText className="subtitle ml-0.5" prefix={'&'}>
                     {item?.name}
                   </McText>
-                  <div>
-                    {item?.groupNames?.map((tag, index2) => (
-                      <button
-                        className="tag"
-                        key={`tag${index2}`}
-                        onClick={() => forceTag(tag)}
+                </div>
+                <div className="mb-2 text-left">
+                  {item?.specialFlag && (
+                    <div className="m-0.5 inline-flex text-[10px] font-semibold uppercase text-white">
+                      <div
+                        className={`rounded-sm px-1 py-0.5 special-${item?.specialFlag}`}
                       >
-                        {tag}
-                      </button>
-                    ))}
-                  </div>
-                  <div>
-                    <img src={item?.img} alt="Loading..." />
-                  </div>
-                  <div className="w-full rounded-md bg-black p-1">
-                    <div className="shuffleElement">
-                      {item?.description?.map((line, index2) => (
-                        <div>
-                          <McText
-                            className="lore"
-                            prefix={'&'}
-                            key={`lore${index2}`}
-                          >
-                            {line}
-                          </McText>
-                        </div>
-                      ))}
+                        {item?.specialFlag}
+                      </div>
+                    </div>
+                  )}
+                  <div className="m-0.5 inline-flex text-[10px] font-semibold uppercase text-white">
+                    <div
+                      className={`rounded-sm px-1 py-0.5 rarity-${item?.rarity}`}
+                    >
+                      {item?.rarity}
                     </div>
                   </div>
-                  <div style={{ marginTop: '10px' }} />
+                  {item?.groupNames?.map((tag, index2) => (
+                    <button
+                      className="bg-chambray hover:bg-san-marino m-0.5 inline-flex rounded-sm px-1 py-0.5 text-[10px] font-semibold uppercase text-white"
+                      key={`tag${index2}`}
+                      onClick={() => forceTag(tag)}
+                    >
+                      {tag}
+                    </button>
+                  ))}
+                </div>
+                <div className="h-full w-full rounded-md bg-black bg-opacity-50 px-1 py-2 text-left">
+                  <div className="flex h-full flex-col justify-center leading-tight">
+                    {item?.description?.map((line, index2) => (
+                      <div>
+                        <McText
+                          className="lore"
+                          prefix={'&'}
+                          key={`lore${index2}`}
+                        >
+                          {line}
+                        </McText>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
