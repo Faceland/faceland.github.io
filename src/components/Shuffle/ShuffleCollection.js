@@ -323,7 +323,7 @@ export const ShuffleCollection = () => {
   );
 
   return (
-    <div className="relative">
+    <div className="relative min-h-[76vh]">
       {state.mobile ? mobileFilterSection : desktopFilterSection}
       <div>
         {filteredItems?.length === 0 ? (
