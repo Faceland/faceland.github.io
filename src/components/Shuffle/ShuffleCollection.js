@@ -3,6 +3,7 @@ import Select from 'react-select';
 import 'react-select/dist/react-select.cjs';
 import './Shuffle.scss';
 import '../Tooltip/tooltip.scss';
+import '../../animations.scss';
 import gems from './gems.json';
 import tomes from './tomes.json';
 import uniques from './uniques.json';
@@ -340,7 +341,7 @@ export const ShuffleCollection = () => {
         ) : (
           filteredItems.map((item, index) => (
             <div
-              className="shuffleCard"
+              className="shuffleCard squishAnimation"
               id={`card-${index}`}
               key={`Card-${item.name}-${item?.type}-${index}`}
               style={{ borderColor: `${item?.background}` }}
@@ -351,7 +352,7 @@ export const ShuffleCollection = () => {
                 <img
                   src={item?.img}
                   alt="Loading..."
-                  className="absolute h-9 w-9"
+                  className="absolute h-9 w-9 squishImg speed-2"
                   style={{ right: '4px', top: '4px' }}
                 />
                 <div className="flex w-full flex-row place-content-between">
