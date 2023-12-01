@@ -62,7 +62,7 @@ export const ShuffleCollection = () => {
         item.img =
           'https://static.wikia.nocookie.net/minecraft_gamepedia/images/2/26/Emerald_JE3_BE3.png';
         item.background = '#10c810';
-        item.gradient = `bg-gradient-to-bl from-gordons-green from-10% to-black`;
+        item.gradient = `bg-gradient-to-bl from-gordons-green to-gordons-green-end`;
         newItems.push(item);
       }
       for (const [key, value] of Object.entries(tomes)) {
@@ -71,7 +71,7 @@ export const ShuffleCollection = () => {
         item.img =
           'https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/50/Book_JE2_BE2.png';
         item.background = '#1243d9';
-        item.gradient = `bg-gradient-to-bl from-murder-brown from-10% to-black`;
+        item.gradient = `bg-gradient-to-bl from-murder-brown to-murder-brown-end`;
         newItems.push(item);
       }
       for (const [key, value] of Object.entries(uniques)) {
@@ -80,7 +80,7 @@ export const ShuffleCollection = () => {
         item.img =
           'https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/50/Book_JE2_BE2.png';
         item.background = '#d99712';
-        item.gradient = `bg-gradient-to-bl from-kilamanjaro from-10% to-black`;
+        item.gradient = `bg-gradient-to-bl from-kilamanjaro to-kilamanjaro-end`;
         newItems.push(item);
       }
       for (const [key, value] of Object.entries(scrolls)) {
@@ -89,7 +89,7 @@ export const ShuffleCollection = () => {
         item.img =
           'https://static.wikia.nocookie.net/minecraft_gamepedia/images/f/f2/Paper_JE2_BE2.png';
         item.background = '#34981a';
-        item.gradient = `bg-gradient-to-bl from-black-forest from-10% to-black`;
+        item.gradient = `bg-gradient-to-bl from-black-forest to-black-forest-end`;
         newItems.push(item);
       }
 
@@ -307,24 +307,26 @@ export const ShuffleCollection = () => {
 
   const yeHaplessBuffoon = (
     <div className="shuffleCard border-red-900 text-white">
-      <div
-        className={`from-aubergine flex h-full flex-col items-center bg-gradient-to-bl from-10% to-black p-2 font-semibold`}
-      >
-        <div>
-          <div>⚠ IMPOTENT QUERIER DETECTED ⚠</div>
-          <div>HALT! YOU'VE FOUND NO RESULTS!</div>
-        </div>
-        <img
-          src="https://i.imgur.com/eb3dM.gif"
-          alt="aaaaaaaaaa"
-          className="h-28 w-28"
-        />
-        <div className="h-full w-full rounded-md bg-black bg-opacity-50 px-1 py-2">
-          <div className="flex h-full flex-col justify-center leading-tight">
-            <div>
-              <p className="lore">
-                Please refine your search and/or yourself, ye hapless buffoon
-              </p>
+      <div className={`flex h-full flex-col items-center p-0 m-0 from-aubergine to-aubergine-end bg-gradient-to-bl`}>
+        <div
+          className={`flex h-full flex-col items-center bg-black/30 hover:bg-transparent transition duration-200 ease-in-out p-2 font-semibold`}
+        >
+          <div>
+            <div>⚠ IMPOTENT QUERIER DETECTED ⚠</div>
+            <div>HALT! YOU'VE FOUND NO RESULTS!</div>
+          </div>
+          <img
+            src="https://i.imgur.com/eb3dM.gif"
+            alt="aaaaaaaaaa"
+            className="h-28 w-28"
+          />
+          <div className="h-full w-full rounded-md bg-black bg-opacity-50 px-1 py-2">
+            <div className="flex h-full flex-col justify-center leading-tight">
+              <div>
+                <p className="lore">
+                  Please refine your search and/or yourself, ye hapless buffoon
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -346,60 +348,62 @@ export const ShuffleCollection = () => {
               key={`Card-${item.name}-${item?.type}-${index}`}
               style={{ borderColor: `${item?.background}` }}
             >
-              <div
-                className={`flex h-full flex-col items-start ${item?.gradient} p-2 font-semibold`}
-              >
-                <img
-                  src={item?.img}
-                  alt="Loading..."
-                  className="absolute h-9 w-9 squishImg speed-2"
-                  style={{ right: '4px', top: '4px' }}
-                />
-                <div className="flex w-full flex-row place-content-between">
-                  <McText className="subtitle ml-0.5" prefix={'&'}>
-                    {item?.name}
-                  </McText>
-                </div>
-                <div className="mb-2 text-left">
-                  {item?.specialFlag && (
+              <div className={`flex h-full flex-col items-center ${item?.gradient} p-0 m0`}>
+                <div
+                  className={`flex h-full w-full flex-col items-start bg-black/30 hover:bg-transparent transition duration-200 ease-in-out p-2 font-semibold`}
+                >
+                  <img
+                    src={item?.img}
+                    alt="Loading..."
+                    className="absolute h-9 w-9 squishImg speed-2"
+                    style={{ right: '4px', top: '4px' }}
+                  />
+                  <div className="flex w-full flex-row place-content-between">
+                    <McText className="subtitle ml-0.5" prefix={'&'}>
+                      {item?.name}
+                    </McText>
+                  </div>
+                  <div className="mb-2 text-left">
+                    {item?.specialFlag && (
+                      <div className="m-0.5 inline-flex text-[10px] font-semibold uppercase text-white">
+                        <div
+                          className={`rounded-sm px-1 py-0.5 special-${item?.specialFlag}`}
+                        >
+                          {item?.specialFlag}
+                        </div>
+                      </div>
+                    )}
                     <div className="m-0.5 inline-flex text-[10px] font-semibold uppercase text-white">
                       <div
-                        className={`rounded-sm px-1 py-0.5 special-${item?.specialFlag}`}
+                        className={`rounded-sm px-1 py-0.5 rarity-${item?.rarity}`}
                       >
-                        {item?.specialFlag}
+                        {item?.rarity}
                       </div>
                     </div>
-                  )}
-                  <div className="m-0.5 inline-flex text-[10px] font-semibold uppercase text-white">
-                    <div
-                      className={`rounded-sm px-1 py-0.5 rarity-${item?.rarity}`}
-                    >
-                      {item?.rarity}
-                    </div>
-                  </div>
-                  {item?.groupNames?.map((tag, index2) => (
-                    <button
-                      className="m-0.5 inline-flex rounded-sm bg-chambray px-1 py-0.5 text-[10px] font-semibold uppercase text-white hover:bg-san-marino"
-                      key={`tag${index2}`}
-                      onClick={() => forceTag(tag)}
-                    >
-                      {tag}
-                    </button>
-                  ))}
-                </div>
-                <div className="h-full w-full rounded-md bg-black bg-opacity-50 px-1 py-2 text-left">
-                  <div className="flex h-full flex-col justify-center leading-tight">
-                    {item?.description?.map((line, index2) => (
-                      <div>
-                        <McText
-                          className="lore"
-                          prefix={'&'}
-                          key={`lore${index2}`}
-                        >
-                          {line}
-                        </McText>
-                      </div>
+                    {item?.groupNames?.map((tag, index2) => (
+                      <button
+                        className="m-0.5 inline-flex rounded-sm bg-chambray px-1 py-0.5 text-[10px] font-semibold uppercase text-white hover:bg-san-marino"
+                        key={`tag${index2}`}
+                        onClick={() => forceTag(tag)}
+                      >
+                        {tag}
+                      </button>
                     ))}
+                  </div>
+                  <div className="h-full w-full rounded-md bg-black bg-opacity-50 px-1 py-2 text-left">
+                    <div className="flex h-full flex-col justify-center leading-tight">
+                      {item?.description?.map((line, index2) => (
+                        <div>
+                          <McText
+                            className="lore"
+                            prefix={'&'}
+                            key={`lore${index2}`}
+                          >
+                            {line}
+                          </McText>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
