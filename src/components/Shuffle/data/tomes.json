@@ -1,0 +1,1412 @@
+[
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Purify",
+    "strippedName": "|blue|Purify",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Light Damage|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Flowing Font",
+    "strippedName": "|blue|Flowing Font",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Movement Speed|lgray| to an item"
+    ],
+    "groupNames": ["Battletome", "Upgrade", "Enchanting"],
+    "rarity": "Uncommon"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Slice",
+    "strippedName": "|blue|Slice",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Bleed Chance|lgray| to an item"
+    ],
+    "groupNames": ["Physical", "Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Uncommon"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Block",
+    "strippedName": "|blue|Block",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Block|lgray| to an item"
+    ],
+    "groupNames": ["Shield", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Guide",
+    "strippedName": "|blue|Guide",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Accuracy|lgray| to an item"
+    ],
+    "groupNames": ["Accessory", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Pinpoint",
+    "strippedName": "|blue|Pinpoint",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Accuracy|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Phase",
+    "strippedName": "|blue|Phase",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Pierce Chance|lgray| to an item"
+    ],
+    "groupNames": ["Bow", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Carve",
+    "strippedName": "|blue|Carve",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Max Earth Runes|lgray| to an item"
+    ],
+    "groupNames": ["Shield", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Word of Reflect",
+    "strippedName": "|blue|Word of Reflect",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Reflected Damage|lgray| to an item"
+    ],
+    "groupNames": ["Battletome", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Chop",
+    "strippedName": "|blue|Chop",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Gathering Speed|lgray| to an item"
+    ],
+    "groupNames": ["WoodcuttingAxe", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Pillage",
+    "strippedName": "|blue|Pillage",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Loot Bonus|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Demand",
+    "strippedName": "|blue|Demand",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Minion Damage|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Distort",
+    "strippedName": "|blue|Distort",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Effect Duration|lgray| to an item"
+    ],
+    "groupNames": ["Armor", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Assail",
+    "strippedName": "|blue|Assail",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Critical Chance|lgray| to an item"
+    ],
+    "groupNames": ["Accessory", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Imbue",
+    "strippedName": "|blue|Imbue",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Elemental Status Chance|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Uncommon"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Curse",
+    "strippedName": "|blue|Curse",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Shadow Damage|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Consideration",
+    "strippedName": "|blue|Consideration",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Accuracy|lgray| to an item"
+    ],
+    "groupNames": ["Helmet", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Endure",
+    "strippedName": "|blue|Endure",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Maximum Life|lgray| to an item"
+    ],
+    "groupNames": ["Armor", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Replenish",
+    "strippedName": "|blue|Replenish",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Energy Regen|lgray| to an item"
+    ],
+    "groupNames": ["Armor", "Upgrade", "Enchanting"],
+    "rarity": "Uncommon"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Refund",
+    "strippedName": "|blue|Refund",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Energy On Kill|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Chonk",
+    "strippedName": "|blue|Chonk",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Minion Max Life|lgray| to an item"
+    ],
+    "groupNames": ["Armor", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Hasten",
+    "strippedName": "|blue|Hasten",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Attack Speed|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Plate",
+    "strippedName": "|blue|Plate",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Armor|lgray| to an item"
+    ],
+    "groupNames": ["Shield", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Ward",
+    "strippedName": "|blue|Ward",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Warding|lgray| to an item"
+    ],
+    "groupNames": ["Shield", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Amplify",
+    "strippedName": "|blue|Amplify",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Elemental Damage|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Seek",
+    "strippedName": "|blue|Seek",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Accuracy|lgray| to an item"
+    ],
+    "groupNames": ["Offhand", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Leech",
+    "strippedName": "|blue|Leech",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Life Steal|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Pockets",
+    "strippedName": "|blue|Pockets",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Bits Kept On Death|lgray| to an item"
+    ],
+    "groupNames": ["Armor", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Dissolve",
+    "strippedName": "|blue|Dissolve",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Ward Penetration|lgray| to an item"
+    ],
+    "groupNames": ["Magic", "Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Protect",
+    "strippedName": "|blue|Protect",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Barrier Regen|lgray| to an item"
+    ],
+    "groupNames": ["Armor", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Bundle",
+    "strippedName": "|blue|Bundle",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Loot Bonus|lgray| to an item"
+    ],
+    "groupNames": ["WoodcuttingAxe", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Dodge",
+    "strippedName": "|blue|Dodge",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Evasion|lgray| to an item"
+    ],
+    "groupNames": ["Armor", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Triumph",
+    "strippedName": "|blue|Triumph",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Rage On Kill|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Uncommon"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Thirst",
+    "strippedName": "|blue|Thirst",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Life On Kill|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Thorn",
+    "strippedName": "|blue|Thorn",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Reflected Damage|lgray| to an item"
+    ],
+    "groupNames": ["Armor", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Poison",
+    "strippedName": "|blue|Poison",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Poison Chance|lgray| to an item"
+    ],
+    "groupNames": ["Physical", "Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Uncommon"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Learn",
+    "strippedName": "|blue|Learn",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Combat XP|lgray| to an item"
+    ],
+    "groupNames": ["Armor", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Strike",
+    "strippedName": "|blue|Strike",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Physical Damage|lgray| to an item"
+    ],
+    "groupNames": ["Melee", "Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Snipe",
+    "strippedName": "|blue|Snipe",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Physical Damage|lgray| to an item"
+    ],
+    "groupNames": ["Ranged", "Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Meditate",
+    "strippedName": "|blue|Meditate",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Maximum Barrier|lgray| to an item"
+    ],
+    "groupNames": ["Armor", "Upgrade", "Enchanting"],
+    "rarity": "Uncommon"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Excavate",
+    "strippedName": "|blue|Excavate",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Mining Speed|lgray| to an item"
+    ],
+    "groupNames": ["Pickaxe", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Entrust",
+    "strippedName": "|blue|Entrust",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Light Damage|lgray| to an item"
+    ],
+    "groupNames": ["Shield", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Overwhelm",
+    "strippedName": "|blue|Overwhelm",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Cooldown Reduction|lgray| to an item"
+    ],
+    "groupNames": ["Magic", "Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Inspire",
+    "strippedName": "|blue|Inspire",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Energy Regen|lgray| to an item"
+    ],
+    "groupNames": ["Offhand", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Fish",
+    "strippedName": "|blue|Fish",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Fishing Speed|lgray| to an item"
+    ],
+    "groupNames": ["FishingRod", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Assist",
+    "strippedName": "|blue|Assist",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Minion Damage|lgray| to an item"
+    ],
+    "groupNames": ["Offhand", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Dazzle",
+    "strippedName": "|blue|Dazzle",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|E. Status Chance|lgray| to an item"
+    ],
+    "groupNames": ["Accessory", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Dig",
+    "strippedName": "|blue|Dig",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Energy Regen|lgray| to an item"
+    ],
+    "groupNames": ["Pickaxe", "Upgrade", "Enchanting"],
+    "rarity": "Uncommon"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Luck",
+    "strippedName": "|blue|Luck",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Loot Rarity|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Doge",
+    "strippedName": "|blue|Doge",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Doge Chance|lgray| to an item"
+    ],
+    "groupNames": ["Armor", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Chill",
+    "strippedName": "|blue|Chill",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Ice Damage|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Maim",
+    "strippedName": "|blue|Maim",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Critical Damage|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Encrust",
+    "strippedName": "|blue|Encrust",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Earth Damage|lgray| to an item"
+    ],
+    "groupNames": ["Shield", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Spike",
+    "strippedName": "|blue|Spike",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Reflected Damage|lgray| to an item"
+    ],
+    "groupNames": ["Shield", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Find",
+    "strippedName": "|blue|Find",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Loot Bonus|lgray| to an item"
+    ],
+    "groupNames": ["Accessory", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Reap",
+    "strippedName": "|blue|Reap",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Energy Regen|lgray| to an item"
+    ],
+    "groupNames": ["Hoe", "Upgrade", "Enchanting"],
+    "rarity": "Uncommon"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Loot",
+    "strippedName": "|blue|Loot",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Loot Bonus|lgray| to an item"
+    ],
+    "groupNames": ["Armor", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Recuperate",
+    "strippedName": "|blue|Recuperate",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Energy Regen|lgray| to an item"
+    ],
+    "groupNames": ["WoodcuttingAxe", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Resist",
+    "strippedName": "|blue|Resist",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Elemental Resist|lgray| to an item"
+    ],
+    "groupNames": ["Armor", "Upgrade", "Enchanting"],
+    "rarity": "Uncommon"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Excite",
+    "strippedName": "|blue|Excite",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Energy On Hit|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Aegis",
+    "strippedName": "|blue|Aegis",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Maximum Barrier|lgray| to an item"
+    ],
+    "groupNames": ["Shield", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Invigorate",
+    "strippedName": "|blue|Invigorate",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Max. Energy|lgray| to an item"
+    ],
+    "groupNames": ["Accessory", "Upgrade", "Enchanting"],
+    "rarity": "Uncommon"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Bolster",
+    "strippedName": "|blue|Bolster",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Warding|lgray| to an item"
+    ],
+    "groupNames": ["Armor", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Inoculate",
+    "strippedName": "|blue|Inoculate",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Poison Resist|lgray| to an item"
+    ],
+    "groupNames": ["Armor", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Inhale",
+    "strippedName": "|blue|Inhale",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Lung Capacity|lgray| to an item"
+    ],
+    "groupNames": ["Necklace", "Upgrade", "Enchanting"],
+    "rarity": "Uncommon"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Jolt",
+    "strippedName": "|blue|Jolt",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Lightning Damage|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Dash",
+    "strippedName": "|blue|Dash",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Movement Speed|lgray| to an item"
+    ],
+    "groupNames": ["Boots", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Warp",
+    "strippedName": "|blue|Warp",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Cooldown Reduction|lgray| to an item"
+    ],
+    "groupNames": ["Battletome", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Seethe",
+    "strippedName": "|blue|Seethe",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Maximum Rage|lgray| to an item"
+    ],
+    "groupNames": ["Armor", "Upgrade", "Enchanting"],
+    "rarity": "Uncommon"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Gemb",
+    "strippedName": "|blue|Gemb",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|More Mining Gems|lgray| to an item"
+    ],
+    "groupNames": ["Pickaxe", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Barrage",
+    "strippedName": "|blue|Barrage",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Multishot|lgray| to an item"
+    ],
+    "groupNames": ["Bow", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Awaken",
+    "strippedName": "|blue|Awaken",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Elemental Status Chance|lgray| to an item"
+    ],
+    "groupNames": ["Armor", "Upgrade", "Enchanting"],
+    "rarity": "Uncommon"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Penetrate",
+    "strippedName": "|blue|Penetrate",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Armor Penetration|lgray| to an item"
+    ],
+    "groupNames": ["Physical", "Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Heal",
+    "strippedName": "|blue|Heal",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Life Regen|lgray| to an item"
+    ],
+    "groupNames": ["Armor", "Upgrade", "Enchanting"],
+    "rarity": "Uncommon"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Sip",
+    "strippedName": "|blue|Sip",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Energy From Potions|lgray| to an item"
+    ],
+    "groupNames": ["Accessory", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Shimmer",
+    "strippedName": "|blue|Shimmer",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Magical Damage|lgray| to an item"
+    ],
+    "groupNames": ["Magic", "Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Burn",
+    "strippedName": "|blue|Burn",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Fire Damage|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Harvest",
+    "strippedName": "|blue|Harvest",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Loot Bonus|lgray| to an item"
+    ],
+    "groupNames": ["Hoe", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Recover",
+    "strippedName": "|blue|Recover",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Life Regen|lgray| to an item"
+    ],
+    "groupNames": ["Shield", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Restore",
+    "strippedName": "|blue|Restore",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Life On Hit|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Relax",
+    "strippedName": "|blue|Relax",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Life Regen|lgray| to an item"
+    ],
+    "groupNames": ["Offhand", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Enrage",
+    "strippedName": "|blue|Enrage",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Rage On Hit|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Uncommon"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Reflex",
+    "strippedName": "|blue|Reflex",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Attack Speed|lgray| to an item"
+    ],
+    "groupNames": ["Offhand", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Outlast",
+    "strippedName": "|blue|Outlast",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Maximum Energy|lgray| to an item"
+    ],
+    "groupNames": ["Armor", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Conserve",
+    "strippedName": "|blue|Conserve",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Less Bait Consumed|lgray| to an item"
+    ],
+    "groupNames": ["FishingRod", "Upgrade", "Enchanting"],
+    "rarity": "Uncommon"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Chisel",
+    "strippedName": "|blue|Chisel",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Max Earth Runes|lgray| to an item"
+    ],
+    "groupNames": ["Heavy", "Chestplate", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Expose",
+    "strippedName": "|blue|Expose",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Critical Rate|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Command",
+    "strippedName": "|blue|Command",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Minion Damage|lgray| to an item"
+    ],
+    "groupNames": ["Armor", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Stone",
+    "strippedName": "|blue|Stone",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Earth Damage|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Fortify",
+    "strippedName": "|blue|Fortify",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Armor|lgray| to an item"
+    ],
+    "groupNames": ["Armor", "Upgrade", "Enchanting"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Plunder",
+    "strippedName": "|blue|Plunder",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Gold Bonus|lgray| to an item"
+    ],
+    "groupNames": ["Weapon", "Upgrade", "Enchanting"],
+    "rarity": "Uncommon"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Puncture",
+    "strippedName": "|blue|Puncture",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Bleed Chance|lgray| to an item"
+    ],
+    "groupNames": ["Offhand", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Unearth",
+    "strippedName": "|blue|Unearth",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Loot Bonus|lgray| to an item"
+    ],
+    "groupNames": ["Pickaxe", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Enchantment Tome",
+    "name": "|blue|Slurp",
+    "strippedName": "|blue|Slurp",
+    "description": [
+      "",
+      "|lgray|Use this at an |purple|Enchantment Table",
+      "|lgray|on an §x§f§f§f§f§f§f傜 |lgray|item!",
+      "",
+      "|cyan|Bonuses Applied:",
+      "|lgray|Adds |white|Life From Potions|lgray| to an item"
+    ],
+    "groupNames": ["Accessory", "Upgrade", "Enchanting"],
+    "rarity": "Rare"
+  }
+]
