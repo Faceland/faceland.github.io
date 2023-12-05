@@ -43,5 +43,4 @@ export const CHINESE = {
   傜: { color: COLORS.blue, content: '[Enchantable]' },
   '哀': { color: COLORS.orange, content: '[] ' }, // socket
   '品': { color: COLORS.teal, content: '[] ' }, // socket extender
-  '𫟪': { color: COLORS.orange, content: '[Unique]' },
 };

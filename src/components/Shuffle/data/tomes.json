@@ -2,7 +2,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Purify",
-    "strippedName": "|blue|Purify",
+    "strippedName": "Purify",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -17,7 +17,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Flowing Font",
-    "strippedName": "|blue|Flowing Font",
+    "strippedName": "Flowing Font",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -32,7 +32,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Slice",
-    "strippedName": "|blue|Slice",
+    "strippedName": "Slice",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -47,7 +47,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Block",
-    "strippedName": "|blue|Block",
+    "strippedName": "Block",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -62,7 +62,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Guide",
-    "strippedName": "|blue|Guide",
+    "strippedName": "Guide",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -77,7 +77,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Pinpoint",
-    "strippedName": "|blue|Pinpoint",
+    "strippedName": "Pinpoint",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -92,7 +92,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Phase",
-    "strippedName": "|blue|Phase",
+    "strippedName": "Phase",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -107,7 +107,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Carve",
-    "strippedName": "|blue|Carve",
+    "strippedName": "Carve",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -122,7 +122,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Word of Reflect",
-    "strippedName": "|blue|Word of Reflect",
+    "strippedName": "Word of Reflect",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -137,7 +137,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Chop",
-    "strippedName": "|blue|Chop",
+    "strippedName": "Chop",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -152,7 +152,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Pillage",
-    "strippedName": "|blue|Pillage",
+    "strippedName": "Pillage",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -167,7 +167,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Demand",
-    "strippedName": "|blue|Demand",
+    "strippedName": "Demand",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -182,7 +182,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Distort",
-    "strippedName": "|blue|Distort",
+    "strippedName": "Distort",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -197,7 +197,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Assail",
-    "strippedName": "|blue|Assail",
+    "strippedName": "Assail",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -212,7 +212,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Imbue",
-    "strippedName": "|blue|Imbue",
+    "strippedName": "Imbue",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -227,7 +227,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Curse",
-    "strippedName": "|blue|Curse",
+    "strippedName": "Curse",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -242,7 +242,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Consideration",
-    "strippedName": "|blue|Consideration",
+    "strippedName": "Consideration",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -257,7 +257,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Endure",
-    "strippedName": "|blue|Endure",
+    "strippedName": "Endure",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -272,7 +272,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Replenish",
-    "strippedName": "|blue|Replenish",
+    "strippedName": "Replenish",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -287,7 +287,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Refund",
-    "strippedName": "|blue|Refund",
+    "strippedName": "Refund",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -302,7 +302,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Chonk",
-    "strippedName": "|blue|Chonk",
+    "strippedName": "Chonk",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -317,7 +317,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Hasten",
-    "strippedName": "|blue|Hasten",
+    "strippedName": "Hasten",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -332,7 +332,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Plate",
-    "strippedName": "|blue|Plate",
+    "strippedName": "Plate",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -347,7 +347,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Ward",
-    "strippedName": "|blue|Ward",
+    "strippedName": "Ward",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -362,7 +362,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Amplify",
-    "strippedName": "|blue|Amplify",
+    "strippedName": "Amplify",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -377,7 +377,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Seek",
-    "strippedName": "|blue|Seek",
+    "strippedName": "Seek",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -392,7 +392,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Leech",
-    "strippedName": "|blue|Leech",
+    "strippedName": "Leech",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -407,7 +407,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Pockets",
-    "strippedName": "|blue|Pockets",
+    "strippedName": "Pockets",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -422,7 +422,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Dissolve",
-    "strippedName": "|blue|Dissolve",
+    "strippedName": "Dissolve",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -437,7 +437,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Protect",
-    "strippedName": "|blue|Protect",
+    "strippedName": "Protect",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -452,7 +452,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Bundle",
-    "strippedName": "|blue|Bundle",
+    "strippedName": "Bundle",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -467,7 +467,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Dodge",
-    "strippedName": "|blue|Dodge",
+    "strippedName": "Dodge",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -482,7 +482,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Triumph",
-    "strippedName": "|blue|Triumph",
+    "strippedName": "Triumph",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -497,7 +497,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Thirst",
-    "strippedName": "|blue|Thirst",
+    "strippedName": "Thirst",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -512,7 +512,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Thorn",
-    "strippedName": "|blue|Thorn",
+    "strippedName": "Thorn",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -527,7 +527,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Poison",
-    "strippedName": "|blue|Poison",
+    "strippedName": "Poison",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -542,7 +542,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Learn",
-    "strippedName": "|blue|Learn",
+    "strippedName": "Learn",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -557,7 +557,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Strike",
-    "strippedName": "|blue|Strike",
+    "strippedName": "Strike",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -572,7 +572,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Snipe",
-    "strippedName": "|blue|Snipe",
+    "strippedName": "Snipe",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -587,7 +587,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Meditate",
-    "strippedName": "|blue|Meditate",
+    "strippedName": "Meditate",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -602,7 +602,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Excavate",
-    "strippedName": "|blue|Excavate",
+    "strippedName": "Excavate",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -617,7 +617,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Entrust",
-    "strippedName": "|blue|Entrust",
+    "strippedName": "Entrust",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -632,7 +632,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Overwhelm",
-    "strippedName": "|blue|Overwhelm",
+    "strippedName": "Overwhelm",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -647,7 +647,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Inspire",
-    "strippedName": "|blue|Inspire",
+    "strippedName": "Inspire",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -662,7 +662,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Fish",
-    "strippedName": "|blue|Fish",
+    "strippedName": "Fish",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -677,7 +677,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Assist",
-    "strippedName": "|blue|Assist",
+    "strippedName": "Assist",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -692,7 +692,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Dazzle",
-    "strippedName": "|blue|Dazzle",
+    "strippedName": "Dazzle",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -707,7 +707,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Dig",
-    "strippedName": "|blue|Dig",
+    "strippedName": "Dig",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -722,7 +722,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Luck",
-    "strippedName": "|blue|Luck",
+    "strippedName": "Luck",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -737,7 +737,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Doge",
-    "strippedName": "|blue|Doge",
+    "strippedName": "Doge",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -752,7 +752,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Chill",
-    "strippedName": "|blue|Chill",
+    "strippedName": "Chill",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -767,7 +767,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Maim",
-    "strippedName": "|blue|Maim",
+    "strippedName": "Maim",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -782,7 +782,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Encrust",
-    "strippedName": "|blue|Encrust",
+    "strippedName": "Encrust",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -797,7 +797,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Spike",
-    "strippedName": "|blue|Spike",
+    "strippedName": "Spike",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -812,7 +812,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Find",
-    "strippedName": "|blue|Find",
+    "strippedName": "Find",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -827,7 +827,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Reap",
-    "strippedName": "|blue|Reap",
+    "strippedName": "Reap",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -842,7 +842,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Loot",
-    "strippedName": "|blue|Loot",
+    "strippedName": "Loot",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -857,7 +857,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Recuperate",
-    "strippedName": "|blue|Recuperate",
+    "strippedName": "Recuperate",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -872,7 +872,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Resist",
-    "strippedName": "|blue|Resist",
+    "strippedName": "Resist",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -887,7 +887,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Excite",
-    "strippedName": "|blue|Excite",
+    "strippedName": "Excite",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -902,7 +902,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Aegis",
-    "strippedName": "|blue|Aegis",
+    "strippedName": "Aegis",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -917,7 +917,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Invigorate",
-    "strippedName": "|blue|Invigorate",
+    "strippedName": "Invigorate",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -932,7 +932,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Bolster",
-    "strippedName": "|blue|Bolster",
+    "strippedName": "Bolster",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -947,7 +947,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Inoculate",
-    "strippedName": "|blue|Inoculate",
+    "strippedName": "Inoculate",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -962,7 +962,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Inhale",
-    "strippedName": "|blue|Inhale",
+    "strippedName": "Inhale",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -977,7 +977,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Jolt",
-    "strippedName": "|blue|Jolt",
+    "strippedName": "Jolt",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -992,7 +992,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Dash",
-    "strippedName": "|blue|Dash",
+    "strippedName": "Dash",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1007,7 +1007,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Warp",
-    "strippedName": "|blue|Warp",
+    "strippedName": "Warp",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1022,7 +1022,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Seethe",
-    "strippedName": "|blue|Seethe",
+    "strippedName": "Seethe",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1037,7 +1037,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Gemb",
-    "strippedName": "|blue|Gemb",
+    "strippedName": "Gemb",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1052,7 +1052,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Barrage",
-    "strippedName": "|blue|Barrage",
+    "strippedName": "Barrage",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1067,7 +1067,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Awaken",
-    "strippedName": "|blue|Awaken",
+    "strippedName": "Awaken",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1082,7 +1082,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Penetrate",
-    "strippedName": "|blue|Penetrate",
+    "strippedName": "Penetrate",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1097,7 +1097,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Heal",
-    "strippedName": "|blue|Heal",
+    "strippedName": "Heal",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1112,7 +1112,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Sip",
-    "strippedName": "|blue|Sip",
+    "strippedName": "Sip",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1127,7 +1127,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Shimmer",
-    "strippedName": "|blue|Shimmer",
+    "strippedName": "Shimmer",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1142,7 +1142,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Burn",
-    "strippedName": "|blue|Burn",
+    "strippedName": "Burn",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1157,7 +1157,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Harvest",
-    "strippedName": "|blue|Harvest",
+    "strippedName": "Harvest",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1172,7 +1172,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Recover",
-    "strippedName": "|blue|Recover",
+    "strippedName": "Recover",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1187,7 +1187,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Restore",
-    "strippedName": "|blue|Restore",
+    "strippedName": "Restore",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1202,7 +1202,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Relax",
-    "strippedName": "|blue|Relax",
+    "strippedName": "Relax",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1217,7 +1217,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Enrage",
-    "strippedName": "|blue|Enrage",
+    "strippedName": "Enrage",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1232,7 +1232,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Reflex",
-    "strippedName": "|blue|Reflex",
+    "strippedName": "Reflex",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1247,7 +1247,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Outlast",
-    "strippedName": "|blue|Outlast",
+    "strippedName": "Outlast",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1262,7 +1262,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Conserve",
-    "strippedName": "|blue|Conserve",
+    "strippedName": "Conserve",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1277,7 +1277,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Chisel",
-    "strippedName": "|blue|Chisel",
+    "strippedName": "Chisel",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1292,7 +1292,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Expose",
-    "strippedName": "|blue|Expose",
+    "strippedName": "Expose",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1307,7 +1307,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Command",
-    "strippedName": "|blue|Command",
+    "strippedName": "Command",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1322,7 +1322,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Stone",
-    "strippedName": "|blue|Stone",
+    "strippedName": "Stone",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1337,7 +1337,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Fortify",
-    "strippedName": "|blue|Fortify",
+    "strippedName": "Fortify",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1352,7 +1352,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Plunder",
-    "strippedName": "|blue|Plunder",
+    "strippedName": "Plunder",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1367,7 +1367,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Puncture",
-    "strippedName": "|blue|Puncture",
+    "strippedName": "Puncture",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1382,7 +1382,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Unearth",
-    "strippedName": "|blue|Unearth",
+    "strippedName": "Unearth",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",
@@ -1397,7 +1397,7 @@
   {
     "title": "Enchantment Tome",
     "name": "|blue|Slurp",
-    "strippedName": "|blue|Slurp",
+    "strippedName": "Slurp",
     "description": [
       "",
       "|lgray|Use this at an |purple|Enchantment Table",

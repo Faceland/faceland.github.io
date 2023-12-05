@@ -2,8 +2,15 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Transmute",
-    "strippedName": "|lime|Transmute",
-    "description": ["\u003cred\u003eERROR! WHY DO YOU SEE THIS"],
+    "strippedName": "Transmute",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "\u003cred\u003eERROR! WHY DO YOU SEE THIS"
+    ],
     "groupNames": ["None", "Upgrade"],
     "rarity": "Epic",
     "specialFlag": "event"
@@ -11,30 +18,49 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Fortune IV",
-    "strippedName": "|lime|Fortune IV",
-    "description": ["§x§f§8§8§4§2§c+4% Loot Bonus"],
+    "strippedName": "Fortune IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4% Loot Bonus"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Life I",
-    "strippedName": "|lime|Life I",
-    "description": ["§x§f§8§8§4§2§c+3 Maximum Life"],
+    "strippedName": "Life I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3 Maximum Life"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Vampiric Blade",
-    "strippedName": "|lime|Vampiric Blade",
+    "strippedName": "Vampiric Blade",
     "description": [
-      "§x§f§8§8§4§2§c§nAbility Mod - Vampiric Blade",
-      " §x§f§f§d§4§4§2Upgrades §x§f§f§f§b§f§3§nVampiric Bite §x§f§f§d§4§4§2to grant",
-      " §x§f§f§d§4§4§2a buff for §x§4§d§f§2§f§f12s",
-      "  §x§f§f§d§4§4§2Grants §x§f§f§f§b§f§3+10% Life Steal",
-      "  §x§f§f§d§4§4§2Grants §x§f§f§f§b§f§3+35% Bleed Chance",
-      "  §x§f§f§d§4§4§2Grants §x§f§f§f§b§f§3+20% Bleed Damage"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|Ability Mod - Vampiric Blade",
+      " |yellow|Upgrades |white||ul|Vampiric Bite |yellow|to grant",
+      " |yellow|a buff for |cyan|12s",
+      "  |yellow|Grants |white|+10% Life Steal",
+      "  |yellow|Grants |white|+35% Bleed Chance",
+      "  |yellow|Grants |white|+20% Bleed Damage"
     ],
     "groupNames": ["Melee", "Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -43,27 +69,46 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Brutality II",
-    "strippedName": "|lime|Brutality II",
-    "description": ["§x§f§8§8§4§2§c+12% Critical Damage"],
+    "strippedName": "Brutality II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+12% Critical Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Reinforcement III",
-    "strippedName": "|lime|Reinforcement III",
-    "description": ["§x§f§8§8§4§2§c+3 Armor"],
+    "strippedName": "Reinforcement III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3 Armor"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Decay",
-    "strippedName": "|lime|Decay",
+    "strippedName": "Decay",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Hit Effect - Decay",
-      " §x§f§f§d§4§4§2Applies §x§f§f§f§b§f§3Weakness I §x§f§f§d§4§4§2for §x§4§d§f§2§f§f12s",
-      " §x§f§f§d§4§4§2Applies §x§f§f§f§b§f§3Slow I §x§f§f§d§4§4§2for §x§4§d§f§2§f§f12s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Hit Effect - Decay",
+      " |yellow|Applies |white|Weakness I |yellow|for |cyan|12s",
+      " |yellow|Applies |white|Slow I |yellow|for |cyan|12s"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -72,35 +117,61 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Reinforcement II",
-    "strippedName": "|lime|Reinforcement II",
-    "description": ["§x§f§8§8§4§2§c+2 Armor"],
+    "strippedName": "Reinforcement II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2 Armor"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Respite IV",
-    "strippedName": "|lime|Respite IV",
-    "description": ["§x§f§8§8§4§2§c+4 Life Regeneration"],
+    "strippedName": "Respite IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4 Life Regeneration"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Deflect III",
-    "strippedName": "|lime|Deflect III",
-    "description": ["§x§f§8§8§4§2§c+8 Block"],
+    "strippedName": "Deflect III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+8 Block"
+    ],
     "groupNames": ["Melee", "Weapon", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Prismatic Regen",
-    "strippedName": "|lime|Prismatic Regen",
+    "strippedName": "Prismatic Regen",
     "description": [
-      "§x§f§8§8§4§2§c§nAbility Mod - Prismatic Regen",
-      " §x§f§f§d§4§4§2Upgrades §x§f§f§f§b§f§3§nPrismatic Aura§x§f§f§d§4§4§2 to",
-      " §x§f§f§d§4§4§2grant §x§f§f§f§b§f§3Regeneration I"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|Ability Mod - Prismatic Regen",
+      " |yellow|Upgrades |white||ul|Prismatic Aura|yellow| to",
+      " |yellow|grant |white|Regeneration I"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic"
@@ -108,58 +179,106 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Heroic Heart",
-    "strippedName": "|lime|Heroic Heart",
-    "description": ["§x§f§8§8§4§2§c+2 Maximum Life", "§x§f§8§8§4§2§c+10 Block"],
+    "strippedName": "Heroic Heart",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2 Maximum Life",
+      "|orange|+10 Block"
+    ],
     "groupNames": ["Shield", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Chill I",
-    "strippedName": "|lime|Chill I",
-    "description": ["§x§f§8§8§4§2§c+1 Ice Damage"],
+    "strippedName": "Chill I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1 Ice Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Brutality IV",
-    "strippedName": "|lime|Brutality IV",
-    "description": ["§x§f§8§8§4§2§c+16% Critical Damage"],
+    "strippedName": "Brutality IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+16% Critical Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Reinforcement IV",
-    "strippedName": "|lime|Reinforcement IV",
-    "description": ["§x§f§8§8§4§2§c+4 Armor"],
+    "strippedName": "Reinforcement IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4 Armor"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Precise I",
-    "strippedName": "|lime|Precise I",
-    "description": ["§x§f§8§8§4§2§c+4 Accuracy"],
+    "strippedName": "Precise I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4 Accuracy"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Shoot III",
-    "strippedName": "|lime|Shoot III",
-    "description": ["§x§f§8§8§4§2§c+3 Physical Damage"],
+    "strippedName": "Shoot III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3 Physical Damage"
+    ],
     "groupNames": ["Ranged", "Weapon", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Soul Siphon",
-    "strippedName": "|lime|Soul Siphon",
+    "strippedName": "Soul Siphon",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Kill Effect - Soul Siphon",
-      " §x§f§f§d§4§4§2Instantly start §x§f§f§f§b§f§3Barrier §x§f§f§d§4§4§2recharge"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Kill Effect - Soul Siphon",
+      " |yellow|Instantly start |white|Barrier |yellow|recharge"
     ],
     "groupNames": ["Melee", "Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -168,11 +287,16 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Kinetic Absorption",
-    "strippedName": "|lime|Kinetic Absorption",
+    "strippedName": "Kinetic Absorption",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Block Effect - Kinetic Absorption",
-      "§x§f§c§3§d§3§8[30% Chance]",
-      " §x§f§f§d§4§4§2Grants §x§f§f§f§b§f§31 §x§3§9§9§f§0§dEarth Rune"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Block Effect - Kinetic Absorption",
+      "|red|[30% Chance]",
+      " |yellow|Grants |white|1 |green|Earth Rune"
     ],
     "groupNames": ["Shield", "Upgrade"],
     "rarity": "Epic"
@@ -180,29 +304,48 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Precise III",
-    "strippedName": "|lime|Precise III",
-    "description": ["§x§f§8§8§4§2§c+8 Accuracy"],
+    "strippedName": "Precise III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+8 Accuracy"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Fletching",
-    "strippedName": "|lime|Fletching",
-    "description": ["§x§f§8§8§4§2§c+3 Accuracy"],
+    "strippedName": "Fletching",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3 Accuracy"
+    ],
     "groupNames": ["Quiver", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Impact",
-    "strippedName": "|lime|Impact",
+    "strippedName": "Impact",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Hit Effect - Impact",
-      "§x§f§c§3§d§3§8[REQ: 350+ Max. Life]",
-      " §x§f§f§d§4§4§2Deal §x§f§f§f§b§f§38% §x§f§f§d§4§4§2of target\u0027s §x§f§f§f§b§f§3Max. Life §x§f§f§d§4§4§2as",
-      " §x§f§f§d§4§4§2additional physical damage §x§a§d§a§1§9§c(Max 150)",
-      " §x§f§f§f§b§f§3[5s Cooldown]"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Hit Effect - Impact",
+      "|red|[REQ: 350+ Max. Life]",
+      " |yellow|Deal |white|8% |yellow|of target\u0027s |white|Max. Life |yellow|as",
+      " |yellow|additional physical damage |lgray|(Max 150)",
+      " |white|[5s Cooldown]"
     ],
     "groupNames": ["Melee", "Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -211,10 +354,15 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Fire Warrior",
-    "strippedName": "|lime|Fire Warrior",
+    "strippedName": "Fire Warrior",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Hit Effect - Fire Warrior",
-      " §x§f§f§d§4§4§2Grants §x§f§f§f§b§f§3Fire Resistance I §x§f§f§d§4§4§2for §x§4§d§f§2§f§f6s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Hit Effect - Fire Warrior",
+      " |yellow|Grants |white|Fire Resistance I |yellow|for |cyan|6s"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -223,18 +371,30 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Precise II",
-    "strippedName": "|lime|Precise II",
-    "description": ["§x§f§8§8§4§2§c+6 Accuracy"],
+    "strippedName": "Precise II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+6 Accuracy"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Glory",
-    "strippedName": "|lime|Glory",
+    "strippedName": "Glory",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Hit Effect - Glory",
-      " §x§f§f§d§4§4§2Grants §x§f§f§f§b§f§3Resistance I §x§f§f§d§4§4§2for §x§4§d§f§2§f§f2s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Hit Effect - Glory",
+      " |yellow|Grants |white|Resistance I |yellow|for |cyan|2s"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -243,19 +403,31 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Leeching Hit",
-    "strippedName": "|lime|Leeching Hit",
-    "description": ["§x§f§8§8§4§2§c+1% Life Steal"],
+    "strippedName": "Leeching Hit",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1% Life Steal"
+    ],
     "groupNames": ["Offhand", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Divine Strike",
-    "strippedName": "|lime|Divine Strike",
+    "strippedName": "Divine Strike",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Hit Effect - Divine Strike",
-      " §x§f§f§d§4§4§2Deal §x§f§f§f§b§f§312 §x§f§f§d§4§4§2bonus §x§f§f§f§b§f§3Light Damage",
-      " §x§f§f§f§b§f§3[8s Cooldown]"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Hit Effect - Divine Strike",
+      " |yellow|Deal |white|12 |yellow|bonus |white|Light Damage",
+      " |white|[8s Cooldown]"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Rare"
@@ -263,26 +435,45 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Fortune II",
-    "strippedName": "|lime|Fortune II",
-    "description": ["§x§f§8§8§4§2§c+2% Loot Bonus"],
+    "strippedName": "Fortune II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2% Loot Bonus"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Precise IV",
-    "strippedName": "|lime|Precise IV",
-    "description": ["§x§f§8§8§4§2§c+10 Accuracy"],
+    "strippedName": "Precise IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+10 Accuracy"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Dodge Master",
-    "strippedName": "|lime|Dodge Master",
+    "strippedName": "Dodge Master",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Evade Effect - Dodge Master",
-      " §x§f§f§d§4§4§2Grants §x§f§f§f§b§f§3Speed II §x§f§f§d§4§4§2for §x§4§d§f§2§f§f2s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Evade Effect - Dodge Master",
+      " |yellow|Grants |white|Speed II |yellow|for |cyan|2s"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic",
@@ -291,59 +482,106 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Page Turner",
-    "strippedName": "|lime|Page Turner",
-    "description": ["§x§f§8§8§4§2§c+3% Attack Speed"],
+    "strippedName": "Page Turner",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3% Attack Speed"
+    ],
     "groupNames": ["Battletome", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Resistance III",
-    "strippedName": "|lime|Resistance III",
-    "description": ["§x§f§8§8§4§2§c+4% Elemental Resist"],
+    "strippedName": "Resistance III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4% Elemental Resist"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Strong Constitution",
-    "strippedName": "|lime|Strong Constitution",
-    "description": ["§x§f§8§8§4§2§c+12% Poison Resistance"],
+    "strippedName": "Strong Constitution",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+12% Poison Resistance"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Focus II",
-    "strippedName": "|lime|Focus II",
-    "description": ["§x§f§8§8§4§2§c+2 Magical Damage"],
+    "strippedName": "Focus II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2 Magical Damage"
+    ],
     "groupNames": ["Magic", "Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Respite I",
-    "strippedName": "|lime|Respite I",
-    "description": ["§x§f§8§8§4§2§c+1 Life Regeneration"],
+    "strippedName": "Respite I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1 Life Regeneration"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Sharpen III",
-    "strippedName": "|lime|Sharpen III",
-    "description": ["§x§f§8§8§4§2§c+3 Physical Damage"],
+    "strippedName": "Sharpen III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3 Physical Damage"
+    ],
     "groupNames": ["Melee", "Weapon", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Master of the Arcane",
-    "strippedName": "|lime|Master of the Arcane",
+    "strippedName": "Master of the Arcane",
     "description": [
-      "§x§f§8§8§4§2§c+3 Fire Damage",
-      "§x§f§8§8§4§2§c+3 Lightning Damage",
-      "§x§f§8§8§4§2§c+3 Ice Damage"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3 Fire Damage",
+      "|orange|+3 Lightning Damage",
+      "|orange|+3 Ice Damage"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -352,11 +590,16 @@
   {
     "title": "Socket Gem",
     "name": "|lime|xXx Doritos xXx",
-    "strippedName": "|lime|xXx Doritos xXx",
+    "strippedName": "xXx Doritos xXx",
     "description": [
-      "§x§f§8§8§4§2§c+420 Taste",
-      "§x§f§8§8§4§2§c-20 Munchies",
-      "§x§f§8§8§4§2§c+1 Sick as FUCK"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+420 Taste",
+      "|orange|-20 Munchies",
+      "|orange|+1 Sick as FUCK"
     ],
     "groupNames": ["Upgrade"],
     "rarity": "Epic",
@@ -365,11 +608,16 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Prismatic Rage",
-    "strippedName": "|lime|Prismatic Rage",
+    "strippedName": "Prismatic Rage",
     "description": [
-      "§x§f§8§8§4§2§c§nAbility Mod - Prismatic Rage",
-      " §x§f§f§d§4§4§2Upgrades §x§f§f§f§b§f§3§nPrismatic Aura§x§f§f§d§4§4§2 to",
-      " §x§f§f§d§4§4§2grant §x§f§f§f§b§f§33 §x§f§c§3§d§3§8Rage §x§f§f§d§4§4§2per second"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|Ability Mod - Prismatic Rage",
+      " |yellow|Upgrades |white||ul|Prismatic Aura|yellow| to",
+      " |yellow|grant |white|3 |red|Rage |yellow|per second"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic"
@@ -377,10 +625,15 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Opportunist",
-    "strippedName": "|lime|Opportunist",
+    "strippedName": "Opportunist",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Kill Effect - Opportunist",
-      " §x§f§f§d§4§4§2Grants §x§f§f§f§b§f§3Luck I §x§f§f§d§4§4§2for §x§4§d§f§2§f§f10s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Kill Effect - Opportunist",
+      " |yellow|Grants |white|Luck I |yellow|for |cyan|10s"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Rare"
@@ -388,27 +641,46 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Focus IV",
-    "strippedName": "|lime|Focus IV",
-    "description": ["§x§f§8§8§4§2§c+4 Magical Damage"],
+    "strippedName": "Focus IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4 Magical Damage"
+    ],
     "groupNames": ["Magic", "Weapon", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Touch Of Dirt",
-    "strippedName": "|lime|Touch Of Dirt",
-    "description": ["§x§f§8§8§4§2§c+1 Earth Damage"],
+    "strippedName": "Touch Of Dirt",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1 Earth Damage"
+    ],
     "groupNames": ["Offhand", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|meme dreamfz",
-    "strippedName": "|lime|meme dreamfz",
+    "strippedName": "meme dreamfz",
     "description": [
-      "§x§f§8§8§4§2§cJUST",
-      "§x§f§8§8§4§2§cDO",
-      "§x§f§8§8§4§2§cIT"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|JUST",
+      "|orange|DO",
+      "|orange|IT"
     ],
     "groupNames": ["Upgrade"],
     "rarity": "Epic",
@@ -417,11 +689,16 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Pain Barrier",
-    "strippedName": "|lime|Pain Barrier",
+    "strippedName": "Pain Barrier",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Crit Effect - Pain Barrier",
-      " §x§f§f§d§4§4§2Restores §x§f§f§f§b§f§36 §x§f§f§d§4§4§2barrier",
-      " §x§f§f§f§b§f§3[1s Cooldown]"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Crit Effect - Pain Barrier",
+      " |yellow|Restores |white|6 |yellow|barrier",
+      " |white|[1s Cooldown]"
     ],
     "groupNames": ["Helmet", "Upgrade"],
     "rarity": "Epic"
@@ -429,28 +706,47 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Mighty Charge",
-    "strippedName": "|lime|Mighty Charge",
-    "description": ["§x§f§8§8§4§2§c+2 Movement Speed"],
+    "strippedName": "Mighty Charge",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2 Movement Speed"
+    ],
     "groupNames": ["Shield", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Barrier III",
-    "strippedName": "|lime|Barrier III",
-    "description": ["§x§f§8§8§4§2§c+5 Maximum Barrier"],
+    "strippedName": "Barrier III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+5 Maximum Barrier"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Doubletripleshot",
-    "strippedName": "|lime|Doubletripleshot",
+    "strippedName": "Doubletripleshot",
     "description": [
-      "§x§f§8§8§4§2§c§nAbility Mod - Doubletripleshot",
-      " §x§f§f§d§4§4§2Upgrades §x§f§f§f§b§f§3§nTripleshot§x§f§f§d§4§4§2:",
-      "  §x§f§f§d§4§4§2After a short delay, fire an",
-      "  §x§f§f§d§4§4§2extra volley of §x§f§f§f§b§f§33 §x§f§f§d§4§4§2arrows"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|Ability Mod - Doubletripleshot",
+      " |yellow|Upgrades |white||ul|Tripleshot|yellow|:",
+      "  |yellow|After a short delay, fire an",
+      "  |yellow|extra volley of |white|3 |yellow|arrows"
     ],
     "groupNames": ["Bow", "Upgrade"],
     "rarity": "Epic",
@@ -459,10 +755,15 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Retard",
-    "strippedName": "|lime|Retard",
+    "strippedName": "Retard",
     "description": [
-      "§x§f§8§8§4§2§c§nWhen Hit Effect - Retard",
-      " §x§f§f§d§4§4§2Applies §x§f§f§f§b§f§3Slow II §x§f§f§d§4§4§2for §x§4§d§f§2§f§f2s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|When Hit Effect - Retard",
+      " |yellow|Applies |white|Slow II |yellow|for |cyan|2s"
     ],
     "groupNames": ["Heavy", "Armor", "Upgrade"],
     "rarity": "Rare"
@@ -470,59 +771,106 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Blooddrinker",
-    "strippedName": "|lime|Blooddrinker",
-    "description": ["§x§f§8§8§4§2§c+12 Life On Kill"],
+    "strippedName": "Blooddrinker",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+12 Life On Kill"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Evade II",
-    "strippedName": "|lime|Evade II",
-    "description": ["§x§f§8§8§4§2§c+2 Evasion"],
+    "strippedName": "Evade II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2 Evasion"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Poison",
-    "strippedName": "|lime|Poison",
-    "description": ["§x§f§8§8§4§2§c+2% Poison Chance"],
+    "strippedName": "Poison",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2% Poison Chance"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Fast Cast",
-    "strippedName": "|lime|Fast Cast",
-    "description": ["§x§f§8§8§4§2§c+4% Cooldown Reduction"],
+    "strippedName": "Fast Cast",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4% Cooldown Reduction"
+    ],
     "groupNames": ["Offhand", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Good Health",
-    "strippedName": "|lime|Good Health",
-    "description": ["§x§f§8§8§4§2§c+12% Poison Resistance"],
+    "strippedName": "Good Health",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+12% Poison Resistance"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Respite II",
-    "strippedName": "|lime|Respite II",
-    "description": ["§x§f§8§8§4§2§c+2 Life Regeneration"],
+    "strippedName": "Respite II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2 Life Regeneration"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Cold Embrace",
-    "strippedName": "|lime|Cold Embrace",
+    "strippedName": "Cold Embrace",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Hit Effect - Cold Embrace",
-      " §x§f§f§d§4§4§2Apply §x§4§d§f§2§f§f8 Frost",
-      " §x§f§f§d§4§4§2Gain §x§4§d§f§2§f§f4 Frost"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Hit Effect - Cold Embrace",
+      " |yellow|Apply |cyan|8 Frost",
+      " |yellow|Gain |cyan|4 Frost"
     ],
     "groupNames": ["Shield", "Upgrade"],
     "rarity": "Epic",
@@ -531,11 +879,16 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Ether Step",
-    "strippedName": "|lime|Ether Step",
+    "strippedName": "Ether Step",
     "description": [
-      "§x§f§8§8§4§2§c§nAbility Mod - Ether Step",
-      " §x§f§f§d§4§4§2Upgrades §x§f§f§f§b§f§3§nBlink§x§f§f§d§4§4§2:",
-      "  §x§f§f§d§4§4§2Restore §x§f§f§f§b§f§32% + 6 Barrier"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|Ability Mod - Ether Step",
+      " |yellow|Upgrades |white||ul|Blink|yellow|:",
+      "  |yellow|Restore |white|2% + 6 Barrier"
     ],
     "groupNames": ["Boots", "Upgrade"],
     "rarity": "Epic",
@@ -544,27 +897,46 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Joint Seeker",
-    "strippedName": "|lime|Joint Seeker",
-    "description": ["§x§f§8§8§4§2§c+2% Critical Chance"],
+    "strippedName": "Joint Seeker",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2% Critical Chance"
+    ],
     "groupNames": ["Offhand", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Evade IV",
-    "strippedName": "|lime|Evade IV",
-    "description": ["§x§f§8§8§4§2§c+4 Evasion"],
+    "strippedName": "Evade IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4 Evasion"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Combat Medic",
-    "strippedName": "|lime|Combat Medic",
+    "strippedName": "Combat Medic",
     "description": [
-      "§x§f§8§8§4§2§c§nPassive Effect - Combat Medic",
-      "§x§f§c§3§d§3§8[REQ: In Combat]",
-      " §x§f§f§d§4§4§2Gain §x§f§f§f§b§f§3+20% Healing Power"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|Passive Effect - Combat Medic",
+      "|red|[REQ: In Combat]",
+      " |yellow|Gain |white|+20% Healing Power"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic",
@@ -573,18 +945,30 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Lumberjack",
-    "strippedName": "|lime|Lumberjack",
-    "description": ["§x§f§8§8§4§2§c+10% Gathering Speed"],
+    "strippedName": "Lumberjack",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+10% Gathering Speed"
+    ],
     "groupNames": ["WoodcuttingAxe", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Sky Walker",
-    "strippedName": "|lime|Sky Walker",
+    "strippedName": "Sky Walker",
     "description": [
-      "§x§f§8§8§4§2§c§nAir Jump Effect - Sky Walker",
-      " §x§f§f§d§4§4§2Gain §x§f§f§f§b§f§3Slow Falling I §x§f§f§d§4§4§2for §x§4§d§f§2§f§f1s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|Air Jump Effect - Sky Walker",
+      " |yellow|Gain |white|Slow Falling I |yellow|for |cyan|1s"
     ],
     "groupNames": ["Boots", "Upgrade"],
     "rarity": "Epic",
@@ -593,12 +977,17 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Premature Burial",
-    "strippedName": "|lime|Premature Burial",
+    "strippedName": "Premature Burial",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Death - Premature Burial",
-      " §x§f§f§d§4§4§2Consume up to §x§3§9§9§f§0§d4 Earth Runes",
-      " §x§f§f§d§4§4§2Restore §x§4§c§e§a§1§9§n8% Max. Life§x§f§f§d§4§4§2 per rune",
-      " §x§f§f§f§b§f§3[5m Cooldown]"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Death - Premature Burial",
+      " |yellow|Consume up to |green|4 Earth Runes",
+      " |yellow|Restore |lgreen||ul|8% Max. Life|yellow| per rune",
+      " |white|[5m Cooldown]"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic",
@@ -607,10 +996,15 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Fleet",
-    "strippedName": "|lime|Fleet",
+    "strippedName": "Fleet",
     "description": [
-      "§x§f§8§8§4§2§c§nWhen Hit Effect - Fleet",
-      " §x§f§f§d§4§4§2Grants §x§f§f§f§b§f§3Speed I §x§f§f§d§4§4§2for §x§4§d§f§2§f§f5s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|When Hit Effect - Fleet",
+      " |yellow|Grants |white|Speed I |yellow|for |cyan|5s"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
@@ -618,11 +1012,16 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Damnation",
-    "strippedName": "|lime|Damnation",
+    "strippedName": "Damnation",
     "description": [
-      "§x§f§8§8§4§2§c§nPassive Effect - Damnation",
-      " §x§f§f§d§4§4§2Players slain must pass through",
-      " §x§f§f§d§4§4§2the §x§5§6§4§9§4§eDoor§x§f§f§d§4§4§2..."
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|Passive Effect - Damnation",
+      " |yellow|Players slain must pass through",
+      " |yellow|the |dgray|Door|yellow|..."
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -631,10 +1030,15 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Luck of PSwag",
-    "strippedName": "|lime|Luck of PSwag",
+    "strippedName": "Luck of PSwag",
     "description": [
-      "§x§f§8§8§4§2§c+7% Gold Bonus",
-      "§x§f§8§8§4§2§c+2% Swagger"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+7% Gold Bonus",
+      "|orange|+2% Swagger"
     ],
     "groupNames": ["Battletome", "Upgrade"],
     "rarity": "Epic"
@@ -642,10 +1046,15 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Fighting Dirty",
-    "strippedName": "|lime|Fighting Dirty",
+    "strippedName": "Fighting Dirty",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Enter Combat - Fighting Dirty",
-      " §x§f§f§d§4§4§2Gain §x§f§f§f§b§f§32 §x§3§9§9§f§0§dEarth Runes"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Enter Combat - Fighting Dirty",
+      " |yellow|Gain |white|2 |green|Earth Runes"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic"
@@ -653,12 +1062,17 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Overcharged",
-    "strippedName": "|lime|Overcharged",
+    "strippedName": "Overcharged",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Hit Effect - Overcharged",
-      "§x§f§c§3§d§3§8[REQ: 70% Energy]",
-      " §x§f§f§d§4§4§2Consume §x§f§f§f§b§f§36% Max Energy §x§f§f§d§4§4§2to deal",
-      " §x§f§f§f§b§f§315% Max Energy (⚡) §x§f§f§d§4§4§2bonus damage"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Hit Effect - Overcharged",
+      "|red|[REQ: 70% Energy]",
+      " |yellow|Consume |white|6% Max Energy |yellow|to deal",
+      " |white|15% Max Energy (⚡) |yellow|bonus damage"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -667,28 +1081,47 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Energy III",
-    "strippedName": "|lime|Energy III",
-    "description": ["§x§f§8§8§4§2§c+14 Maximum Energy"],
+    "strippedName": "Energy III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+14 Maximum Energy"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Elemental Enhancement",
-    "strippedName": "|lime|Elemental Enhancement",
-    "description": ["§x§f§8§8§4§2§c+3% Elemental Damage"],
+    "strippedName": "Elemental Enhancement",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3% Elemental Damage"
+    ],
     "groupNames": ["Offhand", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Master\u0027s Eyes",
-    "strippedName": "|lime|Master\u0027s Eyes",
+    "strippedName": "Master\u0027s Eyes",
     "description": [
-      "§x§f§8§8§4§2§c§nAbility Mod - Master\u0027s Eyes",
-      " §x§f§f§d§4§4§2Upgrades §x§f§f§f§b§f§3§nVisions Of Darkness§x§f§f§d§4§4§2:",
-      "  §x§f§f§d§4§4§2On cast, all §x§f§f§f§b§f§3Spirts Of Decay §x§f§f§d§4§4§2also",
-      "  §x§f§f§d§4§4§2cast §x§f§f§f§b§f§3Visions Of Darkness"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|Ability Mod - Master\u0027s Eyes",
+      " |yellow|Upgrades |white||ul|Visions Of Darkness|yellow|:",
+      "  |yellow|On cast, all |white|Spirts Of Decay |yellow|also",
+      "  |yellow|cast |white|Visions Of Darkness"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -697,11 +1130,16 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Runic Energy",
-    "strippedName": "|lime|Runic Energy",
+    "strippedName": "Runic Energy",
     "description": [
-      "§x§f§8§8§4§2§c§nWhen Hit Effect - Runic Energy",
-      "§x§f§c§3§d§3§8[8% Chance]",
-      " §x§f§f§d§4§4§2Grants §x§f§f§f§b§f§31 §x§3§9§9§f§0§dEarth Rune"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|When Hit Effect - Runic Energy",
+      "|red|[8% Chance]",
+      " |yellow|Grants |white|1 |green|Earth Rune"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
@@ -709,18 +1147,30 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Glimmer",
-    "strippedName": "|lime|Glimmer",
-    "description": ["§x§f§8§8§4§2§c+4% Loot Bonus"],
+    "strippedName": "Glimmer",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4% Loot Bonus"
+    ],
     "groupNames": ["Offhand", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Deflecting Magic",
-    "strippedName": "|lime|Deflecting Magic",
+    "strippedName": "Deflecting Magic",
     "description": [
-      "§x§f§8§8§4§2§c+2 Maximum Barrier",
-      "§x§f§8§8§4§2§c+2 Reflected Damage"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2 Maximum Barrier",
+      "|orange|+2 Reflected Damage"
     ],
     "groupNames": ["Shield", "Upgrade"],
     "rarity": "Epic"
@@ -728,11 +1178,16 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Minion Frenzy",
-    "strippedName": "|lime|Minion Frenzy",
+    "strippedName": "Minion Frenzy",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Kill Effect - Minion Frenzy",
-      " §x§f§f§d§4§4§2Grants §x§f§f§f§b§f§3Power V §x§f§f§d§4§4§2to minions for §x§4§d§f§2§f§f5s",
-      " §x§f§f§d§4§4§2Grants §x§f§f§f§b§f§3Speed V §x§f§f§d§4§4§2to minions for §x§4§d§f§2§f§f5s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Kill Effect - Minion Frenzy",
+      " |yellow|Grants |white|Power V |yellow|to minions for |cyan|5s",
+      " |yellow|Grants |white|Speed V |yellow|to minions for |cyan|5s"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -741,11 +1196,16 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Seduction",
-    "strippedName": "|lime|Seduction",
+    "strippedName": "Seduction",
     "description": [
-      "§x§f§8§8§4§2§c§nWhen Hit Effect - Seduction",
-      "§x§f§c§3§d§3§8[8% Chance]",
-      " §x§f§f§d§4§4§2Applies §x§f§3§6§d§7§cCharm §x§f§f§d§4§4§2for §x§4§d§f§2§f§f30s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|When Hit Effect - Seduction",
+      "|red|[8% Chance]",
+      " |yellow|Applies |pink|Charm |yellow|for |cyan|30s"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic",
@@ -754,56 +1214,105 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Touch Of Heat",
-    "strippedName": "|lime|Touch Of Heat",
-    "description": ["§x§f§8§8§4§2§c+1 Fire Damage"],
+    "strippedName": "Touch Of Heat",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1 Fire Damage"
+    ],
     "groupNames": ["Offhand", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Quickening",
-    "strippedName": "|lime|Quickening",
-    "description": ["§x§f§8§8§4§2§c+3% Cooldown Reduction"],
+    "strippedName": "Quickening",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3% Cooldown Reduction"
+    ],
     "groupNames": ["Armor", "Cloth", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Lethality I",
-    "strippedName": "|lime|Lethality I",
-    "description": ["§x§f§8§8§4§2§c+6% Critical Chance"],
+    "strippedName": "Lethality I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+6% Critical Chance"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Touch Of Thunder",
-    "strippedName": "|lime|Touch Of Thunder",
-    "description": ["§x§f§8§8§4§2§c+1 Lightning Damage"],
+    "strippedName": "Touch Of Thunder",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1 Lightning Damage"
+    ],
     "groupNames": ["Offhand", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Evade III",
-    "strippedName": "|lime|Evade III",
-    "description": ["§x§f§8§8§4§2§c+3 Evasion"],
+    "strippedName": "Evade III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3 Evasion"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Hint Of Strength",
-    "strippedName": "|lime|Hint Of Strength",
-    "description": ["§x§f§8§8§4§2§c+1 Physical Damage"],
+    "strippedName": "Hint Of Strength",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1 Physical Damage"
+    ],
     "groupNames": ["Offhand", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Hawk Eyes",
-    "strippedName": "|lime|Hawk Eyes",
-    "description": ["§x§f§8§8§4§2§c+2 Physical Damage"],
+    "strippedName": "Hawk Eyes",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2 Physical Damage"
+    ],
     "groupNames": ["Helmet", "Upgrade"],
     "rarity": "Epic",
     "specialFlag": "transmute"
@@ -811,18 +1320,30 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Energy II",
-    "strippedName": "|lime|Energy II",
-    "description": ["§x§f§8§8§4§2§c+12 Maximum Energy"],
+    "strippedName": "Energy II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+12 Maximum Energy"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Coup De Grâce",
-    "strippedName": "|lime|Coup De Grâce",
+    "strippedName": "Coup De Grâce",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Crit Effect - Coup De Grâce",
-      " §x§f§f§d§4§4§2Executes enemies under §x§f§f§f§b§f§315% Life"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Crit Effect - Coup De Grâce",
+      " |yellow|Executes enemies under |white|15% Life"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -831,12 +1352,17 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Heavyweight",
-    "strippedName": "|lime|Heavyweight",
+    "strippedName": "Heavyweight",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Hit Effect - Heavyweight",
-      " §x§f§f§d§4§4§2Deal §x§f§f§f§b§f§312% §x§f§f§d§4§4§2of your §x§f§f§f§b§f§3Max. Life §x§f§f§d§4§4§2as",
-      " §x§f§f§d§4§4§2additional physical damage",
-      " §x§f§f§f§b§f§3[4s Cooldown]"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Hit Effect - Heavyweight",
+      " |yellow|Deal |white|12% |yellow|of your |white|Max. Life |yellow|as",
+      " |yellow|additional physical damage",
+      " |white|[4s Cooldown]"
     ],
     "groupNames": ["Melee", "Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -845,44 +1371,77 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Seeking Eyes",
-    "strippedName": "|lime|Seeking Eyes",
-    "description": ["§x§f§8§8§4§2§c+8 Accuracy"],
+    "strippedName": "Seeking Eyes",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+8 Accuracy"
+    ],
     "groupNames": ["Helmet", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Mark of the Mage",
-    "strippedName": "|lime|Mark of the Mage",
-    "description": ["§x§f§8§8§4§2§c+1 Magical Damage"],
+    "strippedName": "Mark of the Mage",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1 Magical Damage"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Discovery I",
-    "strippedName": "|lime|Discovery I",
-    "description": ["§x§f§8§8§4§2§c+4% Loot Bonus"],
+    "strippedName": "Discovery I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4% Loot Bonus"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Uncommon"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Energy IV",
-    "strippedName": "|lime|Energy IV",
-    "description": ["§x§f§8§8§4§2§c+16 Maximum Energy"],
+    "strippedName": "Energy IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+16 Maximum Energy"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Hot-Headed",
-    "strippedName": "|lime|Hot-Headed",
+    "strippedName": "Hot-Headed",
     "description": [
-      "§x§f§8§8§4§2§c§nPassive Effect - Hot-Headed",
-      "§x§f§c§3§d§3§8[REQ: In Combat]",
-      " §x§f§f§d§4§4§2Gain §x§f§f§f§b§f§3+8 Fire Damage",
-      " §x§f§f§d§4§4§2Gain §x§f§8§8§4§2§c§nBurning"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|Passive Effect - Hot-Headed",
+      "|red|[REQ: In Combat]",
+      " |yellow|Gain |white|+8 Fire Damage",
+      " |yellow|Gain |orange||ul|Burning"
     ],
     "groupNames": ["Helmet", "Upgrade"],
     "rarity": "Epic",
@@ -891,16 +1450,30 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Life IV",
-    "strippedName": "|lime|Life IV",
-    "description": ["§x§f§8§8§4§2§c+6 Maximum Life"],
+    "strippedName": "Life IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+6 Maximum Life"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Muscle Memory",
-    "strippedName": "|lime|Muscle Memory",
-    "description": ["§x§f§8§8§4§2§c+8% Combat XP"],
+    "strippedName": "Muscle Memory",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+8% Combat XP"
+    ],
     "groupNames": ["Helmet", "Upgrade"],
     "rarity": "Epic",
     "specialFlag": "event"
@@ -908,28 +1481,47 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Sharpen II",
-    "strippedName": "|lime|Sharpen II",
-    "description": ["§x§f§8§8§4§2§c+2 Physical Damage"],
+    "strippedName": "Sharpen II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2 Physical Damage"
+    ],
     "groupNames": ["Melee", "Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Strong Footing",
-    "strippedName": "|lime|Strong Footing",
-    "description": ["§x§f§8§8§4§2§c+10 Block"],
+    "strippedName": "Strong Footing",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+10 Block"
+    ],
     "groupNames": ["Boots", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Holy Strike",
-    "strippedName": "|lime|Holy Strike",
+    "strippedName": "Holy Strike",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Hit Effect - Holy Strike",
-      " §x§f§f§d§4§4§2Heal §x§4§c§e§a§1§95 + 1% Life",
-      " §x§f§f§d§4§4§2Deal bonus §x§f§f§f§b§f§3Light Damage §x§f§f§d§4§4§2equal",
-      " §x§f§f§d§4§4§2to §x§f§f§f§b§f§35 + 0.3 §x§f§f§d§4§4§2per §x§f§f§f§b§f§3Holy Magic §x§f§f§d§4§4§2Level"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Hit Effect - Holy Strike",
+      " |yellow|Heal |lgreen|5 + 1% Life",
+      " |yellow|Deal bonus |white|Light Damage |yellow|equal",
+      " |yellow|to |white|5 + 0.3 |yellow|per |white|Holy Magic |yellow|Level"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -938,35 +1530,61 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Zap I",
-    "strippedName": "|lime|Zap I",
-    "description": ["§x§f§8§8§4§2§c+1 Lightning Damage"],
+    "strippedName": "Zap I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1 Lightning Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Quick Pick",
-    "strippedName": "|lime|Quick Pick",
-    "description": ["§x§f§8§8§4§2§c+10% Mining Speed"],
+    "strippedName": "Quick Pick",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+10% Mining Speed"
+    ],
     "groupNames": ["Pickaxe", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Sharpen IV",
-    "strippedName": "|lime|Sharpen IV",
-    "description": ["§x§f§8§8§4§2§c+4 Physical Damage"],
+    "strippedName": "Sharpen IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4 Physical Damage"
+    ],
     "groupNames": ["Melee", "Weapon", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Prismatic Resist",
-    "strippedName": "|lime|Prismatic Resist",
+    "strippedName": "Prismatic Resist",
     "description": [
-      "§x§f§8§8§4§2§c§nAbility Mod - Prismatic Resist",
-      " §x§f§f§d§4§4§2Upgrades §x§f§f§f§b§f§3§nPrismatic Aura§x§f§f§d§4§4§2 to",
-      " §x§f§f§d§4§4§2grant §x§f§f§f§b§f§3Resistance II"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|Ability Mod - Prismatic Resist",
+      " |yellow|Upgrades |white||ul|Prismatic Aura|yellow| to",
+      " |yellow|grant |white|Resistance II"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
@@ -974,76 +1592,137 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Life II",
-    "strippedName": "|lime|Life II",
-    "description": ["§x§f§8§8§4§2§c+4 Maximum Life"],
+    "strippedName": "Life II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4 Maximum Life"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Block III",
-    "strippedName": "|lime|Block III",
-    "description": ["§x§f§8§8§4§2§c+10 Block"],
+    "strippedName": "Block III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+10 Block"
+    ],
     "groupNames": ["Shield", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Resistance I",
-    "strippedName": "|lime|Resistance I",
-    "description": ["§x§f§8§8§4§2§c+2% Elemental Resist"],
+    "strippedName": "Resistance I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2% Elemental Resist"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Chill III",
-    "strippedName": "|lime|Chill III",
-    "description": ["§x§f§8§8§4§2§c+3 Ice Damage"],
+    "strippedName": "Chill III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3 Ice Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Respite III",
-    "strippedName": "|lime|Respite III",
-    "description": ["§x§f§8§8§4§2§c+3 Life Regeneration"],
+    "strippedName": "Respite III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3 Life Regeneration"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Booksmarts",
-    "strippedName": "|lime|Booksmarts",
-    "description": ["§x§f§8§8§4§2§c+4% Combat XP"],
+    "strippedName": "Booksmarts",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4% Combat XP"
+    ],
     "groupNames": ["Battletome", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Shade IV",
-    "strippedName": "|lime|Shade IV",
-    "description": ["§x§f§8§8§4§2§c+4 Shadow Damage"],
+    "strippedName": "Shade IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4 Shadow Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Lethality III",
-    "strippedName": "|lime|Lethality III",
-    "description": ["§x§f§8§8§4§2§c+8% Critical Chance"],
+    "strippedName": "Lethality III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+8% Critical Chance"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Magic Unleashed",
-    "strippedName": "|lime|Magic Unleashed",
+    "strippedName": "Magic Unleashed",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Hit Effect - Magic Unleashed",
-      " §x§f§f§d§4§4§2Launches a magical chaser that",
-      " §x§f§f§d§4§4§2deals §x§2§f§8§8§e§13 + 25% Magical Damage",
-      " §x§f§f§d§4§4§2on contact"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Hit Effect - Magic Unleashed",
+      " |yellow|Launches a magical chaser that",
+      " |yellow|deals |blue|3 + 25% Magical Damage",
+      " |yellow|on contact"
     ],
     "groupNames": ["Magic", "Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -1052,11 +1731,16 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Falter",
-    "strippedName": "|lime|Falter",
+    "strippedName": "Falter",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Block Effect - Falter",
-      " §x§f§f§d§4§4§2Applies §x§f§f§f§b§f§3Weakness II §x§f§f§d§4§4§2for §x§4§d§f§2§f§f8s",
-      " §x§f§f§d§4§4§2Applies §x§f§f§f§b§f§3Slow I §x§f§f§d§4§4§2for §x§4§d§f§2§f§f12s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Block Effect - Falter",
+      " |yellow|Applies |white|Weakness II |yellow|for |cyan|8s",
+      " |yellow|Applies |white|Slow I |yellow|for |cyan|12s"
     ],
     "groupNames": ["Shield", "Upgrade"],
     "rarity": "Epic",
@@ -1065,10 +1749,15 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Weaken",
-    "strippedName": "|lime|Weaken",
+    "strippedName": "Weaken",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Hit Effect - Weaken",
-      " §x§f§f§d§4§4§2Applies §x§f§f§f§b§f§3Weakness II §x§f§f§d§4§4§2for §x§4§d§f§2§f§f8s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Hit Effect - Weaken",
+      " |yellow|Applies |white|Weakness II |yellow|for |cyan|8s"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -1077,19 +1766,31 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Fortune III",
-    "strippedName": "|lime|Fortune III",
-    "description": ["§x§f§8§8§4§2§c+3% Loot Bonus"],
+    "strippedName": "Fortune III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3% Loot Bonus"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Apathy",
-    "strippedName": "|lime|Apathy",
+    "strippedName": "Apathy",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Enter Combat - Apathy",
-      " §x§f§f§d§4§4§2Apply §x§f§f§f§b§f§3Slow II §x§f§f§d§4§4§2to nearby",
-      " §x§f§f§d§4§4§2enemies for §x§4§d§f§2§f§f15s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Enter Combat - Apathy",
+      " |yellow|Apply |white|Slow II |yellow|to nearby",
+      " |yellow|enemies for |cyan|15s"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
@@ -1097,11 +1798,16 @@
   {
     "title": "Socket Gem",
     "name": "|lime|First Blood",
-    "strippedName": "|lime|First Blood",
+    "strippedName": "First Blood",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Hit Effect - First Blood",
-      " §x§f§f§d§4§4§2Deals §x§f§c§3§d§3§815 Physical Damage §x§f§f§d§4§4§2the",
-      " §x§f§f§d§4§4§2first time you hit an enemy"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Hit Effect - First Blood",
+      " |yellow|Deals |red|15 Physical Damage |yellow|the",
+      " |yellow|first time you hit an enemy"
     ],
     "groupNames": ["Physical", "Weapon", "Upgrade"],
     "rarity": "Epic"
@@ -1109,10 +1815,15 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Grand Slayer",
-    "strippedName": "|lime|Grand Slayer",
+    "strippedName": "Grand Slayer",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Kill Effect - Grand Slayer",
-      " §x§f§f§d§4§4§2Grants §x§f§f§f§b§f§3Resistance X §x§f§f§d§4§4§2for §x§4§d§f§2§f§f1s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Kill Effect - Grand Slayer",
+      " |yellow|Grants |white|Resistance X |yellow|for |cyan|1s"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -1121,36 +1832,62 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Elemental Energy",
-    "strippedName": "|lime|Elemental Energy",
-    "description": ["§x§f§8§8§4§2§c+12% Elemental Status Chance"],
+    "strippedName": "Elemental Energy",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+12% Elemental Status Chance"
+    ],
     "groupNames": ["Wand", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Frenzy III",
-    "strippedName": "|lime|Frenzy III",
-    "description": ["§x§f§8§8§4§2§c+7% Attack Speed"],
+    "strippedName": "Frenzy III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+7% Attack Speed"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Focus III",
-    "strippedName": "|lime|Focus III",
-    "description": ["§x§f§8§8§4§2§c+3 Magical Damage"],
+    "strippedName": "Focus III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3 Magical Damage"
+    ],
     "groupNames": ["Magic", "Weapon", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Pumpkin Bomb",
-    "strippedName": "|lime|Pumpkin Bomb",
+    "strippedName": "Pumpkin Bomb",
     "description": [
-      "§x§f§8§8§4§2§c§nAbility Mod - Pumpkin Bomb",
-      " §x§f§f§d§4§4§2Upgrades §x§f§f§f§b§f§3§nBomb Toss§x§f§f§d§4§4§2:",
-      "  §x§a§6§3§f§c§9Shadow Damage Multiplier: 1.4x",
-      "  §x§a§d§a§1§9§cApplies §x§a§6§3§f§c§9§n10 Corruption"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|Ability Mod - Pumpkin Bomb",
+      " |yellow|Upgrades |white||ul|Bomb Toss|yellow|:",
+      "  |purple|Shadow Damage Multiplier: 1.4x",
+      "  |lgray|Applies |purple||ul|10 Corruption"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -1159,10 +1896,15 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Wither",
-    "strippedName": "|lime|Wither",
+    "strippedName": "Wither",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Hit Effect - Wither",
-      " §x§f§f§d§4§4§2Applies §x§f§f§f§b§f§3Wither I §x§f§f§d§4§4§2for §x§4§d§f§2§f§f15s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Hit Effect - Wither",
+      " |yellow|Applies |white|Wither I |yellow|for |cyan|15s"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -1171,19 +1913,31 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Gem Resonance",
-    "strippedName": "|lime|Gem Resonance",
-    "description": ["§x§f§8§8§4§2§c+10% Mining Gems"],
+    "strippedName": "Gem Resonance",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+10% Mining Gems"
+    ],
     "groupNames": ["Pickaxe", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Mounting Fury",
-    "strippedName": "|lime|Mounting Fury",
+    "strippedName": "Mounting Fury",
     "description": [
-      "§x§f§8§8§4§2§c§nPassive Effect - Mounting Fury",
-      "§x§f§c§3§d§3§8[REQ: In Combat]",
-      " §x§f§f§d§4§4§2Gain §x§f§c§3§d§3§82 Rage §x§f§f§d§4§4§2per second"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|Passive Effect - Mounting Fury",
+      "|red|[REQ: In Combat]",
+      " |yellow|Gain |red|2 Rage |yellow|per second"
     ],
     "groupNames": ["Melee", "Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -1192,18 +1946,30 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Touch Of Malice",
-    "strippedName": "|lime|Touch Of Malice",
-    "description": ["§x§f§8§8§4§2§c+1 Shadow Damage"],
+    "strippedName": "Touch Of Malice",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1 Shadow Damage"
+    ],
     "groupNames": ["Offhand", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Consistency",
-    "strippedName": "|lime|Consistency",
+    "strippedName": "Consistency",
     "description": [
-      "§x§f§8§8§4§2§c+20% Critical Chance",
-      "§x§f§c§3§d§3§8-10% Critical Damage"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+20% Critical Chance",
+      "|red|-10% Critical Damage"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic"
@@ -1211,43 +1977,76 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Lethality IV",
-    "strippedName": "|lime|Lethality IV",
-    "description": ["§x§f§8§8§4§2§c+10% Critical Chance"],
+    "strippedName": "Lethality IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+10% Critical Chance"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Lethality II",
-    "strippedName": "|lime|Lethality II",
-    "description": ["§x§f§8§8§4§2§c+7% Critical Chance"],
+    "strippedName": "Lethality II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+7% Critical Chance"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Venom",
-    "strippedName": "|lime|Venom",
-    "description": ["§x§f§8§8§4§2§c+8% Poison Chance"],
+    "strippedName": "Venom",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+8% Poison Chance"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Sunder IV",
-    "strippedName": "|lime|Sunder IV",
-    "description": ["§x§f§8§8§4§2§c+12 Armor Penetration"],
+    "strippedName": "Sunder IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+12 Armor Penetration"
+    ],
     "groupNames": ["Physical", "Weapon", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Wildfire",
-    "strippedName": "|lime|Wildfire",
+    "strippedName": "Wildfire",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Kill Effect - Wildfire",
-      "§x§f§c§3§d§3§8[Condition: Target Burning]",
-      " §x§f§f§d§4§4§2Ignites nearby enemies for §x§4§d§f§2§f§f5s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Kill Effect - Wildfire",
+      "|red|[Condition: Target Burning]",
+      " |yellow|Ignites nearby enemies for |cyan|5s"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -1256,24 +2055,44 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Shade II",
-    "strippedName": "|lime|Shade II",
-    "description": ["§x§f§8§8§4§2§c+2 Shadow Damage"],
+    "strippedName": "Shade II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2 Shadow Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Lifesteal III",
-    "strippedName": "|lime|Lifesteal III",
-    "description": ["§x§f§8§8§4§2§c+4% Life Steal"],
+    "strippedName": "Lifesteal III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4% Life Steal"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Flow",
-    "strippedName": "|lime|Flow",
-    "description": [],
+    "strippedName": "Flow",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic",
     "specialFlag": "transmute"
@@ -1281,11 +2100,16 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Fear",
-    "strippedName": "|lime|Fear",
+    "strippedName": "Fear",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Enter Combat - Fear",
-      " §x§f§f§d§4§4§2Apply §x§f§f§f§b§f§3Vulnerable II §x§f§f§d§4§4§2to nearby",
-      " §x§f§f§d§4§4§2enemies for §x§4§d§f§2§f§f30s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Enter Combat - Fear",
+      " |yellow|Apply |white|Vulnerable II |yellow|to nearby",
+      " |yellow|enemies for |cyan|30s"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
@@ -1293,58 +2117,105 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Sunder II",
-    "strippedName": "|lime|Sunder II",
-    "description": ["§x§f§8§8§4§2§c+8 Armor Penetration"],
+    "strippedName": "Sunder II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+8 Armor Penetration"
+    ],
     "groupNames": ["Physical", "Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Brutality III",
-    "strippedName": "|lime|Brutality III",
-    "description": ["§x§f§8§8§4§2§c+14% Critical Damage"],
+    "strippedName": "Brutality III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+14% Critical Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Earth Aspect",
-    "strippedName": "|lime|Earth Aspect",
-    "description": ["§x§f§8§8§4§2§c+3 Earth Damage"],
+    "strippedName": "Earth Aspect",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3 Earth Damage"
+    ],
     "groupNames": ["Shield", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Mark of Strength",
-    "strippedName": "|lime|Mark of Strength",
-    "description": ["§x§f§8§8§4§2§c+1 Physical Damage"],
+    "strippedName": "Mark of Strength",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1 Physical Damage"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Block I",
-    "strippedName": "|lime|Block I",
-    "description": ["§x§f§8§8§4§2§c+6 Block"],
+    "strippedName": "Block I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+6 Block"
+    ],
     "groupNames": ["Shield", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Gaudy Lure",
-    "strippedName": "|lime|Gaudy Lure",
-    "description": ["§x§f§8§8§4§2§c+5% Fishing Treasures"],
+    "strippedName": "Gaudy Lure",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+5% Fishing Treasures"
+    ],
     "groupNames": ["FishingRod", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Gluttony",
-    "strippedName": "|lime|Gluttony",
+    "strippedName": "Gluttony",
     "description": [
-      "§x§f§8§8§4§2§c+2 Life On Hit",
-      "§x§f§8§8§4§2§c+2% Life Steal"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2 Life On Hit",
+      "|orange|+2% Life Steal"
     ],
     "groupNames": ["Shield", "Upgrade"],
     "rarity": "Epic"
@@ -1352,32 +2223,60 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Insight",
-    "strippedName": "|lime|Insight",
-    "description": ["§x§f§8§8§4§2§c+6% Combat XP"],
+    "strippedName": "Insight",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+6% Combat XP"
+    ],
     "groupNames": ["Helmet", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Deflect IV",
-    "strippedName": "|lime|Deflect IV",
-    "description": ["§x§f§8§8§4§2§c+10 Block"],
+    "strippedName": "Deflect IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+10 Block"
+    ],
     "groupNames": ["Melee", "Weapon", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Imbue",
-    "strippedName": "|lime|Imbue",
-    "description": ["§x§f§8§8§4§2§c+10% Elemental Status Chance"],
+    "strippedName": "Imbue",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+10% Elemental Status Chance"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Glint",
-    "strippedName": "|lime|Glint",
-    "description": ["§x§f§8§8§4§2§c+4% Loot Rarity"],
+    "strippedName": "Glint",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4% Loot Rarity"
+    ],
     "groupNames": ["Offhand", "Upgrade"],
     "rarity": "Epic",
     "specialFlag": "transmute"
@@ -1385,56 +2284,105 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Subtle Healing",
-    "strippedName": "|lime|Subtle Healing",
-    "description": ["§x§f§8§8§4§2§c+1 Life Regeneration"],
+    "strippedName": "Subtle Healing",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1 Life Regeneration"
+    ],
     "groupNames": ["Offhand", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Deflect II",
-    "strippedName": "|lime|Deflect II",
-    "description": ["§x§f§8§8§4§2§c+6 Block"],
+    "strippedName": "Deflect II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+6 Block"
+    ],
     "groupNames": ["Melee", "Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Zap IV",
-    "strippedName": "|lime|Zap IV",
-    "description": ["§x§f§8§8§4§2§c+4 Lightning Damage"],
+    "strippedName": "Zap IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4 Lightning Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Life III",
-    "strippedName": "|lime|Life III",
-    "description": ["§x§f§8§8§4§2§c+5 Maximum Life"],
+    "strippedName": "Life III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+5 Maximum Life"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Eager Elements",
-    "strippedName": "|lime|Eager Elements",
-    "description": ["§x§f§8§8§4§2§c+5% Elemental Status Chance"],
+    "strippedName": "Eager Elements",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+5% Elemental Status Chance"
+    ],
     "groupNames": ["Offhand", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Chill IV",
-    "strippedName": "|lime|Chill IV",
-    "description": ["§x§f§8§8§4§2§c+4 Ice Damage"],
+    "strippedName": "Chill IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4 Ice Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Enlightenment",
-    "strippedName": "|lime|Enlightenment",
-    "description": ["§x§f§8§8§4§2§c+8% Skill XP"],
+    "strippedName": "Enlightenment",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+8% Skill XP"
+    ],
     "groupNames": ["Helmet", "Upgrade"],
     "rarity": "Epic",
     "specialFlag": "event"
@@ -1442,19 +2390,31 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Energy I",
-    "strippedName": "|lime|Energy I",
-    "description": ["§x§f§8§8§4§2§c+10 Maximum Energy"],
+    "strippedName": "Energy I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+10 Maximum Energy"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Spirit Wind",
-    "strippedName": "|lime|Spirit Wind",
+    "strippedName": "Spirit Wind",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Evade Effect - Spirit Wind",
-      " §x§f§f§d§4§4§2Restores §x§f§f§f§b§f§310% §x§f§f§d§4§4§2barrier",
-      " §x§f§f§f§b§f§3[4s Cooldown]"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Evade Effect - Spirit Wind",
+      " |yellow|Restores |white|10% |yellow|barrier",
+      " |white|[4s Cooldown]"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
@@ -1462,43 +2422,76 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Brutality I",
-    "strippedName": "|lime|Brutality I",
-    "description": ["§x§f§8§8§4§2§c+10% Critical Damage"],
+    "strippedName": "Brutality I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+10% Critical Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Fortune I",
-    "strippedName": "|lime|Fortune I",
-    "description": ["§x§f§8§8§4§2§c+1% Loot Bonus"],
+    "strippedName": "Fortune I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1% Loot Bonus"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Uncommon"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Sunder III",
-    "strippedName": "|lime|Sunder III",
-    "description": ["§x§f§8§8§4§2§c+10 Armor Penetration"],
+    "strippedName": "Sunder III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+10 Armor Penetration"
+    ],
     "groupNames": ["Physical", "Weapon", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Frenzy II",
-    "strippedName": "|lime|Frenzy II",
-    "description": ["§x§f§8§8§4§2§c+6% Attack Speed"],
+    "strippedName": "Frenzy II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+6% Attack Speed"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Heat Shield",
-    "strippedName": "|lime|Heat Shield",
+    "strippedName": "Heat Shield",
     "description": [
-      "§x§f§8§8§4§2§c§nPassive Effect - Heat Shield",
-      " §x§f§f§d§4§4§2While you have barrier, §x§f§8§8§4§2§c§nBurning",
-      " §x§f§f§d§4§4§2deals no damage"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|Passive Effect - Heat Shield",
+      " |yellow|While you have barrier, |orange||ul|Burning",
+      " |yellow|deals no damage"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic",
@@ -1507,11 +2500,16 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Prismatic Power",
-    "strippedName": "|lime|Prismatic Power",
+    "strippedName": "Prismatic Power",
     "description": [
-      "§x§f§8§8§4§2§c§nAbility Mod - Prismatic Power",
-      " §x§f§f§d§4§4§2Upgrades §x§f§f§f§b§f§3§nPrismatic Aura§x§f§f§d§4§4§2 to",
-      " §x§f§f§d§4§4§2grant §x§f§f§f§b§f§3Power II"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|Ability Mod - Prismatic Power",
+      " |yellow|Upgrades |white||ul|Prismatic Aura|yellow| to",
+      " |yellow|grant |white|Power II"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic"
@@ -1519,36 +2517,62 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Burn II",
-    "strippedName": "|lime|Burn II",
-    "description": ["§x§f§8§8§4§2§c+2 Fire Damage"],
+    "strippedName": "Burn II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2 Fire Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Bloodsucker",
-    "strippedName": "|lime|Bloodsucker",
-    "description": ["§x§f§8§8§4§2§c+8 Life On Kill"],
+    "strippedName": "Bloodsucker",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+8 Life On Kill"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Recharge",
-    "strippedName": "|lime|Recharge",
-    "description": ["§x§f§8§8§4§2§c+5 Barrier Regeneration"],
+    "strippedName": "Recharge",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+5 Barrier Regeneration"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Second Chance",
-    "strippedName": "|lime|Second Chance",
+    "strippedName": "Second Chance",
     "description": [
-      "§x§f§8§8§4§2§c§nWhen Hit Effect - Second Chance",
-      " §x§f§c§3§d§3§8[REQ: Less Than 25% Life]",
-      " §x§f§f§d§4§4§2Heal §x§4§c§e§a§1§925 §x§f§f§d§4§4§2Life",
-      " §x§f§f§f§b§f§3[10s Cooldown]"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|When Hit Effect - Second Chance",
+      " |red|[REQ: Less Than 25% Life]",
+      " |yellow|Heal |lgreen|25 |yellow|Life",
+      " |white|[10s Cooldown]"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Common"
@@ -1556,8 +2580,14 @@
   {
     "title": "Socket Gem",
     "name": "|lime|War Rhythm",
-    "strippedName": "|lime|War Rhythm",
-    "description": [],
+    "strippedName": "War Rhythm",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic",
     "specialFlag": "transmute"
@@ -1565,18 +2595,30 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Frenzy IV",
-    "strippedName": "|lime|Frenzy IV",
-    "description": ["§x§f§8§8§4§2§c+8% Attack Speed"],
+    "strippedName": "Frenzy IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+8% Attack Speed"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Superior Dexterity",
-    "strippedName": "|lime|Superior Dexterity",
+    "strippedName": "Superior Dexterity",
     "description": [
-      "§x§f§8§8§4§2§c+8 Accuracy",
-      "§x§f§8§8§4§2§c+5% Critical Chance"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+8 Accuracy",
+      "|orange|+5% Critical Chance"
     ],
     "groupNames": ["Melee", "Weapon", "Upgrade"],
     "rarity": "Epic"
@@ -1584,18 +2626,30 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Aptitude",
-    "strippedName": "|lime|Aptitude",
-    "description": ["§x§f§8§8§4§2§c+2% Combat XP"],
+    "strippedName": "Aptitude",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2% Combat XP"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Power",
-    "strippedName": "|lime|Power",
+    "strippedName": "Power",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Hit Effect - Power",
-      " §x§f§f§d§4§4§2Grants §x§f§f§f§b§f§3Power I §x§f§f§d§4§4§2for §x§4§d§f§2§f§f3s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Hit Effect - Power",
+      " |yellow|Grants |white|Power I |yellow|for |cyan|3s"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -1604,32 +2658,59 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Reinforcement I",
-    "strippedName": "|lime|Reinforcement I",
-    "description": ["§x§f§8§8§4§2§c+1 Armor"],
+    "strippedName": "Reinforcement I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1 Armor"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Shade I",
-    "strippedName": "|lime|Shade I",
-    "description": ["§x§f§8§8§4§2§c+1 Shadow Damage"],
+    "strippedName": "Shade I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1 Shadow Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Burn IV",
-    "strippedName": "|lime|Burn IV",
-    "description": ["§x§f§8§8§4§2§c+4 Fire Damage"],
+    "strippedName": "Burn IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4 Fire Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Short Fuse",
-    "strippedName": "|lime|Short Fuse",
-    "description": [],
+    "strippedName": "Short Fuse",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic",
     "specialFlag": "event"
@@ -1637,10 +2718,15 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Spider Bite",
-    "strippedName": "|lime|Spider Bite",
+    "strippedName": "Spider Bite",
     "description": [
-      "§x§f§8§8§4§2§c+2% Poison Chance",
-      "§x§f§8§8§4§2§c+6% Poison Duration"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2% Poison Chance",
+      "|orange|+6% Poison Duration"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic"
@@ -1648,16 +2734,29 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Frenzy I",
-    "strippedName": "|lime|Frenzy I",
-    "description": ["§x§f§8§8§4§2§c+5% Attack Speed"],
+    "strippedName": "Frenzy I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+5% Attack Speed"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Ebb",
-    "strippedName": "|lime|Ebb",
-    "description": [],
+    "strippedName": "Ebb",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic",
     "specialFlag": "transmute"
@@ -1665,19 +2764,31 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Discovery III",
-    "strippedName": "|lime|Discovery III",
-    "description": ["§x§f§8§8§4§2§c+8% Loot Bonus"],
+    "strippedName": "Discovery III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+8% Loot Bonus"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Grit",
-    "strippedName": "|lime|Grit",
+    "strippedName": "Grit",
     "description": [
-      "§x§f§8§8§4§2§c§nWhen Hit Effect - Grit",
-      " §x§f§f§d§4§4§2Gain §x§f§f§f§b§f§3+4 Tenacity §x§f§f§d§4§4§2for §x§4§d§f§2§f§f18s",
-      " §x§a§d§a§1§9§c[Stacks up to 25 times]"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|When Hit Effect - Grit",
+      " |yellow|Gain |white|+4 Tenacity |yellow|for |cyan|18s",
+      " |lgray|[Stacks up to 25 times]"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic",
@@ -1686,13 +2797,18 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Righteous Strike",
-    "strippedName": "|lime|Righteous Strike",
+    "strippedName": "Righteous Strike",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Hit Effect - Righteous Strike",
-      " §x§f§f§d§4§4§2Deal §x§f§f§f§b§f§315 §x§f§f§d§4§4§2additional §x§f§f§f§b§f§3Light Damage",
-      " §x§f§f§d§4§4§2Heal §x§4§c§e§a§1§95% §x§f§f§d§4§4§2Maximum Life to",
-      "  §x§f§f§d§4§4§2nearby party members",
-      " §x§f§f§f§b§f§3[12s Cooldown]"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Hit Effect - Righteous Strike",
+      " |yellow|Deal |white|15 |yellow|additional |white|Light Damage",
+      " |yellow|Heal |lgreen|5% |yellow|Maximum Life to",
+      "  |yellow|nearby party members",
+      " |white|[12s Cooldown]"
     ],
     "groupNames": ["Blunt", "Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -1701,36 +2817,62 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Burn III",
-    "strippedName": "|lime|Burn III",
-    "description": ["§x§f§8§8§4§2§c+3 Fire Damage"],
+    "strippedName": "Burn III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3 Fire Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Shade III",
-    "strippedName": "|lime|Shade III",
-    "description": ["§x§f§8§8§4§2§c+3 Shadow Damage"],
+    "strippedName": "Shade III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3 Shadow Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Chill II",
-    "strippedName": "|lime|Chill II",
-    "description": ["§x§f§8§8§4§2§c+2 Ice Damage"],
+    "strippedName": "Chill II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2 Ice Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Dominance",
-    "strippedName": "|lime|Dominance",
+    "strippedName": "Dominance",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Kill Effect - Dominance",
-      "§x§f§c§3§d§3§8[REQ: Power]",
-      " §x§f§f§d§4§4§2Apply §x§f§f§f§b§f§3Weak II §x§f§f§d§4§4§2and §x§f§f§f§b§f§3Slow II",
-      " §x§f§f§d§4§4§2to nearby enemies for §x§4§d§f§2§f§f5s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Kill Effect - Dominance",
+      "|red|[REQ: Power]",
+      " |yellow|Apply |white|Weak II |yellow|and |white|Slow II",
+      " |yellow|to nearby enemies for |cyan|5s"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -1739,10 +2881,15 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Defender",
-    "strippedName": "|lime|Defender",
+    "strippedName": "Defender",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Block Effect - Defender",
-      " §x§f§f§d§4§4§2Heals allies for §x§f§f§f§b§f§30.8% §x§f§f§d§4§4§2of your max. life"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Block Effect - Defender",
+      " |yellow|Heals allies for |white|0.8% |yellow|of your max. life"
     ],
     "groupNames": ["Shield", "Upgrade"],
     "rarity": "Epic",
@@ -1751,8 +2898,15 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Agile Archery",
-    "strippedName": "|lime|Agile Archery",
-    "description": ["§x§f§8§8§4§2§c+2 Movement Speed"],
+    "strippedName": "Agile Archery",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2 Movement Speed"
+    ],
     "groupNames": ["Bow", "Upgrade"],
     "rarity": "Epic",
     "specialFlag": "transmute"
@@ -1760,26 +2914,45 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Heart of Gold",
-    "strippedName": "|lime|Heart of Gold",
-    "description": ["§x§f§8§8§4§2§c+10% Gold Bonus"],
+    "strippedName": "Heart of Gold",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+10% Gold Bonus"
+    ],
     "groupNames": ["Chestplate", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Sunder I",
-    "strippedName": "|lime|Sunder I",
-    "description": ["§x§f§8§8§4§2§c+6 Armor Penetration"],
+    "strippedName": "Sunder I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+6 Armor Penetration"
+    ],
     "groupNames": ["Physical", "Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|True Strike",
-    "strippedName": "|lime|True Strike",
+    "strippedName": "True Strike",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Crit Effect - True Strike",
-      " §x§f§f§d§4§4§2Deal §x§f§f§f§b§f§38 True Damage"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Crit Effect - True Strike",
+      " |yellow|Deal |white|8 True Damage"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic"
@@ -1787,18 +2960,30 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Lifesteal I",
-    "strippedName": "|lime|Lifesteal I",
-    "description": ["§x§f§8§8§4§2§c+2% Life Steal"],
+    "strippedName": "Lifesteal I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2% Life Steal"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Final Stand",
-    "strippedName": "|lime|Final Stand",
+    "strippedName": "Final Stand",
     "description": [
-      "§x§f§8§8§4§2§c+2 Life Regeneration",
-      "§x§f§8§8§4§2§c+10 Block"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2 Life Regeneration",
+      "|orange|+10 Block"
     ],
     "groupNames": ["Shield", "Upgrade"],
     "rarity": "Epic"
@@ -1806,32 +2991,59 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Soul Eater",
-    "strippedName": "|lime|Soul Eater",
-    "description": ["§x§f§8§8§4§2§c+3 Life On Kill"],
+    "strippedName": "Soul Eater",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3 Life On Kill"
+    ],
     "groupNames": ["Offhand", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Swiftness",
-    "strippedName": "|lime|Swiftness",
-    "description": ["§x§f§8§8§4§2§c+3 Movement Speed"],
+    "strippedName": "Swiftness",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3 Movement Speed"
+    ],
     "groupNames": ["Boots", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Blood Trail",
-    "strippedName": "|lime|Blood Trail",
-    "description": ["§x§f§8§8§4§2§c+4% Bleed Chance"],
+    "strippedName": "Blood Trail",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4% Bleed Chance"
+    ],
     "groupNames": ["Quiver", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Spore Poof",
-    "strippedName": "|lime|Spore Poof",
-    "description": [],
+    "strippedName": "Spore Poof",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic",
     "specialFlag": "event"
@@ -1839,18 +3051,30 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Shoot I",
-    "strippedName": "|lime|Shoot I",
-    "description": ["§x§f§8§8§4§2§c+1 Physical Damage"],
+    "strippedName": "Shoot I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1 Physical Damage"
+    ],
     "groupNames": ["Ranged", "Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Axe Happy",
-    "strippedName": "|lime|Axe Happy",
+    "strippedName": "Axe Happy",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Kill Effect - Axe Happy",
-      " §x§f§f§d§4§4§2Refresh the cooldown of §x§f§f§f§b§f§3§nAxe Throw"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Kill Effect - Axe Happy",
+      " |yellow|Refresh the cooldown of |white||ul|Axe Throw"
     ],
     "groupNames": ["Axe", "Upgrade"],
     "rarity": "Epic",
@@ -1859,27 +3083,46 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Discovery IV",
-    "strippedName": "|lime|Discovery IV",
-    "description": ["§x§f§8§8§4§2§c+10% Loot Bonus"],
+    "strippedName": "Discovery IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+10% Loot Bonus"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Shoot IV",
-    "strippedName": "|lime|Shoot IV",
-    "description": ["§x§f§8§8§4§2§c+4 Physical Damage"],
+    "strippedName": "Shoot IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4 Physical Damage"
+    ],
     "groupNames": ["Ranged", "Weapon", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Surge",
-    "strippedName": "|lime|Surge",
+    "strippedName": "Surge",
     "description": [
-      "§x§f§8§8§4§2§c§nAbility Mod - Surge",
-      " §x§f§f§d§4§4§2Upgrades §x§f§f§f§b§f§3§nRush§x§f§f§d§4§4§2 to also grant",
-      " §x§f§f§f§b§f§3Haste II §x§f§f§d§4§4§2for §x§4§d§f§2§f§f6s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|Ability Mod - Surge",
+      " |yellow|Upgrades |white||ul|Rush|yellow| to also grant",
+      " |white|Haste II |yellow|for |cyan|6s"
     ],
     "groupNames": ["Boots", "Upgrade"],
     "rarity": "Epic"
@@ -1887,42 +3130,75 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Zap III",
-    "strippedName": "|lime|Zap III",
-    "description": ["§x§f§8§8§4§2§c+3 Lightning Damage"],
+    "strippedName": "Zap III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3 Lightning Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Shoot II",
-    "strippedName": "|lime|Shoot II",
-    "description": ["§x§f§8§8§4§2§c+2 Physical Damage"],
+    "strippedName": "Shoot II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2 Physical Damage"
+    ],
     "groupNames": ["Ranged", "Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Discovery II",
-    "strippedName": "|lime|Discovery II",
-    "description": ["§x§f§8§8§4§2§c+6% Loot Bonus"],
+    "strippedName": "Discovery II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+6% Loot Bonus"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Tectonic Plate",
-    "strippedName": "|lime|Tectonic Plate",
-    "description": ["§x§f§8§8§4§2§c+1 Earth Damage"],
+    "strippedName": "Tectonic Plate",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1 Earth Damage"
+    ],
     "groupNames": ["Heavy", "Armor", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Dark Harvest",
-    "strippedName": "|lime|Dark Harvest",
+    "strippedName": "Dark Harvest",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Kill Effect - Dark Harvest",
-      " §x§f§f§d§4§4§2Summons a §x§f§f§f§b§f§3Spirit Of Decay §x§f§f§d§4§4§2for §x§4§d§f§2§f§f30s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Kill Effect - Dark Harvest",
+      " |yellow|Summons a |white|Spirit Of Decay |yellow|for |cyan|30s"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -1931,24 +3207,46 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Touch Of Cold",
-    "strippedName": "|lime|Touch Of Cold",
-    "description": ["§x§f§8§8§4§2§c+1 Ice Damage"],
+    "strippedName": "Touch Of Cold",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1 Ice Damage"
+    ],
     "groupNames": ["Offhand", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Burn I",
-    "strippedName": "|lime|Burn I",
-    "description": ["§x§f§8§8§4§2§c+1 Fire Damage"],
+    "strippedName": "Burn I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1 Fire Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Stonewall",
-    "strippedName": "|lime|Stonewall",
-    "description": ["§x§f§8§8§4§2§c+6 Block", "§x§f§8§8§4§2§c+2 Earth Damage"],
+    "strippedName": "Stonewall",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+6 Block",
+      "|orange|+2 Earth Damage"
+    ],
     "groupNames": ["Shield", "Upgrade"],
     "rarity": "Epic",
     "specialFlag": "transmute"
@@ -1956,11 +3254,16 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Stone Skin",
-    "strippedName": "|lime|Stone Skin",
+    "strippedName": "Stone Skin",
     "description": [
-      "§x§f§8§8§4§2§c§nPassive Effect - Stone Skin",
-      " §x§f§f§d§4§4§2Receive 3% less damage per",
-      " §x§f§f§d§4§4§2active §x§3§9§9§f§0§dEarth Rune"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|Passive Effect - Stone Skin",
+      " |yellow|Receive 3% less damage per",
+      " |yellow|active |green|Earth Rune"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic",
@@ -1969,10 +3272,15 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Frog Aspect",
-    "strippedName": "|lime|Frog Aspect",
+    "strippedName": "Frog Aspect",
     "description": [
-      "§x§f§8§8§4§2§c§nPassive Effect - Frog Aspect",
-      " §x§f§f§d§4§4§2Applies §x§f§f§f§b§f§3Jump Boost II"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|Passive Effect - Frog Aspect",
+      " |yellow|Applies |white|Jump Boost II"
     ],
     "groupNames": ["Boots", "Upgrade"],
     "rarity": "Epic",
@@ -1981,8 +3289,14 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Overdrive",
-    "strippedName": "|lime|Overdrive",
-    "description": [],
+    "strippedName": "Overdrive",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic",
     "specialFlag": "transmute"
@@ -1990,35 +3304,61 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Block IV",
-    "strippedName": "|lime|Block IV",
-    "description": ["§x§f§8§8§4§2§c+12 Block"],
+    "strippedName": "Block IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+12 Block"
+    ],
     "groupNames": ["Shield", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Resistance II",
-    "strippedName": "|lime|Resistance II",
-    "description": ["§x§f§8§8§4§2§c+3% Elemental Resist"],
+    "strippedName": "Resistance II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3% Elemental Resist"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Healing Hit",
-    "strippedName": "|lime|Healing Hit",
-    "description": ["§x§f§8§8§4§2§c+2 Life On Hit"],
+    "strippedName": "Healing Hit",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2 Life On Hit"
+    ],
     "groupNames": ["Offhand", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Regret",
-    "strippedName": "|lime|Regret",
+    "strippedName": "Regret",
     "description": [
-      "§x§f§8§8§4§2§c§nWhen Hit Effect - Regret",
-      "§x§f§c§3§d§3§8[30% Chance]",
-      " §x§f§f§d§4§4§2Applies §x§f§f§f§b§f§3Wither I §x§f§f§d§4§4§2for §x§4§d§f§2§f§f10s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|When Hit Effect - Regret",
+      "|red|[30% Chance]",
+      " |yellow|Applies |white|Wither I |yellow|for |cyan|10s"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic",
@@ -2027,51 +3367,91 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Hint Of Magic",
-    "strippedName": "|lime|Hint Of Magic",
-    "description": ["§x§f§8§8§4§2§c+1 Magical Damage"],
+    "strippedName": "Hint Of Magic",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1 Magical Damage"
+    ],
     "groupNames": ["Offhand", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Lifesteal IV",
-    "strippedName": "|lime|Lifesteal IV",
-    "description": ["§x§f§8§8§4§2§c+5% Life Steal"],
+    "strippedName": "Lifesteal IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+5% Life Steal"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Smash IV",
-    "strippedName": "|lime|Smash IV",
-    "description": ["§x§f§8§8§4§2§c+5 Earth Damage"],
+    "strippedName": "Smash IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+5 Earth Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Sharpen I",
-    "strippedName": "|lime|Sharpen I",
-    "description": ["§x§f§8§8§4§2§c+1 Physical Damage"],
+    "strippedName": "Sharpen I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1 Physical Damage"
+    ],
     "groupNames": ["Melee", "Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Barrier I",
-    "strippedName": "|lime|Barrier I",
-    "description": ["§x§f§8§8§4§2§c+3 Maximum Barrier"],
+    "strippedName": "Barrier I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3 Maximum Barrier"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Prismatic Luck",
-    "strippedName": "|lime|Prismatic Luck",
+    "strippedName": "Prismatic Luck",
     "description": [
-      "§x§f§8§8§4§2§c§nAbility Mod - Prismatic Luck",
-      " §x§f§f§d§4§4§2Upgrades §x§f§f§f§b§f§3§nPrismatic Aura§x§f§f§d§4§4§2 to",
-      " §x§f§f§d§4§4§2grant §x§f§f§f§b§f§3Luck I"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|Ability Mod - Prismatic Luck",
+      " |yellow|Upgrades |white||ul|Prismatic Aura|yellow| to",
+      " |yellow|grant |white|Luck I"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
@@ -2079,10 +3459,15 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Blue Flame",
-    "strippedName": "|lime|Blue Flame",
+    "strippedName": "Blue Flame",
     "description": [
-      "§x§f§8§8§4§2§c§nPassive Effect - Blue Flame",
-      " §x§f§f§d§4§4§2Ignore §x§f§f§f§b§f§3half §x§f§f§d§4§4§2of enemy §x§f§f§f§b§f§3Fire Resistance"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|Passive Effect - Blue Flame",
+      " |yellow|Ignore |white|half |yellow|of enemy |white|Fire Resistance"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -2091,27 +3476,46 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Zap II",
-    "strippedName": "|lime|Zap II",
-    "description": ["§x§f§8§8§4§2§c+2 Lightning Damage"],
+    "strippedName": "Zap II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2 Lightning Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Lightweight",
-    "strippedName": "|lime|Lightweight",
-    "description": ["§x§f§8§8§4§2§c+2 Movement Speed"],
+    "strippedName": "Lightweight",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2 Movement Speed"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Intimidate",
-    "strippedName": "|lime|Intimidate",
+    "strippedName": "Intimidate",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Enter Combat - Intimidate",
-      " §x§f§f§d§4§4§2Apply §x§f§f§f§b§f§3Weakness II §x§f§f§d§4§4§2to nearby",
-      " §x§f§f§d§4§4§2enemies for §x§4§d§f§2§f§f30s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Enter Combat - Intimidate",
+      " |yellow|Apply |white|Weakness II |yellow|to nearby",
+      " |yellow|enemies for |cyan|30s"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
@@ -2119,10 +3523,15 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Harden",
-    "strippedName": "|lime|Harden",
+    "strippedName": "Harden",
     "description": [
-      "§x§f§8§8§4§2§c§nWhen Hit Effect - Harden",
-      " §x§f§f§d§4§4§2Grants §x§f§f§f§b§f§3Resistance II §x§f§f§d§4§4§2for §x§4§d§f§2§f§f2s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|When Hit Effect - Harden",
+      " |yellow|Grants |white|Resistance II |yellow|for |cyan|2s"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic",
@@ -2131,26 +3540,45 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Resistance IV",
-    "strippedName": "|lime|Resistance IV",
-    "description": ["§x§f§8§8§4§2§c+5% Elemental Resist"],
+    "strippedName": "Resistance IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+5% Elemental Resist"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Lifesteal II",
-    "strippedName": "|lime|Lifesteal II",
-    "description": ["§x§f§8§8§4§2§c+3% Life Steal"],
+    "strippedName": "Lifesteal II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3% Life Steal"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Adrenaline",
-    "strippedName": "|lime|Adrenaline",
+    "strippedName": "Adrenaline",
     "description": [
-      "§x§f§8§8§4§2§c§nWhen Hit Effect - Adrenaline",
-      " §x§f§f§d§4§4§2Applies §x§f§f§f§b§f§3Speed II §x§f§f§d§4§4§2for §x§4§d§f§2§f§f4s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|When Hit Effect - Adrenaline",
+      " |yellow|Applies |white|Speed II |yellow|for |cyan|4s"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic",
@@ -2159,35 +3587,61 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Bloodstains",
-    "strippedName": "|lime|Bloodstains",
-    "description": ["§x§f§8§8§4§2§c+5% Critical Damage"],
+    "strippedName": "Bloodstains",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+5% Critical Damage"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Smash II",
-    "strippedName": "|lime|Smash II",
-    "description": ["§x§f§8§8§4§2§c+3 Earth Damage"],
+    "strippedName": "Smash II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+3 Earth Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Smash I",
-    "strippedName": "|lime|Smash I",
-    "description": ["§x§f§8§8§4§2§c+2 Earth Damage"],
+    "strippedName": "Smash I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+2 Earth Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Cripple",
-    "strippedName": "|lime|Cripple",
+    "strippedName": "Cripple",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Hit Effect - Cripple",
-      " §x§f§f§d§4§4§2Removes §x§f§f§f§b§f§3Speed §x§f§f§d§4§4§2from enemies",
-      " §x§f§f§d§4§4§2Applies §x§f§f§f§b§f§3Slow I §x§f§f§d§4§4§2for §x§4§d§f§2§f§f12s"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Hit Effect - Cripple",
+      " |yellow|Removes |white|Speed |yellow|from enemies",
+      " |yellow|Applies |white|Slow I |yellow|for |cyan|12s"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -2196,34 +3650,60 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Barrier II",
-    "strippedName": "|lime|Barrier II",
-    "description": ["§x§f§8§8§4§2§c+4 Maximum Barrier"],
+    "strippedName": "Barrier II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4 Maximum Barrier"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Sacred Barrier",
-    "strippedName": "|lime|Sacred Barrier",
-    "description": ["§x§f§8§8§4§2§c+10 Barrier Regeneration"],
+    "strippedName": "Sacred Barrier",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+10 Barrier Regeneration"
+    ],
     "groupNames": ["Shield", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Smash III",
-    "strippedName": "|lime|Smash III",
-    "description": ["§x§f§8§8§4§2§c+4 Earth Damage"],
+    "strippedName": "Smash III",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4 Earth Damage"
+    ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Rare"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|x mTn dew bois x",
-    "strippedName": "|lime|x mTn dew bois x",
+    "strippedName": "x mTn dew bois x",
     "description": [
-      "§x§f§8§8§4§2§c+69x CoD XP",
-      "§x§f§8§8§4§2§c(lol DAE get 69?? xD)"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+69x CoD XP",
+      "|orange|(lol DAE get 69?? xD)"
     ],
     "groupNames": ["Upgrade"],
     "rarity": "Epic",
@@ -2232,11 +3712,16 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Prismatic Energy",
-    "strippedName": "|lime|Prismatic Energy",
+    "strippedName": "Prismatic Energy",
     "description": [
-      "§x§f§8§8§4§2§c§nAbility Mod - Prismatic Energy",
-      " §x§f§f§d§4§4§2Upgrades §x§f§f§f§b§f§3§nPrismatic Aura§x§f§f§d§4§4§2 to",
-      " §x§f§f§d§4§4§2grant §x§f§f§f§b§f§3Energize I"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|Ability Mod - Prismatic Energy",
+      " |yellow|Upgrades |white||ul|Prismatic Aura|yellow| to",
+      " |yellow|grant |white|Energize I"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic"
@@ -2244,10 +3729,15 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Concentration",
-    "strippedName": "|lime|Concentration",
+    "strippedName": "Concentration",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Ability Use - Concentration",
-      " §x§f§f§d§4§4§2Restores §x§f§f§f§b§f§35 Barrier"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Ability Use - Concentration",
+      " |yellow|Restores |white|5 Barrier"
     ],
     "groupNames": ["Magic", "Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -2256,42 +3746,75 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Evade I",
-    "strippedName": "|lime|Evade I",
-    "description": ["§x§f§8§8§4§2§c+1 Evasion"],
+    "strippedName": "Evade I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1 Evasion"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Focus I",
-    "strippedName": "|lime|Focus I",
-    "description": ["§x§f§8§8§4§2§c+1 Magical Damage"],
+    "strippedName": "Focus I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+1 Magical Damage"
+    ],
     "groupNames": ["Magic", "Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Deflect I",
-    "strippedName": "|lime|Deflect I",
-    "description": ["§x§f§8§8§4§2§c+4 Block"],
+    "strippedName": "Deflect I",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+4 Block"
+    ],
     "groupNames": ["Melee", "Weapon", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Block II",
-    "strippedName": "|lime|Block II",
-    "description": ["§x§f§8§8§4§2§c+8 Block"],
+    "strippedName": "Block II",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+8 Block"
+    ],
     "groupNames": ["Shield", "Upgrade"],
     "rarity": "Common"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Reactive Molding",
-    "strippedName": "|lime|Reactive Molding",
+    "strippedName": "Reactive Molding",
     "description": [
-      "§x§f§8§8§4§2§c§nWhen Hit Effect - Reactive Molding",
-      " §x§f§f§d§4§4§2After §x§f§f§f§b§f§31s §x§f§f§d§4§4§2Restore §x§f§f§f§b§f§33% Barrier"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|When Hit Effect - Reactive Molding",
+      " |yellow|After |white|1s |yellow|Restore |white|3% Barrier"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic",
@@ -2300,19 +3823,31 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Barrier IV",
-    "strippedName": "|lime|Barrier IV",
-    "description": ["§x§f§8§8§4§2§c+6 Maximum Barrier"],
+    "strippedName": "Barrier IV",
+    "description": [
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange|+6 Maximum Barrier"
+    ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Epic"
   },
   {
     "title": "Socket Gem",
     "name": "|lime|Prismatic Speed",
-    "strippedName": "|lime|Prismatic Speed",
+    "strippedName": "Prismatic Speed",
     "description": [
-      "§x§f§8§8§4§2§c§nAbility Mod - Prismatic Speed",
-      " §x§f§f§d§4§4§2Upgrades §x§f§f§f§b§f§3§nPrismatic Aura§x§f§f§d§4§4§2 to",
-      " §x§f§f§d§4§4§2grant §x§f§f§f§b§f§3Speed II"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|Ability Mod - Prismatic Speed",
+      " |yellow|Upgrades |white||ul|Prismatic Aura|yellow| to",
+      " |yellow|grant |white|Speed II"
     ],
     "groupNames": ["Armor", "Upgrade"],
     "rarity": "Rare"
@@ -2320,12 +3855,17 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Crushing Blow",
-    "strippedName": "|lime|Crushing Blow",
+    "strippedName": "Crushing Blow",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Hit Effect - Crushing Blow",
-      "§x§f§c§3§d§3§8[REQ: 380+ Max. Life]",
-      " §x§f§f§d§4§4§2Deal §x§f§f§f§b§f§350 §x§f§f§d§4§4§2additional physical damage",
-      " §x§f§f§f§b§f§3[3s Cooldown]"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Hit Effect - Crushing Blow",
+      "|red|[REQ: 380+ Max. Life]",
+      " |yellow|Deal |white|50 |yellow|additional physical damage",
+      " |white|[3s Cooldown]"
     ],
     "groupNames": ["Melee", "Weapon", "Upgrade"],
     "rarity": "Epic",
@@ -2334,10 +3874,15 @@
   {
     "title": "Socket Gem",
     "name": "|lime|Mercy",
-    "strippedName": "|lime|Mercy",
+    "strippedName": "Mercy",
     "description": [
-      "§x§f§8§8§4§2§c§nOn Hit Effect - Mercy",
-      " §x§f§f§d§4§4§2Executes enemies under §x§f§f§f§b§f§310% §x§f§f§d§4§4§2life"
+      "",
+      "|lgray|Place this gem on an item with an",
+      "|lgray|open §x§f§f§f§f§f§f哀§x§f§8§8§4§2§cSocket|lgray| to upgrade it!",
+      "",
+      "|yellow|Bonuses Applied:",
+      "|orange||ul|On Hit Effect - Mercy",
+      " |yellow|Executes enemies under |white|10% |yellow|life"
     ],
     "groupNames": ["Weapon", "Upgrade"],
     "rarity": "Rare"

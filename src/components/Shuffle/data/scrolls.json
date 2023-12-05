@@ -2,7 +2,7 @@
   {
     "title": "Upgrade Scroll",
     "name": "|green|Chaotic Upgrade Scroll",
-    "strippedName": "|green|Chaotic Upgrade Scroll",
+    "strippedName": "Chaotic Upgrade Scroll",
     "description": [
       "|white|𫟩Ս",
       "",
@@ -20,7 +20,7 @@
   {
     "title": "Upgrade Scroll",
     "name": "|green|Lesser Upgrade Scroll",
-    "strippedName": "|green|Lesser Upgrade Scroll",
+    "strippedName": "Lesser Upgrade Scroll",
     "description": [
       "|white|𫟦Ս",
       "",
@@ -35,7 +35,7 @@
   {
     "title": "Upgrade Scroll",
     "name": "|green|Stable Upgrade Scroll",
-    "strippedName": "|green|Stable Upgrade Scroll",
+    "strippedName": "Stable Upgrade Scroll",
     "description": [
       "|white|𫟩Ս",
       "",
@@ -52,7 +52,7 @@
   {
     "title": "Upgrade Scroll",
     "name": "|green|Mythical Upgrade Scroll",
-    "strippedName": "|green|Mythical Upgrade Scroll",
+    "strippedName": "Mythical Upgrade Scroll",
     "description": [
       "|white|𫟩Ս",
       "",
@@ -69,7 +69,7 @@
   {
     "title": "Upgrade Scroll",
     "name": "|green|Grand Upgrade Scroll",
-    "strippedName": "|green|Grand Upgrade Scroll",
+    "strippedName": "Grand Upgrade Scroll",
     "description": [
       "|white|𫟨Ս",
       "",
@@ -86,7 +86,7 @@
   {
     "title": "Upgrade Scroll",
     "name": "|green|Greater Upgrade Scroll",
-    "strippedName": "|green|Greater Upgrade Scroll",
+    "strippedName": "Greater Upgrade Scroll",
     "description": [
       "|white|𫟧Ս",
       "",
@@ -103,7 +103,7 @@
   {
     "title": "Upgrade Scroll",
     "name": "|green|Weak Upgrade Scroll",
-    "strippedName": "|green|Weak Upgrade Scroll",
+    "strippedName": "Weak Upgrade Scroll",
     "description": [
       "|white|𫟧Ս",
       "",
