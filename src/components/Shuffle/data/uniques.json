@@ -323,26 +323,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|cyan|Starter Fishing Rod",
-    "strippedName": "Starter Fishing Rod",
-    "description": [
-      "|white|Skill Requirement: 0",
-      "|white|𫟦Մ",
-      "",
-      "|lgray|+5% Fishing Speed",
-      "|lgray|+2% Skill XP",
-      "",
-      "|yellow|+5 Energy Regeneration",
-      "",
-      "|none|傜",
-      "",
-      "|none|哀|orange|Socket"
-    ],
-    "groupNames": ["FishingRod"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Cultist\u0027s Robe",
     "strippedName": "Cultist\u0027s Robe",
     "description": [
@@ -4003,26 +3983,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|blue|Snazzy Chestplate",
-    "strippedName": "Snazzy Chestplate",
-    "description": [
-      "|white|Level Requirement: 2",
-      "|white|𫟧Բ",
-      "",
-      "|lgray|+5 Armor",
-      "|lgray|+5 Maximum Life",
-      "",
-      "|yellow|+5% Attack Speed",
-      "",
-      "|none|傜",
-      "",
-      "|none|哀|orange|Socket"
-    ],
-    "groupNames": ["Light", "Chestplate"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Necrotic Ring",
     "strippedName": "Necrotic Ring",
     "description": [
@@ -4324,26 +4284,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|blue|Snazzy Leggings",
-    "strippedName": "Snazzy Leggings",
-    "description": [
-      "|white|Level Requirement: 2",
-      "|white|𫟧Լ",
-      "",
-      "|lgray|+4 Armor",
-      "|lgray|+5 Maximum Life",
-      "",
-      "|yellow|+5% Attack Speed",
-      "",
-      "|none|傜",
-      "",
-      "|none|哀|orange|Socket"
-    ],
-    "groupNames": ["Leggings", "Light"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Automatic Fishing Rod",
     "strippedName": "Automatic Fishing Rod",
     "description": [
@@ -4571,28 +4511,6 @@
       "|none|哀|orange|Socket"
     ],
     "groupNames": ["Heavy", "Chestplate"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|orange|Reality Weaver",
-    "strippedName": "Reality Weaver",
-    "description": [
-      "|white|Level Requirement: 50",
-      "",
-      "|lgray|+5% Cooldown Reduction",
-      "|lgray|+10% Elemental Status Chance",
-      "",
-      "|yellow|+22% Elemental Resist",
-      "|yellow|+22 Maximum Life",
-      "|yellow|+22 Maximum Barrier",
-      "",
-      "|gray||i|Radiating immense power,",
-      "|gray||i|this amulet grants its",
-      "|gray||i|wearer the power to resist",
-      "|gray||i|all forces, and distort time"
-    ],
-    "groupNames": ["Necklace"],
     "rarity": "Epic"
   },
   {
@@ -6573,24 +6491,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|cyan|Starter Chestplate",
-    "strippedName": "Starter Chestplate",
-    "description": [
-      "|white|Level Requirement: 0",
-      "|white|𫟦Բ",
-      "",
-      "|lgray|+9 Armor",
-      "|lgray|+2 Maximum Life",
-      "",
-      "|none|傜",
-      "",
-      "|none|哀|orange|Socket"
-    ],
-    "groupNames": ["Light", "Chestplate"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Item Dropper",
     "strippedName": "Item Dropper",
     "description": [
@@ -7258,24 +7158,6 @@
     ],
     "groupNames": ["Cloth", "Chestplate"],
     "rarity": "Rare"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|cyan|Starter Leggings",
-    "strippedName": "Starter Leggings",
-    "description": [
-      "|white|Level Requirement: 0",
-      "|white|𫟦Լ",
-      "",
-      "|lgray|+7 Armor",
-      "|lgray|+2 Maximum Life",
-      "",
-      "|none|傜",
-      "",
-      "|none|哀|orange|Socket"
-    ],
-    "groupNames": ["Leggings", "Light"],
-    "rarity": "Epic"
   },
   {
     "title": "Unique Item",
@@ -7993,24 +7875,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|cyan|Starter Helmet",
-    "strippedName": "Starter Helmet",
-    "description": [
-      "|white|Level Requirement: 0",
-      "|white|𫟦Ժ",
-      "",
-      "|lgray|+5 Armor",
-      "|lgray|+2 Maximum Life",
-      "",
-      "|none|傜",
-      "",
-      "|none|哀|orange|Socket"
-    ],
-    "groupNames": ["Helmet", "Light"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Wuuld Iron Helm",
     "strippedName": "Wuuld Iron Helm",
     "description": [
@@ -8102,24 +7966,6 @@
     ],
     "groupNames": ["Shortbow"],
     "rarity": "Uncommon"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|cyan|Starter Boots",
-    "strippedName": "Starter Boots",
-    "description": [
-      "|white|Level Requirement: 0",
-      "|white|𫟦Դ",
-      "",
-      "|lgray|+4 Armor",
-      "|lgray|+5 Movement Speed",
-      "",
-      "|none|傜",
-      "",
-      "|none|哀|orange|Socket"
-    ],
-    "groupNames": ["Light", "Boots"],
-    "rarity": "Epic"
   },
   {
     "title": "Unique Item",
