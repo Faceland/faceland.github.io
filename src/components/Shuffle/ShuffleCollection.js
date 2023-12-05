@@ -4,13 +4,14 @@ import 'react-select/dist/react-select.cjs';
 import './Shuffle.scss';
 import '../Tooltip/tooltip.scss';
 import '../../animations.scss';
-import gems from './gems.json';
-import tomes from './tomes.json';
-import uniques from './uniques.json';
-import scrolls from './scrolls.json';
-import McText from 'mctext-react/lib/McText';
+import gems from './data/gems.json';
+import tomes from './data/tomes.json';
+import uniques from './data/uniques.json';
+import scrolls from './data/scrolls.json';
 import { DebounceInput } from 'react-debounce-input';
 import { Context } from '../../Store';
+import { BetterMcText } from './mctext/BetterMcText';
+import { YeHaplessBuffoon } from './YeHaplessBuffoon';
 
 export const ShuffleCollection = () => {
   const [state] = useContext(Context);
@@ -305,41 +306,14 @@ export const ShuffleCollection = () => {
     </>
   );
 
-  const yeHaplessBuffoon = (
-    <div className="shuffleCard border-red-900 text-white">
-      <div className={`flex h-full flex-col items-center p-0 m-0 from-aubergine to-aubergine-end bg-gradient-to-bl`}>
-        <div
-          className={`flex h-full flex-col items-center bg-black/30 hover:bg-transparent transition duration-200 ease-in-out p-2 font-semibold`}
-        >
-          <div>
-            <div>⚠ IMPOTENT QUERIER DETECTED ⚠</div>
-            <div>HALT! YOU'VE FOUND NO RESULTS!</div>
-          </div>
-          <img
-            src="https://i.imgur.com/eb3dM.gif"
-            alt="aaaaaaaaaa"
-            className="h-28 w-28"
-          />
-          <div className="h-full w-full rounded-md bg-black bg-opacity-50 px-1 py-2">
-            <div className="flex h-full flex-col justify-center leading-tight">
-              <div>
-                <p className="lore">
-                  Please refine your search and/or yourself, ye hapless buffoon
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-
   return (
     <div className="relative min-h-[76vh]">
       {state.mobile ? mobileFilterSection : desktopFilterSection}
       <div className="flex place-content-center" style={{ flexFlow: 'wrap' }}>
         {filteredItems?.length === 0 ? (
-          <div className="flex place-content-center">{yeHaplessBuffoon}</div>
+          <div className="flex place-content-center">
+            <YeHaplessBuffoon />
+          </div>
         ) : (
           filteredItems.map((item, index) => (
             <div
@@ -348,20 +322,23 @@ export const ShuffleCollection = () => {
               key={`Card-${item.name}-${item?.type}-${index}`}
               style={{ borderColor: `${item?.background}` }}
             >
-              <div className={`flex h-full flex-col items-center ${item?.gradient} p-0 m0`}>
+              <div
+                className={`flex h-full flex-col items-center ${item?.gradient} m0 p-0`}
+              >
                 <div
-                  className={`flex h-full w-full flex-col items-start bg-black/30 hover:bg-transparent transition duration-200 ease-in-out p-2 font-semibold`}
+                  className={`flex h-full w-full flex-col items-start bg-black/30 p-2 font-semibold transition duration-200 ease-in-out hover:bg-transparent`}
                 >
                   <img
                     src={item?.img}
                     alt="Loading..."
-                    className="absolute h-9 w-9 squishImg speed-2"
+                    className="squishImg speed-2 absolute h-9 w-9"
                     style={{ right: '4px', top: '4px' }}
                   />
                   <div className="flex w-full flex-row place-content-between">
-                    <McText className="subtitle ml-0.5" prefix={'&'}>
-                      {item?.name}
-                    </McText>
+                    <BetterMcText
+                      line={item?.name}
+                      className="subtitle ml-0.5"
+                    />
                   </div>
                   <div className="mb-2 text-left">
                     {item?.specialFlag && (
@@ -394,13 +371,11 @@ export const ShuffleCollection = () => {
                     <div className="flex h-full flex-col justify-center leading-tight">
                       {item?.description?.map((line, index2) => (
                         <div>
-                          <McText
-                            className="lore"
-                            prefix={'&'}
+                          <BetterMcText
+                            line={line}
                             key={`lore${index2}`}
-                          >
-                            {line}
-                          </McText>
+                            className="lore"
+                          />
                         </div>
                       ))}
                     </div>
