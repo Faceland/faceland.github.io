@@ -1,4 +1,4 @@
-import { every, get, isEmpty } from 'lodash';
+import { every, get, isEmpty, trim } from 'lodash';
 import { createElement } from 'react';
 import {
   CHINESE,
@@ -10,10 +10,13 @@ import {
 
 const handleChineseCharacters = (text, elementProps) => {
   const newElementProps = elementProps;
-  const character = get(CHINESE, text);
+  const character = get(CHINESE, trim(text));
   if (character) {
     newElementProps.styles.color = character.color;
     newElementProps.content = character.content;
+    if (character !== text) {
+      newElementProps.content += ' ';
+    }
   }
   return newElementProps;
 };
