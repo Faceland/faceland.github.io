@@ -228,14 +228,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|orange|Big Faceguy Head",
-    "strippedName": "Big Faceguy Head",
-    "description": ["|lgray|A cosmetic hat! Try it on!"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Wuuld Iron Chestplate",
     "strippedName": "Wuuld Iron Chestplate",
     "description": [
@@ -642,14 +634,6 @@
       "|dgray||i|nothing gained"
     ],
     "groupNames": ["Sword", "Iron"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|orange|Cat Ears (White)",
-    "strippedName": "Cat Ears (White)",
-    "description": ["|lgray|A cosmetic hat! Try it on!"],
-    "groupNames": ["Misc"],
     "rarity": "Epic"
   },
   {
@@ -1064,14 +1048,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|purple|[CashShop] Crown",
-    "strippedName": "[CashShop] Crown",
-    "description": ["|lgray|A cosmetic hat! Try it on!", "", "|none|傝"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Nizerian Steel",
     "strippedName": "Nizerian Steel",
     "description": [
@@ -1200,14 +1176,6 @@
       "|none|哀|orange|Socket"
     ],
     "groupNames": ["Leggings", "Cloth"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|purple|[CashShop] Witch Hat",
-    "strippedName": "[CashShop] Witch Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!", "", "|none|傝"],
-    "groupNames": ["Misc"],
     "rarity": "Epic"
   },
   {
@@ -1702,14 +1670,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|purple|[CashShop] Soda Hat",
-    "strippedName": "[CashShop] Soda Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!", "", "|none|傝"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Uncle PSwag\u0027s Lucky Fishing Pole",
     "strippedName": "Uncle PSwag\u0027s Lucky Fishing Pole",
     "description": [
@@ -1855,14 +1815,6 @@
       "|none|哀|orange|Socket"
     ],
     "groupNames": ["Wand"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|orange|Gas Mask",
-    "strippedName": "Gas Mask",
-    "description": ["|lgray|A cosmetic hat! Try it on!"],
-    "groupNames": ["Misc"],
     "rarity": "Epic"
   },
   {
@@ -2228,14 +2180,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|purple|[CashShop] Headphones",
-    "strippedName": "[CashShop] Headphones",
-    "description": ["|lgray|A cosmetic hat! Try it on!", "", "|none|傝"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Socket Socks",
     "strippedName": "Socket Socks",
     "description": [
@@ -2277,14 +2221,6 @@
     ],
     "groupNames": ["Necklace"],
     "rarity": "Rare"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|purple|[CashShop] Cat Ears (Tabby)",
-    "strippedName": "[CashShop] Cat Ears (Tabby)",
-    "description": ["|lgray|A cosmetic hat! Try it on!", "", "|none|傝"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
   },
   {
     "title": "Unique Item",
@@ -2455,14 +2391,6 @@
       "|gray||i|attacks!"
     ],
     "groupNames": ["Ring"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|purple|[CashShop] Pirate Hat",
-    "strippedName": "[CashShop] Pirate Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!", "", "|none|傝"],
-    "groupNames": ["Misc"],
     "rarity": "Epic"
   },
   {
@@ -2931,14 +2859,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|orange|Striped Hat",
-    "strippedName": "Striped Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Trinity\u0027s Staff",
     "strippedName": "Trinity\u0027s Staff",
     "description": [
@@ -3160,14 +3080,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|orange|Cat Ears (Tabby)",
-    "strippedName": "Cat Ears (Tabby)",
-    "description": ["|lgray|A cosmetic hat! Try it on!"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Fischerman\u0027s Sandals",
     "strippedName": "Fischerman\u0027s Sandals",
     "description": [
@@ -3211,14 +3123,6 @@
       "|dgray||i|of the porcelain throne"
     ],
     "groupNames": ["Light", "Chestplate"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|purple|[CashShop] Fruit Hat",
-    "strippedName": "[CashShop] Fruit Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!", "", "|none|傝"],
-    "groupNames": ["Misc"],
     "rarity": "Epic"
   },
   {
@@ -3884,14 +3788,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|orange|Headphones",
-    "strippedName": "Headphones",
-    "description": ["|lgray|A cosmetic hat! Try it on!"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Quick Needle",
     "strippedName": "Quick Needle",
     "description": [
@@ -4530,22 +4426,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|purple|[CashShop] Pumpkin Monster Hat",
-    "strippedName": "[CashShop] Pumpkin Monster Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!", "", "|none|傝"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|orange|Spinny Hat",
-    "strippedName": "Spinny Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Runed Blade",
     "strippedName": "Runed Blade",
     "description": [
@@ -4560,30 +4440,6 @@
     ],
     "groupNames": ["Sword", "Iron"],
     "rarity": "Common"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|orange|Mutant Skeleton Heads",
-    "strippedName": "Mutant Skeleton Heads",
-    "description": ["|lgray|A cosmetic hat! Try it on!"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|orange|Squid Hat (Purple)",
-    "strippedName": "Squid Hat (Purple)",
-    "description": ["|lgray|A cosmetic hat! Try it on!"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|purple|[CashShop] Gas Mask",
-    "strippedName": "[CashShop] Gas Mask",
-    "description": ["|lgray|A cosmetic hat! Try it on!", "", "|none|傝"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
   },
   {
     "title": "Unique Item",
@@ -4726,14 +4582,6 @@
       "|none|傜"
     ],
     "groupNames": ["Heavy", "Chestplate"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|purple|[CashShop] Top Hat",
-    "strippedName": "[CashShop] Top Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!", "", "|none|傝"],
-    "groupNames": ["Misc"],
     "rarity": "Epic"
   },
   {
@@ -5155,14 +5003,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|orange|Fruit Hat",
-    "strippedName": "Fruit Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Furnace",
     "strippedName": "Furnace",
     "description": [
@@ -5209,14 +5049,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|orange|Soda Hat",
-    "strippedName": "Soda Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Pswag\u0027s Ultimate Swaggy Rod",
     "strippedName": "Pswag\u0027s Ultimate Swaggy Rod",
     "description": [
@@ -5234,26 +5066,6 @@
       "|gray||i|RIP friendo"
     ],
     "groupNames": ["FishingRod"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|orange|Undead Pickaxe3",
-    "strippedName": "Undead Pickaxe3",
-    "description": [
-      "|white|Level Requirement: 30",
-      "",
-      "|lgray|+10% Loot Bonus",
-      "|lgray|+10 Energy Regeneration",
-      "",
-      "|yellow|+5% Loot Rarity",
-      "",
-      "|none|傜",
-      "",
-      "|dgray||i|Owned by a miner. Then a zombie.",
-      "|dgray||i|They were the same person."
-    ],
-    "groupNames": ["Pickaxe", "Iron"],
     "rarity": "Epic"
   },
   {
@@ -5413,14 +5225,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|orange|Cat Ears (Black)",
-    "strippedName": "Cat Ears (Black)",
-    "description": ["|lgray|A cosmetic hat! Try it on!"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Necronomicon",
     "strippedName": "Necronomicon",
     "description": [
@@ -5460,14 +5264,6 @@
     ],
     "groupNames": ["Shortbow"],
     "rarity": "Rare"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|purple|[CashShop] Spinny Hat",
-    "strippedName": "[CashShop] Spinny Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!", "", "|none|傝"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
   },
   {
     "title": "Unique Item",
@@ -5723,14 +5519,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|orange|Sailor Hat",
-    "strippedName": "Sailor Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Bewitched Fishing Rod",
     "strippedName": "Bewitched Fishing Rod",
     "description": [
@@ -5797,14 +5585,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|purple|[CashShop] Squid Hat (Teal)",
-    "strippedName": "[CashShop] Squid Hat (Teal)",
-    "description": ["|lgray|A cosmetic hat! Try it on!", "", "|none|傝"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|The Iron Mask",
     "strippedName": "The Iron Mask",
     "description": [
@@ -5824,14 +5604,6 @@
     ],
     "groupNames": ["Helmet", "Cloth"],
     "rarity": "Rare"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|purple|[CashShop] Big Faceguy Head",
-    "strippedName": "[CashShop] Big Faceguy Head",
-    "description": ["|lgray|A cosmetic hat! Try it on!", "", "|none|傝"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
   },
   {
     "title": "Unique Item",
@@ -5918,14 +5690,6 @@
     ],
     "groupNames": ["Ring"],
     "rarity": "Rare"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|purple|[CashShop] Mutant Skeleton Heads",
-    "strippedName": "[CashShop] Mutant Skeleton Heads",
-    "description": ["|lgray|A cosmetic hat! Try it on!", "", "|none|傝"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
   },
   {
     "title": "Unique Item",
@@ -6128,14 +5892,6 @@
       "|none|傜"
     ],
     "groupNames": ["Heavy", "Leggings"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|orange|Axolotl Hat",
-    "strippedName": "Axolotl Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!"],
-    "groupNames": ["Misc"],
     "rarity": "Epic"
   },
   {
@@ -6420,14 +6176,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|orange|Crown",
-    "strippedName": "Crown",
-    "description": ["|lgray|A cosmetic hat! Try it on!"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Shoddy Pavise",
     "strippedName": "Shoddy Pavise",
     "description": [
@@ -6535,14 +6283,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|orange|Witch Hat",
-    "strippedName": "Witch Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Soloman\u0027s Tome",
     "strippedName": "Soloman\u0027s Tome",
     "description": [
@@ -6565,22 +6305,6 @@
     ],
     "groupNames": ["Battletome"],
     "rarity": "Uncommon"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|orange|Shark Hat",
-    "strippedName": "Shark Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|purple|[CashShop] Sailor Hat",
-    "strippedName": "[CashShop] Sailor Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!", "", "|none|傝"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
   },
   {
     "title": "Unique Item",
@@ -6735,14 +6459,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|orange|Top Hat",
-    "strippedName": "Top Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Vampiric Embrace",
     "strippedName": "Vampiric Embrace",
     "description": [
@@ -6769,14 +6485,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|orange|Pumpkin Monster Hat",
-    "strippedName": "Pumpkin Monster Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Rainbow Amulet",
     "strippedName": "Rainbow Amulet",
     "description": [
@@ -6796,14 +6504,6 @@
       "|gray||i|notch remains at the center..."
     ],
     "groupNames": ["Necklace"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|purple|[CashShop] Cat Ears (White)",
-    "strippedName": "[CashShop] Cat Ears (White)",
-    "description": ["|lgray|A cosmetic hat! Try it on!", "", "|none|傝"],
-    "groupNames": ["Misc"],
     "rarity": "Epic"
   },
   {
@@ -7253,14 +6953,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|purple|[CashShop] Squid Hat (Purple)",
-    "strippedName": "[CashShop] Squid Hat (Purple)",
-    "description": ["|lgray|A cosmetic hat! Try it on!", "", "|none|傝"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Ritual Robe",
     "strippedName": "Ritual Robe",
     "description": [
@@ -7455,14 +7147,6 @@
       "|dgray||i|Let the light reveal your true path."
     ],
     "groupNames": ["Battletome"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|orange|Pirate Hat",
-    "strippedName": "Pirate Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!"],
-    "groupNames": ["Misc"],
     "rarity": "Epic"
   },
   {
@@ -8250,14 +7934,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|purple|[CashShop] Frankenstein Hat",
-    "strippedName": "[CashShop] Frankenstein Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!", "", "|none|傝"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Vampiric Slippers",
     "strippedName": "Vampiric Slippers",
     "description": [
@@ -8409,34 +8085,6 @@
       "|none|品|teal|Socket"
     ],
     "groupNames": ["Heavy", "Boots"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|purple|[CashShop] Axolotl Hat",
-    "strippedName": "[CashShop] Axolotl Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!", "", "|none|傝"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|orange|Undead Pickaxe2",
-    "strippedName": "Undead Pickaxe2",
-    "description": [
-      "|white|Level Requirement: 30",
-      "",
-      "|lgray|+10% Loot Bonus",
-      "|lgray|+10 Energy Regeneration",
-      "",
-      "|yellow|+5% Loot Rarity",
-      "",
-      "|none|傜",
-      "",
-      "|dgray||i|Owned by a miner. Then a zombie",
-      "|dgray||i|They were the same person."
-    ],
-    "groupNames": ["Pickaxe", "Iron"],
     "rarity": "Epic"
   },
   {
@@ -8648,14 +8296,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|orange|Frankenstein Hat",
-    "strippedName": "Frankenstein Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Rooty Tooty Point \u0027n Shooty",
     "strippedName": "Rooty Tooty Point \u0027n Shooty",
     "description": [
@@ -8817,14 +8457,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|purple|[CashShop] Cat Ears (Black)",
-    "strippedName": "[CashShop] Cat Ears (Black)",
-    "description": ["|lgray|A cosmetic hat! Try it on!", "", "|none|傝"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Snow Bone",
     "strippedName": "Snow Bone",
     "description": [
@@ -8878,14 +8510,6 @@
   },
   {
     "title": "Unique Item",
-    "name": "|purple|[CashShop] Striped Hat",
-    "strippedName": "[CashShop] Striped Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!", "", "|none|傝"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
     "name": "|orange|Titan\u0027s Hammer",
     "strippedName": "Titan\u0027s Hammer",
     "description": [
@@ -8914,14 +8538,6 @@
     ],
     "groupNames": ["Hammer"],
     "rarity": "Uncommon"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|orange|Squid Hat (Teal)",
-    "strippedName": "Squid Hat (Teal)",
-    "description": ["|lgray|A cosmetic hat! Try it on!"],
-    "groupNames": ["Misc"],
-    "rarity": "Epic"
   },
   {
     "title": "Unique Item",
@@ -9100,14 +8716,6 @@
       "|dgray||i|Lovely money!"
     ],
     "groupNames": ["Staff"],
-    "rarity": "Epic"
-  },
-  {
-    "title": "Unique Item",
-    "name": "|purple|[CashShop] Shark Hat",
-    "strippedName": "[CashShop] Shark Hat",
-    "description": ["|lgray|A cosmetic hat! Try it on!", "", "|none|傝"],
-    "groupNames": ["Misc"],
     "rarity": "Epic"
   },
   {

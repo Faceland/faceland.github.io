@@ -4,8 +4,6 @@
     "name": "|green|Chaotic Upgrade Scroll",
     "strippedName": "Chaotic Upgrade Scroll",
     "description": [
-      "|white|𫟩Ս",
-      "",
       "|lgray|This scroll causes items",
       "|lgray|to be obliterated upon",
       "|lgray|failure - but succeeds",
@@ -22,8 +20,6 @@
     "name": "|green|Lesser Upgrade Scroll",
     "strippedName": "Lesser Upgrade Scroll",
     "description": [
-      "|white|𫟦Ս",
-      "",
       "|lgray|A pretty standard scroll!",
       "",
       "|dgray||i|Visit an enchanting table",
@@ -37,8 +33,6 @@
     "name": "|green|Stable Upgrade Scroll",
     "strippedName": "Stable Upgrade Scroll",
     "description": [
-      "|white|𫟩Ս",
-      "",
       "|lgray|This scroll causes items",
       "|lgray|to take less damage",
       "|lgray|when it fails",
@@ -54,8 +48,6 @@
     "name": "|green|Mythical Upgrade Scroll",
     "strippedName": "Mythical Upgrade Scroll",
     "description": [
-      "|white|𫟩Ս",
-      "",
       "|lgray|A powerful ancient scroll",
       "|lgray|with one of the highest",
       "|lgray|success rates!",
@@ -71,8 +63,6 @@
     "name": "|green|Grand Upgrade Scroll",
     "strippedName": "Grand Upgrade Scroll",
     "description": [
-      "|white|𫟨Ս",
-      "",
       "|lgray|An upgrade scroll with a",
       "|lgray|much higher chance of",
       "|lgray|success",
@@ -88,8 +78,6 @@
     "name": "|green|Greater Upgrade Scroll",
     "strippedName": "Greater Upgrade Scroll",
     "description": [
-      "|white|𫟧Ս",
-      "",
       "|lgray|An upgrade scroll with an",
       "|lgray|above average chance of",
       "|lgray|success",
@@ -105,8 +93,6 @@
     "name": "|green|Weak Upgrade Scroll",
     "strippedName": "Weak Upgrade Scroll",
     "description": [
-      "|white|𫟧Ս",
-      "",
       "|lgray|A lesser scroll suitable",
       "|lgray|for improving items with",
       "|lgray|few upgrades",
