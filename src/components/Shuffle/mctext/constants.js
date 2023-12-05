@@ -41,6 +41,7 @@ export const TEXT_DECORATIONS = {
 
 export const CHINESE = {
   傜: { color: COLORS.blue, content: '[Enchantable]' },
+  傝: { color: COLORS.green, content: '[Untradeable]' },
   '哀': { color: COLORS.orange, content: '[] ' }, // socket
   '品': { color: COLORS.teal, content: '[] ' }, // socket extender
 };
