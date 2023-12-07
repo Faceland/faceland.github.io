@@ -10,13 +10,14 @@ export const BetterMcText = (props) => {
   let elementProps = {
     styles: DEFAULT_STYLES,
     content: '',
+    className: className,
   };
 
   forEach(splitText, (text) => {
     elementProps = setElementProps({ elementProps, text });
     if (elementProps.content) {
-      elements.push(buildElement({ elementProps, className }));
-      elementProps = clearElementProps();
+      elements.push(buildElement({ elementProps }));
+      elementProps = clearElementProps({ className });
     }
   });
 

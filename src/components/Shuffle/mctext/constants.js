@@ -40,8 +40,28 @@ export const TEXT_DECORATIONS = {
 };
 
 export const CHINESE = {
-  傜: { color: COLORS.blue, content: '[Enchantable]' }, // enchantable
-  傝: { color: COLORS.green, content: '[Untradeable]' }, // untradeable
-  '哀': { color: COLORS.orange, content: '[] ' }, // socket
-  '品': { color: COLORS.teal, content: '[] ' }, // socket extender
+  傜: {
+    // enchantable
+    color: COLORS.white,
+    content: 'Enchantable',
+    className: 'enchantable',
+  },
+  傝: {
+    // untradeable
+    color: COLORS.white,
+    content: 'Untradeable',
+    className: 'untradeable',
+  },
+  '哀': {
+    // socket
+    color: COLORS.orange,
+    content: '__',
+    className: 'socket',
+  },
+  '品': {
+    // socket extender
+    color: COLORS.teal,
+    content: 'X',
+    className: 'socketExtender',
+  },
 };
