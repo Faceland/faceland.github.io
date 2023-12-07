@@ -12,11 +12,9 @@ const handleChineseCharacters = (text, elementProps) => {
   const newElementProps = elementProps;
   const character = get(CHINESE, trim(text));
   if (character) {
+    newElementProps.className += ' ' + character.className;
     newElementProps.styles.color = character.color;
     newElementProps.content = character.content;
-    if (character !== text) {
-      newElementProps.content += ' ';
-    }
   }
   return newElementProps;
 };
@@ -31,11 +29,11 @@ const mapStyles = (text) => {
   return hasStyles ? newStyles : null;
 };
 
-export const buildElement = ({ elementProps, className }) => {
+export const buildElement = ({ elementProps }) => {
   const element = createElement(
     'span',
     {
-      className: className,
+      className: elementProps.className,
       style: elementProps.styles,
     },
     `${elementProps.content}`,
@@ -43,8 +41,8 @@ export const buildElement = ({ elementProps, className }) => {
   return element;
 };
 
-export const clearElementProps = () => {
-  return { styles: DEFAULT_STYLES, content: '' };
+export const clearElementProps = ({ className }) => {
+  return { styles: DEFAULT_STYLES, content: '', className: className };
 };
 
 export const setElementProps = ({ elementProps, text }) => {

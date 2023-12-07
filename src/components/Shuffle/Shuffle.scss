@@ -95,10 +95,29 @@
 }
 
 .lore {
-  margin: 0 !important;
+  margin: 0;
   color: white;
-  font-weight: 800 !important;
-  font-family: 'ＭＳ Ｐゴシック', monospace !important;
+  font-weight: 800;
+  font-family: 'ＭＳ Ｐゴシック', monospace;
+
+  &.enchantable {
+    background-color: rgb(34, 94, 183);
+    color: white;
+    padding: 1px 3px;
+  }
+  &.socket {
+    border: solid 2px rgb(194, 106, 29);
+    margin-right: 4px;
+  }
+  &.socketExtender {
+    border: solid 2px rgb(22, 166, 162);
+    margin-right: 4px;
+  }
+  &.untradeable {
+    background-color: rgb(57, 159, 13);
+    color: white;
+    padding: 1px 3px;
+  }
 }
 
 .selectorButton-clear {
