@@ -1,12 +1,15 @@
 .copyContainer {
   display: inline-block;
-  border: none;
   padding: 8px 12px;
   text-align: center;
   text-decoration: none;
   z-index: 1;
   cursor: pointer;
-  border-radius: 4px;
+
+  box-shadow: 0px 0px 3px 1px rgba(255,255,255,0.1) inset;
+  border-radius: 1px;
+  border: 1px solid #182c0a;
+  border-bottom-width: 2px;
 
   .copyButton {
     display: flex;

@@ -55,13 +55,13 @@ export const CHINESE = {
   '哀': {
     // socket
     color: COLORS.orange,
-    content: '__',
+    content: ' ',
     className: 'socket',
   },
   '品': {
     // socket extender
     color: COLORS.teal,
-    content: 'X',
+    content: 'x',
     className: 'socketExtender',
   },
 };

@@ -10,15 +10,18 @@
   color: whitesmoke;
   background-color: #212121;
 
-  border: none;
-  margin: 0px 10px;
+  box-shadow: 0px 0px 3px 1px rgba(255,255,255,0.1) inset;
+  border-radius: 1px;
+  border: 1px solid black;
+  border-bottom-width: 2px;
+
+  margin: 4px 10px 2px 10px;
   outline: 0;
-  padding: 7px 10px 9px 10px;
+  padding: 5px 10px 7px 10px;
   text-align: center;
   text-decoration: none;
   font-weight: 700;
   cursor: pointer;
-  border-radius: 4px;
 
   &:hover {
     transition: background-color 0.2s;
@@ -44,65 +47,29 @@
   transition: background-color 0.15s;
   transition-timing-function: ease-in-out;
 
-  .gemButton {
-    border: none;
-    margin: 0px 10px;
-    outline: 0;
-    cursor: pointer;
-    width: 180px;
-    height: 27px;
-    padding: 5px;
-    text-align: center;
-    text-decoration: none;
-    background-image: linear-gradient(#c645ef, #911bb1);
-    border-radius: 10px;
-
-    &:hover {
-      background-image: linear-gradient(#d474ff, #b12ed4);
-    }
-
-    .gemDisplay {
-      color: #ffffff;
-      height: 100%;
-      font-weight: 600;
-      justify-content: center;
-      justify-items: center;
-      display: flex;
-      flex-direction: row;
-
-      p {
-        margin: 2px 0 0 0;
-      }
-
-      img {
-        margin-left: 6px;
-        height: 100%;
-      }
-    }
-
-    .buyGems {
-      color: black;
-      background-image: linear-gradient(#ffdf3e, #e7b231);
-      padding: 8px 10px 8px 10px;
-      margin-left: -30px;
-      text-align: center;
-      text-decoration: none;
-      font-weight: 600;
-      cursor: pointer;
-      border-radius: 20px;
-
-      &:hover {
-        background-image: linear-gradient(to bottom left, #ffffff, #e7b231);
-      }
-    }
-  }
-
   .profileSection {
     height: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+
+    .facegemButton {
+      box-shadow: 0px 0px 3px 1px rgba(255,255,255,0.2) inset;
+      border-radius: 1px;
+      border: 1px solid #210c3b;
+      border-bottom-width: 2px;
+    }
+    .facegemButton:hover {
+      box-shadow: 0px 0px 4px 2px rgba(255,255,255,0.4) inset;
+
+      .gemImg {
+        animation-name: squishy;
+        transform-origin: bottom;
+        animation-timing-function: ease;
+      }
+    }
+
   }
 
   .logo {
@@ -115,7 +82,8 @@
     margin-left: 5px;
 
     .logoButton {
-      margin-top: 3px;
+      margin-bottom: 1px;
+      margin-top: 2px;
       margin-left: 5px;
     }
 

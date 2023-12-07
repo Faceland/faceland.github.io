@@ -101,7 +101,7 @@ export const HeaderBar = (props) => {
       </div>
       <div className="profileSection h-fit">
         <a
-          className="m-2 rounded-lg bg-gradient-to-b from-purple-300 to-purple-600 px-4"
+          className="facegemButton m-2 bg-gradient-to-b from-purple-300 to-purple-600 px-4"
           href="http://shop.face.land/category/336956"
           target="_blank"
         >
@@ -110,7 +110,7 @@ export const HeaderBar = (props) => {
             <img
               src="https://i.imgur.com/AjRWtUR.png"
               alt="gem icon"
-              className="m-1 h-8"
+              className="gemImg speed-2 m-1 h-8 ml-2 mr-0"
             />
           </div>
         </a>

@@ -17,7 +17,9 @@ input:focus, textarea:focus, select:focus{
   background-color: #48ba3b;
 
   &:hover {
-    background-color: #6ad45e
+    background-color: #6ad45e;
+    transition: background-color 0.2s;
+    transition-timing-function: ease-in-out;
   }
 }
 

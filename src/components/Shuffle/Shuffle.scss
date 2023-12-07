@@ -19,8 +19,8 @@
   border-color: #1f99ff !important;
   border-width: 8px !important;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
 
   &:focus {
     border-color: #0080ff;
@@ -39,8 +39,8 @@
   border-color: #cb3939;
   border-width: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
 
   &:hover {
     background-color: #ee5151;
@@ -51,10 +51,12 @@
 .special-transmute {
   background: #d369e7;
 }
+
 .special-event {
   background: #47dba4;
   color: black;
 }
+
 .special-discontinued {
   background: #a0a0a0;
 }
@@ -63,15 +65,19 @@
   background: white;
   color: black;
 }
+
 .rarity-Uncommon {
   background: #2b83ff;
 }
+
 .rarity-Rare {
   background: #942dcf;
 }
+
 .rarity-Epic {
   background: #fc5656;
 }
+
 .rarity-Unique {
   background: #f8bd24;
 }
@@ -90,8 +96,8 @@
 
 .subtitle {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif !important;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif !important;
 }
 
 .lore {
@@ -101,22 +107,44 @@
   font-family: 'ＭＳ Ｐゴシック', monospace;
 
   &.enchantable {
-    background-color: rgb(34, 94, 183);
+    margin-right: 5px;
     color: white;
     padding: 1px 3px;
+    padding-bottom: 2px !important;
+    border-radius: 1px;
+    background: rgb(29, 122, 210);
+    background: linear-gradient(90deg, rgba(29, 122, 210, 1) 0%, rgba(35, 74, 204, 1) 51%, rgba(76, 23, 227, 1) 100%);
   }
-  &.socket {
-    border: solid 2px rgb(194, 106, 29);
-    margin-right: 4px;
-  }
-  &.socketExtender {
-    border: solid 2px rgb(22, 166, 162);
-    margin-right: 4px;
-  }
+
   &.untradeable {
-    background-color: rgb(57, 159, 13);
+    margin-right: 5px;
     color: white;
     padding: 1px 3px;
+    padding-bottom: 2px !important;
+    border-radius: 1px;
+    background: rgb(147, 210, 29);
+    background: linear-gradient(90deg, rgba(147, 210, 29, 1) 0%, rgba(88, 204, 35, 1) 30%, rgba(23, 163, 36, 1) 100%);
+  }
+
+  &.socket {
+    background: rgb(55,48,48);
+    background: radial-gradient(circle, rgba(55,48,48,0.7105217086834734) 0%, rgba(69,69,69,0) 100%);
+    height: 8px;
+    width: 8px;
+    border: solid 1px rgb(141, 100, 57);
+    padding: 0px 8px;
+    margin-right: 4px;
+  }
+
+  &.socketExtender {
+    background: rgb(55,48,48);
+    background: radial-gradient(circle, rgba(55,48,48,0.7105217086834734) 0%, rgba(69,69,69,0) 100%);
+    text-align: center;
+    height: 8px;
+    width: 8px;
+    border: solid 1px rgb(57, 141, 112);
+    padding: 0px 4px;
+    margin-right: 4px;
   }
 }
 
