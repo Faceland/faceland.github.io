@@ -19,8 +19,8 @@
   border-color: #1f99ff !important;
   border-width: 8px !important;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
 
   &:focus {
     border-color: #0080ff;
@@ -39,8 +39,8 @@
   border-color: #cb3939;
   border-width: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
 
   &:hover {
     background-color: #ee5151;
@@ -96,8 +96,8 @@
 
 .subtitle {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif !important;
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif !important;
 }
 
 .lore {
@@ -113,7 +113,12 @@
     padding-bottom: 2px !important;
     border-radius: 1px;
     background: rgb(29, 122, 210);
-    background: linear-gradient(90deg, rgba(29, 122, 210, 1) 0%, rgba(35, 74, 204, 1) 51%, rgba(76, 23, 227, 1) 100%);
+    background: linear-gradient(
+      90deg,
+      rgba(29, 122, 210, 1) 0%,
+      rgba(35, 74, 204, 1) 51%,
+      rgba(76, 23, 227, 1) 100%
+    );
   }
 
   &.untradeable {
@@ -123,28 +128,36 @@
     padding-bottom: 2px !important;
     border-radius: 1px;
     background: rgb(147, 210, 29);
-    background: linear-gradient(90deg, rgba(147, 210, 29, 1) 0%, rgba(88, 204, 35, 1) 30%, rgba(23, 163, 36, 1) 100%);
+    background: linear-gradient(
+      90deg,
+      rgba(147, 210, 29, 1) 0%,
+      rgba(88, 204, 35, 1) 30%,
+      rgba(23, 163, 36, 1) 100%
+    );
   }
 
   &.socket {
-    background: rgb(55,48,48);
-    background: radial-gradient(circle, rgba(55,48,48,0.7105217086834734) 0%, rgba(69,69,69,0) 100%);
+    background-image: url('../../assets/socket.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: solid 1px rgb(141, 100, 57);
+    display: inline-block;
     height: 8px;
     width: 8px;
-    border: solid 1px rgb(141, 100, 57);
-    padding: 0px 8px;
     margin-right: 4px;
+    margin-bottom: 1px;
   }
 
   &.socketExtender {
-    background: rgb(55,48,48);
-    background: radial-gradient(circle, rgba(55,48,48,0.7105217086834734) 0%, rgba(69,69,69,0) 100%);
-    text-align: center;
+    background-image: url('../../assets/extender.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: solid 1px rgb(57, 141, 112);
+    display: inline-block;
     height: 8px;
     width: 8px;
-    border: solid 1px rgb(57, 141, 112);
-    padding: 0px 4px;
     margin-right: 4px;
+    margin-bottom: 1px;
   }
 }
 
