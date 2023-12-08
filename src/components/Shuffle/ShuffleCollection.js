@@ -4,25 +4,20 @@ import 'react-select/dist/react-select.cjs';
 import './Shuffle.scss';
 import '../Tooltip/tooltip.scss';
 import '../../animations.scss';
-import gems from './data/gems.json';
-import tomes from './data/tomes.json';
-import uniques from './data/uniques.json';
-import scrolls from './data/scrolls.json';
 import { DebounceInput } from 'react-debounce-input';
 import { Context } from '../../Store';
 import { BetterMcText } from './mctext/BetterMcText';
 import { YeHaplessBuffoon } from './YeHaplessBuffoon';
+import { rarityOptions, typeOptions } from './constants';
+import { getCardItems } from './utils';
 
 export const ShuffleCollection = () => {
   const [state] = useContext(Context);
-
   const [cardItems, setCardItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([
     { name: 'loading', meme: 'yes' },
   ]);
-
   const [availableTags, setAvailableTags] = useState([]);
-
   const [selectedTags, setSelectedTags] = useState([]);
   const [selectedType, setSelectedType] = useState({
     value: 'gem',
@@ -30,71 +25,15 @@ export const ShuffleCollection = () => {
   });
   const [selectedRarity, setSelectedRarity] = useState();
   const [searchText, setSearchText] = useState();
-
   const [filterTags, setFilterTags] = useState([]);
-
   const bannerText = {};
   bannerText.event = 'Event Reward';
   bannerText.transmute = 'Transmutation Only';
   bannerText.discontinued = 'Discontinued';
 
-  const typeOptions = [
-    { value: 'any', label: 'Any' },
-    { value: 'gem', label: 'Gem' },
-    { value: 'tome', label: 'Tome' },
-    { value: 'scroll', label: 'Scroll' },
-    { value: 'unique', label: 'Unique' },
-  ];
-
-  const rarityOptions = [
-    { value: 'any', label: 'Any' },
-    { value: 'Common', label: 'Common' },
-    { value: 'Uncommon', label: 'Uncommon' },
-    { value: 'Rare', label: 'Rare' },
-    { value: 'Epic', label: 'Epic' },
-  ];
-
   useEffect(() => {
     if (cardItems.length === 0) {
-      const newItems = [];
-      for (const [key, value] of Object.entries(gems)) {
-        const item = value;
-        item.type = 'gem';
-        item.img =
-          'https://static.wikia.nocookie.net/minecraft_gamepedia/images/2/26/Emerald_JE3_BE3.png';
-        item.background = '#10c810';
-        item.gradient = `bg-gradient-to-bl from-gordons-green to-gordons-green-end`;
-        newItems.push(item);
-      }
-      for (const [key, value] of Object.entries(tomes)) {
-        const item = value;
-        item.type = 'tome';
-        item.img =
-          'https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/50/Book_JE2_BE2.png';
-        item.background = '#1243d9';
-        item.gradient = `bg-gradient-to-bl from-murder-brown to-murder-brown-end`;
-        newItems.push(item);
-      }
-      for (const [key, value] of Object.entries(uniques)) {
-        const item = value;
-        item.type = 'unique';
-        item.img =
-          'https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/50/Book_JE2_BE2.png';
-        item.background = '#d99712';
-        item.gradient = `bg-gradient-to-bl from-kilamanjaro to-kilamanjaro-end`;
-        newItems.push(item);
-      }
-      for (const [key, value] of Object.entries(scrolls)) {
-        const item = value;
-        item.type = 'scroll';
-        item.img =
-          'https://static.wikia.nocookie.net/minecraft_gamepedia/images/f/f2/Paper_JE2_BE2.png';
-        item.background = '#34981a';
-        item.gradient = `bg-gradient-to-bl from-black-forest to-black-forest-end`;
-        newItems.push(item);
-      }
-
-      setCardItems(newItems);
+      setCardItems(getCardItems());
       setSelectedTags([]);
     }
   }, []);

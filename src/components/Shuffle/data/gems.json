@@ -1,1 +1,2314 @@
-[{"title":"Socket Gem","name":"|lime|Fortune IV","strippedName":"Fortune IV","description":["|orange|+4% Loot Bonus"],"groupNames":["Armor","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Life I","strippedName":"Life I","description":["|orange|+3 Maximum Life"],"groupNames":["Armor","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Vampiric Blade","strippedName":"Vampiric Blade","description":["|orange||ul|Ability Mod - Vampiric Blade"," |yellow|Upgrades |white||ul|Vampiric Bite |yellow|to grant"," |yellow|a buff for |cyan|12s","  |yellow|Grants |white|+10% Life Steal","  |yellow|Grants |white|+35% Bleed Chance","  |yellow|Grants |white|+20% Bleed Damage"],"groupNames":["Melee","Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Brutality II","strippedName":"Brutality II","description":["|orange|+12% Critical Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Reinforcement III","strippedName":"Reinforcement III","description":["|orange|+3 Armor"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Decay","strippedName":"Decay","description":["|orange||ul|On Hit Effect - Decay"," |yellow|Applies |white|Weakness I |yellow|for |cyan|12s"," |yellow|Applies |white|Slow I |yellow|for |cyan|12s"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Reinforcement II","strippedName":"Reinforcement II","description":["|orange|+2 Armor"],"groupNames":["Armor","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Respite IV","strippedName":"Respite IV","description":["|orange|+4 Life Regeneration"],"groupNames":["Armor","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Deflect III","strippedName":"Deflect III","description":["|orange|+8 Block"],"groupNames":["Melee","Weapon","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Prismatic Regen","strippedName":"Prismatic Regen","description":["|orange||ul|Ability Mod - Prismatic Regen"," |yellow|Upgrades |white||ul|Prismatic Aura|yellow| to"," |yellow|grant |white|Regeneration I"],"groupNames":["Armor","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Heroic Heart","strippedName":"Heroic Heart","description":["|orange|+2 Maximum Life","|orange|+10 Block"],"groupNames":["Shield","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Chill I","strippedName":"Chill I","description":["|orange|+1 Ice Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Brutality IV","strippedName":"Brutality IV","description":["|orange|+16% Critical Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Reinforcement IV","strippedName":"Reinforcement IV","description":["|orange|+4 Armor"],"groupNames":["Armor","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Precise I","strippedName":"Precise I","description":["|orange|+4 Accuracy"],"groupNames":["Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Shoot III","strippedName":"Shoot III","description":["|orange|+3 Physical Damage"],"groupNames":["Ranged","Weapon","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Soul Siphon","strippedName":"Soul Siphon","description":["|orange||ul|On Kill Effect - Soul Siphon"," |yellow|Instantly start |white|Barrier |yellow|recharge"],"groupNames":["Melee","Weapon","Upgrade"],"rarity":"Epic","specialFlag":"transmute"},{"title":"Socket Gem","name":"|lime|Kinetic Absorption","strippedName":"Kinetic Absorption","description":["|orange||ul|On Block Effect - Kinetic Absorption","|red|[30% Chance]"," |yellow|Grants |white|1 |green|Earth Rune"],"groupNames":["Shield","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Precise III","strippedName":"Precise III","description":["|orange|+8 Accuracy"],"groupNames":["Weapon","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Fletching","strippedName":"Fletching","description":["|orange|+3 Accuracy"],"groupNames":["Quiver","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Impact","strippedName":"Impact","description":["|orange||ul|On Hit Effect - Impact","|red|[REQ: 350+ Max. Life]"," |yellow|Deal |white|8% |yellow|of target\u0027s |white|Max. Life |yellow|as"," |yellow|additional physical damage |lgray|(Max 150)"," |white|[5s Cooldown]"],"groupNames":["Melee","Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Fire Warrior","strippedName":"Fire Warrior","description":["|orange||ul|On Hit Effect - Fire Warrior"," |yellow|Grants |white|Fire Resistance I |yellow|for |cyan|6s"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Precise II","strippedName":"Precise II","description":["|orange|+6 Accuracy"],"groupNames":["Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Glory","strippedName":"Glory","description":["|orange||ul|On Hit Effect - Glory"," |yellow|Grants |white|Resistance I |yellow|for |cyan|2s"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Leeching Hit","strippedName":"Leeching Hit","description":["|orange|+1% Life Steal"],"groupNames":["Offhand","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Divine Strike","strippedName":"Divine Strike","description":["|orange||ul|On Hit Effect - Divine Strike"," |yellow|Deal |white|12 |yellow|bonus |white|Light Damage"," |white|[8s Cooldown]"],"groupNames":["Weapon","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Fortune II","strippedName":"Fortune II","description":["|orange|+2% Loot Bonus"],"groupNames":["Armor","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Precise IV","strippedName":"Precise IV","description":["|orange|+10 Accuracy"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Dodge Master","strippedName":"Dodge Master","description":["|orange||ul|On Evade Effect - Dodge Master"," |yellow|Grants |white|Speed II |yellow|for |cyan|2s"],"groupNames":["Armor","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Page Turner","strippedName":"Page Turner","description":["|orange|+3% Attack Speed"],"groupNames":["Battletome","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Resistance III","strippedName":"Resistance III","description":["|orange|+4% Elemental Resist"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Strong Constitution","strippedName":"Strong Constitution","description":["|orange|+12% Poison Resistance"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Focus II","strippedName":"Focus II","description":["|orange|+2 Magical Damage"],"groupNames":["Magic","Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Respite I","strippedName":"Respite I","description":["|orange|+1 Life Regeneration"],"groupNames":["Armor","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Sharpen III","strippedName":"Sharpen III","description":["|orange|+3 Physical Damage"],"groupNames":["Melee","Weapon","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Master of the Arcane","strippedName":"Master of the Arcane","description":["|orange|+3 Fire Damage","|orange|+3 Lightning Damage","|orange|+3 Ice Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|xXx Doritos xXx","strippedName":"xXx Doritos xXx","description":["|orange|+420 Taste","|orange|-20 Munchies","|orange|+1 Sick as FUCK"],"groupNames":["Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Prismatic Rage","strippedName":"Prismatic Rage","description":["|orange||ul|Ability Mod - Prismatic Rage"," |yellow|Upgrades |white||ul|Prismatic Aura|yellow| to"," |yellow|grant |white|3 |red|Rage |yellow|per second"],"groupNames":["Armor","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Opportunist","strippedName":"Opportunist","description":["|orange||ul|On Kill Effect - Opportunist"," |yellow|Grants |white|Luck I |yellow|for |cyan|10s"],"groupNames":["Weapon","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Focus IV","strippedName":"Focus IV","description":["|orange|+4 Magical Damage"],"groupNames":["Magic","Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Touch Of Dirt","strippedName":"Touch Of Dirt","description":["|orange|+1 Earth Damage"],"groupNames":["Offhand","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|meme dreamfz","strippedName":"meme dreamfz","description":["|orange|JUST","|orange|DO","|orange|IT"],"groupNames":["Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Pain Barrier","strippedName":"Pain Barrier","description":["|orange||ul|On Crit Effect - Pain Barrier"," |yellow|Restores |white|6 |yellow|barrier"," |white|[1s Cooldown]"],"groupNames":["Helmet","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Mighty Charge","strippedName":"Mighty Charge","description":["|orange|+2 Movement Speed"],"groupNames":["Shield","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Barrier III","strippedName":"Barrier III","description":["|orange|+5 Maximum Barrier"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Doubletripleshot","strippedName":"Doubletripleshot","description":["|orange||ul|Ability Mod - Doubletripleshot"," |yellow|Upgrades |white||ul|Tripleshot|yellow|:","  |yellow|After a short delay, fire an","  |yellow|extra volley of |white|3 |yellow|arrows"],"groupNames":["Bow","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Retard","strippedName":"Retard","description":["|orange||ul|When Hit Effect - Retard"," |yellow|Applies |white|Slow II |yellow|for |cyan|2s"],"groupNames":["Heavy","Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Blooddrinker","strippedName":"Blooddrinker","description":["|orange|+12 Life On Kill"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Evade II","strippedName":"Evade II","description":["|orange|+2 Evasion"],"groupNames":["Armor","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Poison","strippedName":"Poison","description":["|orange|+2% Poison Chance"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Fast Cast","strippedName":"Fast Cast","description":["|orange|+4% Cooldown Reduction"],"groupNames":["Offhand","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Good Health","strippedName":"Good Health","description":["|orange|+12% Poison Resistance"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Respite II","strippedName":"Respite II","description":["|orange|+2 Life Regeneration"],"groupNames":["Armor","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Cold Embrace","strippedName":"Cold Embrace","description":["|orange||ul|On Hit Effect - Cold Embrace"," |yellow|Apply |cyan|8 Frost"," |yellow|Gain |cyan|4 Frost"],"groupNames":["Shield","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Ether Step","strippedName":"Ether Step","description":["|orange||ul|Ability Mod - Ether Step"," |yellow|Upgrades |white||ul|Blink|yellow|:","  |yellow|Restore |white|2% + 6 Barrier"],"groupNames":["Boots","Upgrade"],"rarity":"Epic","specialFlag":"transmute"},{"title":"Socket Gem","name":"|lime|Joint Seeker","strippedName":"Joint Seeker","description":["|orange|+2% Critical Chance"],"groupNames":["Offhand","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Evade IV","strippedName":"Evade IV","description":["|orange|+4 Evasion"],"groupNames":["Armor","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Combat Medic","strippedName":"Combat Medic","description":["|orange||ul|Passive Effect - Combat Medic","|red|[REQ: In Combat]"," |yellow|Gain |white|+20% Healing Power"],"groupNames":["Armor","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Lumberjack","strippedName":"Lumberjack","description":["|orange|+10% Gathering Speed"],"groupNames":["WoodcuttingAxe","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Sky Walker","strippedName":"Sky Walker","description":["|orange||ul|Air Jump Effect - Sky Walker"," |yellow|Gain |white|Slow Falling I |yellow|for |cyan|1s"],"groupNames":["Boots","Upgrade"],"rarity":"Epic","specialFlag":"transmute"},{"title":"Socket Gem","name":"|lime|Premature Burial","strippedName":"Premature Burial","description":["|orange||ul|On Death - Premature Burial"," |yellow|Consume up to |green|4 Earth Runes"," |yellow|Restore |lgreen||ul|8% Max. Life|yellow| per rune"," |white|[5m Cooldown]"],"groupNames":["Armor","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Fleet","strippedName":"Fleet","description":["|orange||ul|When Hit Effect - Fleet"," |yellow|Grants |white|Speed I |yellow|for |cyan|5s"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Damnation","strippedName":"Damnation","description":["|orange||ul|Passive Effect - Damnation"," |yellow|Players slain must pass through"," |yellow|the |dgray|Door|yellow|..."],"groupNames":["Weapon","Upgrade"],"rarity":"Epic","specialFlag":"transmute"},{"title":"Socket Gem","name":"|lime|Luck of PSwag","strippedName":"Luck of PSwag","description":["|orange|+7% Gold Bonus","|orange|+2% Swagger"],"groupNames":["Battletome","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Fighting Dirty","strippedName":"Fighting Dirty","description":["|orange||ul|On Enter Combat - Fighting Dirty"," |yellow|Gain |white|2 |green|Earth Runes"],"groupNames":["Armor","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Overcharged","strippedName":"Overcharged","description":["|orange||ul|On Hit Effect - Overcharged","|red|[REQ: 70% Energy]"," |yellow|Consume |white|6% Max Energy |yellow|to deal"," |white|15% Max Energy (⚡) |yellow|bonus damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Energy III","strippedName":"Energy III","description":["|orange|+14 Maximum Energy"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Elemental Enhancement","strippedName":"Elemental Enhancement","description":["|orange|+3% Elemental Damage"],"groupNames":["Offhand","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Master\u0027s Eyes","strippedName":"Master\u0027s Eyes","description":["|orange||ul|Ability Mod - Master\u0027s Eyes"," |yellow|Upgrades |white||ul|Visions Of Darkness|yellow|:","  |yellow|On cast, all |white|Spirts Of Decay |yellow|also","  |yellow|cast |white|Visions Of Darkness"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Runic Energy","strippedName":"Runic Energy","description":["|orange||ul|When Hit Effect - Runic Energy","|red|[8% Chance]"," |yellow|Grants |white|1 |green|Earth Rune"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Glimmer","strippedName":"Glimmer","description":["|orange|+4% Loot Bonus"],"groupNames":["Offhand","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Deflecting Magic","strippedName":"Deflecting Magic","description":["|orange|+2 Maximum Barrier","|orange|+2 Reflected Damage"],"groupNames":["Shield","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Minion Frenzy","strippedName":"Minion Frenzy","description":["|orange||ul|On Kill Effect - Minion Frenzy"," |yellow|Grants |white|Power V |yellow|to minions for |cyan|5s"," |yellow|Grants |white|Speed V |yellow|to minions for |cyan|5s"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Seduction","strippedName":"Seduction","description":["|orange||ul|When Hit Effect - Seduction","|red|[8% Chance]"," |yellow|Applies |pink|Charm |yellow|for |cyan|30s"],"groupNames":["Armor","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Touch Of Heat","strippedName":"Touch Of Heat","description":["|orange|+1 Fire Damage"],"groupNames":["Offhand","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Quickening","strippedName":"Quickening","description":["|orange|+3% Cooldown Reduction"],"groupNames":["Armor","Cloth","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Lethality I","strippedName":"Lethality I","description":["|orange|+6% Critical Chance"],"groupNames":["Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Touch Of Thunder","strippedName":"Touch Of Thunder","description":["|orange|+1 Lightning Damage"],"groupNames":["Offhand","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Evade III","strippedName":"Evade III","description":["|orange|+3 Evasion"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Hint Of Strength","strippedName":"Hint Of Strength","description":["|orange|+1 Physical Damage"],"groupNames":["Offhand","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Hawk Eyes","strippedName":"Hawk Eyes","description":["|orange|+2 Physical Damage"],"groupNames":["Helmet","Upgrade"],"rarity":"Epic","specialFlag":"transmute"},{"title":"Socket Gem","name":"|lime|Energy II","strippedName":"Energy II","description":["|orange|+12 Maximum Energy"],"groupNames":["Armor","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Coup De Grâce","strippedName":"Coup De Grâce","description":["|orange||ul|On Crit Effect - Coup De Grâce"," |yellow|Executes enemies under |white|15% Life"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic","specialFlag":"transmute"},{"title":"Socket Gem","name":"|lime|Heavyweight","strippedName":"Heavyweight","description":["|orange||ul|On Hit Effect - Heavyweight"," |yellow|Deal |white|12% |yellow|of your |white|Max. Life |yellow|as"," |yellow|additional physical damage"," |white|[4s Cooldown]"],"groupNames":["Melee","Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Seeking Eyes","strippedName":"Seeking Eyes","description":["|orange|+8 Accuracy"],"groupNames":["Helmet","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Mark of the Mage","strippedName":"Mark of the Mage","description":["|orange|+1 Magical Damage"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Discovery I","strippedName":"Discovery I","description":["|orange|+4% Loot Bonus"],"groupNames":["Weapon","Upgrade"],"rarity":"Uncommon"},{"title":"Socket Gem","name":"|lime|Energy IV","strippedName":"Energy IV","description":["|orange|+16 Maximum Energy"],"groupNames":["Armor","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Hot-Headed","strippedName":"Hot-Headed","description":["|orange||ul|Passive Effect - Hot-Headed","|red|[REQ: In Combat]"," |yellow|Gain |white|+8 Fire Damage"," |yellow|Gain |orange||ul|Burning"],"groupNames":["Helmet","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Life IV","strippedName":"Life IV","description":["|orange|+6 Maximum Life"],"groupNames":["Armor","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Muscle Memory","strippedName":"Muscle Memory","description":["|orange|+8% Combat XP"],"groupNames":["Helmet","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Sharpen II","strippedName":"Sharpen II","description":["|orange|+2 Physical Damage"],"groupNames":["Melee","Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Strong Footing","strippedName":"Strong Footing","description":["|orange|+10 Block"],"groupNames":["Boots","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Holy Strike","strippedName":"Holy Strike","description":["|orange||ul|On Hit Effect - Holy Strike"," |yellow|Heal |lgreen|5 + 1% Life"," |yellow|Deal bonus |white|Light Damage |yellow|equal"," |yellow|to |white|5 + 0.3 |yellow|per |white|Holy Magic |yellow|Level"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Zap I","strippedName":"Zap I","description":["|orange|+1 Lightning Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Quick Pick","strippedName":"Quick Pick","description":["|orange|+10% Mining Speed"],"groupNames":["Pickaxe","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Sharpen IV","strippedName":"Sharpen IV","description":["|orange|+4 Physical Damage"],"groupNames":["Melee","Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Prismatic Resist","strippedName":"Prismatic Resist","description":["|orange||ul|Ability Mod - Prismatic Resist"," |yellow|Upgrades |white||ul|Prismatic Aura|yellow| to"," |yellow|grant |white|Resistance II"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Life II","strippedName":"Life II","description":["|orange|+4 Maximum Life"],"groupNames":["Armor","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Block III","strippedName":"Block III","description":["|orange|+10 Block"],"groupNames":["Shield","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Resistance I","strippedName":"Resistance I","description":["|orange|+2% Elemental Resist"],"groupNames":["Armor","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Chill III","strippedName":"Chill III","description":["|orange|+3 Ice Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Respite III","strippedName":"Respite III","description":["|orange|+3 Life Regeneration"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Booksmarts","strippedName":"Booksmarts","description":["|orange|+4% Combat XP"],"groupNames":["Battletome","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Shade IV","strippedName":"Shade IV","description":["|orange|+4 Shadow Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Lethality III","strippedName":"Lethality III","description":["|orange|+8% Critical Chance"],"groupNames":["Weapon","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Magic Unleashed","strippedName":"Magic Unleashed","description":["|orange||ul|On Hit Effect - Magic Unleashed"," |yellow|Launches a magical chaser that"," |yellow|deals |blue|3 + 25% Magical Damage"," |yellow|on contact"],"groupNames":["Magic","Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Falter","strippedName":"Falter","description":["|orange||ul|On Block Effect - Falter"," |yellow|Applies |white|Weakness II |yellow|for |cyan|8s"," |yellow|Applies |white|Slow I |yellow|for |cyan|12s"],"groupNames":["Shield","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Weaken","strippedName":"Weaken","description":["|orange||ul|On Hit Effect - Weaken"," |yellow|Applies |white|Weakness II |yellow|for |cyan|8s"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Fortune III","strippedName":"Fortune III","description":["|orange|+3% Loot Bonus"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Apathy","strippedName":"Apathy","description":["|orange||ul|On Enter Combat - Apathy"," |yellow|Apply |white|Slow II |yellow|to nearby"," |yellow|enemies for |cyan|15s"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|First Blood","strippedName":"First Blood","description":["|orange||ul|On Hit Effect - First Blood"," |yellow|Deals |red|15 Physical Damage |yellow|the"," |yellow|first time you hit an enemy"],"groupNames":["Physical","Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Grand Slayer","strippedName":"Grand Slayer","description":["|orange||ul|On Kill Effect - Grand Slayer"," |yellow|Grants |white|Resistance X |yellow|for |cyan|1s"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Elemental Energy","strippedName":"Elemental Energy","description":["|orange|+12% Elemental Status Chance"],"groupNames":["Wand","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Frenzy III","strippedName":"Frenzy III","description":["|orange|+7% Attack Speed"],"groupNames":["Weapon","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Focus III","strippedName":"Focus III","description":["|orange|+3 Magical Damage"],"groupNames":["Magic","Weapon","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Pumpkin Bomb","strippedName":"Pumpkin Bomb","description":["|orange||ul|Ability Mod - Pumpkin Bomb"," |yellow|Upgrades |white||ul|Bomb Toss|yellow|:","  |purple|Shadow Damage Multiplier: 1.4x","  |lgray|Applies |purple||ul|10 Corruption"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Wither","strippedName":"Wither","description":["|orange||ul|On Hit Effect - Wither"," |yellow|Applies |white|Wither I |yellow|for |cyan|15s"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Gem Resonance","strippedName":"Gem Resonance","description":["|orange|+10% Mining Gems"],"groupNames":["Pickaxe","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Mounting Fury","strippedName":"Mounting Fury","description":["|orange||ul|Passive Effect - Mounting Fury","|red|[REQ: In Combat]"," |yellow|Gain |red|2 Rage |yellow|per second"],"groupNames":["Melee","Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Touch Of Malice","strippedName":"Touch Of Malice","description":["|orange|+1 Shadow Damage"],"groupNames":["Offhand","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Consistency","strippedName":"Consistency","description":["|orange|+20% Critical Chance","|red|-10% Critical Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Lethality IV","strippedName":"Lethality IV","description":["|orange|+10% Critical Chance"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Lethality II","strippedName":"Lethality II","description":["|orange|+7% Critical Chance"],"groupNames":["Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Venom","strippedName":"Venom","description":["|orange|+8% Poison Chance"],"groupNames":["Weapon","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Sunder IV","strippedName":"Sunder IV","description":["|orange|+12 Armor Penetration"],"groupNames":["Physical","Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Wildfire","strippedName":"Wildfire","description":["|orange||ul|On Kill Effect - Wildfire","|red|[Condition: Target Burning]"," |yellow|Ignites nearby enemies for |cyan|5s"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Shade II","strippedName":"Shade II","description":["|orange|+2 Shadow Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Lifesteal III","strippedName":"Lifesteal III","description":["|orange|+4% Life Steal"],"groupNames":["Weapon","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Flow","strippedName":"Flow","description":[],"groupNames":["Armor","Upgrade"],"rarity":"Epic","specialFlag":"transmute"},{"title":"Socket Gem","name":"|lime|Fear","strippedName":"Fear","description":["|orange||ul|On Enter Combat - Fear"," |yellow|Apply |white|Vulnerable II |yellow|to nearby"," |yellow|enemies for |cyan|30s"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Sunder II","strippedName":"Sunder II","description":["|orange|+8 Armor Penetration"],"groupNames":["Physical","Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Brutality III","strippedName":"Brutality III","description":["|orange|+14% Critical Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Earth Aspect","strippedName":"Earth Aspect","description":["|orange|+3 Earth Damage"],"groupNames":["Shield","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Mark of Strength","strippedName":"Mark of Strength","description":["|orange|+1 Physical Damage"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Block I","strippedName":"Block I","description":["|orange|+6 Block"],"groupNames":["Shield","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Gaudy Lure","strippedName":"Gaudy Lure","description":["|orange|+5% Fishing Treasures"],"groupNames":["FishingRod","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Gluttony","strippedName":"Gluttony","description":["|orange|+2 Life On Hit","|orange|+2% Life Steal"],"groupNames":["Shield","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Insight","strippedName":"Insight","description":["|orange|+6% Combat XP"],"groupNames":["Helmet","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Deflect IV","strippedName":"Deflect IV","description":["|orange|+10 Block"],"groupNames":["Melee","Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Imbue","strippedName":"Imbue","description":["|orange|+10% Elemental Status Chance"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Glint","strippedName":"Glint","description":["|orange|+4% Loot Rarity"],"groupNames":["Offhand","Upgrade"],"rarity":"Epic","specialFlag":"transmute"},{"title":"Socket Gem","name":"|lime|Subtle Healing","strippedName":"Subtle Healing","description":["|orange|+1 Life Regeneration"],"groupNames":["Offhand","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Deflect II","strippedName":"Deflect II","description":["|orange|+6 Block"],"groupNames":["Melee","Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Zap IV","strippedName":"Zap IV","description":["|orange|+4 Lightning Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Life III","strippedName":"Life III","description":["|orange|+5 Maximum Life"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Eager Elements","strippedName":"Eager Elements","description":["|orange|+5% Elemental Status Chance"],"groupNames":["Offhand","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Chill IV","strippedName":"Chill IV","description":["|orange|+4 Ice Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Enlightenment","strippedName":"Enlightenment","description":["|orange|+8% Skill XP"],"groupNames":["Helmet","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Energy I","strippedName":"Energy I","description":["|orange|+10 Maximum Energy"],"groupNames":["Armor","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Spirit Wind","strippedName":"Spirit Wind","description":["|orange||ul|On Evade Effect - Spirit Wind"," |yellow|Restores |white|10% |yellow|barrier"," |white|[4s Cooldown]"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Brutality I","strippedName":"Brutality I","description":["|orange|+10% Critical Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Fortune I","strippedName":"Fortune I","description":["|orange|+1% Loot Bonus"],"groupNames":["Armor","Upgrade"],"rarity":"Uncommon"},{"title":"Socket Gem","name":"|lime|Sunder III","strippedName":"Sunder III","description":["|orange|+10 Armor Penetration"],"groupNames":["Physical","Weapon","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Frenzy II","strippedName":"Frenzy II","description":["|orange|+6% Attack Speed"],"groupNames":["Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Heat Shield","strippedName":"Heat Shield","description":["|orange||ul|Passive Effect - Heat Shield"," |yellow|While you have barrier, |orange||ul|Burning"," |yellow|deals no damage"],"groupNames":["Armor","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Prismatic Power","strippedName":"Prismatic Power","description":["|orange||ul|Ability Mod - Prismatic Power"," |yellow|Upgrades |white||ul|Prismatic Aura|yellow| to"," |yellow|grant |white|Power II"],"groupNames":["Armor","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Burn II","strippedName":"Burn II","description":["|orange|+2 Fire Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Bloodsucker","strippedName":"Bloodsucker","description":["|orange|+8 Life On Kill"],"groupNames":["Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Recharge","strippedName":"Recharge","description":["|orange|+5 Barrier Regeneration"],"groupNames":["Armor","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Second Chance","strippedName":"Second Chance","description":["|orange||ul|When Hit Effect - Second Chance"," |red|[REQ: Less Than 25% Life]"," |yellow|Heal |lgreen|25 |yellow|Life"," |white|[10s Cooldown]"],"groupNames":["Armor","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|War Rhythm","strippedName":"War Rhythm","description":[],"groupNames":["Weapon","Upgrade"],"rarity":"Epic","specialFlag":"transmute"},{"title":"Socket Gem","name":"|lime|Frenzy IV","strippedName":"Frenzy IV","description":["|orange|+8% Attack Speed"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Superior Dexterity","strippedName":"Superior Dexterity","description":["|orange|+8 Accuracy","|orange|+5% Critical Chance"],"groupNames":["Melee","Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Aptitude","strippedName":"Aptitude","description":["|orange|+2% Combat XP"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Power","strippedName":"Power","description":["|orange||ul|On Hit Effect - Power"," |yellow|Grants |white|Power I |yellow|for |cyan|3s"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Reinforcement I","strippedName":"Reinforcement I","description":["|orange|+1 Armor"],"groupNames":["Armor","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Shade I","strippedName":"Shade I","description":["|orange|+1 Shadow Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Burn IV","strippedName":"Burn IV","description":["|orange|+4 Fire Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Short Fuse","strippedName":"Short Fuse","description":[],"groupNames":["Armor","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Spider Bite","strippedName":"Spider Bite","description":["|orange|+2% Poison Chance","|orange|+6% Poison Duration"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Frenzy I","strippedName":"Frenzy I","description":["|orange|+5% Attack Speed"],"groupNames":["Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Ebb","strippedName":"Ebb","description":[],"groupNames":["Armor","Upgrade"],"rarity":"Epic","specialFlag":"transmute"},{"title":"Socket Gem","name":"|lime|Discovery III","strippedName":"Discovery III","description":["|orange|+8% Loot Bonus"],"groupNames":["Weapon","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Grit","strippedName":"Grit","description":["|orange||ul|When Hit Effect - Grit"," |yellow|Gain |white|+4 Tenacity |yellow|for |cyan|18s"," |lgray|[Stacks up to 25 times]"],"groupNames":["Armor","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Righteous Strike","strippedName":"Righteous Strike","description":["|orange||ul|On Hit Effect - Righteous Strike"," |yellow|Deal |white|15 |yellow|additional |white|Light Damage"," |yellow|Heal |lgreen|5% |yellow|Maximum Life to","  |yellow|nearby party members"," |white|[12s Cooldown]"],"groupNames":["Blunt","Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Burn III","strippedName":"Burn III","description":["|orange|+3 Fire Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Shade III","strippedName":"Shade III","description":["|orange|+3 Shadow Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Chill II","strippedName":"Chill II","description":["|orange|+2 Ice Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Dominance","strippedName":"Dominance","description":["|orange||ul|On Kill Effect - Dominance","|red|[REQ: Power]"," |yellow|Apply |white|Weak II |yellow|and |white|Slow II"," |yellow|to nearby enemies for |cyan|5s"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Defender","strippedName":"Defender","description":["|orange||ul|On Block Effect - Defender"," |yellow|Heals allies for |white|0.8% |yellow|of your max. life"],"groupNames":["Shield","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Agile Archery","strippedName":"Agile Archery","description":["|orange|+2 Movement Speed"],"groupNames":["Bow","Upgrade"],"rarity":"Epic","specialFlag":"transmute"},{"title":"Socket Gem","name":"|lime|Heart of Gold","strippedName":"Heart of Gold","description":["|orange|+10% Gold Bonus"],"groupNames":["Chestplate","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Sunder I","strippedName":"Sunder I","description":["|orange|+6 Armor Penetration"],"groupNames":["Physical","Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|True Strike","strippedName":"True Strike","description":["|orange||ul|On Crit Effect - True Strike"," |yellow|Deal |white|8 True Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Lifesteal I","strippedName":"Lifesteal I","description":["|orange|+2% Life Steal"],"groupNames":["Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Final Stand","strippedName":"Final Stand","description":["|orange|+2 Life Regeneration","|orange|+10 Block"],"groupNames":["Shield","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Soul Eater","strippedName":"Soul Eater","description":["|orange|+3 Life On Kill"],"groupNames":["Offhand","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Swiftness","strippedName":"Swiftness","description":["|orange|+3 Movement Speed"],"groupNames":["Boots","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Blood Trail","strippedName":"Blood Trail","description":["|orange|+4% Bleed Chance"],"groupNames":["Quiver","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Spore Poof","strippedName":"Spore Poof","description":[],"groupNames":["Armor","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Shoot I","strippedName":"Shoot I","description":["|orange|+1 Physical Damage"],"groupNames":["Ranged","Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Axe Happy","strippedName":"Axe Happy","description":["|orange||ul|On Kill Effect - Axe Happy"," |yellow|Refresh the cooldown of |white||ul|Axe Throw"],"groupNames":["Axe","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Discovery IV","strippedName":"Discovery IV","description":["|orange|+10% Loot Bonus"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Shoot IV","strippedName":"Shoot IV","description":["|orange|+4 Physical Damage"],"groupNames":["Ranged","Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Surge","strippedName":"Surge","description":["|orange||ul|Ability Mod - Surge"," |yellow|Upgrades |white||ul|Rush|yellow| to also grant"," |white|Haste II |yellow|for |cyan|6s"],"groupNames":["Boots","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Zap III","strippedName":"Zap III","description":["|orange|+3 Lightning Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Shoot II","strippedName":"Shoot II","description":["|orange|+2 Physical Damage"],"groupNames":["Ranged","Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Discovery II","strippedName":"Discovery II","description":["|orange|+6% Loot Bonus"],"groupNames":["Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Tectonic Plate","strippedName":"Tectonic Plate","description":["|orange|+1 Earth Damage"],"groupNames":["Heavy","Armor","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Dark Harvest","strippedName":"Dark Harvest","description":["|orange||ul|On Kill Effect - Dark Harvest"," |yellow|Summons a |white|Spirit Of Decay |yellow|for |cyan|30s"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Touch Of Cold","strippedName":"Touch Of Cold","description":["|orange|+1 Ice Damage"],"groupNames":["Offhand","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Burn I","strippedName":"Burn I","description":["|orange|+1 Fire Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Stonewall","strippedName":"Stonewall","description":["|orange|+6 Block","|orange|+2 Earth Damage"],"groupNames":["Shield","Upgrade"],"rarity":"Epic","specialFlag":"transmute"},{"title":"Socket Gem","name":"|lime|Stone Skin","strippedName":"Stone Skin","description":["|orange||ul|Passive Effect - Stone Skin"," |yellow|Receive 3% less damage per"," |yellow|active |green|Earth Rune"],"groupNames":["Armor","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Frog Aspect","strippedName":"Frog Aspect","description":["|orange||ul|Passive Effect - Frog Aspect"," |yellow|Applies |white|Jump Boost II"],"groupNames":["Boots","Upgrade"],"rarity":"Epic","specialFlag":"transmute"},{"title":"Socket Gem","name":"|lime|Overdrive","strippedName":"Overdrive","description":[],"groupNames":["Armor","Upgrade"],"rarity":"Epic","specialFlag":"transmute"},{"title":"Socket Gem","name":"|lime|Block IV","strippedName":"Block IV","description":["|orange|+12 Block"],"groupNames":["Shield","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Resistance II","strippedName":"Resistance II","description":["|orange|+3% Elemental Resist"],"groupNames":["Armor","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Healing Hit","strippedName":"Healing Hit","description":["|orange|+2 Life On Hit"],"groupNames":["Offhand","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Regret","strippedName":"Regret","description":["|orange||ul|When Hit Effect - Regret","|red|[30% Chance]"," |yellow|Applies |white|Wither I |yellow|for |cyan|10s"],"groupNames":["Armor","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Hint Of Magic","strippedName":"Hint Of Magic","description":["|orange|+1 Magical Damage"],"groupNames":["Offhand","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Lifesteal IV","strippedName":"Lifesteal IV","description":["|orange|+5% Life Steal"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Smash IV","strippedName":"Smash IV","description":["|orange|+5 Earth Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Sharpen I","strippedName":"Sharpen I","description":["|orange|+1 Physical Damage"],"groupNames":["Melee","Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Barrier I","strippedName":"Barrier I","description":["|orange|+3 Maximum Barrier"],"groupNames":["Armor","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Prismatic Luck","strippedName":"Prismatic Luck","description":["|orange||ul|Ability Mod - Prismatic Luck"," |yellow|Upgrades |white||ul|Prismatic Aura|yellow| to"," |yellow|grant |white|Luck I"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Blue Flame","strippedName":"Blue Flame","description":["|orange||ul|Passive Effect - Blue Flame"," |yellow|Ignore |white|half |yellow|of enemy |white|Fire Resistance"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Zap II","strippedName":"Zap II","description":["|orange|+2 Lightning Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Lightweight","strippedName":"Lightweight","description":["|orange|+2 Movement Speed"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Intimidate","strippedName":"Intimidate","description":["|orange||ul|On Enter Combat - Intimidate"," |yellow|Apply |white|Weakness II |yellow|to nearby"," |yellow|enemies for |cyan|30s"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Harden","strippedName":"Harden","description":["|orange||ul|When Hit Effect - Harden"," |yellow|Grants |white|Resistance II |yellow|for |cyan|2s"],"groupNames":["Armor","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Resistance IV","strippedName":"Resistance IV","description":["|orange|+5% Elemental Resist"],"groupNames":["Armor","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Lifesteal II","strippedName":"Lifesteal II","description":["|orange|+3% Life Steal"],"groupNames":["Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Adrenaline","strippedName":"Adrenaline","description":["|orange||ul|When Hit Effect - Adrenaline"," |yellow|Applies |white|Speed II |yellow|for |cyan|4s"],"groupNames":["Armor","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Bloodstains","strippedName":"Bloodstains","description":["|orange|+5% Critical Damage"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Smash II","strippedName":"Smash II","description":["|orange|+3 Earth Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Smash I","strippedName":"Smash I","description":["|orange|+2 Earth Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Cripple","strippedName":"Cripple","description":["|orange||ul|On Hit Effect - Cripple"," |yellow|Removes |white|Speed |yellow|from enemies"," |yellow|Applies |white|Slow I |yellow|for |cyan|12s"],"groupNames":["Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Barrier II","strippedName":"Barrier II","description":["|orange|+4 Maximum Barrier"],"groupNames":["Armor","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Sacred Barrier","strippedName":"Sacred Barrier","description":["|orange|+10 Barrier Regeneration"],"groupNames":["Shield","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Smash III","strippedName":"Smash III","description":["|orange|+4 Earth Damage"],"groupNames":["Weapon","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|x mTn dew bois x","strippedName":"x mTn dew bois x","description":["|orange|+69x CoD XP","|orange|(lol DAE get 69?? xD)"],"groupNames":["Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Prismatic Energy","strippedName":"Prismatic Energy","description":["|orange||ul|Ability Mod - Prismatic Energy"," |yellow|Upgrades |white||ul|Prismatic Aura|yellow| to"," |yellow|grant |white|Energize I"],"groupNames":["Armor","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Concentration","strippedName":"Concentration","description":["|orange||ul|On Ability Use - Concentration"," |yellow|Restores |white|5 Barrier"],"groupNames":["Magic","Weapon","Upgrade"],"rarity":"Epic","specialFlag":"transmute"},{"title":"Socket Gem","name":"|lime|Evade I","strippedName":"Evade I","description":["|orange|+1 Evasion"],"groupNames":["Armor","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Focus I","strippedName":"Focus I","description":["|orange|+1 Magical Damage"],"groupNames":["Magic","Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Deflect I","strippedName":"Deflect I","description":["|orange|+4 Block"],"groupNames":["Melee","Weapon","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Block II","strippedName":"Block II","description":["|orange|+8 Block"],"groupNames":["Shield","Upgrade"],"rarity":"Common"},{"title":"Socket Gem","name":"|lime|Reactive Molding","strippedName":"Reactive Molding","description":["|orange||ul|When Hit Effect - Reactive Molding"," |yellow|After |white|1s |yellow|Restore |white|3% Barrier"],"groupNames":["Armor","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Barrier IV","strippedName":"Barrier IV","description":["|orange|+6 Maximum Barrier"],"groupNames":["Armor","Upgrade"],"rarity":"Epic"},{"title":"Socket Gem","name":"|lime|Prismatic Speed","strippedName":"Prismatic Speed","description":["|orange||ul|Ability Mod - Prismatic Speed"," |yellow|Upgrades |white||ul|Prismatic Aura|yellow| to"," |yellow|grant |white|Speed II"],"groupNames":["Armor","Upgrade"],"rarity":"Rare"},{"title":"Socket Gem","name":"|lime|Crushing Blow","strippedName":"Crushing Blow","description":["|orange||ul|On Hit Effect - Crushing Blow","|red|[REQ: 380+ Max. Life]"," |yellow|Deal |white|50 |yellow|additional physical damage"," |white|[3s Cooldown]"],"groupNames":["Melee","Weapon","Upgrade"],"rarity":"Epic","specialFlag":"event"},{"title":"Socket Gem","name":"|lime|Mercy","strippedName":"Mercy","description":["|orange||ul|On Hit Effect - Mercy"," |yellow|Executes enemies under |white|10% |yellow|life"],"groupNames":["Weapon","Upgrade"],"rarity":"Rare"}]
+[
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Fortune IV",
+    "strippedName": "Fortune IV",
+    "description": ["|orange|+4% Loot Bonus"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Life I",
+    "strippedName": "Life I",
+    "description": ["|orange|+3 Maximum Life"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Vampiric Blade",
+    "strippedName": "Vampiric Blade",
+    "description": [
+      "|orange||ul|Ability Mod - Vampiric Blade",
+      " |yellow|Upgrades |white||ul|Vampiric Bite |yellow|to grant",
+      " |yellow|a buff for |cyan|12s",
+      "  |yellow|Grants |white|+10% Life Steal",
+      "  |yellow|Grants |white|+35% Bleed Chance",
+      "  |yellow|Grants |white|+20% Bleed Damage"
+    ],
+    "groupNames": ["Melee", "Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Brutality II",
+    "strippedName": "Brutality II",
+    "description": ["|orange|+12% Critical Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Reinforcement III",
+    "strippedName": "Reinforcement III",
+    "description": ["|orange|+3 Armor"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Decay",
+    "strippedName": "Decay",
+    "description": [
+      "|orange||ul|On Hit Effect - Decay",
+      " |yellow|Applies |white|Weakness I |yellow|for |cyan|12s",
+      " |yellow|Applies |white|Slow I |yellow|for |cyan|12s"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Reinforcement II",
+    "strippedName": "Reinforcement II",
+    "description": ["|orange|+2 Armor"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Respite IV",
+    "strippedName": "Respite IV",
+    "description": ["|orange|+4 Life Regeneration"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Deflect III",
+    "strippedName": "Deflect III",
+    "description": ["|orange|+8 Block"],
+    "groupNames": ["Melee", "Weapon", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Prismatic Regen",
+    "strippedName": "Prismatic Regen",
+    "description": [
+      "|orange||ul|Ability Mod - Prismatic Regen",
+      " |yellow|Upgrades |white||ul|Prismatic Aura|yellow| to",
+      " |yellow|grant |white|Regeneration I"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Heroic Heart",
+    "strippedName": "Heroic Heart",
+    "description": ["|orange|+2 Maximum Life", "|orange|+10 Block"],
+    "groupNames": ["Shield", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Chill I",
+    "strippedName": "Chill I",
+    "description": ["|orange|+1 Ice Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Brutality IV",
+    "strippedName": "Brutality IV",
+    "description": ["|orange|+16% Critical Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Reinforcement IV",
+    "strippedName": "Reinforcement IV",
+    "description": ["|orange|+4 Armor"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Precise I",
+    "strippedName": "Precise I",
+    "description": ["|orange|+4 Accuracy"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Shoot III",
+    "strippedName": "Shoot III",
+    "description": ["|orange|+3 Physical Damage"],
+    "groupNames": ["Ranged", "Weapon", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Soul Siphon",
+    "strippedName": "Soul Siphon",
+    "description": [
+      "|orange||ul|On Kill Effect - Soul Siphon",
+      " |yellow|Instantly start |white|Barrier |yellow|recharge"
+    ],
+    "groupNames": ["Melee", "Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "transmute"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Kinetic Absorption",
+    "strippedName": "Kinetic Absorption",
+    "description": [
+      "|orange||ul|On Block Effect - Kinetic Absorption",
+      "|red|[30% Chance]",
+      " |yellow|Grants |white|1 |green|Earth Rune"
+    ],
+    "groupNames": ["Shield", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Precise III",
+    "strippedName": "Precise III",
+    "description": ["|orange|+8 Accuracy"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Fletching",
+    "strippedName": "Fletching",
+    "description": ["|orange|+3 Accuracy"],
+    "groupNames": ["Quiver", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Impact",
+    "strippedName": "Impact",
+    "description": [
+      "|orange||ul|On Hit Effect - Impact",
+      "|red|[REQ: 350+ Max. Life]",
+      " |yellow|Deal |white|8% |yellow|of target\u0027s |white|Max. Life |yellow|as",
+      " |yellow|additional physical damage |lgray|(Max 150)",
+      " |white|[5s Cooldown]"
+    ],
+    "groupNames": ["Melee", "Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Fire Warrior",
+    "strippedName": "Fire Warrior",
+    "description": [
+      "|orange||ul|On Hit Effect - Fire Warrior",
+      " |yellow|Grants |white|Fire Resistance I |yellow|for |cyan|6s"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Precise II",
+    "strippedName": "Precise II",
+    "description": ["|orange|+6 Accuracy"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Glory",
+    "strippedName": "Glory",
+    "description": [
+      "|orange||ul|On Hit Effect - Glory",
+      " |yellow|Grants |white|Resistance I |yellow|for |cyan|2s"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Leeching Hit",
+    "strippedName": "Leeching Hit",
+    "description": ["|orange|+1% Life Steal"],
+    "groupNames": ["Offhand", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Divine Strike",
+    "strippedName": "Divine Strike",
+    "description": [
+      "|orange||ul|On Hit Effect - Divine Strike",
+      " |yellow|Deal |white|12 |yellow|bonus |white|Light Damage",
+      " |white|[8s Cooldown]"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Fortune II",
+    "strippedName": "Fortune II",
+    "description": ["|orange|+2% Loot Bonus"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Precise IV",
+    "strippedName": "Precise IV",
+    "description": ["|orange|+10 Accuracy"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Dodge Master",
+    "strippedName": "Dodge Master",
+    "description": [
+      "|orange||ul|On Evade Effect - Dodge Master",
+      " |yellow|Grants |white|Speed II |yellow|for |cyan|2s"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Page Turner",
+    "strippedName": "Page Turner",
+    "description": ["|orange|+3% Attack Speed"],
+    "groupNames": ["Battletome", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Resistance III",
+    "strippedName": "Resistance III",
+    "description": ["|orange|+4% Elemental Resist"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Strong Constitution",
+    "strippedName": "Strong Constitution",
+    "description": ["|orange|+12% Poison Resistance"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Focus II",
+    "strippedName": "Focus II",
+    "description": ["|orange|+2 Magical Damage"],
+    "groupNames": ["Magic", "Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Respite I",
+    "strippedName": "Respite I",
+    "description": ["|orange|+1 Life Regeneration"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Sharpen III",
+    "strippedName": "Sharpen III",
+    "description": ["|orange|+3 Physical Damage"],
+    "groupNames": ["Melee", "Weapon", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Master of the Arcane",
+    "strippedName": "Master of the Arcane",
+    "description": [
+      "|orange|+3 Fire Damage",
+      "|orange|+3 Lightning Damage",
+      "|orange|+3 Ice Damage"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|xXx Doritos xXx",
+    "strippedName": "xXx Doritos xXx",
+    "description": [
+      "|orange|+420 Taste",
+      "|orange|-20 Munchies",
+      "|orange|+1 Sick as FUCK"
+    ],
+    "groupNames": ["Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Prismatic Rage",
+    "strippedName": "Prismatic Rage",
+    "description": [
+      "|orange||ul|Ability Mod - Prismatic Rage",
+      " |yellow|Upgrades |white||ul|Prismatic Aura|yellow| to",
+      " |yellow|grant |white|3 |red|Rage |yellow|per second"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Opportunist",
+    "strippedName": "Opportunist",
+    "description": [
+      "|orange||ul|On Kill Effect - Opportunist",
+      " |yellow|Grants |white|Luck I |yellow|for |cyan|10s"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Focus IV",
+    "strippedName": "Focus IV",
+    "description": ["|orange|+4 Magical Damage"],
+    "groupNames": ["Magic", "Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Touch Of Dirt",
+    "strippedName": "Touch Of Dirt",
+    "description": ["|orange|+1 Earth Damage"],
+    "groupNames": ["Offhand", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|meme dreamfz",
+    "strippedName": "meme dreamfz",
+    "description": ["|orange|JUST", "|orange|DO", "|orange|IT"],
+    "groupNames": ["Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Pain Barrier",
+    "strippedName": "Pain Barrier",
+    "description": [
+      "|orange||ul|On Crit Effect - Pain Barrier",
+      " |yellow|Restores |white|6 |yellow|barrier",
+      " |white|[1s Cooldown]"
+    ],
+    "groupNames": ["Helmet", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Mighty Charge",
+    "strippedName": "Mighty Charge",
+    "description": ["|orange|+2 Movement Speed"],
+    "groupNames": ["Shield", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Barrier III",
+    "strippedName": "Barrier III",
+    "description": ["|orange|+5 Maximum Barrier"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Doubletripleshot",
+    "strippedName": "Doubletripleshot",
+    "description": [
+      "|orange||ul|Ability Mod - Doubletripleshot",
+      " |yellow|Upgrades |white||ul|Tripleshot|yellow|:",
+      "  |yellow|After a short delay, fire an",
+      "  |yellow|extra volley of |white|3 |yellow|arrows"
+    ],
+    "groupNames": ["Bow", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Retard",
+    "strippedName": "Retard",
+    "description": [
+      "|orange||ul|When Hit Effect - Retard",
+      " |yellow|Applies |white|Slow II |yellow|for |cyan|2s"
+    ],
+    "groupNames": ["Heavy", "Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Blooddrinker",
+    "strippedName": "Blooddrinker",
+    "description": ["|orange|+12 Life On Kill"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Evade II",
+    "strippedName": "Evade II",
+    "description": ["|orange|+2 Evasion"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Poison",
+    "strippedName": "Poison",
+    "description": ["|orange|+2% Poison Chance"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Fast Cast",
+    "strippedName": "Fast Cast",
+    "description": ["|orange|+4% Cooldown Reduction"],
+    "groupNames": ["Offhand", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Good Health",
+    "strippedName": "Good Health",
+    "description": ["|orange|+12% Poison Resistance"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Respite II",
+    "strippedName": "Respite II",
+    "description": ["|orange|+2 Life Regeneration"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Cold Embrace",
+    "strippedName": "Cold Embrace",
+    "description": [
+      "|orange||ul|On Hit Effect - Cold Embrace",
+      " |yellow|Apply |cyan|8 Frost",
+      " |yellow|Gain |cyan|4 Frost"
+    ],
+    "groupNames": ["Shield", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Ether Step",
+    "strippedName": "Ether Step",
+    "description": [
+      "|orange||ul|Ability Mod - Ether Step",
+      " |yellow|Upgrades |white||ul|Blink|yellow|:",
+      "  |yellow|Restore |white|2% + 6 Barrier"
+    ],
+    "groupNames": ["Boots", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "transmute"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Joint Seeker",
+    "strippedName": "Joint Seeker",
+    "description": ["|orange|+2% Critical Chance"],
+    "groupNames": ["Offhand", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Evade IV",
+    "strippedName": "Evade IV",
+    "description": ["|orange|+4 Evasion"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Combat Medic",
+    "strippedName": "Combat Medic",
+    "description": [
+      "|orange||ul|Passive Effect - Combat Medic",
+      "|red|[REQ: In Combat]",
+      " |yellow|Gain |white|+20% Healing Power"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Lumberjack",
+    "strippedName": "Lumberjack",
+    "description": ["|orange|+10% Gathering Speed"],
+    "groupNames": ["WoodcuttingAxe", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Sky Walker",
+    "strippedName": "Sky Walker",
+    "description": [
+      "|orange||ul|Air Jump Effect - Sky Walker",
+      " |yellow|Gain |white|Slow Falling I |yellow|for |cyan|1s"
+    ],
+    "groupNames": ["Boots", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "transmute"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Premature Burial",
+    "strippedName": "Premature Burial",
+    "description": [
+      "|orange||ul|On Death - Premature Burial",
+      " |yellow|Consume up to |green|4 Earth Runes",
+      " |yellow|Restore |lgreen||ul|8% Max. Life|yellow| per rune",
+      " |white|[5m Cooldown]"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Fleet",
+    "strippedName": "Fleet",
+    "description": [
+      "|orange||ul|When Hit Effect - Fleet",
+      " |yellow|Grants |white|Speed I |yellow|for |cyan|5s"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Damnation",
+    "strippedName": "Damnation",
+    "description": [
+      "|orange||ul|Passive Effect - Damnation",
+      " |yellow|Players slain must pass through",
+      " |yellow|the |dgray|Door|yellow|..."
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "transmute"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Luck of PSwag",
+    "strippedName": "Luck of PSwag",
+    "description": ["|orange|+7% Gold Bonus", "|orange|+2% Swagger"],
+    "groupNames": ["Battletome", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Fighting Dirty",
+    "strippedName": "Fighting Dirty",
+    "description": [
+      "|orange||ul|On Enter Combat - Fighting Dirty",
+      " |yellow|Gain |white|2 |green|Earth Runes"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Overcharged",
+    "strippedName": "Overcharged",
+    "description": [
+      "|orange||ul|On Hit Effect - Overcharged",
+      "|red|[REQ: 70% Energy]",
+      " |yellow|Consume |white|6% Max Energy |yellow|to deal",
+      " |white|15% Max Energy (⚡) |yellow|bonus damage"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Energy III",
+    "strippedName": "Energy III",
+    "description": ["|orange|+14 Maximum Energy"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Elemental Enhancement",
+    "strippedName": "Elemental Enhancement",
+    "description": ["|orange|+3% Elemental Damage"],
+    "groupNames": ["Offhand", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Master\u0027s Eyes",
+    "strippedName": "Master\u0027s Eyes",
+    "description": [
+      "|orange||ul|Ability Mod - Master\u0027s Eyes",
+      " |yellow|Upgrades |white||ul|Visions Of Darkness|yellow|:",
+      "  |yellow|On cast, all |white|Spirts Of Decay |yellow|also",
+      "  |yellow|cast |white|Visions Of Darkness"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Runic Energy",
+    "strippedName": "Runic Energy",
+    "description": [
+      "|orange||ul|When Hit Effect - Runic Energy",
+      "|red|[8% Chance]",
+      " |yellow|Grants |white|1 |green|Earth Rune"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Glimmer",
+    "strippedName": "Glimmer",
+    "description": ["|orange|+4% Loot Bonus"],
+    "groupNames": ["Offhand", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Deflecting Magic",
+    "strippedName": "Deflecting Magic",
+    "description": [
+      "|orange|+2 Maximum Barrier",
+      "|orange|+2 Reflected Damage"
+    ],
+    "groupNames": ["Shield", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Minion Frenzy",
+    "strippedName": "Minion Frenzy",
+    "description": [
+      "|orange||ul|On Kill Effect - Minion Frenzy",
+      " |yellow|Grants |white|Power V |yellow|to minions for |cyan|5s",
+      " |yellow|Grants |white|Speed V |yellow|to minions for |cyan|5s"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Seduction",
+    "strippedName": "Seduction",
+    "description": [
+      "|orange||ul|When Hit Effect - Seduction",
+      "|red|[8% Chance]",
+      " |yellow|Applies |pink|Charm |yellow|for |cyan|30s"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Touch Of Heat",
+    "strippedName": "Touch Of Heat",
+    "description": ["|orange|+1 Fire Damage"],
+    "groupNames": ["Offhand", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Quickening",
+    "strippedName": "Quickening",
+    "description": ["|orange|+3% Cooldown Reduction"],
+    "groupNames": ["Armor", "Cloth", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Lethality I",
+    "strippedName": "Lethality I",
+    "description": ["|orange|+6% Critical Chance"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Touch Of Thunder",
+    "strippedName": "Touch Of Thunder",
+    "description": ["|orange|+1 Lightning Damage"],
+    "groupNames": ["Offhand", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Evade III",
+    "strippedName": "Evade III",
+    "description": ["|orange|+3 Evasion"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Hint Of Strength",
+    "strippedName": "Hint Of Strength",
+    "description": ["|orange|+1 Physical Damage"],
+    "groupNames": ["Offhand", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Hawk Eyes",
+    "strippedName": "Hawk Eyes",
+    "description": ["|orange|+2 Physical Damage"],
+    "groupNames": ["Helmet", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "transmute"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Energy II",
+    "strippedName": "Energy II",
+    "description": ["|orange|+12 Maximum Energy"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Coup De Grâce",
+    "strippedName": "Coup De Grâce",
+    "description": [
+      "|orange||ul|On Crit Effect - Coup De Grâce",
+      " |yellow|Executes enemies under |white|15% Life"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "transmute"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Heavyweight",
+    "strippedName": "Heavyweight",
+    "description": [
+      "|orange||ul|On Hit Effect - Heavyweight",
+      " |yellow|Deal |white|12% |yellow|of your |white|Max. Life |yellow|as",
+      " |yellow|additional physical damage",
+      " |white|[4s Cooldown]"
+    ],
+    "groupNames": ["Melee", "Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Seeking Eyes",
+    "strippedName": "Seeking Eyes",
+    "description": ["|orange|+8 Accuracy"],
+    "groupNames": ["Helmet", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Mark of the Mage",
+    "strippedName": "Mark of the Mage",
+    "description": ["|orange|+1 Magical Damage"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Discovery I",
+    "strippedName": "Discovery I",
+    "description": ["|orange|+4% Loot Bonus"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Uncommon"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Energy IV",
+    "strippedName": "Energy IV",
+    "description": ["|orange|+16 Maximum Energy"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Hot-Headed",
+    "strippedName": "Hot-Headed",
+    "description": [
+      "|orange||ul|Passive Effect - Hot-Headed",
+      "|red|[REQ: In Combat]",
+      " |yellow|Gain |white|+8 Fire Damage",
+      " |yellow|Gain |orange||ul|Burning"
+    ],
+    "groupNames": ["Helmet", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Life IV",
+    "strippedName": "Life IV",
+    "description": ["|orange|+6 Maximum Life"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Muscle Memory",
+    "strippedName": "Muscle Memory",
+    "description": ["|orange|+8% Combat XP"],
+    "groupNames": ["Helmet", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Sharpen II",
+    "strippedName": "Sharpen II",
+    "description": ["|orange|+2 Physical Damage"],
+    "groupNames": ["Melee", "Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Strong Footing",
+    "strippedName": "Strong Footing",
+    "description": ["|orange|+10 Block"],
+    "groupNames": ["Boots", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Holy Strike",
+    "strippedName": "Holy Strike",
+    "description": [
+      "|orange||ul|On Hit Effect - Holy Strike",
+      " |yellow|Heal |lgreen|5 + 1% Life",
+      " |yellow|Deal bonus |white|Light Damage |yellow|equal",
+      " |yellow|to |white|5 + 0.3 |yellow|per |white|Holy Magic |yellow|Level"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Zap I",
+    "strippedName": "Zap I",
+    "description": ["|orange|+1 Lightning Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Quick Pick",
+    "strippedName": "Quick Pick",
+    "description": ["|orange|+10% Mining Speed"],
+    "groupNames": ["Pickaxe", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Sharpen IV",
+    "strippedName": "Sharpen IV",
+    "description": ["|orange|+4 Physical Damage"],
+    "groupNames": ["Melee", "Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Prismatic Resist",
+    "strippedName": "Prismatic Resist",
+    "description": [
+      "|orange||ul|Ability Mod - Prismatic Resist",
+      " |yellow|Upgrades |white||ul|Prismatic Aura|yellow| to",
+      " |yellow|grant |white|Resistance II"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Life II",
+    "strippedName": "Life II",
+    "description": ["|orange|+4 Maximum Life"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Block III",
+    "strippedName": "Block III",
+    "description": ["|orange|+10 Block"],
+    "groupNames": ["Shield", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Resistance I",
+    "strippedName": "Resistance I",
+    "description": ["|orange|+2% Elemental Resist"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Chill III",
+    "strippedName": "Chill III",
+    "description": ["|orange|+3 Ice Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Respite III",
+    "strippedName": "Respite III",
+    "description": ["|orange|+3 Life Regeneration"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Booksmarts",
+    "strippedName": "Booksmarts",
+    "description": ["|orange|+4% Combat XP"],
+    "groupNames": ["Battletome", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Shade IV",
+    "strippedName": "Shade IV",
+    "description": ["|orange|+4 Shadow Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Lethality III",
+    "strippedName": "Lethality III",
+    "description": ["|orange|+8% Critical Chance"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Magic Unleashed",
+    "strippedName": "Magic Unleashed",
+    "description": [
+      "|orange||ul|On Hit Effect - Magic Unleashed",
+      " |yellow|Launches a magical chaser that",
+      " |yellow|deals |blue|3 + 25% Magical Damage",
+      " |yellow|on contact"
+    ],
+    "groupNames": ["Magic", "Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Falter",
+    "strippedName": "Falter",
+    "description": [
+      "|orange||ul|On Block Effect - Falter",
+      " |yellow|Applies |white|Weakness II |yellow|for |cyan|8s",
+      " |yellow|Applies |white|Slow I |yellow|for |cyan|12s"
+    ],
+    "groupNames": ["Shield", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Weaken",
+    "strippedName": "Weaken",
+    "description": [
+      "|orange||ul|On Hit Effect - Weaken",
+      " |yellow|Applies |white|Weakness II |yellow|for |cyan|8s"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Fortune III",
+    "strippedName": "Fortune III",
+    "description": ["|orange|+3% Loot Bonus"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Apathy",
+    "strippedName": "Apathy",
+    "description": [
+      "|orange||ul|On Enter Combat - Apathy",
+      " |yellow|Apply |white|Slow II |yellow|to nearby",
+      " |yellow|enemies for |cyan|15s"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|First Blood",
+    "strippedName": "First Blood",
+    "description": [
+      "|orange||ul|On Hit Effect - First Blood",
+      " |yellow|Deals |red|15 Physical Damage |yellow|the",
+      " |yellow|first time you hit an enemy"
+    ],
+    "groupNames": ["Physical", "Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Grand Slayer",
+    "strippedName": "Grand Slayer",
+    "description": [
+      "|orange||ul|On Kill Effect - Grand Slayer",
+      " |yellow|Grants |white|Resistance X |yellow|for |cyan|1s"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Elemental Energy",
+    "strippedName": "Elemental Energy",
+    "description": ["|orange|+12% Elemental Status Chance"],
+    "groupNames": ["Wand", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Frenzy III",
+    "strippedName": "Frenzy III",
+    "description": ["|orange|+7% Attack Speed"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Focus III",
+    "strippedName": "Focus III",
+    "description": ["|orange|+3 Magical Damage"],
+    "groupNames": ["Magic", "Weapon", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Pumpkin Bomb",
+    "strippedName": "Pumpkin Bomb",
+    "description": [
+      "|orange||ul|Ability Mod - Pumpkin Bomb",
+      " |yellow|Upgrades |white||ul|Bomb Toss|yellow|:",
+      "  |purple|Shadow Damage Multiplier: 1.4x",
+      "  |lgray|Applies |purple||ul|10 Corruption"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Wither",
+    "strippedName": "Wither",
+    "description": [
+      "|orange||ul|On Hit Effect - Wither",
+      " |yellow|Applies |white|Wither I |yellow|for |cyan|15s"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Gem Resonance",
+    "strippedName": "Gem Resonance",
+    "description": ["|orange|+10% Mining Gems"],
+    "groupNames": ["Pickaxe", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Mounting Fury",
+    "strippedName": "Mounting Fury",
+    "description": [
+      "|orange||ul|Passive Effect - Mounting Fury",
+      "|red|[REQ: In Combat]",
+      " |yellow|Gain |red|2 Rage |yellow|per second"
+    ],
+    "groupNames": ["Melee", "Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Touch Of Malice",
+    "strippedName": "Touch Of Malice",
+    "description": ["|orange|+1 Shadow Damage"],
+    "groupNames": ["Offhand", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Consistency",
+    "strippedName": "Consistency",
+    "description": [
+      "|orange|+20% Critical Chance",
+      "|red|-10% Critical Damage"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Lethality IV",
+    "strippedName": "Lethality IV",
+    "description": ["|orange|+10% Critical Chance"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Lethality II",
+    "strippedName": "Lethality II",
+    "description": ["|orange|+7% Critical Chance"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Venom",
+    "strippedName": "Venom",
+    "description": ["|orange|+8% Poison Chance"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Sunder IV",
+    "strippedName": "Sunder IV",
+    "description": ["|orange|+12 Armor Penetration"],
+    "groupNames": ["Physical", "Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Wildfire",
+    "strippedName": "Wildfire",
+    "description": [
+      "|orange||ul|On Kill Effect - Wildfire",
+      "|red|[Condition: Target Burning]",
+      " |yellow|Ignites nearby enemies for |cyan|5s"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Shade II",
+    "strippedName": "Shade II",
+    "description": ["|orange|+2 Shadow Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Lifesteal III",
+    "strippedName": "Lifesteal III",
+    "description": ["|orange|+4% Life Steal"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Flow",
+    "strippedName": "Flow",
+    "description": [],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "transmute"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Fear",
+    "strippedName": "Fear",
+    "description": [
+      "|orange||ul|On Enter Combat - Fear",
+      " |yellow|Apply |white|Vulnerable II |yellow|to nearby",
+      " |yellow|enemies for |cyan|30s"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Sunder II",
+    "strippedName": "Sunder II",
+    "description": ["|orange|+8 Armor Penetration"],
+    "groupNames": ["Physical", "Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Brutality III",
+    "strippedName": "Brutality III",
+    "description": ["|orange|+14% Critical Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Earth Aspect",
+    "strippedName": "Earth Aspect",
+    "description": ["|orange|+3 Earth Damage"],
+    "groupNames": ["Shield", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Mark of Strength",
+    "strippedName": "Mark of Strength",
+    "description": ["|orange|+1 Physical Damage"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Block I",
+    "strippedName": "Block I",
+    "description": ["|orange|+6 Block"],
+    "groupNames": ["Shield", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Gaudy Lure",
+    "strippedName": "Gaudy Lure",
+    "description": ["|orange|+5% Fishing Treasures"],
+    "groupNames": ["FishingRod", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Gluttony",
+    "strippedName": "Gluttony",
+    "description": ["|orange|+2 Life On Hit", "|orange|+2% Life Steal"],
+    "groupNames": ["Shield", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Insight",
+    "strippedName": "Insight",
+    "description": ["|orange|+6% Combat XP"],
+    "groupNames": ["Helmet", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Deflect IV",
+    "strippedName": "Deflect IV",
+    "description": ["|orange|+10 Block"],
+    "groupNames": ["Melee", "Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Imbue",
+    "strippedName": "Imbue",
+    "description": ["|orange|+10% Elemental Status Chance"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Glint",
+    "strippedName": "Glint",
+    "description": ["|orange|+4% Loot Rarity"],
+    "groupNames": ["Offhand", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "transmute"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Subtle Healing",
+    "strippedName": "Subtle Healing",
+    "description": ["|orange|+1 Life Regeneration"],
+    "groupNames": ["Offhand", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Deflect II",
+    "strippedName": "Deflect II",
+    "description": ["|orange|+6 Block"],
+    "groupNames": ["Melee", "Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Zap IV",
+    "strippedName": "Zap IV",
+    "description": ["|orange|+4 Lightning Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Life III",
+    "strippedName": "Life III",
+    "description": ["|orange|+5 Maximum Life"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Eager Elements",
+    "strippedName": "Eager Elements",
+    "description": ["|orange|+5% Elemental Status Chance"],
+    "groupNames": ["Offhand", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Chill IV",
+    "strippedName": "Chill IV",
+    "description": ["|orange|+4 Ice Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Enlightenment",
+    "strippedName": "Enlightenment",
+    "description": ["|orange|+8% Skill XP"],
+    "groupNames": ["Helmet", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Energy I",
+    "strippedName": "Energy I",
+    "description": ["|orange|+10 Maximum Energy"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Spirit Wind",
+    "strippedName": "Spirit Wind",
+    "description": [
+      "|orange||ul|On Evade Effect - Spirit Wind",
+      " |yellow|Restores |white|10% |yellow|barrier",
+      " |white|[4s Cooldown]"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Brutality I",
+    "strippedName": "Brutality I",
+    "description": ["|orange|+10% Critical Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Fortune I",
+    "strippedName": "Fortune I",
+    "description": ["|orange|+1% Loot Bonus"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Uncommon"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Sunder III",
+    "strippedName": "Sunder III",
+    "description": ["|orange|+10 Armor Penetration"],
+    "groupNames": ["Physical", "Weapon", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Frenzy II",
+    "strippedName": "Frenzy II",
+    "description": ["|orange|+6% Attack Speed"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Heat Shield",
+    "strippedName": "Heat Shield",
+    "description": [
+      "|orange||ul|Passive Effect - Heat Shield",
+      " |yellow|While you have barrier, |orange||ul|Burning",
+      " |yellow|deals no damage"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Prismatic Power",
+    "strippedName": "Prismatic Power",
+    "description": [
+      "|orange||ul|Ability Mod - Prismatic Power",
+      " |yellow|Upgrades |white||ul|Prismatic Aura|yellow| to",
+      " |yellow|grant |white|Power II"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Burn II",
+    "strippedName": "Burn II",
+    "description": ["|orange|+2 Fire Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Bloodsucker",
+    "strippedName": "Bloodsucker",
+    "description": ["|orange|+8 Life On Kill"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Recharge",
+    "strippedName": "Recharge",
+    "description": ["|orange|+5 Barrier Regeneration"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Second Chance",
+    "strippedName": "Second Chance",
+    "description": [
+      "|orange||ul|When Hit Effect - Second Chance",
+      " |red|[REQ: Less Than 25% Life]",
+      " |yellow|Heal |lgreen|25 |yellow|Life",
+      " |white|[10s Cooldown]"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|War Rhythm",
+    "strippedName": "War Rhythm",
+    "description": [],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "transmute"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Frenzy IV",
+    "strippedName": "Frenzy IV",
+    "description": ["|orange|+8% Attack Speed"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Superior Dexterity",
+    "strippedName": "Superior Dexterity",
+    "description": ["|orange|+8 Accuracy", "|orange|+5% Critical Chance"],
+    "groupNames": ["Melee", "Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Aptitude",
+    "strippedName": "Aptitude",
+    "description": ["|orange|+2% Combat XP"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Power",
+    "strippedName": "Power",
+    "description": [
+      "|orange||ul|On Hit Effect - Power",
+      " |yellow|Grants |white|Power I |yellow|for |cyan|3s"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Reinforcement I",
+    "strippedName": "Reinforcement I",
+    "description": ["|orange|+1 Armor"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Shade I",
+    "strippedName": "Shade I",
+    "description": ["|orange|+1 Shadow Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Burn IV",
+    "strippedName": "Burn IV",
+    "description": ["|orange|+4 Fire Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Short Fuse",
+    "strippedName": "Short Fuse",
+    "description": [],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Spider Bite",
+    "strippedName": "Spider Bite",
+    "description": ["|orange|+2% Poison Chance", "|orange|+6% Poison Duration"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Frenzy I",
+    "strippedName": "Frenzy I",
+    "description": ["|orange|+5% Attack Speed"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Ebb",
+    "strippedName": "Ebb",
+    "description": [],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "transmute"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Discovery III",
+    "strippedName": "Discovery III",
+    "description": ["|orange|+8% Loot Bonus"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Grit",
+    "strippedName": "Grit",
+    "description": [
+      "|orange||ul|When Hit Effect - Grit",
+      " |yellow|Gain |white|+4 Tenacity |yellow|for |cyan|18s",
+      " |lgray|[Stacks up to 25 times]"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Righteous Strike",
+    "strippedName": "Righteous Strike",
+    "description": [
+      "|orange||ul|On Hit Effect - Righteous Strike",
+      " |yellow|Deal |white|15 |yellow|additional |white|Light Damage",
+      " |yellow|Heal |lgreen|5% |yellow|Maximum Life to",
+      "  |yellow|nearby party members",
+      " |white|[12s Cooldown]"
+    ],
+    "groupNames": ["Blunt", "Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Burn III",
+    "strippedName": "Burn III",
+    "description": ["|orange|+3 Fire Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Shade III",
+    "strippedName": "Shade III",
+    "description": ["|orange|+3 Shadow Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Chill II",
+    "strippedName": "Chill II",
+    "description": ["|orange|+2 Ice Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Dominance",
+    "strippedName": "Dominance",
+    "description": [
+      "|orange||ul|On Kill Effect - Dominance",
+      "|red|[REQ: Power]",
+      " |yellow|Apply |white|Weak II |yellow|and |white|Slow II",
+      " |yellow|to nearby enemies for |cyan|5s"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Defender",
+    "strippedName": "Defender",
+    "description": [
+      "|orange||ul|On Block Effect - Defender",
+      " |yellow|Heals allies for |white|0.8% |yellow|of your max. life"
+    ],
+    "groupNames": ["Shield", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Agile Archery",
+    "strippedName": "Agile Archery",
+    "description": ["|orange|+2 Movement Speed"],
+    "groupNames": ["Bow", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "transmute"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Heart of Gold",
+    "strippedName": "Heart of Gold",
+    "description": ["|orange|+10% Gold Bonus"],
+    "groupNames": ["Chestplate", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Sunder I",
+    "strippedName": "Sunder I",
+    "description": ["|orange|+6 Armor Penetration"],
+    "groupNames": ["Physical", "Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|True Strike",
+    "strippedName": "True Strike",
+    "description": [
+      "|orange||ul|On Crit Effect - True Strike",
+      " |yellow|Deal |white|8 True Damage"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Lifesteal I",
+    "strippedName": "Lifesteal I",
+    "description": ["|orange|+2% Life Steal"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Final Stand",
+    "strippedName": "Final Stand",
+    "description": ["|orange|+2 Life Regeneration", "|orange|+10 Block"],
+    "groupNames": ["Shield", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Soul Eater",
+    "strippedName": "Soul Eater",
+    "description": ["|orange|+3 Life On Kill"],
+    "groupNames": ["Offhand", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Swiftness",
+    "strippedName": "Swiftness",
+    "description": ["|orange|+3 Movement Speed"],
+    "groupNames": ["Boots", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Blood Trail",
+    "strippedName": "Blood Trail",
+    "description": ["|orange|+4% Bleed Chance"],
+    "groupNames": ["Quiver", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Spore Poof",
+    "strippedName": "Spore Poof",
+    "description": [],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Shoot I",
+    "strippedName": "Shoot I",
+    "description": ["|orange|+1 Physical Damage"],
+    "groupNames": ["Ranged", "Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Axe Happy",
+    "strippedName": "Axe Happy",
+    "description": [
+      "|orange||ul|On Kill Effect - Axe Happy",
+      " |yellow|Refresh the cooldown of |white||ul|Axe Throw"
+    ],
+    "groupNames": ["Axe", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Discovery IV",
+    "strippedName": "Discovery IV",
+    "description": ["|orange|+10% Loot Bonus"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Shoot IV",
+    "strippedName": "Shoot IV",
+    "description": ["|orange|+4 Physical Damage"],
+    "groupNames": ["Ranged", "Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Surge",
+    "strippedName": "Surge",
+    "description": [
+      "|orange||ul|Ability Mod - Surge",
+      " |yellow|Upgrades |white||ul|Rush|yellow| to also grant",
+      " |white|Haste II |yellow|for |cyan|6s"
+    ],
+    "groupNames": ["Boots", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Zap III",
+    "strippedName": "Zap III",
+    "description": ["|orange|+3 Lightning Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Shoot II",
+    "strippedName": "Shoot II",
+    "description": ["|orange|+2 Physical Damage"],
+    "groupNames": ["Ranged", "Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Discovery II",
+    "strippedName": "Discovery II",
+    "description": ["|orange|+6% Loot Bonus"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Tectonic Plate",
+    "strippedName": "Tectonic Plate",
+    "description": ["|orange|+1 Earth Damage"],
+    "groupNames": ["Heavy", "Armor", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Dark Harvest",
+    "strippedName": "Dark Harvest",
+    "description": [
+      "|orange||ul|On Kill Effect - Dark Harvest",
+      " |yellow|Summons a |white|Spirit Of Decay |yellow|for |cyan|30s"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Touch Of Cold",
+    "strippedName": "Touch Of Cold",
+    "description": ["|orange|+1 Ice Damage"],
+    "groupNames": ["Offhand", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Burn I",
+    "strippedName": "Burn I",
+    "description": ["|orange|+1 Fire Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Stonewall",
+    "strippedName": "Stonewall",
+    "description": ["|orange|+6 Block", "|orange|+2 Earth Damage"],
+    "groupNames": ["Shield", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "transmute"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Stone Skin",
+    "strippedName": "Stone Skin",
+    "description": [
+      "|orange||ul|Passive Effect - Stone Skin",
+      " |yellow|Receive 3% less damage per",
+      " |yellow|active |green|Earth Rune"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Frog Aspect",
+    "strippedName": "Frog Aspect",
+    "description": [
+      "|orange||ul|Passive Effect - Frog Aspect",
+      " |yellow|Applies |white|Jump Boost II"
+    ],
+    "groupNames": ["Boots", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "transmute"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Overdrive",
+    "strippedName": "Overdrive",
+    "description": [],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "transmute"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Block IV",
+    "strippedName": "Block IV",
+    "description": ["|orange|+12 Block"],
+    "groupNames": ["Shield", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Resistance II",
+    "strippedName": "Resistance II",
+    "description": ["|orange|+3% Elemental Resist"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Healing Hit",
+    "strippedName": "Healing Hit",
+    "description": ["|orange|+2 Life On Hit"],
+    "groupNames": ["Offhand", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Regret",
+    "strippedName": "Regret",
+    "description": [
+      "|orange||ul|When Hit Effect - Regret",
+      "|red|[30% Chance]",
+      " |yellow|Applies |white|Wither I |yellow|for |cyan|10s"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Hint Of Magic",
+    "strippedName": "Hint Of Magic",
+    "description": ["|orange|+1 Magical Damage"],
+    "groupNames": ["Offhand", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Lifesteal IV",
+    "strippedName": "Lifesteal IV",
+    "description": ["|orange|+5% Life Steal"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Smash IV",
+    "strippedName": "Smash IV",
+    "description": ["|orange|+5 Earth Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Sharpen I",
+    "strippedName": "Sharpen I",
+    "description": ["|orange|+1 Physical Damage"],
+    "groupNames": ["Melee", "Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Barrier I",
+    "strippedName": "Barrier I",
+    "description": ["|orange|+3 Maximum Barrier"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Prismatic Luck",
+    "strippedName": "Prismatic Luck",
+    "description": [
+      "|orange||ul|Ability Mod - Prismatic Luck",
+      " |yellow|Upgrades |white||ul|Prismatic Aura|yellow| to",
+      " |yellow|grant |white|Luck I"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Blue Flame",
+    "strippedName": "Blue Flame",
+    "description": [
+      "|orange||ul|Passive Effect - Blue Flame",
+      " |yellow|Ignore |white|half |yellow|of enemy |white|Fire Resistance"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Zap II",
+    "strippedName": "Zap II",
+    "description": ["|orange|+2 Lightning Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Lightweight",
+    "strippedName": "Lightweight",
+    "description": ["|orange|+2 Movement Speed"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Intimidate",
+    "strippedName": "Intimidate",
+    "description": [
+      "|orange||ul|On Enter Combat - Intimidate",
+      " |yellow|Apply |white|Weakness II |yellow|to nearby",
+      " |yellow|enemies for |cyan|30s"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Harden",
+    "strippedName": "Harden",
+    "description": [
+      "|orange||ul|When Hit Effect - Harden",
+      " |yellow|Grants |white|Resistance II |yellow|for |cyan|2s"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Resistance IV",
+    "strippedName": "Resistance IV",
+    "description": ["|orange|+5% Elemental Resist"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Lifesteal II",
+    "strippedName": "Lifesteal II",
+    "description": ["|orange|+3% Life Steal"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Adrenaline",
+    "strippedName": "Adrenaline",
+    "description": [
+      "|orange||ul|When Hit Effect - Adrenaline",
+      " |yellow|Applies |white|Speed II |yellow|for |cyan|4s"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Bloodstains",
+    "strippedName": "Bloodstains",
+    "description": ["|orange|+5% Critical Damage"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Smash II",
+    "strippedName": "Smash II",
+    "description": ["|orange|+3 Earth Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Smash I",
+    "strippedName": "Smash I",
+    "description": ["|orange|+2 Earth Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Cripple",
+    "strippedName": "Cripple",
+    "description": [
+      "|orange||ul|On Hit Effect - Cripple",
+      " |yellow|Removes |white|Speed |yellow|from enemies",
+      " |yellow|Applies |white|Slow I |yellow|for |cyan|12s"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Barrier II",
+    "strippedName": "Barrier II",
+    "description": ["|orange|+4 Maximum Barrier"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Sacred Barrier",
+    "strippedName": "Sacred Barrier",
+    "description": ["|orange|+10 Barrier Regeneration"],
+    "groupNames": ["Shield", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Smash III",
+    "strippedName": "Smash III",
+    "description": ["|orange|+4 Earth Damage"],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|x mTn dew bois x",
+    "strippedName": "x mTn dew bois x",
+    "description": ["|orange|+69x CoD XP", "|orange|(lol DAE get 69?? xD)"],
+    "groupNames": ["Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Prismatic Energy",
+    "strippedName": "Prismatic Energy",
+    "description": [
+      "|orange||ul|Ability Mod - Prismatic Energy",
+      " |yellow|Upgrades |white||ul|Prismatic Aura|yellow| to",
+      " |yellow|grant |white|Energize I"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Concentration",
+    "strippedName": "Concentration",
+    "description": [
+      "|orange||ul|On Ability Use - Concentration",
+      " |yellow|Restores |white|5 Barrier"
+    ],
+    "groupNames": ["Magic", "Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "transmute"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Evade I",
+    "strippedName": "Evade I",
+    "description": ["|orange|+1 Evasion"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Focus I",
+    "strippedName": "Focus I",
+    "description": ["|orange|+1 Magical Damage"],
+    "groupNames": ["Magic", "Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Deflect I",
+    "strippedName": "Deflect I",
+    "description": ["|orange|+4 Block"],
+    "groupNames": ["Melee", "Weapon", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Block II",
+    "strippedName": "Block II",
+    "description": ["|orange|+8 Block"],
+    "groupNames": ["Shield", "Upgrade"],
+    "rarity": "Common"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Reactive Molding",
+    "strippedName": "Reactive Molding",
+    "description": [
+      "|orange||ul|When Hit Effect - Reactive Molding",
+      " |yellow|After |white|1s |yellow|Restore |white|3% Barrier"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Barrier IV",
+    "strippedName": "Barrier IV",
+    "description": ["|orange|+6 Maximum Barrier"],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Epic"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Prismatic Speed",
+    "strippedName": "Prismatic Speed",
+    "description": [
+      "|orange||ul|Ability Mod - Prismatic Speed",
+      " |yellow|Upgrades |white||ul|Prismatic Aura|yellow| to",
+      " |yellow|grant |white|Speed II"
+    ],
+    "groupNames": ["Armor", "Upgrade"],
+    "rarity": "Rare"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Crushing Blow",
+    "strippedName": "Crushing Blow",
+    "description": [
+      "|orange||ul|On Hit Effect - Crushing Blow",
+      "|red|[REQ: 380+ Max. Life]",
+      " |yellow|Deal |white|50 |yellow|additional physical damage",
+      " |white|[3s Cooldown]"
+    ],
+    "groupNames": ["Melee", "Weapon", "Upgrade"],
+    "rarity": "Epic",
+    "specialFlag": "event"
+  },
+  {
+    "title": "Socket Gem",
+    "name": "|lime|Mercy",
+    "strippedName": "Mercy",
+    "description": [
+      "|orange||ul|On Hit Effect - Mercy",
+      " |yellow|Executes enemies under |white|10% |yellow|life"
+    ],
+    "groupNames": ["Weapon", "Upgrade"],
+    "rarity": "Rare"
+  }
+]

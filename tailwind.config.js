@@ -4,8 +4,9 @@ const withMT = require('@material-tailwind/react/utils/withMT');
 module.exports = withMT({
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
+    // prettier-ignore
     colors: {
-      chambray: '#3B5998',
+      'chambray': '#3B5998',
       'san-marino': '#4C6DB1',
       // Shuffle gradients
       'aubergine': '#380707',
@@ -19,7 +20,12 @@ module.exports = withMT({
       'kilamanjaro': '#2c0d01',
       'kilamanjaro-end': '#1E0802',
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        extender: "url('./src/assets/extender.png",
+        socket: "url('./src/assets/socket.png",
+      },
+    },
   },
   plugins: [],
 });
