@@ -141,8 +141,11 @@
     background-repeat: no-repeat;
     background-size: cover;
     border: solid 1px rgb(141, 100, 57);
-    padding: 0px 8px;
+    display: inline-block;
+    height: 8px;
+    width: 8px;
     margin-right: 4px;
+    margin-bottom: 1px;
   }
 
   &.socketExtender {
@@ -150,8 +153,11 @@
     background-repeat: no-repeat;
     background-size: cover;
     border: solid 1px rgb(57, 141, 112);
-    padding: 0px 8px;
+    display: inline-block;
+    height: 8px;
+    width: 8px;
     margin-right: 4px;
+    margin-bottom: 1px;
   }
 }
 
