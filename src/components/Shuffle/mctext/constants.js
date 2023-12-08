@@ -61,7 +61,7 @@ export const CHINESE = {
   '品': {
     // socket extender
     color: COLORS.teal,
-    content: 'x',
+    content: ' ',
     className: 'socketExtender',
   },
 };
