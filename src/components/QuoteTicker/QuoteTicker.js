@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import Ticker from 'react-ticker';
 
 import './quoteTicker.scss';
@@ -37,8 +37,11 @@ export const QuoteTicker = () => {
   };
 
   return (
+    // TODO: figure out why StrictMode doesn't like this
+    // <StrictMode>
     <div className="quoteTicker">
       <Ticker>{({ index }) => getQuote(index)}</Ticker>
     </div>
+    // </StrictMode>
   );
 };
