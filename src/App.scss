@@ -1,4 +1,7 @@
-button, input[type="submit"], input[type="reset"], input[type="text"] {
+button,
+input[type='submit'],
+input[type='reset'],
+input[type='text'] {
   background: none;
   color: inherit;
   border: none;
@@ -8,7 +11,9 @@ button, input[type="submit"], input[type="reset"], input[type="text"] {
   outline: inherit;
 }
 
-input:focus, textarea:focus, select:focus{
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
 }
 
@@ -79,7 +84,6 @@ input:focus, textarea:focus, select:focus{
 .align-center {
   text-align: center;
 }
-
 
 .space-between {
   justify-content: space-between;

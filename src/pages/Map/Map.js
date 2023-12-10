@@ -1,12 +1,12 @@
-import React, {useContext} from "react";
-import {HeaderBar} from "../../components/HeaderBar/HeaderBar";
-import {Context} from "../../Store";
-import {DiscordWidget} from "../../components/DiscordWidget/DiscordWidget"
-import './map.scss'
-import {Footer} from "../../components/Footer/Footer";
+/* eslint-disable no-restricted-globals */
+import React, { useContext } from 'react';
+import { HeaderBar } from '../../components/HeaderBar/HeaderBar';
+import { Context } from '../../Store';
+import { DiscordWidget } from '../../components/DiscordWidget/DiscordWidget';
+import './map.scss';
+import { Footer } from '../../components/Footer/Footer';
 
 export const Map = (props) => {
-
   const [state] = useContext(Context);
 
   function MouseOver(event) {
@@ -19,16 +19,23 @@ export const Map = (props) => {
 
   return (
     <div className="App Map">
-      <HeaderBar fancy={false}/>
+      <HeaderBar fancy={false} />
       <div className="basicPage">
-        <div className="mapContainer" onMouseOver={MouseOver} onMouseOut={MouseOut}>
-          <iframe className="mapContent" scrolling="no"
-                  src="http://199.127.61.235:8100/#Quest_world:27:0:893:506:0:0:0:0:perspective" title="sneed"/>
+        <div
+          className="mapContainer"
+          onMouseOver={MouseOver}
+          onMouseOut={MouseOut}
+        >
+          <iframe
+            className="mapContent"
+            scrolling="no"
+            src="http://199.127.61.235:8100/#Quest_world:27:0:893:506:0:0:0:0:perspective"
+            title="sneed"
+          />
         </div>
       </div>
-      <DiscordWidget/>
-      <Footer/>
+      <DiscordWidget />
+      <Footer />
     </div>
   );
-
-}
+};

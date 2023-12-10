@@ -1,16 +1,15 @@
-import * as React from "react";
-import './footer.scss'
-import {Buddy} from "../Buddy/Buddy";
-import {useContext} from "react";
-import {Context} from "../../Store";
+import * as React from 'react';
+import './footer.scss';
+import { Buddy } from '../Buddy/Buddy';
+import { useContext } from 'react';
+import { Context } from '../../Store';
 
 export const Footer = (props) => {
-
   const [state] = useContext(Context);
 
   return (
     <div className="Footer">
-      <Buddy/>
+      <Buddy />
       <footer className="footer">
         <div className="footer__addr">
           <h1 className="footer__logo">Faceland RPG</h1>
@@ -18,12 +17,19 @@ export const Footer = (props) => {
           <address>
             1234 ImNotGivingYouWeirdosMyAddress Blvd 42069
             <p>&copy; 2023 Faceland LLC. All rights reserved.</p>
-            <p>Faceland proudly uses textures from the amazing <a style={{color: "white", textDecoration: "underline"}} href="https://www.curseforge.com/minecraft/texture-packs/excalibur">Excalibur 16x</a></p>
+            <p>
+              Faceland proudly uses textures from the amazing{' '}
+              <a
+                style={{ color: 'white', textDecoration: 'underline' }}
+                href="https://www.curseforge.com/minecraft/texture-packs/excalibur"
+              >
+                Excalibur 16x
+              </a>
+            </p>
           </address>
         </div>
 
         <ul className="footer__nav">
-
           <li className="nav__item">
             <h2 className="nav__title">Social Media</h2>
 
@@ -37,7 +43,9 @@ export const Footer = (props) => {
               </li>
 
               <li>
-                <a href="https://twitter.com/facelandr">Send help, it's just Twitter</a>
+                <a href="https://twitter.com/facelandr">
+                  Send help, it's just Twitter
+                </a>
               </li>
             </ul>
           </li>
@@ -47,7 +55,9 @@ export const Footer = (props) => {
 
             <ul className="nav__ul">
               <li>
-                <a href="http://199.127.61.235:8100/#Quest_world:27:0:893:506:0:0:0:0:perspective">World Map</a>
+                <a href="http://199.127.61.235:8100/#Quest_world:27:0:893:506:0:0:0:0:perspective">
+                  World Map
+                </a>
               </li>
 
               <li>
@@ -65,13 +75,17 @@ export const Footer = (props) => {
 
             <ul className="nav__ul">
               <li>
-                <a className="footer__btn" href="mailto:official.faceland@gmail.com">Email Us</a>
+                <a
+                  className="footer__btn"
+                  href="mailto:official.faceland@gmail.com"
+                >
+                  Email Us
+                </a>
               </li>
             </ul>
           </li>
         </ul>
-
       </footer>
     </div>
-  )
-}
+  );
+};

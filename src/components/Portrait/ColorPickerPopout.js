@@ -1,22 +1,21 @@
-'use strict'
+'use strict';
 
-import React, {useState} from 'react'
-import {SketchPicker} from 'react-color'
+import React, { useState } from 'react';
+import { SketchPicker } from 'react-color';
 
 export const ColorPickerPopout = (props) => {
-
-  const [displayPicker, setDisplayPicker] = useState(false)
+  const [displayPicker, setDisplayPicker] = useState(false);
 
   const handleChange = (color) => {
-    props.changeColor(color)
+    props.changeColor(color);
   };
 
   const handleClick = () => {
-    setDisplayPicker(!displayPicker)
+    setDisplayPicker(!displayPicker);
   };
 
   const handleClose = () => {
-    setDisplayPicker(false)
+    setDisplayPicker(false);
   };
 
   const styles = {
@@ -43,26 +42,27 @@ export const ColorPickerPopout = (props) => {
       right: '0px',
       bottom: '0px',
       left: '0px',
-    }
-  }
+    },
+  };
 
   return (
-    <button onClick={() => {
-    }}>
-      {props.layer.color &&
-      <>
-        <div style={styles.swatch} onClick={handleClick}>
-          <div style={styles.color}/>
-        </div>
-        {displayPicker ? <div style={styles.popover}>
-          <div style={styles.cover} onClick={handleClose}/>
-          <SketchPicker
-            color={props.layer.color.rgb}
-            onChange={handleChange}
-          />
-        </div> : null}
-      </>
-      }
+    <button onClick={() => {}}>
+      {props.layer.color && (
+        <>
+          <div style={styles.swatch} onClick={handleClick}>
+            <div style={styles.color} />
+          </div>
+          {displayPicker ? (
+            <div style={styles.popover}>
+              <div style={styles.cover} onClick={handleClose} />
+              <SketchPicker
+                color={props.layer.color.rgb}
+                onChange={handleChange}
+              />
+            </div>
+          ) : null}
+        </>
+      )}
     </button>
-  )
-}
+  );
+};

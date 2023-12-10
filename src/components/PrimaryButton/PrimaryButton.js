@@ -1,10 +1,13 @@
-import React from "react";
-import './primaryButton.scss'
+import React from 'react';
+import './primaryButton.scss';
 
 export const PrimaryButton = (props) => {
-    return (
-        <button onClick={props.onClick} className="primaryButton shadow-normal theme-primary mx-1">
-            {props.children}
-        </button>
-    );
-}
+  return (
+    <button
+      onClick={props.onClick}
+      className="primaryButton shadow-normal theme-primary mx-1"
+    >
+      {props.children}
+    </button>
+  );
+};

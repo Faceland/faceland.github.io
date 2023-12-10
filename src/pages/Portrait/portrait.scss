@@ -1,7 +1,6 @@
 .Portrait {
-
   .droppable {
-    width: calc(100% - 17px)
+    width: calc(100% - 17px);
   }
 
   .mobileContainer {
@@ -148,7 +147,6 @@
     }
 
     .p5Canvas {
-
       -ms-interpolation-mode: nearest-neighbor;
       image-rendering: -webkit-optimize-contrast;
 
@@ -197,7 +195,7 @@
     &:hover {
       border-color: white;
       color: white;
-      background-color: rgba(99, 234, 184, 0.31)
+      background-color: rgba(99, 234, 184, 0.31);
     }
 
     p {
