@@ -110,7 +110,7 @@ export const HeaderBar = (props) => {
             <img
               src="https://i.imgur.com/AjRWtUR.png"
               alt="gem icon"
-              className="gemImg speed-2 m-1 h-8 ml-2 mr-0"
+              className="gemImg speed-2 m-1 ml-2 mr-0 h-8"
             />
           </div>
         </a>

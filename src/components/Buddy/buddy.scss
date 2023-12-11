@@ -17,7 +17,7 @@
   pointer-events: all !important;
 
   color: white;
-  font-family: "Lucida Console", "Courier New", monospace;
+  font-family: 'Lucida Console', 'Courier New', monospace;
   font-weight: 700;
   font-size: 20px;
 
@@ -34,15 +34,37 @@
 }
 
 @keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(14deg); }
-  10% { transform: translate(-1px, -2px) rotate(6deg); }
-  20% { transform: translate(-3px, 0px) rotate(14deg); }
-  30% { transform: translate(3px, 2px) rotate(10deg); }
-  40% { transform: translate(1px, -1px) rotate(14deg); }
-  50% { transform: translate(-1px, 2px) rotate(6deg); }
-  60% { transform: translate(-3px, 1px) rotate(10deg); }
-  70% { transform: translate(3px, 1px) rotate(6deg); }
-  80% { transform: translate(-1px, -1px) rotate(14deg); }
-  90% { transform: translate(1px, 2px) rotate(10deg); }
-  100% { transform: translate(1px, -2px) rotate(6deg); }
+  0% {
+    transform: translate(1px, 1px) rotate(14deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(6deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(14deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(10deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(14deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(6deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(10deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(6deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(14deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(10deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(6deg);
+  }
 }

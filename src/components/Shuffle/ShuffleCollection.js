@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Select from 'react-select';
-import 'react-select/dist/react-select.cjs';
 import './Shuffle.scss';
 import '../Tooltip/tooltip.scss';
 import '../../animations.scss';
@@ -309,12 +308,8 @@ export const ShuffleCollection = () => {
                   <div className="h-full w-full rounded-md bg-black bg-opacity-50 px-1 py-2 text-left">
                     <div className="flex h-full flex-col justify-center leading-tight">
                       {item?.description?.map((line, index2) => (
-                        <div>
-                          <BetterMcText
-                            line={line}
-                            key={`lore${index2}`}
-                            className="lore"
-                          />
+                        <div key={`lore${index2}`}>
+                          <BetterMcText line={line} className="lore" />
                         </div>
                       ))}
                     </div>

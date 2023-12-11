@@ -1,18 +1,16 @@
-import React, {createContext, useReducer} from "react";
-import Reducer from './Reducer'
+import React, { createContext, useReducer } from 'react';
+import Reducer from './Reducer';
 
 const initialState = {
-    posts: [],
-    error: null
+  posts: [],
+  error: null,
 };
 
-const Store = ({children}) => {
-    const [state, dispatch] = useReducer(Reducer, initialState);
-    return (
-        <Context.Provider value={[state, dispatch]}>
-            {children}
-        </Context.Provider>
-    )
+const Store = ({ children }) => {
+  const [state, dispatch] = useReducer(Reducer, initialState);
+  return (
+    <Context.Provider value={[state, dispatch]}>{children}</Context.Provider>
+  );
 };
 
 export const Context = createContext(initialState);
