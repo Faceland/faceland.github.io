@@ -6,9 +6,9 @@ import { ThemeProvider } from '@material-tailwind/react';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-  // <StrictMode>
-  <ThemeProvider>
-    <App />
-  </ThemeProvider>,
-  // </StrictMode>,
+  <StrictMode>
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
+  </StrictMode>,
 );

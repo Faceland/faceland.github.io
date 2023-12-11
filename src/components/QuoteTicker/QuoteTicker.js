@@ -1,6 +1,5 @@
-import React, { StrictMode } from 'react';
-import Ticker from 'react-ticker';
-
+import React from 'react';
+import Marquee from 'react-fast-marquee';
 import './quoteTicker.scss';
 
 export const QuoteTicker = () => {
@@ -25,20 +24,21 @@ export const QuoteTicker = () => {
     { text: 'Ability contest results WHEN?!', author: 'Faceland Community' },
   ];
 
-  // TODO: react-ticker doesn't work with React 18: https://github.com/AndreasFaust/react-ticker/issues/61
-  // replace with react-fast-marquee: https://github.com/justin-chu/react-fast-marquee
+  const getQuoteElements = () => {
+    let index = 0;
+    return quotes.map((quote) => {
+      return (
+        <div key={(index += 1)} className="quoteText">
+          <h3 className="quoteBody">❝ {quote?.text}❞</h3>
+          <p className="quoteSubtext">-{quote?.author}</p>
+        </div>
+      );
+    });
+  };
+
   return (
-    // <StrictMode>
     <div className="quoteTicker">
-      <Ticker>
-        {({ index }) => (
-          <div key={index} className="quoteText">
-            <h3 className="quoteBody">❝ {quotes[index]?.text}❞</h3>
-            <p className="quoteSubtext">-{quotes[index]?.author}</p>
-          </div>
-        )}
-      </Ticker>
+      <Marquee>{getQuoteElements()}</Marquee>
     </div>
-    // </StrictMode>
   );
 };
