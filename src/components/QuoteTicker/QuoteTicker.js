@@ -25,22 +25,19 @@ export const QuoteTicker = () => {
     { text: 'Ability contest results WHEN?!', author: 'Faceland Community' },
   ];
 
-  const getQuote = (index) => {
-    const newIndex = (index + 1) % quotes.length;
-    const quote = quotes[newIndex];
-    return (
-      <div className="quoteText">
-        <h3 className="quoteBody">❝ {quote?.text}❞</h3>
-        <p className="quoteSubtext">-{quote?.author}</p>
-      </div>
-    );
-  };
-
+  // TODO: react-ticker doesn't work with React 18: https://github.com/AndreasFaust/react-ticker/issues/61
+  // replace with react-fast-marquee: https://github.com/justin-chu/react-fast-marquee
   return (
-    // TODO: figure out why StrictMode doesn't like this
     // <StrictMode>
     <div className="quoteTicker">
-      <Ticker>{({ index }) => getQuote(index)}</Ticker>
+      <Ticker>
+        {({ index }) => (
+          <div key={index} className="quoteText">
+            <h3 className="quoteBody">❝ {quotes[index]?.text}❞</h3>
+            <p className="quoteSubtext">-{quotes[index]?.author}</p>
+          </div>
+        )}
+      </Ticker>
     </div>
     // </StrictMode>
   );
