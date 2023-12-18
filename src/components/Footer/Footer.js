@@ -26,6 +26,7 @@ export const Footer = (props) => {
                 Excalibur 16x
               </a>
             </p>
+            <p>Faceland is not an official Minecraft product and is not associated with Mojang or Microsoft</p>
           </address>
         </div>
 
