@@ -19,7 +19,7 @@ export const QuoteTicker = () => {
       author: 'PMC Server Reviewer',
     },
     { text: 'Uninspired!', author: 'Some Dominion Clown' },
-    { text: 'I am men.', author: 'Waffler527' },
+    { text: 'I tried it and it was worth it', author: 'ToukoBlock' },
     { text: 'The owner is a madman', author: 'Looni' },
     { text: 'Ability contest results WHEN?!', author: 'Faceland Community' },
   ];
