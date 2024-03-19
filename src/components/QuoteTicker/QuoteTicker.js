@@ -10,6 +10,7 @@ export const QuoteTicker = () => {
       text: 'This game made me shit myself - In a good way!',
       author: 'You, probably',
     },
+    { text: 'It`s Playable!', author: 'Burgur' },
     {
       text: 'Wow! Another Minecraft RPG!',
       author: 'minecraft-servers-list.gov',
