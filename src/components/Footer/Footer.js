@@ -66,7 +66,7 @@ export const Footer = (props) => {
               </li>
 
               <li>
-                <a href="http://shop.face.land/category/336956">Cash Shop</a>
+                <a href="https://shop.face.land">Cash Shop</a>
               </li>
             </ul>
           </li>

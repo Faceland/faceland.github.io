@@ -37,7 +37,7 @@ export const HeaderBar = (props) => {
         <a href="https://discord.gg/VUkE7Db4a8" target="_blank">
           Discord
         </a>
-        <a href="http://shop.face.land/category/336956" target="_blank">
+        <a href="https://shop.face.land" target="_blank">
           Buy Gems
         </a>
       </div>
@@ -102,7 +102,7 @@ export const HeaderBar = (props) => {
       <div className="profileSection h-fit">
         <a
           className="facegemButton m-2 bg-gradient-to-b from-purple-300 to-purple-600 px-4"
-          href="http://shop.face.land/category/336956"
+          href="https://shop.face.land"
           target="_blank"
         >
           <div className="flex items-center whitespace-nowrap font-bold text-white">
