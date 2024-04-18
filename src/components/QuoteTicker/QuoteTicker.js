@@ -5,6 +5,7 @@ import './quoteTicker.scss';
 export const QuoteTicker = () => {
   const quotes = [
     { text: 'An incredible GAMING experience..', author: 'Gamers LTD' },
+    { text: "This is VANILLA?", author: 'flstrawberri' },
     { text: "It's the 'Mario Pissing' of MMORPGs!", author: 'Faceguy' },
     {
       text: 'This game made me shit myself - In a good way!',
@@ -19,9 +20,14 @@ export const QuoteTicker = () => {
       text: 'I need OP to review your server, or it will be removed...',
       author: 'PMC Server Reviewer',
     },
+    {
+      text: 'Everything is so goddamn random it makes blackjack look like a skill-based game',
+      author: 'JuggernautStyle',
+    },
     { text: 'Uninspired!', author: 'Some Dominion Clown' },
     { text: 'I tried it and it was worth it', author: 'ToukoBlock' },
     { text: 'The owner is a madman', author: 'Looni' },
+    { text: 'i think there is way too much going on', author: 'n3ttspend' },
     { text: 'Ability contest results WHEN?!', author: 'Faceland Community' },
   ];
 
