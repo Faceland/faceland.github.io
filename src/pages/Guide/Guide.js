@@ -231,52 +231,6 @@ export const Guide = (props) => {
               </p>
             </AccordionItemPanel>
           </AccordionItem>
-          <AccordionItem>
-            <AccordionItemHeading>
-              <AccordionItemButton>Food And Hunger</AccordionItemButton>
-            </AccordionItemHeading>
-            <AccordionItemPanel>
-              <p>
-                Just like real life, on Faceland you need to eat a balanced diet
-                to make it so you're less likely to die. Food can be eaten every
-                5 minutes, and doing so grants life, energy, and extra effects.
-                Foods also have nutrient values to keep you in good shape. When
-                you have good nutrition, your maximum life increases, and when
-                your nutrition is poor, it decreases. Check /health to see your
-                current bonuses and nutrient levels.
-              </p>
-            </AccordionItemPanel>
-          </AccordionItem>
-          <AccordionItem>
-            <AccordionItemHeading>
-              <AccordionItemButton>
-                Why isn't this guide finished?
-              </AccordionItemButton>
-            </AccordionItemHeading>
-            <AccordionItemPanel>
-              <p>fuck you</p>
-            </AccordionItemPanel>
-          </AccordionItem>
-          <AccordionItem>
-            <AccordionItemHeading>
-              <AccordionItemButton>
-                Why isn't this guide finished?
-              </AccordionItemButton>
-            </AccordionItemHeading>
-            <AccordionItemPanel>
-              <p>fuck you</p>
-            </AccordionItemPanel>
-          </AccordionItem>
-          <AccordionItem>
-            <AccordionItemHeading>
-              <AccordionItemButton>
-                Why isn't this guide finished?
-              </AccordionItemButton>
-            </AccordionItemHeading>
-            <AccordionItemPanel>
-              <p>fuck you</p>
-            </AccordionItemPanel>
-          </AccordionItem>
         </Accordion>
       </div>
       <DiscordWidget />
