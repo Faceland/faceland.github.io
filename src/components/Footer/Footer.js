@@ -62,7 +62,7 @@ export const Footer = (props) => {
               </li>
 
               <li>
-                <a href="https://discord.gg/VUkE7Db4a8">Discord</a>
+                <a href="https://discord.gg/Gkmk6G2fjd">Discord</a>
               </li>
 
               <li>

@@ -34,7 +34,7 @@ export const HeaderBar = (props) => {
         </a>
         <Link to="/about">Items</Link>
         <Link to="/facepals">FacePals™</Link>
-        <a href="https://discord.gg/VUkE7Db4a8" target="_blank">
+        <a href="https://discord.gg/Gkmk6G2fjd" target="_blank">
           Discord
         </a>
         <a href="https://shop.face.land" target="_blank">
@@ -93,7 +93,7 @@ export const HeaderBar = (props) => {
         </Link>
         <a
           className="navButton"
-          href="https://discord.gg/VUkE7Db4a8"
+          href="https://discord.gg/Gkmk6G2fjd"
           target="_blank"
         >
           Discord
