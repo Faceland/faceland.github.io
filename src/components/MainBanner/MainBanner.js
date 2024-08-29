@@ -26,7 +26,7 @@ export const MainBanner = () => {
       <div className={state.mobile ? 'mobileTitle' : 'desktopTitle'}>
         <img src="https://i.imgur.com/AtRhZD2.png" alt="Website Img" />
         <div style={{ position: 'relative', top: '-10%' }}>
-          <CopyWidget copyText="PLAY.FACE.LAND" />
+          <CopyWidget copyText="BETA.FACE.LAND" />
         </div>
       </div>
     </div>

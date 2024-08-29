@@ -58,7 +58,7 @@ export const Guide = (props) => {
                 MMORPG! That basically means that you fight monsters to get
                 stronger, complete quests, and get rare items. The server is
                 100% free and doesn't feature any pay2win or manipulative
-                micro-transactions. You can join via the IP PLAY.FACE.LAND!
+                micro-transactions. You can join via the IP BETA.FACE.LAND!
               </p>
             </AccordionItemPanel>
           </AccordionItem>
@@ -79,7 +79,7 @@ export const Guide = (props) => {
                   <AccordionItemPanel>
                     <p>
                       After connecting to Faceland via your normal Minecraft
-                      launcher (IP PLAY.FACE.LAND) You'll find yourself in the
+                      launcher (IP BETA.FACE.LAND) You'll find yourself in the
                       tutorial area. Be sure to read all floating text or signs
                       for help! Pick a starter setup from one of the options
                       presented to you, and begin your adventure!
