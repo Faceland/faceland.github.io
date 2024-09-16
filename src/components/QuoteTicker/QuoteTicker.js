@@ -7,6 +7,7 @@ export const QuoteTicker = () => {
     { text: 'An incredible GAMING experience..', author: 'Gamers LTD' },
     { text: "This is VANILLA?", author: 'flstrawberri' },
     { text: "It's the 'Mario Pissing' of MMORPGs!", author: 'Faceguy' },
+    { text: "I'm pretty sure I played, W", author: 'ACraftingFish' },
     {
       text: 'This game made me shit myself - In a good way!',
       author: 'You, probably',
