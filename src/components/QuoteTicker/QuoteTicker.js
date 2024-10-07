@@ -7,12 +7,14 @@ export const QuoteTicker = () => {
     { text: 'An incredible GAMING experience..', author: 'Gamers LTD' },
     { text: "This is VANILLA?", author: 'flstrawberri' },
     { text: "It's the 'Mario Pissing' of MMORPGs!", author: 'Faceguy' },
+    { text: 'The owner is a madman', author: 'Looni' },
     { text: "I'm pretty sure I played, W", author: 'ACraftingFish' },
+    { text: 'It`s Playable!', author: 'Burgur' },
+    { text: 'I tried it and it was worth it', author: 'ToukoBlock' },
     {
       text: 'This game made me shit myself - In a good way!',
       author: 'You, probably',
     },
-    { text: 'It`s Playable!', author: 'Burgur' },
     {
       text: 'Wow! Another Minecraft RPG!',
       author: 'minecraft-servers-list.gov',
@@ -25,9 +27,11 @@ export const QuoteTicker = () => {
       text: 'Everything is so goddamn random it makes blackjack look like a skill-based game',
       author: 'JuggernautStyle',
     },
+    {
+      text: 'face guy i want a carrot make me small plese!!!!!!',
+      author: 'BartFam76',
+    },
     { text: 'Uninspired!', author: 'Somebody from Dominion' },
-    { text: 'I tried it and it was worth it', author: 'ToukoBlock' },
-    { text: 'The owner is a madman', author: 'Looni' },
     { text: 'i think there is way too much going on', author: 'n3ttspend' },
     { text: 'Ability contest results WHEN?!', author: 'Faceland Community' },
   ];
