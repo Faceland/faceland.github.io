@@ -27,6 +27,7 @@ export const QuoteTicker = () => {
       text: 'Everything is so goddamn random it makes blackjack look like a skill-based game',
       author: 'JuggernautStyle',
     },
+    { text: 'This seems like, kinda cool', author: 'mzxie' },
     {
       text: 'face guy i want a carrot make me small plese!!!!!!',
       author: 'BartFam76',
