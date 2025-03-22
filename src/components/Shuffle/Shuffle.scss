@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
 
 .filterTitles {
   font-weight: 600;
@@ -103,14 +103,14 @@
 }
 
 .lore {
-  margin: 0;
   color: white;
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 1.1em;
-  line-height: 0.9em;
-  letter-spacing: -1px;
-  //text-rendering: optimizeLegibility; // Enhances smoothing, less pixelated
-  font-weight: 200;
+
+  font-family: "Play", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+
+  line-height: 1;
+  letter-spacing: 1px;
 }
 
 .enchantable {
