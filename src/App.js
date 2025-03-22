@@ -23,7 +23,7 @@ function App() {
         <MobileStateHandler />
         <Routes>
           <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
+          <Route path="items" element={<About />} />
           <Route path="guide" element={<Guide />} />
           <Route path="vote" element={<Vote />} />
           <Route path="map" element={<Map />} />

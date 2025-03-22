@@ -54,5 +54,15 @@ export const getCardItems = () => {
     item.gradient = `bg-gradient-to-bl from-black-forest to-black-forest-end`;
     newItems.push(item);
   }
+
+  newItems.forEach((item) => {
+    item.groupNames = [...new Set(item.groupNames)];
+    item.groupNames = item.groupNames.map(name => {
+      name = name.replace('Any ', '');
+      name = name.replace(' Weapons', '');
+      return name
+    });
+  })
+
   return newItems;
 };

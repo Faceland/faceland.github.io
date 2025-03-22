@@ -85,7 +85,7 @@ export const HeaderBar = (props) => {
         >
           Map
         </a>
-        <Link className="navButton" to="/about">
+        <Link className="navButton" to="/items">
           Items
         </Link>
         <Link className="navButton" to="/facepals">
