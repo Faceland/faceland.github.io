@@ -105,60 +105,32 @@
   color: white;
   font-weight: 800;
   font-family: 'ＭＳ Ｐゴシック', monospace;
+}
 
-  &.enchantable {
-    margin-right: 5px;
-    color: white;
-    padding: 1px 3px;
-    padding-bottom: 2px !important;
-    border-radius: 1px;
-    background: rgb(29, 122, 210);
-    background: linear-gradient(
-      90deg,
-      rgba(29, 122, 210, 1) 0%,
-      rgba(35, 74, 204, 1) 51%,
-      rgba(76, 23, 227, 1) 100%
-    );
-  }
+.enchantable {
+  background-image: url('../../assets/enchantable.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 40px;
+}
 
-  &.untradeable {
-    margin-right: 5px;
-    color: white;
-    padding: 1px 3px;
-    padding-bottom: 2px !important;
-    border-radius: 1px;
-    background: rgb(147, 210, 29);
-    background: linear-gradient(
-      90deg,
-      rgba(147, 210, 29, 1) 0%,
-      rgba(88, 204, 35, 1) 30%,
-      rgba(23, 163, 36, 1) 100%
-    );
-  }
+.socket {
+  background-image: url('../../assets/socket.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 20px;
+  width: 20px;
+}
 
-  &.socket {
-    background-image: url('../../assets/socket.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: solid 1px rgb(141, 100, 57);
-    display: inline-block;
-    height: 8px;
-    width: 8px;
-    margin-right: 4px;
-    margin-bottom: 1px;
-  }
-
-  &.socketExtender {
-    background-image: url('../../assets/extender.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: solid 1px rgb(57, 141, 112);
-    display: inline-block;
-    height: 8px;
-    width: 8px;
-    margin-right: 4px;
-    margin-bottom: 1px;
-  }
+.socketExtender {
+  background-image: url('../../assets/extender.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 20px;
+  width: 20px;
 }
 
 .selectorButton-clear {

@@ -22,6 +22,7 @@ module.exports = withMT({
     },
     extend: {
       backgroundImage: {
+        enchantable: "url('./src/assets/enchantable.png",
         extender: "url('./src/assets/extender.png",
         socket: "url('./src/assets/socket.png",
       },

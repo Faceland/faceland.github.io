@@ -244,6 +244,51 @@ export const ShuffleCollection = () => {
     </>
   );
 
+  const stats = (item) => {
+    return (
+      <div>
+        {item?.description?.map((line, index2) => (
+          <div key={`lore${index2}`}>
+            <BetterMcText line={line} className="lore" />
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  const flavorText = (item) => {
+    return (
+      <div>
+        {item?.flavorText?.map((line, index2) => (
+          <div key={`lore${index2}`}>
+            <BetterMcText line={line} className="lore" />
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  const gemSlots = (item) => {
+    return (
+      <div className="flex self-center">
+        {item?.gemSlots && (
+          <div className="flex">
+            {Array.from({ length: item?.gemSlots }, () => (
+              <div className="socket m-3"></div>
+            ))}
+          </div>
+        )}
+        {item?.extendSlots && (
+          <div className="flex">
+            {Array.from({ length: item?.extendSlots }, () => (
+              <div className="socketExtender m-3"></div>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  };
+
   return (
     <div className="relative min-h-[76vh]">
       {state.mobile ? mobileFilterSection : desktopFilterSection}
@@ -305,13 +350,12 @@ export const ShuffleCollection = () => {
                       </button>
                     ))}
                   </div>
-                  <div className="h-full w-full rounded-md bg-black bg-opacity-50 px-1 py-2 text-left">
+                  <div className="h-full w-full rounded-md bg-black bg-opacity-50 px-1 py-2">
                     <div className="flex h-full flex-col justify-center leading-tight">
-                      {item?.description?.map((line, index2) => (
-                        <div key={`lore${index2}`}>
-                          <BetterMcText line={line} className="lore" />
-                        </div>
-                      ))}
+                      {stats(item)}
+                      {item?.enchantable && <div className="enchantable"></div>}
+                      {gemSlots(item)}
+                      {item?.flavorText && flavorText(item)}
                     </div>
                   </div>
                 </div>

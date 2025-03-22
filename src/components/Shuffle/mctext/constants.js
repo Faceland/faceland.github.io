@@ -16,6 +16,7 @@ export const COLORS = {
   dorange: 'rgb(194, 106, 29)',
   gray: 'rgb(126, 110, 110)',
   green: 'rgb(57, 159, 13)',
+  lavender: 'rgb(211,211,255)',
   lgray: 'rgb(173, 161, 156)',
   lgreen: 'rgb(76, 234, 25)',
   lime: 'rgb(138, 248, 40)',
@@ -46,12 +47,6 @@ export const CHINESE = {
     content: 'Enchantable',
     className: 'enchantable',
   },
-  傝: {
-    // untradeable
-    color: COLORS.white,
-    content: 'Untradeable',
-    className: 'untradeable',
-  },
   '哀': {
     // socket
     color: COLORS.orange,
@@ -63,5 +58,11 @@ export const CHINESE = {
     color: COLORS.teal,
     content: ' ',
     className: 'socketExtender',
+  },
+  丒: {
+    // green text, "passive"
+    color: COLORS.green,
+    content: 'Passive',
+    className: 'passive',
   },
 };
