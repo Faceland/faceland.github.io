@@ -32,7 +32,7 @@ export const HeaderBar = (props) => {
         >
           Map
         </a>
-        <Link to="/about">Items</Link>
+        <Link to="/items">Items</Link>
         <Link to="/facepals">FacePals™</Link>
         <a href="https://discord.gg/Gkmk6G2fjd" target="_blank">
           Discord
