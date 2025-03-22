@@ -258,13 +258,24 @@ export const ShuffleCollection = () => {
 
   const flavorText = (item) => {
     return (
-      <div>
-        {item?.flavorText?.map((line, index2) => (
-          <div key={`lore${index2}`}>
-            <BetterMcText line={line} className="lore" />
-          </div>
-        ))}
-      </div>
+        <div>
+          {item?.flavorText?.map((line, index2) => (
+              <div key={`lore${index2}`}>
+                <BetterMcText line={line} className="lore" />
+              </div>
+          ))}
+        </div>
+    );
+  };
+  const passives = (item) => {
+    return (
+        <div>
+          {item?.passives?.map((line, index2) => (
+              <div key={`lore${index2}`}>
+                <BetterMcText line={line} className="lore" />
+              </div>
+          ))}
+        </div>
     );
   };
 
@@ -354,6 +365,7 @@ export const ShuffleCollection = () => {
                     <div className="flex h-full flex-col justify-center leading-tight">
                       {stats(item)}
                       {item?.enchantable && <div className="enchantable"></div>}
+                      {passives(item)}
                       {gemSlots(item)}
                       {item?.flavorText && flavorText(item)}
                     </div>
