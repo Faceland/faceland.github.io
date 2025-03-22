@@ -86,9 +86,9 @@ export const CHINESE = {
     className: 'life-icon',
   },
   '丙': {
-    color: COLORS.blue,
-    content: '[When Hit]',
-    className: 'when-hit',
+    color: COLORS.crimson,
+    content: '[On Kill]',
+    className: 'on-kill',
   },
   '峑': {
     color: COLORS.pink,
@@ -131,9 +131,14 @@ export const CHINESE = {
     className: 'ability-mod',
   },
   '东': {
-    color: COLORS.crimson,
-    content: '[On Kill]',
-    className: 'on-kill',
+    color: COLORS.blue,
+    content: '[On Cast]',
+    className: 'on-cast',
+  },
+  '业': {
+    color: COLORS.blue,
+    content: '[On Cast]',
+    className: 'on-cast',
   },
   '且': {
     color: COLORS.orange,
@@ -149,6 +154,16 @@ export const CHINESE = {
     color: COLORS.white,
     content: 'Barrier',
     className: 'barrier-icon',
+  },
+  '丕': {
+    color: COLORS.lime,
+    content: '[Exit Combat]',
+    className: 'on-combat-end',
+  },
+  '丘': {
+    color: COLORS.red,
+    content: '[On Hit]',
+    className: 'on-hit',
   },
   '儀': {
     color: COLORS.red,

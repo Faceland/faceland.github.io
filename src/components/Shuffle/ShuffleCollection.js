@@ -111,6 +111,8 @@ export const ShuffleCollection = () => {
       item.name?.toLowerCase().includes(lowered) ||
       item.title?.toLowerCase().includes(lowered) ||
       item.description?.join(' ').toLowerCase().includes(lowered) ||
+      item.passives?.join(' ').toLowerCase().includes(lowered) ||
+      item.flavorText?.join(' ').toLowerCase().includes(lowered) ||
       item.groupNames?.join(' ').toLowerCase().includes(lowered)
     );
   };
@@ -259,6 +261,9 @@ export const ShuffleCollection = () => {
   const flavorText = (item) => {
     return (
         <div>
+          <div key={`lore-1`}>
+            <BetterMcText line="" className="lore" />
+          </div>
           {item?.flavorText?.map((line, index2) => (
               <div key={`lore${index2}`}>
                 <BetterMcText line={line} className="lore" />
@@ -270,9 +275,12 @@ export const ShuffleCollection = () => {
   const passives = (item) => {
     return (
         <div>
+          <div key={`lore-1`}>
+            <BetterMcText line="" className="lore"/>
+          </div>
           {item?.passives?.map((line, index2) => (
               <div key={`lore${index2}`}>
-                <BetterMcText line={line} className="lore" />
+                <BetterMcText line={line} className="lore"/>
               </div>
           ))}
         </div>
@@ -281,7 +289,7 @@ export const ShuffleCollection = () => {
 
   const gemSlots = (item) => {
     return (
-      <div className="flex self-center">
+        <div className="flex self-center">
         {item?.gemSlots && (
           <div className="flex">
             {Array.from({ length: item?.gemSlots }, () => (
@@ -365,9 +373,9 @@ export const ShuffleCollection = () => {
                     <div className="flex h-full flex-col justify-center leading-tight">
                       {stats(item)}
                       {item?.enchantable && <div className="enchantable"></div>}
-                      {passives(item)}
-                      {gemSlots(item)}
-                      {item?.flavorText && flavorText(item)}
+                      {item?.passives?.length > 0 && passives(item)}
+                      {item?.gemSlots > 0 && item?.extendSlots > 0 && gemSlots(item)}
+                      {item?.flavorText?.length > 0 && flavorText(item)}
                     </div>
                   </div>
                 </div>
