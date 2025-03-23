@@ -374,7 +374,7 @@ export const ShuffleCollection = () => {
                       {stats(item)}
                       {item?.enchantable && <div className="enchantable"></div>}
                       {item?.passives?.length > 0 && passives(item)}
-                      {item?.gemSlots > 0 && item?.extendSlots > 0 && gemSlots(item)}
+                      {(item?.gemSlots > 0 || item?.extendSlots > 0) && gemSlots(item)}
                       {item?.flavorText?.length > 0 && flavorText(item)}
                     </div>
                   </div>
