@@ -90,6 +90,11 @@ export const CHINESE = {
     content: '[On Kill]',
     className: 'on-kill',
   },
+  '丛': {
+    color: COLORS.lgreen,
+    content: '[On Dodge]',
+    className: 'on-dodge',
+  },
   '峑': {
     color: COLORS.pink,
     content: ' Range',
@@ -108,6 +113,46 @@ export const CHINESE = {
   '丑': {
     color: COLORS.blue,
     content: '[When Hit]',
+    className: 'when-hit',
+  },
+  '丑 [8% Chance]': { // TODO: REPLACE
+    color: COLORS.blue,
+    content: '[When Hit][8% Chance]',
+    className: 'when-hit',
+  },
+  '丗 Bomb Toss': { // TODO: REPLACE
+    color: COLORS.blue,
+    content: '[Ability Mod][Bomb Toss]',
+    className: 'when-hit',
+  },
+  '丗 Prismatic Aura': { // TODO: REPLACE
+    color: COLORS.blue,
+    content: '[Ability Mod][Prismatic Aura]',
+    className: 'when-hit',
+  },
+  '丗 Battle Energy': { // TODO: REPLACE
+    color: COLORS.blue,
+    content: '[Ability Mod][Battle Energy]',
+    className: 'when-hit',
+  },
+  '丗 Blink': { // TODO: REPLACE
+    color: COLORS.blue,
+    content: '[Ability Mod][Blink]',
+    className: 'when-hit',
+  },
+  '丗 Rush': { // TODO: REPLACE
+    color: COLORS.blue,
+    content: '[Ability Mod][Rush]',
+    className: 'when-hit',
+  },
+  '丗 Shadow Rush': { // TODO: REPLACE
+    color: COLORS.blue,
+    content: '[Ability Mod][Shadow Rush]',
+    className: 'when-hit',
+  },
+  '东慳': { // TODO: REPLACE
+    color: COLORS.blue,
+    content: '[On Cast][10% Chance]',
     className: 'when-hit',
   },
   '儃': {
@@ -169,5 +214,10 @@ export const CHINESE = {
     color: COLORS.red,
     content: ' Physical Damage',
     className: 'physical-dmg-icon',
+  },
+  '峐': {
+    color: COLORS.red,
+    content: ' Rage ',
+    className: 'rage-icon',
   }
 };
