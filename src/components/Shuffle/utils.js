@@ -10,7 +10,7 @@ export const getCardItems = () => {
     item.type = 'gem';
     item.background = '#10c810';
     item.gradient = `bg-gradient-to-bl from-gordons-green to-gordons-green-end`;
-    item.imageId = 'socketGemImg'
+    //item.imageId = 'socketGemImg'
     newItems.push(item);
   }
   for (const [key, value] of Object.entries(tomes)) {
@@ -18,7 +18,7 @@ export const getCardItems = () => {
     item.type = 'tome';
     item.background = '#2869f4';
     item.gradient = `bg-gradient-to-bl from-murder-brown to-murder-brown-end`;
-    item.imageId = 'bookImg'
+    //item.imageId = 'bookImg'
     newItems.push(item);
   }
   for (const [key, value] of Object.entries(uniques)) {
@@ -26,7 +26,7 @@ export const getCardItems = () => {
     item.type = 'unique';
     item.background = '#d99712';
     item.gradient = `bg-gradient-to-bl from-kilamanjaro to-kilamanjaro-end`;
-    item.imageId = 'swordImg'
+    //item.imageId = 'swordImg'
     newItems.push(item);
   }
   for (const [key, value] of Object.entries(scrolls)) {
@@ -34,7 +34,7 @@ export const getCardItems = () => {
     item.type = 'scroll';
     item.background = '#34981a';
     item.gradient = `bg-gradient-to-bl from-black-forest to-black-forest-end`;
-    item.imageId = 'scrollImg'
+    //item.imageId = 'scrollImg'
     newItems.push(item);
   }
 
