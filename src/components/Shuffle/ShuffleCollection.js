@@ -272,6 +272,7 @@ export const ShuffleCollection = () => {
         </div>
     );
   };
+
   const passives = (item) => {
     return (
         <div>
@@ -290,14 +291,14 @@ export const ShuffleCollection = () => {
   const gemSlots = (item) => {
     return (
         <div className="flex self-center">
-        {item?.gemSlots && (
+        {item?.gemSlots > 0 && (
           <div className="flex">
             {Array.from({ length: item?.gemSlots }, () => (
               <div className="socket m-3"></div>
             ))}
           </div>
         )}
-        {item?.extendSlots && (
+        {item?.extendSlots > 0 && (
           <div className="flex">
             {Array.from({ length: item?.extendSlots }, () => (
               <div className="socketExtender m-3"></div>
@@ -306,6 +307,25 @@ export const ShuffleCollection = () => {
         )}
       </div>
     );
+  };
+
+  const dropLevel = (item) => {
+    if (item.dropBase === 0) {
+      return <div className="flex h-full flex-col justify-center leading-tight drops-specific-format">
+        Drops From Specific Enemies
+      </div>
+    }
+    if (item.dropBase < 0 || item.dropRange >= 100 || item.dropRange <= 0) {
+      return <div className="flex h-full flex-col justify-center leading-tight drops-global-format">
+        Global Drop
+      </div>
+    }
+    const minimum = Math.max(1, item.dropBase - item.dropRange);
+    const maximum = Math.min(100, item.dropBase + item.dropRange);
+    const range = "Drop Range: Lv" + minimum + " to Lv" + maximum;
+    return <div className="flex h-full flex-col justify-center leading-tight drops-range-format">
+      {range}
+    </div>
   };
 
   return (
@@ -324,49 +344,44 @@ export const ShuffleCollection = () => {
               key={`Card-${item.name}-${item?.type}-${index}`}
               style={{ borderColor: `${item?.background}` }}
             >
-              <div
-                className={`flex h-full flex-col items-center ${item?.gradient} m0 p-0`}
-              >
+              <div className={`flex h-full flex-col items-center ${item?.gradient} m0 p-0`}>
                 <div
-                  className={`flex h-full w-full flex-col items-start bg-black/30 p-2 font-semibold transition duration-200 ease-in-out hover:bg-transparent`}
-                >
-                  <img
-                    src={item?.img}
-                    alt="Loading..."
-                    className="squishImg speed-2 absolute h-9 w-9"
-                    style={{ right: '4px', top: '4px' }}
+                    className={`flex h-full w-full flex-col items-start bg-black/30 p-2 font-semibold transition duration-200 ease-in-out hover:bg-transparent`}>
+                  <div
+                      className={`squishImg speed-2 absolute ${item?.imageId}`}
+                      style={{width: 32, height: 32, right: '4px', top: '4px'}}
                   />
                   <div className="flex w-full flex-row place-content-between">
                     <BetterMcText
-                      line={item?.name}
-                      className="subtitle ml-0.5"
+                        line={item?.name}
+                        className="subtitle ml-0.5"
                     />
                   </div>
                   <div className="mb-2 text-left">
                     {item?.specialFlag && (
-                      <div className="m-0.5 inline-flex text-[10px] font-semibold uppercase text-white">
-                        <div
-                          className={`rounded-sm px-1 py-0.5 special-${item?.specialFlag}`}
-                        >
-                          {item?.specialFlag}
+                        <div className="m-0.5 inline-flex text-[10px] font-semibold uppercase text-white">
+                          <div
+                              className={`rounded-sm px-1 py-0.5 special-${item?.specialFlag}`}
+                          >
+                            {item?.specialFlag}
+                          </div>
                         </div>
-                      </div>
                     )}
                     <div className="m-0.5 inline-flex text-[10px] font-semibold uppercase text-white">
                       <div
-                        className={`rounded-sm px-1 py-0.5 rarity-${item?.rarity}`}
+                          className={`rounded-sm px-1 py-0.5 rarity-${item?.rarity}`}
                       >
                         {item?.rarity}
                       </div>
                     </div>
                     {item?.groupNames?.map((tag, index2) => (
-                      <button
-                        className="m-0.5 inline-flex rounded-sm bg-chambray px-1 py-0.5 text-[10px] font-semibold uppercase text-white hover:bg-san-marino"
-                        key={`tag${index2}`}
-                        onClick={() => forceTag(tag)}
-                      >
-                        {tag}
-                      </button>
+                        <button
+                            className="m-0.5 inline-flex rounded-sm bg-chambray px-1 py-0.5 text-[10px] font-semibold uppercase text-white hover:bg-san-marino"
+                            key={`tag${index2}`}
+                            onClick={() => forceTag(tag)}
+                        >
+                          {tag}
+                        </button>
                     ))}
                   </div>
                   <div className="h-full w-full rounded-md bg-black bg-opacity-50 px-1 py-2">
@@ -377,6 +392,9 @@ export const ShuffleCollection = () => {
                       {(item?.gemSlots > 0 || item?.extendSlots > 0) && gemSlots(item)}
                       {item?.flavorText?.length > 0 && flavorText(item)}
                     </div>
+                  </div>
+                  <div className="w-full rounded-md bg-black bg-opacity-50 px-1 py-1 mt-1">
+                    {dropLevel(item)}
                   </div>
                 </div>
               </div>

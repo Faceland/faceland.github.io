@@ -21,8 +21,8 @@
   border-color: #1f99ff !important;
   border-width: 8px !important;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
 
   &:focus {
     border-color: #0080ff;
@@ -41,8 +41,8 @@
   border-color: #cb3939;
   border-width: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
 
   &:hover {
     background-color: #ee5151;
@@ -98,8 +98,8 @@
 
 .subtitle {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif !important;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif !important;
 }
 
 .lore {
@@ -111,6 +111,33 @@
 
   line-height: 1;
   letter-spacing: 1px;
+}
+
+.drops-range-format {
+  font-family: "Play", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 1px;
+  color: white;
+}
+
+.drops-global-format {
+  font-family: "Play", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 1px;
+  color: #d1ffce;
+}
+
+.drops-specific-format {
+  font-family: "Play", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 1px;
+  color: #dfbeff;
 }
 
 .enchantable {
@@ -179,4 +206,24 @@
   text-decoration: none;
   font-weight: 700;
   cursor: pointer;
+}
+
+.scrollImg {
+  background-image: url('../../assets/paper.webp');
+  background-size: 100%
+}
+
+.bookImg {
+  background-image: url('../../assets/book.webp');
+  background-size: 100%
+}
+
+.socketGemImg {
+  background-image: url('../../assets/emerald.webp');
+  background-size: 100%
+}
+
+.swordImg {
+  background-image: url('../../assets/sword.webp');
+  background-size: 100%
 }
