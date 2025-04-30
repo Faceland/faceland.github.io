@@ -310,14 +310,16 @@ export const ShuffleCollection = () => {
   };
 
   const dropLevel = (item) => {
-    if (item.dropRange === 0 || item.dropBase < 0 ) {
+    if (item.dropRange === 0) {
       return <div className="flex h-full flex-col justify-center leading-tight drops-specific-format">
         Drops From Specific Enemies
       </div>
     }
-    const minimum = Math.max(1, item.dropBase - item.dropRange);
-    const maximum = Math.min(100, item.dropBase + item.dropRange);
-    if (minimum === 1 && maximum === 100) {
+    let minimum = item.dropBase - item.dropRange;
+    minimum = Math.max(1, minimum);
+    let maximum = item.dropBase + item.dropRange;
+    maximum = Math.min(100, maximum);
+    if (item.dropRange === -1 || (minimum === 1 && maximum === 100)) {
       return <div className="flex h-full flex-col justify-center leading-tight drops-global-format">
         Global Drop
       </div>
