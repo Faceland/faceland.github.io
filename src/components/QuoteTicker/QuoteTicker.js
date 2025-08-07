@@ -11,6 +11,7 @@ export const QuoteTicker = () => {
     { text: "I'm pretty sure I played, W", author: 'ACraftingFish' },
     { text: 'It`s Playable!', author: 'Burgur' },
     { text: 'I tried it and it was worth it', author: 'ToukoBlock' },
+    { text: '*Joins* This shits dope af its a lot for my brain rn *Leaves*', author: 'verycoolawesome' },
     {
       text: 'This game made me shit myself - In a good way!',
       author: 'You, probably',
