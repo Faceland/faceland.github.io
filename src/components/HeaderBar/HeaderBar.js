@@ -108,7 +108,7 @@ export const HeaderBar = (props) => {
           <div className="flex items-center whitespace-nowrap font-bold text-white">
             <p>Buy FaceGems!</p>
             <img
-              src="https://i.imgur.com/AjRWtUR.png"
+              src="https://i.imgur.com/XAhGG80.png"
               alt="gem icon"
               className="gemImg speed-2 m-1 ml-2 mr-0 h-8"
             />
