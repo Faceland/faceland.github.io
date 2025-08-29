@@ -13,7 +13,7 @@ export const PlayersOnlineBanner = (props) => {
   }, []);
 
   const fetchStatus = () => {
-    fetch('https://api.mcsrvstat.us/2/199.127.61.235:25566')
+    fetch('https://api.mcsrvstat.us/2/PLAY.FACE.LAND')
       .then((res) => res.json())
       .then(
         (result) => {
