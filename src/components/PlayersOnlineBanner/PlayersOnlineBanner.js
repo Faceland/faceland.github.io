@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './PlayersOnlineBanner.scss';
 
 export const PlayersOnlineBanner = (props) => {
-  const [playersMessage, setPlayersMessage] = useState('Loading...');
+  const [playerCount, setPlayerCount] = useState(null);
+  const [isOffline, setIsOffline] = useState(false);
   let timer;
 
   useEffect(() => {
@@ -18,11 +19,11 @@ export const PlayersOnlineBanner = (props) => {
       .then(
         (result) => {
           if (!result || !result.online || result.players === undefined) {
-            setPlayersMessage('Dang son! Faceland appears to be offline!');
+            setIsOffline(true);
+            setPlayerCount(null);
           } else {
-            setPlayersMessage(
-              'There are ' + result.players.online + ' gamers GAMING!',
-            );
+            setIsOffline(false);
+            setPlayerCount(result.players.online);
           }
         },
         // Note: it's important to handle errors here
@@ -37,9 +38,23 @@ export const PlayersOnlineBanner = (props) => {
     }, 60000);
   };
 
+  const renderMessage = () => {
+    if (playerCount === null && !isOffline) {
+      return 'Loading...';
+    }
+    if (isOffline) {
+      return 'Dang son! Faceland appears to be offline!';
+    }
+    return (
+      <>
+        There are <span className={playerCount > 0 ? 'pulse' : ''}>{playerCount}</span> gamers GAMING!
+      </>
+    );
+  };
+
   return (
     <div className="playersOnlineBanner shadow-normal">
-      <p>{playersMessage}</p>
+      <p>{renderMessage()}</p>
     </div>
   );
 };

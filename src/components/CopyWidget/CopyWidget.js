@@ -15,20 +15,23 @@ export const CopyWidget = (props) => {
   };
 
   return (
-    <div
-      className="copyContainer theme-primary shadow-normal"
-      onClick={() => {
-        copyTransition();
-        //navigator.clipboard.writeText(props.copyText);
-        navigator.clipboard.writeText('beta.face.land');
-      }}
-      data-tooltip={copyStatus}
-    >
-      <div className="copyButton">
-        <img src="/assets/copy.svg" alt="copy" style={{ height: '1em' }} />
-        <div className="divider" />
-        <p style={{ marginTop: 0, marginBottom: 2 }}>{props.copyText}</p>
+      <div>
+        <div
+            className="copyContainer theme-primary shadow-normal"
+            onClick={() => {
+              copyTransition();
+              //navigator.clipboard.writeText(props.copyText);
+              navigator.clipboard.writeText('beta.face.land');
+            }}
+            data-tooltip={copyStatus}
+        >
+          <div className="copyButton">
+            <img src="/assets/copy.svg" alt="copy" style={{ height: '1em' }} />
+            <div className="divider" />
+            <p style={{marginTop: 0, marginBottom: 2}}>{props.copyText}</p>
+          </div>
+        </div>
+        <p className="copyVersion">Version: 1.21.8+</p>
       </div>
-    </div>
   );
 };

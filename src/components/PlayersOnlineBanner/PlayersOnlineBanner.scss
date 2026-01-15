@@ -1,3 +1,8 @@
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
 .playersOnlineBanner {
   width: 100%;
   padding: 15px 0;
@@ -14,5 +19,10 @@
     font-size: 1.3em;
     padding: 0;
     margin: 0;
+  }
+
+  .pulse {
+    display: inline-block;
+    animation: pulse 1s ease-in-out infinite;
   }
 }

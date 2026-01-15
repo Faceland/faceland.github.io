@@ -124,17 +124,17 @@ export const Home = (props) => {
       <PlayersOnlineBanner />
       <div className="bodySection pixelImage">
         <div className="bodyPadding">
-          <BodyPanel style={{ backgroundColor: '#7A6360' }}>
+          <BodyPanel style={{ backgroundColor: '#7A6360' }} slideFrom="right">
             {state.mobile
               ? mobileSection(homeImageOne, bodyOne)
               : desktopSection(homeImageOne, bodyOne, false)}
           </BodyPanel>
-          <BodyPanel style={{ backgroundColor: '#695350' }}>
+          <BodyPanel style={{ backgroundColor: '#695350' }} slideFrom="left">
             {state.mobile
               ? mobileSection(homeImageTwo, bodyTwo)
               : desktopSection(homeImageTwo, bodyTwo, true)}
           </BodyPanel>
-          <BodyPanel style={{ backgroundColor: '#57423F' }}>
+          <BodyPanel style={{ backgroundColor: '#57423F' }} slideFrom="right">
             {state.mobile
               ? mobileSection(homeImageThree, bodyThree)
               : desktopSection(homeImageThree, bodyThree, false)}

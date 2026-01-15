@@ -9,3 +9,25 @@
     margin: 10px;
   }
 }
+
+.slide-from-right-hidden {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+.slide-from-right-visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.slide-from-left-hidden {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.slide-from-left-visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
