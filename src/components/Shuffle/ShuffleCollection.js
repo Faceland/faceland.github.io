@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef, useLayoutEffect } from 'react';
 import Select from 'react-select';
 import './Shuffle.scss';
 import '../Tooltip/tooltip.scss';
@@ -25,6 +25,11 @@ export const ShuffleCollection = () => {
   const [selectedRarity, setSelectedRarity] = useState();
   const [searchText, setSearchText] = useState();
   const [filterTags, setFilterTags] = useState([]);
+  const [animationKey, setAnimationKey] = useState(0);
+  const [newCardIds, setNewCardIds] = useState(new Set());
+  const cardRefs = useRef({});
+  const cardPositions = useRef({});
+  const prevFilteredIds = useRef(new Set());
   const bannerText = {};
   bannerText.event = 'Event Reward';
   bannerText.transmute = 'Transmutation Only';
@@ -38,8 +43,10 @@ export const ShuffleCollection = () => {
   }, []);
 
   useEffect(() => {
-    applyFilters();
-  }, [searchText, selectedTags, selectedRarity, selectedType]);
+    if (cardItems.length > 0) {
+      applyFilters();
+    }
+  }, [searchText, selectedTags, selectedRarity, selectedType, cardItems]);
 
   useEffect(() => {
     const set = new Set(availableTags);
@@ -57,23 +64,105 @@ export const ShuffleCollection = () => {
     setFilterTags(tags);
   }, [cardItems]);
 
+  const getCardId = (item) => `${item.name}-${item.type}`;
+
+  const handleMouseMove = (e, el) => {
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * -3;
+    const rotateY = ((x - centerX) / centerX) * 3;
+
+    const mouseXPercent = (x / rect.width) * 100;
+    const mouseYPercent = (y / rect.height) * 100;
+
+    const inverseX = 100 - mouseXPercent;
+    const inverseY = 100 - mouseYPercent;
+
+    el.style.setProperty('--mouse-x', `${inverseX}%`);
+    el.style.setProperty('--mouse-y', `${inverseY}%`);
+    el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  };
+
+  const handleMouseLeave = (el) => {
+    el.style.setProperty('--mouse-x', '80%');
+    el.style.setProperty('--mouse-y', '80%');
+    el.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+  };
+
+  useLayoutEffect(() => {
+    if (animationKey === 0) return;
+
+    filteredItems.forEach(item => {
+      const id = getCardId(item);
+      const el = cardRefs.current[id];
+      const oldPos = cardPositions.current[id];
+
+      if (el && oldPos && !newCardIds.has(id)) {
+        const newRect = el.getBoundingClientRect();
+        const deltaX = oldPos.x - newRect.left;
+        const deltaY = oldPos.y - newRect.top;
+
+        if (deltaX !== 0 || deltaY !== 0) {
+          el.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+          el.style.transition = 'none';
+
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              el.style.transition = 'transform 0.2s ease-out';
+              el.style.transform = 'translate(0, 0)';
+            });
+          });
+        }
+      }
+    });
+  }, [filteredItems, animationKey]);
+
+  const saveCardPositions = () => {
+    Object.keys(cardRefs.current).forEach(id => {
+      const el = cardRefs.current[id];
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        cardPositions.current[id] = { x: rect.left, y: rect.top };
+      }
+    });
+  };
+
   const applyFilters = () => {
-    setFilteredItems(
-      cardItems
-        .filter(
-          (item) =>
-            itemMatchesFilters(item) &&
-            tagsApplicable(item) &&
-            itemMatchesSearch(item),
-        )
-        .sort(function (a, b) {
-          return a.strippedName < b.strippedName
-            ? -1
-            : a.strippedName > b.strippedName
-              ? 1
-              : 0;
-        }),
-    );
+    saveCardPositions();
+
+    const newFiltered = cardItems
+      .filter(
+        (item) =>
+          itemMatchesFilters(item) &&
+          tagsApplicable(item) &&
+          itemMatchesSearch(item),
+      )
+      .sort(function (a, b) {
+        return a.strippedName < b.strippedName
+          ? -1
+          : a.strippedName > b.strippedName
+            ? 1
+            : 0;
+      });
+
+    const newIds = new Set(newFiltered.map(getCardId));
+    const addedCards = new Set();
+
+    newFiltered.forEach(item => {
+      const id = getCardId(item);
+      if (!prevFilteredIds.current.has(id)) {
+        addedCards.add(id);
+      }
+    });
+
+    setNewCardIds(addedCards);
+    setAnimationKey(prev => prev + 1);
+    setFilteredItems(newFiltered);
+    prevFilteredIds.current = newIds;
   };
 
   const itemMatchesFilters = (item) => {
@@ -339,12 +428,21 @@ export const ShuffleCollection = () => {
             <YeHaplessBuffoon />
           </div>
         ) : (
-          filteredItems.map((item, index) => (
+          filteredItems.map((item, index) => {
+            const cardId = getCardId(item);
+            const isNewCard = newCardIds.has(cardId);
+            return (
             <div
-              className="shuffleCard squishAnimation"
+              className={`shuffleCard squishAnimation ${isNewCard ? 'card-enter' : ''}`}
               id={`card-${index}`}
-              key={`Card-${item.name}-${item?.type}-${index}`}
-              style={{ borderColor: `${item?.background}` }}
+              key={`Card-${item.name}-${item?.type}`}
+              ref={el => cardRefs.current[cardId] = el}
+              style={{
+                borderColor: `${item?.background}`,
+                animationDelay: isNewCard ? `${Math.min(index * 0.03, 0.5)}s` : '0s'
+              }}
+              onMouseMove={(e) => handleMouseMove(e, e.currentTarget)}
+              onMouseLeave={(e) => handleMouseLeave(e.currentTarget)}
             >
               <div className={`flex h-full flex-col items-center ${item?.gradient} m0 p-0`}>
                 <div
@@ -369,13 +467,19 @@ export const ShuffleCollection = () => {
                           </div>
                         </div>
                     )}
-                    <div className="m-0.5 inline-flex text-[10px] font-semibold uppercase text-white">
+                    <button
+                        className="m-0.5 inline-flex text-[10px] font-semibold uppercase text-white"
+                        onClick={() => {
+                          const rarityOption = rarityOptions.find(r => r.value === item?.rarity);
+                          if (rarityOption) setSelectedRarity(rarityOption);
+                        }}
+                    >
                       <div
                           className={`rounded-sm px-1 py-0.5 rarity-${item?.rarity}`}
                       >
                         {item?.rarity}
                       </div>
-                    </div>
+                    </button>
                     {item?.groupNames?.map((tag, index2) => (
                         <button
                             className="m-0.5 inline-flex rounded-sm bg-chambray px-1 py-0.5 text-[10px] font-semibold uppercase text-white hover:bg-san-marino"
@@ -401,7 +505,8 @@ export const ShuffleCollection = () => {
                 </div>
               </div>
             </div>
-          ))
+          );
+          })
         )}
       </div>
     </div>

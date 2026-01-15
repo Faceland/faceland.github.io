@@ -84,6 +84,21 @@
   background: #f8bd24;
 }
 
+@keyframes cardEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.02) translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 .shuffleCard {
   display: inline-flex;
   position: relative;
@@ -94,6 +109,41 @@
   border-width: 1px;
 
   flex-flow: column;
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+
+  --mouse-x: 80%;
+  --mouse-y: 80%;
+  --rotate-x: 0deg;
+  --rotate-y: 0deg;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at var(--mouse-x) var(--mouse-y),
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.06) 31%,
+      transparent 75%
+    );
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.575;
+    transition: opacity 0.2s ease-out;
+    mix-blend-mode: overlay;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+
+  &.card-enter {
+    animation: cardEnter 0.2s ease-out backwards;
+  }
 }
 
 .subtitle {
