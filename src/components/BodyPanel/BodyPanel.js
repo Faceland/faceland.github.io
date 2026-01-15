@@ -13,7 +13,7 @@ export const BodyPanel = ({ slideFrom, children, ...props }) => {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.35 }
     );
 
     if (panelRef.current) {
