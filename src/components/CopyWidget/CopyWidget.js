@@ -31,7 +31,7 @@ export const CopyWidget = (props) => {
             <p style={{marginTop: 0, marginBottom: 2}}>{props.copyText}</p>
           </div>
         </div>
-        <p className="copyVersion">Version: 1.21.8+</p>
+        <p className="copyVersion">Minecraft Version: 1.21.8+</p>
       </div>
   );
 };
