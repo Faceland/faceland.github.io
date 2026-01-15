@@ -144,6 +144,14 @@
   &.card-enter {
     animation: cardEnter 0.2s ease-out backwards;
   }
+
+  &.card-selected {
+    outline: 2px solid white;
+    outline-offset: -1px;
+    box-shadow: 0 0 12px 2px rgba(255, 255, 255, 0.5);
+  }
+
+  cursor: pointer;
 }
 
 .subtitle {

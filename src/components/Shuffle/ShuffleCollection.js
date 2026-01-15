@@ -27,6 +27,8 @@ export const ShuffleCollection = () => {
   const [filterTags, setFilterTags] = useState([]);
   const [animationKey, setAnimationKey] = useState(0);
   const [newCardIds, setNewCardIds] = useState(new Set());
+  const [selectedCardIds, setSelectedCardIds] = useState(new Set());
+  const selectedCardIdsRef = useRef(new Set());
   const cardRefs = useRef({});
   const cardPositions = useRef({});
   const prevFilteredIds = useRef(new Set());
@@ -47,6 +49,18 @@ export const ShuffleCollection = () => {
       applyFilters();
     }
   }, [searchText, selectedTags, selectedRarity, selectedType, cardItems]);
+
+  const toggleCardSelection = (e, cardId) => {
+    e.stopPropagation();
+    const newSet = new Set(selectedCardIds);
+    if (newSet.has(cardId)) {
+      newSet.delete(cardId);
+    } else {
+      newSet.add(cardId);
+    }
+    setSelectedCardIds(newSet);
+    selectedCardIdsRef.current = newSet;
+  };
 
   useEffect(() => {
     const set = new Set(availableTags);
@@ -134,14 +148,23 @@ export const ShuffleCollection = () => {
   const applyFilters = () => {
     saveCardPositions();
 
-    const newFiltered = cardItems
+    const currentSelectedIds = selectedCardIdsRef.current;
+
+    let newFiltered = cardItems
       .filter(
         (item) =>
-          itemMatchesFilters(item) &&
+          currentSelectedIds.has(getCardId(item)) ||
+          (itemMatchesFilters(item) &&
           tagsApplicable(item) &&
-          itemMatchesSearch(item),
+          itemMatchesSearch(item)),
       )
       .sort(function (a, b) {
+        const aId = getCardId(a);
+        const bId = getCardId(b);
+        const aSelected = currentSelectedIds.has(aId);
+        const bSelected = currentSelectedIds.has(bId);
+        if (aSelected && !bSelected) return -1;
+        if (bSelected && !aSelected) return 1;
         return a.strippedName < b.strippedName
           ? -1
           : a.strippedName > b.strippedName
@@ -431,9 +454,10 @@ export const ShuffleCollection = () => {
           filteredItems.map((item, index) => {
             const cardId = getCardId(item);
             const isNewCard = newCardIds.has(cardId);
+            const isSelected = selectedCardIds.has(cardId);
             return (
             <div
-              className={`shuffleCard squishAnimation ${isNewCard ? 'card-enter' : ''}`}
+              className={`shuffleCard squishAnimation ${isNewCard ? 'card-enter' : ''} ${isSelected ? 'card-selected' : ''}`}
               id={`card-${index}`}
               key={`Card-${item.name}-${item?.type}`}
               ref={el => cardRefs.current[cardId] = el}
@@ -441,6 +465,7 @@ export const ShuffleCollection = () => {
                 borderColor: `${item?.background}`,
                 animationDelay: isNewCard ? `${Math.min(index * 0.03, 0.5)}s` : '0s'
               }}
+              onClick={(e) => toggleCardSelection(e, cardId)}
               onMouseMove={(e) => handleMouseMove(e, e.currentTarget)}
               onMouseLeave={(e) => handleMouseLeave(e.currentTarget)}
             >
@@ -469,7 +494,8 @@ export const ShuffleCollection = () => {
                     )}
                     <button
                         className="m-0.5 inline-flex text-[10px] font-semibold uppercase text-white"
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.stopPropagation();
                           const rarityOption = rarityOptions.find(r => r.value === item?.rarity);
                           if (rarityOption) setSelectedRarity(rarityOption);
                         }}
@@ -484,7 +510,7 @@ export const ShuffleCollection = () => {
                         <button
                             className="m-0.5 inline-flex rounded-sm bg-chambray px-1 py-0.5 text-[10px] font-semibold uppercase text-white hover:bg-san-marino"
                             key={`tag${index2}`}
-                            onClick={() => forceTag(tag)}
+                            onClick={(e) => { e.stopPropagation(); forceTag(tag); }}
                         >
                           {tag}
                         </button>
