@@ -12,7 +12,7 @@ export const YeHaplessBuffoon = () => {
             <div>HALT! YOU'VE FOUND NO RESULTS!</div>
           </div>
           <img
-            src="https://i.imgur.com/eb3dM.gif"
+            src="/assets/images/eb3dM.gif"
             alt="aaaaaaaaaa"
             className="h-28 w-28"
           />

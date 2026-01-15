@@ -125,7 +125,7 @@ export const Buddy = () => {
       ))}
       <img
         className={`buddy no-select ${shake ? 'hitShake' : ''}`}
-        src="https://i.imgur.com/GY83tsk.png"
+        src="/assets/images/GY83tsk.png"
         alt="facebuddy"
         onClick={() => {
           doShake();

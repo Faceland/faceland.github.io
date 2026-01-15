@@ -22,7 +22,7 @@ export const Home = (props) => {
       autoPlay
       muted
       loop
-      src="https://i.imgur.com/mYH3xSq.mp4"
+      src="/assets/videos/mYH3xSq.mp4"
       crossOrigin="anonymous"
     />
   );
@@ -50,7 +50,7 @@ export const Home = (props) => {
       autoPlay
       muted
       loop
-      src="https://i.imgur.com/qUbW0PT.mp4"
+      src="/assets/videos/qUbW0PT.mp4"
       crossOrigin="anonymous"
     />
   );
@@ -77,7 +77,7 @@ export const Home = (props) => {
       autoPlay
       muted
       loop
-      src="https://i.imgur.com/vYSxlly.mp4"
+      src="/assets/videos/vYSxlly.mp4"
       crossOrigin="anonymous"
     />
   );

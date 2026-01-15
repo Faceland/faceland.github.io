@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ReactComponent as CopyIcon } from '../../assets/copy.svg';
 import './copyWidget.scss';
 import '../Tooltip/tooltip.scss';
 
@@ -26,7 +25,7 @@ export const CopyWidget = (props) => {
       data-tooltip={copyStatus}
     >
       <div className="copyButton">
-        <CopyIcon style={{ fill: 'whitesmoke' }} />
+        <img src="/assets/copy.svg" alt="copy" style={{ height: '1em' }} />
         <div className="divider" />
         <p style={{ marginTop: 0, marginBottom: 2 }}>{props.copyText}</p>
       </div>

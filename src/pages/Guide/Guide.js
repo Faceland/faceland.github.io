@@ -35,7 +35,7 @@ export const Guide = (props) => {
               height: '100%',
               objectFit: 'cover',
             }}
-            src="https://i.imgur.com/q5Czwlv.jpg"
+            src="/assets/images/q5Czwlv.jpg"
             alt="info background"
           />
         </div>

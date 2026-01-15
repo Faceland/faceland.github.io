@@ -141,7 +141,7 @@
 }
 
 .enchantable {
-  background-image: url('../../assets/enchantable.png');
+  background-image: url('../../../public/assets/enchantable.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -149,7 +149,7 @@
 }
 
 .socket {
-  background-image: url('../../assets/socket.png');
+  background-image: url('../../../public/assets/socket.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -158,7 +158,7 @@
 }
 
 .socketExtender {
-  background-image: url('../../assets/extender.png');
+  background-image: url('../../../public/assets/extender.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -209,73 +209,73 @@
 }
 
 .bookImg {
-  background-image: url('../../assets/book.webp');
+  background-image: url('../../../public/assets/book.webp');
   background-size: 100%
 }
 
 .socketGemImg {
-  background-image: url('../../assets/gem/socket_gem_2.png');
+  background-image: url('../../../public/assets/gem/socket_gem_2.png');
   background-size: 100%
 }
 
-.weak-scroll { background-image: url('../../assets/scroll/weak.png'); background-size: 100% }
-.lesser-scroll { background-image: url('../../assets/scroll/lesser.png'); background-size: 100% }
-.greater-scroll { background-image: url('../../assets/scroll/greater.png'); background-size: 100% }
-.grand-scroll { background-image: url('../../assets/scroll/grand.png'); background-size: 100% }
-.mythical-scroll { background-image: url('../../assets/scroll/mythical.png'); background-size: 100% }
-.stable-scroll { background-image: url('../../assets/scroll/stable.png'); background-size: 100% }
-.unstable-scroll { background-image: url('../../assets/scroll/unstable.png'); background-size: 100% }
+.weak-scroll { background-image: url('../../../public/assets/scroll/weak.png'); background-size: 100% }
+.lesser-scroll { background-image: url('../../../public/assets/scroll/lesser.png'); background-size: 100% }
+.greater-scroll { background-image: url('../../../public/assets/scroll/greater.png'); background-size: 100% }
+.grand-scroll { background-image: url('../../../public/assets/scroll/grand.png'); background-size: 100% }
+.mythical-scroll { background-image: url('../../../public/assets/scroll/mythical.png'); background-size: 100% }
+.stable-scroll { background-image: url('../../../public/assets/scroll/stable.png'); background-size: 100% }
+.unstable-scroll { background-image: url('../../../public/assets/scroll/unstable.png'); background-size: 100% }
 
-.sword-icon { background-image: url('../../assets/equipment/sword.png'); background-size: 100% }
-.dagger-icon { background-image: url('../../assets/equipment/dagger.png'); background-size: 100% }
-.mace-icon { background-image: url('../../assets/equipment/mace.png'); background-size: 100% }
-.hammer-icon { background-image: url('../../assets/equipment/hammer.png'); background-size: 100% }
-.axe-icon { background-image: url('../../assets/equipment/axe.png'); background-size: 100% }
-.wand-icon { background-image: url('../../assets/equipment/wand.png'); background-size: 100% }
-.staff-icon { background-image: url('../../assets/equipment/staff.png'); background-size: 100% }
-.shortbow-icon { background-image: url('../../assets/equipment/shortbow.png'); background-size: 100% }
-.longbow-icon { background-image: url('../../assets/equipment/longbow.png'); background-size: 100% }
-.flintlock-icon { background-image: url('../../assets/equipment/flintlock.png'); background-size: 100% }
-.rifle-icon { background-image: url('../../assets/equipment/rifle.png'); background-size: 100% }
-.battletome-icon { background-image: url('../../assets/equipment/spellbook.png'); background-size: 100% }
-.bullets-icon { background-image: url('../../assets/equipment/bullets.png'); background-size: 100% }
-.quiver-icon { background-image: url('../../assets/equipment/quiver.png'); background-size: 100% }
-.shield-icon { background-image: url('../../assets/equipment/shield.png'); background-size: 100% }
-.kiteshield-icon { background-image: url('../../assets/equipment/kiteshield.png'); background-size: 100% }
-.buckler-icon { background-image: url('../../assets/equipment/buckler.png'); background-size: 100% }
+.sword-icon { background-image: url('../../../public/assets/equipment/sword.png'); background-size: 100% }
+.dagger-icon { background-image: url('../../../public/assets/equipment/dagger.png'); background-size: 100% }
+.mace-icon { background-image: url('../../../public/assets/equipment/mace.png'); background-size: 100% }
+.hammer-icon { background-image: url('../../../public/assets/equipment/hammer.png'); background-size: 100% }
+.axe-icon { background-image: url('../../../public/assets/equipment/axe.png'); background-size: 100% }
+.wand-icon { background-image: url('../../../public/assets/equipment/wand.png'); background-size: 100% }
+.staff-icon { background-image: url('../../../public/assets/equipment/staff.png'); background-size: 100% }
+.shortbow-icon { background-image: url('../../../public/assets/equipment/shortbow.png'); background-size: 100% }
+.longbow-icon { background-image: url('../../../public/assets/equipment/longbow.png'); background-size: 100% }
+.flintlock-icon { background-image: url('../../../public/assets/equipment/flintlock.png'); background-size: 100% }
+.rifle-icon { background-image: url('../../../public/assets/equipment/rifle.png'); background-size: 100% }
+.battletome-icon { background-image: url('../../../public/assets/equipment/spellbook.png'); background-size: 100% }
+.bullets-icon { background-image: url('../../../public/assets/equipment/bullets.png'); background-size: 100% }
+.quiver-icon { background-image: url('../../../public/assets/equipment/quiver.png'); background-size: 100% }
+.shield-icon { background-image: url('../../../public/assets/equipment/shield.png'); background-size: 100% }
+.kiteshield-icon { background-image: url('../../../public/assets/equipment/kiteshield.png'); background-size: 100% }
+.buckler-icon { background-image: url('../../../public/assets/equipment/buckler.png'); background-size: 100% }
 
-.fishingrod-icon { background-image: url('../../assets/equipment/fishingrod.png'); background-size: 100% }
-.pickaxe-icon { background-image: url('../../assets/equipment/pickaxe.png'); background-size: 100% }
-.hoe-icon { background-image: url('../../assets/equipment/hoe.png'); background-size: 100% }
-.woodcuttingaxe-icon { background-image: url('../../assets/equipment/woodcuttingaxe.png'); background-size: 100% }
+.fishingrod-icon { background-image: url('../../../public/assets/equipment/fishingrod.png'); background-size: 100% }
+.pickaxe-icon { background-image: url('../../../public/assets/equipment/pickaxe.png'); background-size: 100% }
+.hoe-icon { background-image: url('../../../public/assets/equipment/hoe.png'); background-size: 100% }
+.woodcuttingaxe-icon { background-image: url('../../../public/assets/equipment/woodcuttingaxe.png'); background-size: 100% }
 
-.magichelm-icon { background-image: url('../../assets/equipment/magichelm.png'); background-size: 100% }
-.magicbody-icon { background-image: url('../../assets/equipment/magicbody.png'); background-size: 100% }
-.magiclegs-icon { background-image: url('../../assets/equipment/magiclegs.png'); background-size: 100% }
-.magicboots-icon { background-image: url('../../assets/equipment/magicboots.png'); background-size: 100% }
+.magichelm-icon { background-image: url('../../../public/assets/equipment/magichelm.png'); background-size: 100% }
+.magicbody-icon { background-image: url('../../../public/assets/equipment/magicbody.png'); background-size: 100% }
+.magiclegs-icon { background-image: url('../../../public/assets/equipment/magiclegs.png'); background-size: 100% }
+.magicboots-icon { background-image: url('../../../public/assets/equipment/magicboots.png'); background-size: 100% }
 
-.heavyhelm-icon { background-image: url('../../assets/equipment/heavyhelm.png'); background-size: 100% }
-.heavybody-icon { background-image: url('../../assets/equipment/heavybody.png'); background-size: 100% }
-.heavylegs-icon { background-image: url('../../assets/equipment/heavylegs.png'); background-size: 100% }
-.heavyboots-icon { background-image: url('../../assets/equipment/heavyboots.png'); background-size: 100% }
+.heavyhelm-icon { background-image: url('../../../public/assets/equipment/heavyhelm.png'); background-size: 100% }
+.heavybody-icon { background-image: url('../../../public/assets/equipment/heavybody.png'); background-size: 100% }
+.heavylegs-icon { background-image: url('../../../public/assets/equipment/heavylegs.png'); background-size: 100% }
+.heavyboots-icon { background-image: url('../../../public/assets/equipment/heavyboots.png'); background-size: 100% }
 
-.lighthelm-icon { background-image: url('../../assets/equipment/lighthelm.png'); background-size: 100% }
-.lightbody-icon { background-image: url('../../assets/equipment/lightbody.png'); background-size: 100% }
-.lightlegs-icon { background-image: url('../../assets/equipment/lightlegs.png'); background-size: 100% }
-.lightboots-icon { background-image: url('../../assets/equipment/lightboots.png'); background-size: 100% }
+.lighthelm-icon { background-image: url('../../../public/assets/equipment/lighthelm.png'); background-size: 100% }
+.lightbody-icon { background-image: url('../../../public/assets/equipment/lightbody.png'); background-size: 100% }
+.lightlegs-icon { background-image: url('../../../public/assets/equipment/lightlegs.png'); background-size: 100% }
+.lightboots-icon { background-image: url('../../../public/assets/equipment/lightboots.png'); background-size: 100% }
 
-.ruby-earring-icon { background-image: url('../../assets/equipment/9000.png'); background-size: 100% }
-.ruby-necklace-icon { background-image: url('../../assets/equipment/ruby_necklace.png'); background-size: 100% }
-.ruby-ring-icon { background-image: url('../../assets/equipment/ruby_ring.png'); background-size: 100% }
+.ruby-earring-icon { background-image: url('../../../public/assets/equipment/9000.png'); background-size: 100% }
+.ruby-necklace-icon { background-image: url('../../../public/assets/equipment/ruby_necklace.png'); background-size: 100% }
+.ruby-ring-icon { background-image: url('../../../public/assets/equipment/ruby_ring.png'); background-size: 100% }
 
-.emerald-earring-icon { background-image: url('../../assets/equipment/9100.png'); background-size: 100% }
-.emerald-necklace-icon { background-image: url('../../assets/equipment/emerald_necklace.png'); background-size: 100% }
-.emerald-ring-icon { background-image: url('../../assets/equipment/emerald_ring.png'); background-size: 100% }
+.emerald-earring-icon { background-image: url('../../../public/assets/equipment/9100.png'); background-size: 100% }
+.emerald-necklace-icon { background-image: url('../../../public/assets/equipment/emerald_necklace.png'); background-size: 100% }
+.emerald-ring-icon { background-image: url('../../../public/assets/equipment/emerald_ring.png'); background-size: 100% }
 
-.sapphire-earring-icon { background-image: url('../../assets/equipment/9200.png'); background-size: 100% }
-.sapphire-necklace-icon { background-image: url('../../assets/equipment/sapphire_necklace.png'); background-size: 100% }
-.sapphire-ring-icon { background-image: url('../../assets/equipment/sapphire_ring.png'); background-size: 100% }
+.sapphire-earring-icon { background-image: url('../../../public/assets/equipment/9200.png'); background-size: 100% }
+.sapphire-necklace-icon { background-image: url('../../../public/assets/equipment/sapphire_necklace.png'); background-size: 100% }
+.sapphire-ring-icon { background-image: url('../../../public/assets/equipment/sapphire_ring.png'); background-size: 100% }
 
-.topaz-earring-icon { background-image: url('../../assets/equipment/9300.png'); background-size: 100% }
-.topaz-necklace-icon { background-image: url('../../assets/equipment/topaz_necklace.png'); background-size: 100% }
-.topaz-ring-icon { background-image: url('../../assets/equipment/topaz_ring.png'); background-size: 100% }
+.topaz-earring-icon { background-image: url('../../../public/assets/equipment/9300.png'); background-size: 100% }
+.topaz-necklace-icon { background-image: url('../../../public/assets/equipment/topaz_necklace.png'); background-size: 100% }
+.topaz-ring-icon { background-image: url('../../../public/assets/equipment/topaz_ring.png'); background-size: 100% }

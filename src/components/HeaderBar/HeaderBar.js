@@ -48,7 +48,7 @@ export const HeaderBar = (props) => {
     <div className={`headerBar barStyle-solid`}>
       <div className="logo mx-1">
         <Link className="logoButton" to="/">
-          <img src="https://i.imgur.com/u57KsyA.png" alt="Website Img" />
+          <img src="/assets/images/u57KsyA.png" alt="Website Img" />
         </Link>
         <div />
       </div>
@@ -64,7 +64,7 @@ export const HeaderBar = (props) => {
         <Link to="/" alt="FACELAND ARE PEE GEE CLICK 2 GO HOME">
           <img
             className="logoButton"
-            src="https://i.imgur.com/u57KsyA.png"
+            src="/assets/images/u57KsyA.png"
             alt="Website Img"
           />
         </Link>
@@ -108,7 +108,7 @@ export const HeaderBar = (props) => {
           <div className="flex items-center whitespace-nowrap font-bold text-white">
             <p>Buy FaceGems!</p>
             <img
-              src="https://i.imgur.com/XAhGG80.png"
+              src="/assets/images/XAhGG80.png"
               alt="gem icon"
               className="gemImg speed-2 m-1 ml-2 mr-0 h-8"
             />

@@ -17,14 +17,14 @@ export const MainBanner = () => {
         autoPlay
         muted
         loop
-        src="https://i.imgur.com/hDTyol4.mp4"
-        poster="https://i.imgur.com/yCr2iAD.jpg"
+        src="/assets/videos/hDTyol4.mp4"
+        poster="/assets/images/yCr2iAD.jpg"
         crossOrigin="anonymous"
       >
         background video
       </video>
       <div className={state.mobile ? 'mobileTitle' : 'desktopTitle'}>
-        <img src="https://i.imgur.com/AtRhZD2.png" alt="Website Img" />
+        <img src="/assets/images/AtRhZD2.png" alt="Website Img" />
         <div style={{ position: 'relative', top: '-10%' }}>
           <CopyWidget copyText="BETA.FACE.LAND" />
         </div>

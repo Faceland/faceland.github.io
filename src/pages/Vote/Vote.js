@@ -28,7 +28,7 @@ export const Vote = (props) => {
               height: '100%',
               objectFit: 'cover',
             }}
-            src="https://i.imgur.com/q5Czwlv.jpg"
+            src="/assets/images/q5Czwlv.jpg"
             alt="info background"
           />
         </div>
@@ -45,7 +45,7 @@ export const Vote = (props) => {
             justifyContent: 'center',
             padding: 30,
             flexWrap: 'wrap',
-            backgroundImage: 'url(https://i.imgur.com/NTfIQxD.png)',
+            backgroundImage: 'url(/assets/images/NTfIQxD.png)',
             backgroundSize: 128,
           }}
         >

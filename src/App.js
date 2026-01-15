@@ -43,7 +43,7 @@ function About() {
         className="basicPage pixelImage"
         style={{
           marginTop: '50px',
-          backgroundImage: 'url(https://i.imgur.com/Ggdi5KL.png)',
+          backgroundImage: 'url(/assets/images/Ggdi5KL.png)',
           backgroundSize: 64,
         }}
       >
