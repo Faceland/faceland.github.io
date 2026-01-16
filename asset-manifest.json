@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.19e05135.css",
-    "main.js": "/static/js/main.c104b533.js",
+    "main.js": "/static/js/main.e639bc93.js",
     "static/js/845.8b4bcf03.chunk.js": "/static/js/845.8b4bcf03.chunk.js",
     "static/media/book.webp": "/static/media/book.139faa112def3e5c6a96.webp",
     "static/media/Player_hurt1.ogg": "/static/media/Player_hurt1.4e4a02a99dceabf663ad.ogg",
     "index.html": "/index.html",
     "main.19e05135.css.map": "/static/css/main.19e05135.css.map",
-    "main.c104b533.js.map": "/static/js/main.c104b533.js.map",
+    "main.e639bc93.js.map": "/static/js/main.e639bc93.js.map",
     "845.8b4bcf03.chunk.js.map": "/static/js/845.8b4bcf03.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.19e05135.css",
-    "static/js/main.c104b533.js"
+    "static/js/main.e639bc93.js"
   ]
 }
