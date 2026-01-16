@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 
 import {
@@ -10,7 +10,28 @@ import {
 
 const CategoryWheel = ({ options, selectedOption, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [buttonPos, setButtonPos] = useState({ x: 0, y: 0 });
+  const buttonRef = React.useRef(null);
   const currentOption = selectedOption || options[0];
+
+  useEffect(() => {
+    if (isOpen) {
+      const handleScroll = () => setIsOpen(false);
+      window.addEventListener('scroll', handleScroll, true);
+      return () => window.removeEventListener('scroll', handleScroll, true);
+    }
+  }, [isOpen]);
+
+  const handleOpen = () => {
+    if (!isOpen && buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect();
+      setButtonPos({
+        x: rect.left + rect.width / 2,
+        y: rect.top + rect.height / 2,
+      });
+    }
+    setIsOpen(!isOpen);
+  };
 
   const handleSelect = (option) => {
     onChange(option);
@@ -46,9 +67,9 @@ const CategoryWheel = ({ options, selectedOption, onChange }) => {
       paddingBottom: '1px',
     },
     optionsContainer: {
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
+      position: 'fixed',
+      top: buttonPos.y,
+      left: buttonPos.x,
       transform: 'translate(-50%, -50%)',
       zIndex: 10000,
       pointerEvents: isOpen ? 'auto' : 'none',
@@ -94,8 +115,9 @@ const CategoryWheel = ({ options, selectedOption, onChange }) => {
     <div style={wheelStyles.container} onClick={(e) => e.stopPropagation()}>
       {isOpen && <div style={wheelStyles.backdrop} onClick={() => setIsOpen(false)} />}
       <button
+        ref={buttonRef}
         style={wheelStyles.centerButton}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleOpen}
       >
         {currentOption.label}
       </button>

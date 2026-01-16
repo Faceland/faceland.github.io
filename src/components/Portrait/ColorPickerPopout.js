@@ -1,6 +1,6 @@
 'use strict';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { SketchPicker } from 'react-color';
 
 export const ColorPickerPopout = (props) => {
@@ -9,6 +9,14 @@ export const ColorPickerPopout = (props) => {
   const pickerHeight = 300;
 
   const displayPicker = props.isOpen;
+
+  useEffect(() => {
+    if (displayPicker) {
+      const handleScroll = () => props.onToggle(false);
+      window.addEventListener('scroll', handleScroll, true);
+      return () => window.removeEventListener('scroll', handleScroll, true);
+    }
+  }, [displayPicker, props.onToggle]);
 
   const handleChange = (color) => {
     props.changeColor(color);
@@ -71,7 +79,7 @@ export const ColorPickerPopout = (props) => {
     },
     popover: {
       position: 'absolute',
-      zIndex: '20000',
+      zIndex: '20001',
       left: '100%',
       top: '50%',
       transform: `translateY(calc(-50% + ${verticalOffset}px))`,
@@ -83,6 +91,7 @@ export const ColorPickerPopout = (props) => {
       right: '0px',
       bottom: '0px',
       left: '0px',
+      zIndex: '20000',
     },
   };
 
@@ -94,13 +103,15 @@ export const ColorPickerPopout = (props) => {
             <div style={styles.color} />
           </div>
           {displayPicker ? (
-            <div style={styles.popover}>
+            <>
               <div style={styles.cover} onClick={handleClose} />
-              <SketchPicker
-                color={props.layer.color.rgb}
-                onChange={handleChange}
-              />
-            </div>
+              <div style={styles.popover}>
+                <SketchPicker
+                  color={props.layer.color.rgb}
+                  onChange={handleChange}
+                />
+              </div>
+            </>
           ) : null}
         </>
       )}
