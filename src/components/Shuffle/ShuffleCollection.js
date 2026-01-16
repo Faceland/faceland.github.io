@@ -78,7 +78,12 @@ export const ShuffleCollection = () => {
     setFilterTags(tags);
   }, [cardItems]);
 
-  const getCardId = (item) => `${item.name}-${item.type}`;
+  const getCardId = (item) => {
+    if (item.type === 'unique') {
+      return `${item.strippedName}+${item.tier}`;
+    }
+    return `${item.name}-${item.type}`;
+  };
 
   const handleMouseMove = (e, el) => {
     const rect = el.getBoundingClientRect();
@@ -459,7 +464,7 @@ export const ShuffleCollection = () => {
             <div
               className={`shuffleCard squishAnimation ${isNewCard ? 'card-enter' : ''} ${isSelected ? 'card-selected' : ''}`}
               id={`card-${index}`}
-              key={`Card-${item.name}-${item?.type}`}
+              key={`Card-${cardId}`}
               ref={el => cardRefs.current[cardId] = el}
               style={{
                 borderColor: `${item?.background}`,
