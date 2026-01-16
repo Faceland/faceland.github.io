@@ -167,6 +167,11 @@ export default (props) => {
           selectedOption={props.layer.options || textureSelections[0].option}
           onChange={(ev) => {
             props.changeOptions(ev);
+            const textures = getSelections(ev);
+            if (textures && textures.length > 0) {
+              const randomTexture = textures[Math.floor(Math.random() * textures.length)];
+              props.changeTexture(randomTexture);
+            }
           }}
         />
       </div>
