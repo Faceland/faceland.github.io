@@ -80,7 +80,7 @@ export const ShuffleCollection = () => {
 
   const getCardId = (item) => {
     if (item.type === 'unique') {
-      return `${item.strippedName}+${item.tier}`;
+      return `${item.strippedName}+${item.tier}+${item.dropBase}`;
     }
     return `${item.name}-${item.type}`;
   };

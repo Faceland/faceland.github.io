@@ -21,11 +21,7 @@ export const getCardItems = () => {
     //item.imageId = 'bookImg'
     newItems.push(item);
   }
-  const seenUniques = new Set();
   for (const [key, value] of Object.entries(uniques)) {
-    const uniqueKey = `${value.strippedName}+${value.tier}`;
-    if (seenUniques.has(uniqueKey)) continue;
-    seenUniques.add(uniqueKey);
     const item = value;
     item.type = 'unique';
     item.background = '#d99712';
