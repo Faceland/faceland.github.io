@@ -1,3 +1,12 @@
+@keyframes pickerGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px 4px rgba(255, 255, 255, 0.5);
+  }
+}
+
 .Portrait {
   .droppable {
     width: calc(100% - 17px);

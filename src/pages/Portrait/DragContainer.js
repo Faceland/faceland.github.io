@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import './portrait.scss';
 import TextureSelector from '../../components/Portrait/TextureSelector';
@@ -14,6 +14,7 @@ const reorder = (list, startIndex, endIndex) => {
 
 export const DragContainer = (props) => {
   const [state] = useContext(Context);
+  const [activePickerId, setActivePickerId] = useState(null);
 
   const onDragEnd = (result) => {
     if (!result.destination) {
@@ -62,6 +63,8 @@ export const DragContainer = (props) => {
                       )}
                       <ColorPickerPopout
                         layer={layer}
+                        isOpen={activePickerId === layer.id}
+                        onToggle={(isOpen) => setActivePickerId(isOpen ? layer.id : null)}
                         changeColor={(newColor) => {
                           layer.color = newColor;
                           props.updateLayers();
