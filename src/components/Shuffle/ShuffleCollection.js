@@ -28,10 +28,15 @@ export const ShuffleCollection = () => {
   const [animationKey, setAnimationKey] = useState(0);
   const [newCardIds, setNewCardIds] = useState(new Set());
   const [selectedCardIds, setSelectedCardIds] = useState(new Set());
+  const [filterWidth, setFilterWidth] = useState('100%');
+  const [mobileMinWidth, setMobileMinWidth] = useState(340);
+  const [isSticky, setIsSticky] = useState(false);
   const selectedCardIdsRef = useRef(new Set());
   const cardRefs = useRef({});
   const cardPositions = useRef({});
   const prevFilteredIds = useRef(new Set());
+  const cardsContainerRef = useRef(null);
+  const filterSectionRef = useRef(null);
   const bannerText = {};
   bannerText.event = 'Event Reward';
   bannerText.transmute = 'Transmutation Only';
@@ -42,6 +47,42 @@ export const ShuffleCollection = () => {
       setCardItems(getCardItems());
       setSelectedTags([]);
     }
+  }, []);
+
+  useEffect(() => {
+    const container = cardsContainerRef.current;
+    if (!container) return;
+
+    const updateFilterWidth = () => {
+      const containerWidth = container.offsetWidth;
+      const cardWidth = 340; // 320px card + 20px margin
+      const cardsPerRow = Math.floor(containerWidth / cardWidth);
+      const actualWidth = cardsPerRow * cardWidth + 20; // +20px padding
+
+      if (state.mobile) {
+        setMobileMinWidth(actualWidth > 0 ? actualWidth : 340);
+      } else {
+        setFilterWidth(actualWidth > 0 ? `${actualWidth}px` : '100%');
+      }
+    };
+
+    const resizeObserver = new ResizeObserver(updateFilterWidth);
+    resizeObserver.observe(container);
+    updateFilterWidth();
+
+    return () => resizeObserver.disconnect();
+  }, [filteredItems.length, state.mobile]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const threshold = 50; // navbar height
+      setIsSticky(window.scrollY > threshold);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
@@ -256,9 +297,25 @@ export const ShuffleCollection = () => {
     setSearchText('');
   };
 
+  const stickyGradientStyle = {
+    position: 'absolute',
+    top: 0,
+    left: '50%',
+    transform: 'translateX(-50%)',
+    width: '100vw',
+    height: '100%',
+    background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%)',
+    opacity: isSticky ? 1 : 0,
+    transition: 'opacity 0.2s ease-out',
+    pointerEvents: 'none',
+    zIndex: -1,
+  };
+
   const desktopFilterSection = (
-    <div className="flexRow align-left padding-full-15">
-      <div className="width40">
+    <div style={{ position: 'sticky', top: 50, zIndex: 100 }}>
+      <div style={stickyGradientStyle} />
+      <div className="flexRow align-left padding-full-15" style={{ width: filterWidth, margin: '0 auto', position: 'relative' }}>
+        <div className="width40">
         <span className="filterTitles">Filter Tags</span>
         <Select
           placeholder="Select"
@@ -304,16 +361,18 @@ export const ShuffleCollection = () => {
           X
         </div>
       </div>
+      </div>
     </div>
   );
 
   const mobileFilterSection = (
-    <>
-      <div className="flexRow align-left padding-full-15">
+    <div style={{ position: 'sticky', top: 50, zIndex: 100 }}>
+      <div style={stickyGradientStyle} />
+      <div className="mobileFilters" style={{ width: '80%', minWidth: mobileMinWidth, margin: '0 auto', position: 'relative' }}>
+      <div className="flexRow align-left" style={{ padding: '8px 15px 4px' }}>
         <div className="width100">
-          <span className="filterTitles">Filter Tags</span>
           <Select
-            placeholder="Select"
+            placeholder="Filter Tags"
             isMulti
             value={selectedTags}
             options={filterTags}
@@ -321,29 +380,35 @@ export const ShuffleCollection = () => {
           />
         </div>
       </div>
-      <div className="flexRow align-left padding-full-15">
-        <div className="width45">
-          <span className="filterTitles">Rarity</span>
+      <div className="flexRow align-left" style={{ padding: '4px 15px', gap: '8px' }}>
+        <div style={{ flex: 1 }}>
           <Select
-            placeholder="Select"
+            placeholder="Rarity"
             value={selectedRarity}
             options={rarityOptions}
             onChange={setSelectedRarity}
           />
         </div>
-        <div className="width45">
-          <span className="filterTitles">Item Type</span>
+        <div style={{ flex: 1 }}>
           <Select
-            placeholder="Select"
+            placeholder="Type"
             value={selectedType}
             options={typeOptions}
             onChange={setSelectedType}
           />
         </div>
-        <div className="width75 searchBox">
-          <span className="filterTitles">Search</span>
+        <div
+          className="clearButton"
+          style={{ minWidth: '38px', height: '38px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+          onClick={clearAllFilters}
+        >
+          X
+        </div>
+      </div>
+      <div className="flexRow align-left" style={{ padding: '4px 15px 8px' }}>
+        <div className="width100 searchBox">
           <DebounceInput
-            placeholder="Enter whatever :O"
+            placeholder="Search..."
             debounceTimeout={1000}
             value={searchText}
             forceNotifyByEnter={true}
@@ -353,14 +418,8 @@ export const ShuffleCollection = () => {
           />
         </div>
       </div>
-      <div className="flexRow align-left padding-full-15">
-        <div className="width100">
-          <div className="clearButton align-center" onClick={clearAllFilters}>
-            X
-          </div>
-        </div>
       </div>
-    </>
+    </div>
   );
 
   const stats = (item) => {
@@ -450,7 +509,7 @@ export const ShuffleCollection = () => {
   return (
     <div className="relative min-h-[76vh]">
       {state.mobile ? mobileFilterSection : desktopFilterSection}
-      <div className="flex place-content-center" style={{ flexFlow: 'wrap' }}>
+      <div ref={cardsContainerRef} className="flex place-content-center" style={{ flexFlow: 'wrap' }}>
         {filteredItems?.length === 0 ? (
           <div className="flex place-content-center">
             <YeHaplessBuffoon />
