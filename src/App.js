@@ -15,6 +15,7 @@ import { Guide } from './pages/Guide/Guide';
 import { Portrait } from './pages/Portrait/Portrait';
 import { Map } from './pages/Map/Map';
 import { Vote } from './pages/Vote/Vote';
+import { Embed } from './pages/Embed/Embed';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="vote" element={<Vote />} />
           <Route path="map" element={<Map />} />
           <Route path="facepals" element={<Portrait />} />
+          <Route path="embed" element={<Embed />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </Store>
