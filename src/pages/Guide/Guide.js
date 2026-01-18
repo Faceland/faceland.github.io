@@ -352,7 +352,7 @@ export const Guide = () => {
               height: '100%',
               objectFit: 'cover',
             }}
-            src="/assets/images/q5Czwlv.jpg"
+            src="/assets/images/guide-bkg.png"
             alt="info background"
           />
         </div>
