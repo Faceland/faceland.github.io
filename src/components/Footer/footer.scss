@@ -5,33 +5,28 @@
     box-sizing: border-box;
   }
 
-  html {
-    font-size: 100%;
-  }
-
-  body {
-    font-family: acumin-pro, system-ui, sans-serif;
-    margin: 0;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    font-size: 14px;
-    background-color: #f4f4f4;
-    align-items: start;
-    min-height: 100vh;
-  }
-
   position: relative;
 
   .footer {
     display: flex;
     flex-flow: row wrap;
-    padding: 30px 30px 20px 30px;
-    color: #ffffff;
-    background-color: #262626;
-    border-top: 1px solid #000000;
+    padding: 40px 50px 30px 50px;
+    color: #d4c4a8;
+    background: linear-gradient(180deg, #1a1410 0%, #0d0a08 100%);
+    border-top: 3px solid #3d2e1f;
     text-align: left;
     position: relative;
     z-index: 10;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #c9a227, transparent);
+    }
   }
 
   .footer > * {
@@ -39,13 +34,19 @@
   }
 
   .footer__addr {
-    margin-right: 1.25em;
+    margin-right: 1.5em;
+    padding-right: 2em;
+    border-right: 1px solid #3d2e1f;
   }
 
   .footer__logo {
-    font-weight: 500;
-    font-size: 1.5rem;
-    margin-top: 6px;
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 0.8em;
+    color: #c9a227;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    letter-spacing: 1px;
   }
 
   .footer__addr h2 {
@@ -55,28 +56,48 @@
   }
 
   .nav__title {
-    font-weight: 500;
-    font-size: 15px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #c9a227;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.8em;
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid #3d2e1f;
+    display: inline-block;
   }
 
   .footer address {
     font-style: normal;
-    color: #999;
+    color: #8a7a5a;
+    font-size: 0.9rem;
+    line-height: 1.8;
   }
 
   .footer__btn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 36px;
+    height: 40px;
     max-width: max-content;
-    background-color: rgba(234, 234, 234, 0.84) !important;
-    border-radius: 1px;
-    color: #000000 !important;
-    line-height: 0;
-    margin: 0.6em 0;
-    font-size: 1rem;
-    padding: 0 1.3em;
+    background: linear-gradient(180deg, #4a3728 0%, #2d1f15 100%);
+    border: 2px solid #c9a227;
+    border-radius: 3px;
+    color: #c9a227 !important;
+    line-height: 1;
+    margin: 0.8em 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.2s ease-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+
+    &:hover {
+      background: linear-gradient(180deg, #5a4738 0%, #3d2f25 100%);
+      box-shadow: 0 0 10px rgba(201, 162, 39, 0.3);
+    }
   }
 
   .footer ul {
@@ -85,11 +106,12 @@
   }
 
   .footer li {
-    line-height: 2em;
+    line-height: 2.2em;
   }
 
   .footer a {
     text-decoration: none;
+    transition: color 0.2s ease-out;
   }
 
   .footer__nav {
@@ -104,7 +126,23 @@
   }
 
   .nav__ul a {
-    color: #999;
+    color: #8a7a5a;
+    position: relative;
+
+    &:hover {
+      color: #c9a227;
+    }
+
+    &::before {
+      content: '► ';
+      font-size: 0.6em;
+      color: #5a4a3a;
+      transition: color 0.2s ease-out;
+    }
+
+    &:hover::before {
+      color: #c9a227;
+    }
   }
 
   .nav__ul--extra {
@@ -115,7 +153,10 @@
   .legal {
     display: flex;
     flex-wrap: wrap;
-    color: #999;
+    color: #5a4a3a;
+    margin-top: 2em;
+    padding-top: 1.5em;
+    border-top: 1px solid #3d2e1f;
   }
 
   .legal__links {
@@ -125,6 +166,13 @@
 
   .heart {
     color: #2f2f2f;
+  }
+
+  .footer__divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #3d2e1f, transparent);
+    margin: 1.5em 0;
   }
 
   @media screen and (min-width: 24.375em) {
@@ -148,6 +196,16 @@
 
     .footer__nav {
       flex: 2 0px;
+    }
+  }
+
+  @media screen and (max-width: 40.375em) {
+    .footer__addr {
+      border-right: none;
+      border-bottom: 1px solid #3d2e1f;
+      padding-bottom: 1.5em;
+      margin-bottom: 1.5em;
+      padding-right: 0;
     }
   }
 }
