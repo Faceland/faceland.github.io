@@ -6,6 +6,7 @@
 
 .barStyle-transparent {
   background-color: transparent;
+  border-bottom: 1px solid transparent;
 }
 
 .navButton {
@@ -67,7 +68,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  z-index: 4;
+  z-index: 100;
 
   transition: background-color 0.15s;
   transition-timing-function: ease-in-out;

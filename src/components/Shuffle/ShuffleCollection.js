@@ -10,6 +10,35 @@ import { YeHaplessBuffoon } from './YeHaplessBuffoon';
 import { rarityOptions, typeOptions } from './constants';
 import { getCardItems } from './utils';
 
+const selectStyles = {
+  control: (base, state) => ({
+    ...base,
+    minHeight: 34,
+    background: 'linear-gradient(180deg, #f0f0f0 0%, #e8e8e8 50%, #e0e0e0 100%)',
+    border: '1px solid #505050',
+    borderBottomWidth: 3,
+    borderRadius: 3,
+    boxShadow: state.isFocused
+      ? 'inset 0 1px 0 rgba(255,255,255,0.95), inset 0 -1px 0 rgba(0,0,0,0.1), inset 1px 0 0 rgba(255,255,255,0.5), inset -1px 0 0 rgba(255,255,255,0.5), 0 0 0 2px rgba(255,208,80,0.6), 0 3px 6px rgba(0,0,0,0.25)'
+      : 'inset 0 1px 0 rgba(255,255,255,0.95), inset 0 -1px 0 rgba(0,0,0,0.1), inset 1px 0 0 rgba(255,255,255,0.5), inset -1px 0 0 rgba(255,255,255,0.5), 0 3px 6px rgba(0,0,0,0.25)',
+    '&:hover': { borderColor: '#505050' },
+  }),
+  valueContainer: (base) => ({ ...base, paddingTop: 0, paddingBottom: 0 }),
+  indicatorsContainer: (base) => ({ ...base, height: 34 }),
+  option: (base, state) => ({
+    ...base,
+    backgroundColor: state.isSelected
+      ? 'rgba(255, 180, 30, 0.7)'
+      : state.isFocused
+        ? 'rgba(255, 190, 50, 0.5)'
+        : 'transparent',
+    color: '#2a2a2a',
+    '&:active': {
+      backgroundColor: 'rgba(255, 180, 30, 0.7)',
+    },
+  }),
+};
+
 export const ShuffleCollection = () => {
   const [state] = useContext(Context);
   const [cardItems, setCardItems] = useState([]);
@@ -323,6 +352,7 @@ export const ShuffleCollection = () => {
           value={selectedTags}
           options={filterTags}
           onChange={setSelectedTags}
+          styles={selectStyles}
         />
       </div>
       <div className="width15">
@@ -332,6 +362,7 @@ export const ShuffleCollection = () => {
           value={selectedRarity}
           options={rarityOptions}
           onChange={setSelectedRarity}
+          styles={selectStyles}
         />
       </div>
       <div className="width15">
@@ -341,6 +372,7 @@ export const ShuffleCollection = () => {
           value={selectedType}
           options={typeOptions}
           onChange={setSelectedType}
+          styles={selectStyles}
         />
       </div>
       <div className="width20 searchBox">
@@ -377,6 +409,7 @@ export const ShuffleCollection = () => {
             value={selectedTags}
             options={filterTags}
             onChange={setSelectedTags}
+            styles={selectStyles}
           />
         </div>
       </div>
@@ -387,6 +420,7 @@ export const ShuffleCollection = () => {
             value={selectedRarity}
             options={rarityOptions}
             onChange={setSelectedRarity}
+            styles={selectStyles}
           />
         </div>
         <div style={{ flex: 1 }}>
@@ -395,6 +429,7 @@ export const ShuffleCollection = () => {
             value={selectedType}
             options={typeOptions}
             onChange={setSelectedType}
+            styles={selectStyles}
           />
         </div>
         <div
@@ -536,7 +571,7 @@ export const ShuffleCollection = () => {
               <span className="highlight-bottom" />
               <div className={`flex h-full flex-col items-center ${item?.gradient} m0 p-0`}>
                 <div
-                    className={`flex h-full w-full flex-col items-start bg-black/30 p-2 font-semibold transition duration-200 ease-in-out hover:bg-transparent`}>
+                    className={`flex h-full w-full flex-col items-start bg-black/20 p-2 font-semibold transition duration-200 ease-in-out hover:bg-transparent`}>
                   <div
                       className={`squishImg speed-2 absolute ${item?.imageId}`}
                       style={{width: 32, height: 32, right: '4px', top: '4px'}}
@@ -581,7 +616,7 @@ export const ShuffleCollection = () => {
                         </button>
                     ))}
                   </div>
-                  <div className="h-full w-full rounded-md bg-black bg-opacity-50 px-1 py-2">
+                  <div className="h-full w-full rounded-md bg-black/40 px-1 py-2">
                     <div className="flex h-full flex-col justify-center leading-tight">
                       {stats(item)}
                       {item?.enchantable && <div className="enchantable"></div>}
@@ -590,7 +625,7 @@ export const ShuffleCollection = () => {
                       {item?.flavorText?.length > 0 && flavorText(item)}
                     </div>
                   </div>
-                  <div className="w-full rounded-md bg-black bg-opacity-50 px-1 py-1 mt-1">
+                  <div className="w-full rounded-md bg-black/40 px-1 py-1 mt-1">
                     {dropLevel(item)}
                   </div>
                 </div>

@@ -13,10 +13,10 @@
   border-radius: 3px !important;
   padding: 0 !important;
   margin: 0 !important;
-  color: hsl(0, 0%, 20%) !important;
+  color: hsl(0, 0%, 10%) !important;
   text-indent: 10px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   background: linear-gradient(180deg, #f0f0f0 0%, #e8e8e8 50%, #e0e0e0 100%) !important;
   border: 1px solid #505050 !important;
   border-bottom-width: 3px !important;
@@ -65,7 +65,8 @@
   }
 }
 
-// Allow multi-select to grow
+
+// Multi-select (filter tags) - allow growth when tags selected
 .width40 .css-13cymwt-control,
 .width40 .css-t3ipsp-control,
 .width40 .css-16xfy0z-control,
@@ -93,22 +94,23 @@
   overflow: hidden;
 }
 
-.css-d7l1ni-option {
-  background-color: rgba(255, 190, 50, 0.5) !important;
-  color: #2a2a2a !important;
-}
-
-.css-tr4s17-option {
-  background-color: rgba(255, 180, 30, 0.7) !important;
-  color: #2a2a2a !important;
-}
-
-.css-10wo9uf-option {
+// Option states - using attribute selectors for consistency
+[class*="-option"] {
   color: #2a2a2a !important;
 
   &:hover {
     background-color: rgba(255, 190, 50, 0.4) !important;
   }
+}
+
+[class*="-option"][class*="is-focused"] {
+  background-color: rgba(255, 190, 50, 0.5) !important;
+  color: #2a2a2a !important;
+}
+
+[class*="-option"][class*="is-selected"] {
+  background-color: rgba(255, 180, 30, 0.7) !important;
+  color: #2a2a2a !important;
 }
 
 .css-1p3m7a8-multiValue {
@@ -150,6 +152,7 @@
   border: 1px solid #401010;
   border-bottom-width: 3px;
   position: relative;
+  top: -1px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   box-shadow:
     inset 0 1px 0 rgba(255, 150, 100, 0.5),
@@ -160,7 +163,7 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
-  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+  transition: box-shadow 0.1s ease-out;
 
   &::after {
     content: '';
@@ -173,7 +176,6 @@
   }
 
   &:hover {
-    transform: translateY(-1px);
     box-shadow:
       inset 0 1px 0 rgba(255, 150, 100, 0.6),
       inset 0 -1px 0 rgba(0, 0, 0, 0.3),
@@ -183,7 +185,6 @@
   }
 
   &:active {
-    transform: translateY(1px);
     box-shadow:
       inset 0 1px 0 rgba(255, 150, 100, 0.3),
       inset 0 -1px 0 rgba(0, 0, 0, 0.3),
@@ -236,10 +237,10 @@
 }
 
 .rarity-Epic {
-  background: linear-gradient(180deg, #ff8080 0%, #ff6060 50%, #f04848 100%);
+  background: linear-gradient(180deg, #e86060 0%, #d84848 50%, #c03838 100%);
   border: 1px solid #601010;
   border-bottom-width: 2px;
-  box-shadow: inset 0 1px 0 rgba(255, 200, 200, 0.6);
+  box-shadow: inset 0 1px 0 rgba(255, 180, 180, 0.5);
 }
 
 .rarity-Unique {
@@ -298,7 +299,7 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent 5%, var(--card-highlight) 30%, var(--card-highlight) 70%, transparent 95%);
+    background: linear-gradient(90deg, transparent 0%, var(--card-highlight) 10%, var(--card-highlight) 90%, transparent 100%);
     z-index: 11;
     pointer-events: none;
   }
@@ -310,9 +311,14 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent 5%, var(--card-highlight) 30%, var(--card-highlight) 70%, transparent 95%);
+    background: linear-gradient(90deg, transparent 0%, var(--card-highlight) 10%, var(--card-highlight) 90%, transparent 100%);
     z-index: 11;
     pointer-events: none;
+  }
+
+  // Item icon
+  .squishImg {
+    z-index: 12;
   }
 
   // Shimmer effect on hover
@@ -374,11 +380,10 @@
     border: 1px solid #1a2840;
     border-bottom-width: 2px;
     box-shadow: inset 0 1px 0 rgba(180, 210, 255, 0.4);
-    transition: background 0.15s ease-out, transform 0.1s ease-out;
+    transition: background 0.15s ease-out;
 
     &:hover {
       background: linear-gradient(180deg, #7090c0 0%, #6080b0 50%, #5070a0 100%) !important;
-      transform: translateY(-1px);
     }
   }
 }
