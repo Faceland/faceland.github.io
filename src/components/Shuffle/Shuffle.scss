@@ -143,27 +143,28 @@
 
 .clearButton {
   cursor: pointer;
-  min-height: 38px;
+  min-height: 39px;
   border-radius: 3px;
   color: #fff5e6;
-  font-size: 24px;
-  font-weight: 600;
   background: linear-gradient(180deg, #f04848 0%, #e03838 50%, #c82828 100%);
   border: 1px solid #401010;
   border-bottom-width: 3px;
   position: relative;
   top: -1px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   box-shadow:
     inset 0 1px 0 rgba(255, 150, 100, 0.5),
     inset 0 -1px 0 rgba(0, 0, 0, 0.3),
     inset 1px 0 0 rgba(255, 150, 100, 0.25),
     inset -1px 0 0 rgba(255, 150, 100, 0.25),
     0 3px 8px rgba(0, 0, 0, 0.4);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
   transition: box-shadow 0.1s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+  }
 
   &::after {
     content: '';

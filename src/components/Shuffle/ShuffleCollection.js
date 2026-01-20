@@ -10,6 +10,12 @@ import { YeHaplessBuffoon } from './YeHaplessBuffoon';
 import { rarityOptions, typeOptions } from './constants';
 import { getCardItems } from './utils';
 
+const ClearIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/>
+  </svg>
+);
+
 const selectStyles = {
   control: (base, state) => ({
     ...base,
@@ -389,8 +395,8 @@ export const ShuffleCollection = () => {
       </div>
       <div className="width5">
         <span className="filterTitles">Clear</span>
-        <div className="clearButton align-center" onClick={clearAllFilters}>
-          X
+        <div className="clearButton" onClick={clearAllFilters}>
+          <ClearIcon />
         </div>
       </div>
       </div>
@@ -434,10 +440,10 @@ export const ShuffleCollection = () => {
         </div>
         <div
           className="clearButton"
-          style={{ minWidth: '38px', height: '38px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+          style={{ minWidth: '39px', height: '39px' }}
           onClick={clearAllFilters}
         >
-          X
+          <ClearIcon />
         </div>
       </div>
       <div className="flexRow align-left" style={{ padding: '4px 15px 8px' }}>
