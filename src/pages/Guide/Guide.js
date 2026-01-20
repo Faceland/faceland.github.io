@@ -360,7 +360,11 @@ export const Guide = () => {
           <p>Faceland Guide For Epic Gamers</p>
         </div>
 
-        <div className="faq" ref={faqContainerRef}>
+        <div
+          className="faq"
+          ref={faqContainerRef}
+          style={{ backgroundImage: 'url(/assets/textures/dirt.png)' }}
+        >
           <div className={`faq-list ${state.mobile ? 'full-width' : ''}`}>
             {faqData.map((item) => renderFaqItem(item))}
           </div>

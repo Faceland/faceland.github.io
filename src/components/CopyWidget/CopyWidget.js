@@ -28,7 +28,7 @@ export const CopyWidget = (props) => {
           <div className="copyButton">
             <img src="/assets/copy.svg" alt="copy" style={{ height: '1em' }} />
             <div className="divider" />
-            <p style={{marginTop: 0, marginBottom: 2}}>{props.copyText}</p>
+            <p>{props.copyText}</p>
           </div>
         </div>
         <p className="copyVersion">Minecraft Version: 1.21.8+</p>

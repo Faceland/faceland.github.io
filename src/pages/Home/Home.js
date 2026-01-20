@@ -3,7 +3,7 @@ import { HeaderBar } from '../../components/HeaderBar/HeaderBar';
 import { MainBanner } from '../../components/MainBanner/MainBanner';
 import { PlayersOnlineBanner } from '../../components/PlayersOnlineBanner/PlayersOnlineBanner';
 import { Footer } from '../../components/Footer/Footer';
-import { BodyPanel } from '../../components/BodyPanel/BodyPanel';
+import { BodyPanel, TexturedBackground } from '../../components/BodyPanel/BodyPanel';
 import { Context } from '../../Store';
 import { DiscordWidget } from '../../components/DiscordWidget/DiscordWidget';
 import { QuoteTicker } from '../../components/QuoteTicker/QuoteTicker';
@@ -123,23 +123,23 @@ export const Home = (props) => {
       <MainBanner />
       <PlayersOnlineBanner />
       <div className="bodySection pixelImage">
-        <div className="bodyPadding">
-          <BodyPanel style={{ backgroundColor: '#7A6360' }} slideFrom="right">
+        <TexturedBackground>
+          <BodyPanel slideFrom="right">
             {state.mobile
               ? mobileSection(homeImageOne, bodyOne)
               : desktopSection(homeImageOne, bodyOne, false)}
           </BodyPanel>
-          <BodyPanel style={{ backgroundColor: '#695350' }} slideFrom="left">
+          <BodyPanel slideFrom="left">
             {state.mobile
               ? mobileSection(homeImageTwo, bodyTwo)
               : desktopSection(homeImageTwo, bodyTwo, true)}
           </BodyPanel>
-          <BodyPanel style={{ backgroundColor: '#57423F' }} slideFrom="right">
+          <BodyPanel slideFrom="right">
             {state.mobile
               ? mobileSection(homeImageThree, bodyThree)
               : desktopSection(homeImageThree, bodyThree, false)}
           </BodyPanel>
-        </div>
+        </TexturedBackground>
       </div>
       <QuoteTicker />
       <DiscordWidget />

@@ -5,24 +5,51 @@
 
 .playersOnlineBanner {
   width: 100%;
-  padding: 15px 0;
+  padding: 18px 0;
   text-align: center;
-  color: whitesmoke;
-  background-color: #de4040;
+  color: #fff5e6;
+  background: linear-gradient(180deg, #e03c3c 0%, #c43232 50%, #a52828 100%);
+  border-top: 3px solid #5a1a1a;
+  border-bottom: 3px solid #5a1a1a;
+  position: relative;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 200, 150, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.3);
 
-  box-shadow: 0px 0px 3px 1px rgba(255, 255, 255, 0.3) inset;
-  border: 0px solid #641313;
-  border-bottom-width: 2px;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ff9966, transparent);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ff6644, transparent);
+  }
 
   p {
     font-weight: 650;
     font-size: 1.3em;
     padding: 0;
     margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.5px;
   }
 
   .pulse {
     display: inline-block;
     animation: pulse 1s ease-in-out infinite;
+    color: #ffd700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6), 1px 1px 3px rgba(0, 0, 0, 0.5);
   }
 }

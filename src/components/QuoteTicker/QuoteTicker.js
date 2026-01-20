@@ -44,7 +44,7 @@ export const QuoteTicker = () => {
       return (
         <div key={(index += 1)} className="quoteText">
           <h3 className="quoteBody">❝ {quote?.text}❞</h3>
-          <p className="quoteSubtext">-{quote?.author}</p>
+          <p className="quoteSubtext">{quote?.author}</p>
         </div>
       );
     });

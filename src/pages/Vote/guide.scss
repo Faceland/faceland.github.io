@@ -1,16 +1,45 @@
 .Guide {
   .infoBanner {
     width: 100%;
-    padding: 15px 0;
+    padding: 18px 0;
     text-align: center;
-    color: whitesmoke;
-    background-color: #3f6ee3;
+    color: #fff5e6;
+    background: linear-gradient(180deg, #3c7ce0 0%, #3268c4 50%, #2855a5 100%);
+    border-top: 3px solid #1a3a6a;
+    border-bottom: 3px solid #1a3a6a;
+    position: relative;
+    box-shadow:
+      inset 0 1px 0 rgba(150, 200, 255, 0.2),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+      0 2px 8px rgba(0, 0, 0, 0.3);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #66aaff, transparent);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #4488dd, transparent);
+    }
 
     p {
       font-weight: 650;
       font-size: 1.3em;
       padding: 0;
       margin: 0;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      letter-spacing: 0.5px;
     }
   }
 
