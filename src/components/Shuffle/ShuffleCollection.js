@@ -526,13 +526,14 @@ export const ShuffleCollection = () => {
               key={`Card-${cardId}`}
               ref={el => cardRefs.current[cardId] = el}
               style={{
-                borderColor: `${item?.background}`,
+                '--card-highlight': `${item?.background}`,
                 animationDelay: isNewCard ? `${Math.min(index * 0.03, 0.5)}s` : '0s'
               }}
               onClick={(e) => toggleCardSelection(e, cardId)}
               onMouseMove={(e) => handleMouseMove(e, e.currentTarget)}
               onMouseLeave={(e) => handleMouseLeave(e.currentTarget)}
             >
+              <span className="highlight-bottom" />
               <div className={`flex h-full flex-col items-center ${item?.gradient} m0 p-0`}>
                 <div
                     className={`flex h-full w-full flex-col items-start bg-black/30 p-2 font-semibold transition duration-200 ease-in-out hover:bg-transparent`}>
