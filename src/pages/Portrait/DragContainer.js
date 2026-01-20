@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import './portrait.scss';
 import TextureSelector from '../../components/Portrait/TextureSelector';
 import { ColorPickerPopout } from '../../components/Portrait/ColorPickerPopout';
@@ -28,13 +28,25 @@ export const DragContainer = (props) => {
     props.setLayers(items);
   };
 
+  const MoveIcon = () => (
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+      <path d="M12 2L8 6h3v4H7V7l-4 4 4 4v-3h4v4H8l4 4 4-4h-3v-4h4v3l4-4-4-4v3h-4V6h3L12 2z"/>
+    </svg>
+  );
+
+  const TrashIcon = () => (
+    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+      <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+    </svg>
+  );
+
   const MoveButton = () => {
-    return <div className="move-prompt">↕</div>;
+    return <div className="move-prompt"><MoveIcon /></div>;
   };
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <Droppable droppableId="droppable" style={{ width: 'calc(100% - 17px)' }}>
+      <Droppable droppableId="droppable">
         {(provided, snapshot) => (
           <div {...provided.droppableProps} ref={provided.innerRef}>
             {props.layers.map((layer, index) => (
@@ -56,7 +68,7 @@ export const DragContainer = (props) => {
                           className="delete"
                           onClick={() => props.deleteLayer(layer)}
                         >
-                          🗑
+                          <TrashIcon />
                         </button>
                       ) : (
                         <MoveButton />
@@ -91,7 +103,7 @@ export const DragContainer = (props) => {
                           className="delete"
                           onClick={() => props.deleteLayer(layer)}
                         >
-                          🗑
+                          <TrashIcon />
                         </button>
                       )}
                     </div>

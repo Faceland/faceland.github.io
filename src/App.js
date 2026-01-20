@@ -45,7 +45,7 @@ function About() {
         className="basicPage pixelImage"
         style={{
           marginTop: '50px',
-          backgroundImage: 'url(/assets/images/Ggdi5KL.png)',
+          backgroundImage: 'url(/assets/textures/blackstone.png)',
           backgroundSize: 64,
         }}
       >

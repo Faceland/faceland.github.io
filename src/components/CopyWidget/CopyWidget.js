@@ -1,37 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './copyWidget.scss';
-import '../Tooltip/tooltip.scss';
 
-export const CopyWidget = (props) => {
-  const [copyStatus, setCopyStatus] = useState('Click To Copy!');
-  let timeout;
+const CopyIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em">
+    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+  </svg>
+);
 
-  const copyTransition = () => {
-    timeout && clearTimeout(timeout);
-    setCopyStatus('Copied!');
-    timeout = setTimeout(() => {
-      setCopyStatus('Click To Copy!');
+export const CopyWidget = () => {
+  const [tooltipText, setTooltipText] = useState('Click To Copy!');
+  const timeoutRef = useRef(null);
+
+  const handleClick = () => {
+    navigator.clipboard.writeText('BETA.FACE.LAND');
+
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    setTooltipText('Copied!');
+
+    timeoutRef.current = setTimeout(() => {
+      setTooltipText('Click To Copy!');
     }, 2000);
   };
 
   return (
-      <div>
-        <div
-            className="copyContainer theme-primary shadow-normal"
-            onClick={() => {
-              copyTransition();
-              //navigator.clipboard.writeText(props.copyText);
-              navigator.clipboard.writeText('beta.face.land');
-            }}
-            data-tooltip={copyStatus}
-        >
-          <div className="copyButton">
-            <img src="/assets/copy.svg" alt="copy" style={{ height: '1em' }} />
-            <div className="divider" />
-            <p>{props.copyText}</p>
-          </div>
+    <div className="copyWidgetWrapper">
+      <div
+        className="copyContainer"
+        onClick={handleClick}
+      >
+        <div className="tooltip">
+          <span className="tooltipText">{tooltipText}</span>
+          <span className="tooltipArrow" />
         </div>
-        <p className="copyVersion">Minecraft Version: 1.21.8+</p>
+        <div className="copyContent">
+          <CopyIcon />
+          <span className="divider" />
+          <span className="copyText">BETA.FACE.LAND</span>
+        </div>
       </div>
+      <p className="copyVersion">Minecraft Version: 1.21.8+</p>
+    </div>
   );
 };

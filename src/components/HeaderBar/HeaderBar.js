@@ -37,8 +37,8 @@ export const HeaderBar = (props) => {
         <a href="https://discord.gg/Gkmk6G2fjd" target="_blank">
           Discord
         </a>
-        <a href="https://shop.face.land" target="_blank">
-          Buy Gems
+        <a href="https://shop.face.land" target="_blank" className="buyGemsLink">
+          Buy&nbsp;Gems
         </a>
       </div>
     </div>

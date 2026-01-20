@@ -209,7 +209,12 @@ export const Portrait = () => {
           </div>
         </div>
         <div className={'listZone'}>
-          <Scrollbars ref={scrollBar}>
+          <Scrollbars
+            ref={scrollBar}
+            renderThumbVertical={({ style, ...props }) => (
+              <div {...props} style={{ ...style, backgroundColor: 'rgba(255, 255, 255, 0.7)', borderRadius: '3px', width: '6px' }} />
+            )}
+          >
             <DragContainer
               layers={layerItems}
               setLayers={setLayerItems}
@@ -226,7 +231,9 @@ export const Portrait = () => {
                 );
               }}
             >
-              <p>+</p>
+              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+              </svg>
             </div>
           </Scrollbars>
         </div>
@@ -253,7 +260,12 @@ export const Portrait = () => {
           </div>
         </div>
         <div className="listContainer">
-          <Scrollbars ref={scrollBar}>
+          <Scrollbars
+            ref={scrollBar}
+            renderThumbVertical={({ style, ...props }) => (
+              <div {...props} style={{ ...style, backgroundColor: 'rgba(255, 255, 255, 0.7)', borderRadius: '3px', width: '6px' }} />
+            )}
+          >
             <DragContainer
               layers={layerItems}
               setLayers={setLayerItems}
@@ -270,7 +282,9 @@ export const Portrait = () => {
                 );
               }}
             >
-              <p>+</p>
+              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+              </svg>
             </div>
           </Scrollbars>
           {modal}
