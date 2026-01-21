@@ -70,12 +70,15 @@ export const HeaderBar = (props) => {
         </Link>
         <div />
         <Link className="navButton" to="/">
+          <span className="navHover" />
           Home
         </Link>
         <Link className="navButton" to="/guide">
+          <span className="navHover" />
           Guide
         </Link>
         <Link className="navButton" to="/vote">
+          <span className="navHover" />
           Vote
         </Link>
         <a
@@ -83,12 +86,15 @@ export const HeaderBar = (props) => {
           href="http://199.127.61.235:8100/#Quest_world:27:0:893:506:0:0:0:0:perspective"
           target="_blank"
         >
+          <span className="navHover" />
           Map
         </a>
         <Link className="navButton" to="/items">
+          <span className="navHover" />
           Items
         </Link>
         <Link className="navButton" to="/facepals">
+          <span className="navHover" />
           FacePals™
         </Link>
         <a
@@ -96,6 +102,7 @@ export const HeaderBar = (props) => {
           href="https://discord.gg/Gkmk6G2fjd"
           target="_blank"
         >
+          <span className="navHover" />
           Discord
         </a>
       </div>
