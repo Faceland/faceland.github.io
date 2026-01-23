@@ -35,10 +35,12 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    align-items: center;
     height: 70%;
 
     img {
       height: 100%;
+      width: auto;
       cursor: pointer;
 
       &:hover {
