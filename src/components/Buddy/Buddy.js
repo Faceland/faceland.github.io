@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import useSound from 'use-sound';
 
 import './buddy.scss';
-import boopSfx from '../../sounds/Player_hurt1.ogg';
+import boopSfx from '../../sounds/Player_hurt1.mp3';
 
 export const Buddy = () => {
   const [life, setLife] = useState(Math.random() < 1 ? 5 : 0);

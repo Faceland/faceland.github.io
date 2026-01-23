@@ -69,6 +69,7 @@
 
   .faq-image {
     position: absolute;
+    top: 0;
     right: 2%;
     width: calc(40% - 20px - 2%);
     background: linear-gradient(180deg, #e8e8e8 0%, #dedede 50%, #d0d0d0 100%);
@@ -81,6 +82,7 @@
     align-items: center;
     box-sizing: border-box;
     cursor: pointer;
+    will-change: transform;
     box-shadow:
       inset 0 1px 0 #fff,
       inset 0 -1px 0 rgba(0, 0, 0, 0.15),

@@ -372,7 +372,7 @@ export const Guide = () => {
             <div
               className="faq-image"
               ref={imageRef}
-              style={{ top: `${imageTop}px` }}
+              style={{ transform: `translateY(${imageTop}px)` }}
               onClick={handleExpandImage}
             >
               <div className="faq-image-wrapper" ref={imageWrapperRef}>
