@@ -2,7 +2,7 @@ import './App.scss';
 import './animations.scss';
 
 import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Store from './Store';
 
 import { HeaderBar } from './components/HeaderBar/HeaderBar';
@@ -16,6 +16,7 @@ import { Portrait } from './pages/Portrait/Portrait';
 import { Map } from './pages/Map/Map';
 import { Vote } from './pages/Vote/Vote';
 import { Embed } from './pages/Embed/Embed';
+import { SEO } from './components/SEO/SEO';
 
 function App() {
   return (
@@ -40,6 +41,10 @@ function App() {
 function About() {
   return (
     <div className="App">
+      <SEO
+        title="Item Database"
+        description="Browse Faceland's extensive item database! Discover unique weapons, armor, and gear with our item shuffle tool. Over a trillion possible item combinations in our Minecraft MMORPG!"
+      />
       <HeaderBar fancy={false} />
       <div
         className="basicPage pixelImage"

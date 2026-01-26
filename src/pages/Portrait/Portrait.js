@@ -13,6 +13,7 @@ import {
 import { useSearchParams } from 'react-router-dom';
 import { DragContainer } from './DragContainer';
 import { Footer } from '../../components/Footer/Footer';
+import { SEO } from '../../components/SEO/SEO';
 
 export const Portrait = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -296,6 +297,10 @@ export const Portrait = () => {
 
   return (
     <div className="App Portrait">
+      <SEO
+        title="FacePals Character Creator"
+        description="Create custom NPC portraits for Faceland! Design unique characters with our FacePals portrait creator tool. Layer different features, colors, and styles."
+      />
       <HeaderBar fancy={false} />
       {state.mobile ? mobileLayout : desktopLayout}
     </div>

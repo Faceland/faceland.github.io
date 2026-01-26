@@ -1,3 +1,15 @@
-# https://www.robotstxt.org/robotstxt.html
+# Robots.txt for Faceland RPG
+# https://face.land
+
 User-agent: *
-Disallow:
+Allow: /
+
+# Sitemap location
+Sitemap: https://face.land/sitemap.xml
+
+# Crawl-delay suggestion (optional, not all bots respect this)
+Crawl-delay: 1
+
+# Disallow admin or private paths
+Disallow: /api/
+Disallow: /embed

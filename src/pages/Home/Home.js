@@ -7,6 +7,7 @@ import { BodyPanel, TexturedBackground } from '../../components/BodyPanel/BodyPa
 import { Context } from '../../Store';
 import { DiscordWidget } from '../../components/DiscordWidget/DiscordWidget';
 import { QuoteTicker } from '../../components/QuoteTicker/QuoteTicker';
+import { SEO } from '../../components/SEO/SEO';
 
 import './home.scss';
 
@@ -119,6 +120,10 @@ export const Home = (props) => {
 
   return (
     <div className="App Home">
+      <SEO
+        title="Home"
+        description="Faceland is a free-to-play Minecraft MMORPG server featuring epic quests, custom classes, over 200 abilities, unique loot, dungeons, and raids. Experience MMO gameplay similar to World of Warcraft, Path of Exile, and Diablo in Minecraft!"
+      />
       <HeaderBar fancy={true} />
       <MainBanner />
       <PlayersOnlineBanner />

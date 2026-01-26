@@ -3,6 +3,7 @@ import { HeaderBar } from '../../components/HeaderBar/HeaderBar';
 import { Footer } from '../../components/Footer/Footer';
 import { Context } from '../../Store';
 import { DiscordWidget } from '../../components/DiscordWidget/DiscordWidget';
+import { SEO } from '../../components/SEO/SEO';
 import './guide.scss';
 
 const FaqItem = ({ question, image, children, isOpen, onToggle }) => {
@@ -334,6 +335,10 @@ export const Guide = () => {
 
   return (
     <div className="App Guide">
+      <SEO
+        title="Beginner's Guide"
+        description="Learn how to play Faceland, the free Minecraft MMORPG! Complete guide covering abilities, combat, skills, quests, energy system, and more. Start your adventure today!"
+      />
       <HeaderBar fancy={false} />
       <div className="basicPage">
         <div

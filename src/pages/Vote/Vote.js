@@ -3,6 +3,7 @@ import { HeaderBar } from '../../components/HeaderBar/HeaderBar';
 import { Footer } from '../../components/Footer/Footer';
 import { Context } from '../../Store';
 import { DiscordWidget } from '../../components/DiscordWidget/DiscordWidget';
+import { SEO } from '../../components/SEO/SEO';
 import './guide.scss';
 
 export const Vote = (props) => {
@@ -10,6 +11,10 @@ export const Vote = (props) => {
 
   return (
     <div className="App Guide">
+      <SEO
+        title="Vote"
+        description="Vote for Faceland on Minecraft server lists and earn rewards! Support our free-to-play Minecraft MMORPG and help new players discover us. Monthly rewards reset!"
+      />
       <HeaderBar fancy={false} />
       <div className="basicPage">
         <div
