@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{{ store.name }}{% endblock %}</title>
+
+    <meta name="description" content="{% block meta_description %}{{ store.description|default('Welcome to our store') }}{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}minecraft, server, store, shop{% endblock %}">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="{% block og_title %}{{ store.name }}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{{ store.description|default('') }}{% endblock %}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ app.request.uri }}">
+    {% if store.logo %}
+    <meta property="og:image" content="{{ store.logo }}">
+    {% endif %}
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ store.favicon|default('/favicon.png') }}">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Theme Styles -->
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
+
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <div class="page-wrapper">
+        {% include 'header.twig' %}
+
+        <main class="main-content">
+            <div class="container">
+                {% block content %}{% endblock %}
+            </div>
+        </main>
+
+        {% include 'footer.twig' %}
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile navigation toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.mobile-nav-toggle');
+            const navbar = document.querySelector('.navbar');
+
+            if (navToggle && navbar) {
+                navToggle.addEventListener('click', function() {
+                    navbar.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% extends 'base.twig' %}
+
+{% block title %}Payment Successful - {{ store.name }}{% endblock %}
+
+{% block content %}
+<div class="status-page">
+    <div class="status-icon success">
+        <i class="fas fa-check-circle"></i>
+    </div>
+
+    <h1 class="status-title text-gold">Payment Successful!</h1>
+
+    <p class="status-message">
+        Thank you for your purchase! Your order has been processed successfully.
+        {% if user %}
+        Items will be delivered to <strong>{{ user.username }}</strong> shortly.
+        {% endif %}
+    </p>
+
+    {% if order %}
+    <div class="card" style="max-width: 500px; margin: 0 auto;">
+        <h3 class="card-title">Order Details</h3>
+        <table class="table">
+            <tr>
+                <td class="text-muted">Order ID</td>
+                <td class="text-right">#{{ order.id }}</td>
+            </tr>
+            <tr>
+                <td class="text-muted">Total</td>
+                <td class="text-right text-gold">{{ order.total|format_currency(store.currency) }}</td>
+            </tr>
+            <tr>
+                <td class="text-muted">Status</td>
+                <td class="text-right"><span style="color: var(--color-success);">Completed</span></td>
+            </tr>
+        </table>
+    </div>
+    {% endif %}
+
+    <div class="mt-4">
+        <a href="{{ path('index') }}" class="btn btn-primary">
+            <i class="fas fa-home"></i> Return to Store
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Receipt - {{ store.name }}</title>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+    <style>
+        /* Email-safe styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0d0a08;
+            color: #d4c4a8;
+        }
+
+        .email-wrapper {
+            width: 100%;
+            background-color: #0d0a08;
+            padding: 40px 20px;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, #1a1410 0%, #0d0a08 100%);
+            border: 1px solid #2a1f14;
+            border-radius: 3px;
+        }
+
+        .email-header {
+            text-align: center;
+            padding: 30px;
+            border-bottom: 2px solid #c9a227;
+        }
+
+        .email-header h1 {
+            margin: 0;
+            color: #c9a227;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .email-body {
+            padding: 30px;
+        }
+
+        .greeting {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .order-details {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid #3d2e1f;
+            border-radius: 3px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .order-details h2 {
+            margin: 0 0 15px 0;
+            color: #c9a227;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .order-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .order-table td {
+            padding: 10px 0;
+            border-bottom: 1px solid #3d2e1f;
+        }
+
+        .order-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .item-name {
+            color: #e0e0e0;
+        }
+
+        .item-price {
+            text-align: right;
+            color: #c9a227;
+        }
+
+        .total-row td {
+            padding-top: 15px;
+            border-top: 2px solid #3d2e1f;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .total-row .item-name {
+            color: #c9a227;
+        }
+
+        .info-box {
+            background: rgba(201, 162, 39, 0.1);
+            border: 1px solid #c9a227;
+            border-radius: 3px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .info-box p {
+            margin: 0;
+            color: #d4c4a8;
+        }
+
+        .email-footer {
+            text-align: center;
+            padding: 20px 30px;
+            border-top: 1px solid #3d2e1f;
+            color: #8a7a5a;
+            font-size: 14px;
+        }
+
+        .email-footer a {
+            color: #c9a227;
+            text-decoration: none;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(180deg, #4a3728 0%, #2d1f15 100%);
+            border: 2px solid #c9a227;
+            border-radius: 3px;
+            color: #c9a227 !important;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-wrapper">
+        <div class="email-container">
+            <!-- Header -->
+            <div class="email-header">
+                <h1>{{ store.name }}</h1>
+            </div>
+
+            <!-- Body -->
+            <div class="email-body">
+                <div class="greeting">
+                    Hello <strong>{{ order.username }}</strong>,
+                </div>
+
+                <p>Thank you for your purchase! Your order has been successfully processed.</p>
+
+                <!-- Order Details -->
+                <div class="order-details">
+                    <h2>Order #{{ order.id }}</h2>
+
+                    <table class="order-table">
+                        {% for item in order.items %}
+                        <tr>
+                            <td class="item-name">
+                                {{ item.package.name }}
+                                {% if item.quantity > 1 %}(x{{ item.quantity }}){% endif %}
+                            </td>
+                            <td class="item-price">
+                                {{ (item.price * item.quantity)|format_currency(store.currency) }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+
+                        {% if order.discount > 0 %}
+                        <tr>
+                            <td class="item-name">Discount</td>
+                            <td class="item-price" style="color: #4a9c4a;">
+                                -{{ order.discount|format_currency(store.currency) }}
+                            </td>
+                        </tr>
+                        {% endif %}
+
+                        <tr class="total-row">
+                            <td class="item-name">Total</td>
+                            <td class="item-price">{{ order.total|format_currency(store.currency) }}</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Delivery Info -->
+                <div class="info-box">
+                    <p>
+                        <strong>Delivery:</strong> Your items will be delivered to <strong>{{ order.username }}</strong> automatically.
+                        Make sure you're online on the server to receive your items!
+                    </p>
+                </div>
+
+                <p>If you have any questions about your order, please don't hesitate to contact us.</p>
+
+                <p style="text-align: center; margin-top: 30px;">
+                    <a href="{{ store.url }}" class="btn">Visit Store</a>
+                </p>
+            </div>
+
+            <!-- Footer -->
+            <div class="email-footer">
+                <p>&copy; {{ "now"|date("Y") }} {{ store.name }}. All rights reserved.</p>
+                <p>
+                    <a href="{{ store.url }}">{{ store.url }}</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

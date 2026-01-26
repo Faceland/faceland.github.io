@@ -1,0 +1,22 @@
+{% extends 'base.twig' %}
+
+{% block title %}{{ page.name }} - {{ store.name }}{% endblock %}
+
+{% block meta_description %}{{ page.content|striptags|slice(0, 160) }}{% endblock %}
+
+{% block content %}
+<div class="py-4">
+    <div class="card">
+        <h1 class="card-title">{{ page.name }}</h1>
+        <div class="page-content">
+            {{ page.content|raw }}
+        </div>
+    </div>
+
+    <div class="mt-3">
+        <a href="{{ path('index') }}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Back to Store
+        </a>
+    </div>
+</div>
+{% endblock %}

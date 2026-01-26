@@ -1,0 +1,79 @@
+{% extends 'base.twig' %}
+
+{% block title %}Basket - {{ store.name }}{% endblock %}
+
+{% block content %}
+<div class="py-4">
+    <h1 class="card-title mb-4">Your Basket</h1>
+
+    {% if basket.items|length > 0 %}
+    <div class="card mb-4">
+        {% for item in basket.items %}
+        <div class="basket-item">
+            {% if item.package.image %}
+            <img src="{{ item.package.image }}" alt="{{ item.package.name }}" class="basket-item-image">
+            {% endif %}
+
+            <div class="basket-item-details">
+                <div class="basket-item-title">{{ item.package.name }}</div>
+                <div class="text-muted">Qty: {{ item.quantity }}</div>
+                {% if item.variables %}
+                <div class="text-muted" style="font-size: 0.85rem;">
+                    {% for key, value in item.variables %}
+                    {{ key }}: {{ value }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="basket-item-price">
+                {% if item.package.salePrice %}
+                {{ (item.package.salePrice * item.quantity)|format_currency(store.currency) }}
+                {% else %}
+                {{ (item.package.price * item.quantity)|format_currency(store.currency) }}
+                {% endif %}
+            </div>
+
+            <form method="post" action="{{ path('basket_remove', {id: item.id}) }}" style="display: inline;">
+                <button type="submit" class="basket-item-remove" title="Remove">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </form>
+        </div>
+        {% endfor %}
+
+        <div class="basket-total">
+            Total: {{ basket.total|format_currency(store.currency) }}
+        </div>
+    </div>
+
+    <!-- Coupon Code -->
+    <div class="card mb-4">
+        <h3 class="card-title">Coupon Code</h3>
+        <form method="post" action="{{ path('basket_coupon') }}" class="d-flex gap-2">
+            <input type="text" name="coupon" class="form-control" placeholder="Enter coupon code" style="flex: 1;">
+            <button type="submit" class="btn btn-secondary">Apply</button>
+        </form>
+    </div>
+
+    <!-- Checkout Button -->
+    <div class="text-right">
+        <a href="{{ path('checkout') }}" class="btn btn-primary btn-purple">
+            <i class="fas fa-lock"></i> Proceed to Checkout
+        </a>
+    </div>
+
+    {% else %}
+    <div class="card text-center">
+        <div style="font-size: 4rem; color: var(--color-text-secondary); margin-bottom: 20px;">
+            <i class="fas fa-shopping-cart"></i>
+        </div>
+        <h2 class="text-muted">Your basket is empty</h2>
+        <p class="text-muted mb-3">Browse our packages and add something to your basket!</p>
+        <a href="{{ path('index') }}" class="btn btn-primary">
+            <i class="fas fa-store"></i> Browse Store
+        </a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
