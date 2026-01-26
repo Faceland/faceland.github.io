@@ -25,6 +25,11 @@ const Reducer = (state, action) => {
         ...state,
         error: action.payload,
       };
+    case 'TOGGLE_VIGNETTE':
+      return {
+        ...state,
+        vignette: !state.vignette,
+      };
     default:
       return state;
   }

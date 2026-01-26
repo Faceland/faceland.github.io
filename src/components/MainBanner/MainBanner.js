@@ -7,12 +7,11 @@ export const MainBanner = () => {
   const [state] = useContext(Context);
   return (
     <div
-      className="mainBanner"
+      className={`mainBanner ${state.vignette !== false ? 'with-vignette' : ''}`}
       style={state.mobile ? { marginTop: '50px' } : { marginTop: '0' }}
     >
       <video
         className="videoBg"
-        style={state.mobile ? { top: '50px' } : { top: '0' }}
         playsInline
         autoPlay
         muted

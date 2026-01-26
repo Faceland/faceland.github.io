@@ -107,6 +107,22 @@
     align-items: center;
     justify-content: space-between;
 
+    .vignetteToggle {
+      background-color: #333;
+      color: #fff;
+      border: 1px solid #555;
+      border-radius: 3px;
+      padding: 4px 10px;
+      margin-right: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 12px;
+
+      &:hover {
+        background-color: #444;
+      }
+    }
+
     .facegemButton {
       background: linear-gradient(180deg, #a855f7 0%, #8b5cf6 50%, #7c3aed 100%);
       box-shadow:

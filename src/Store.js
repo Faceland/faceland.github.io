@@ -4,6 +4,7 @@ import Reducer from './Reducer';
 const initialState = {
   posts: [],
   error: null,
+  vignette: true,
 };
 
 const Store = ({ children }) => {

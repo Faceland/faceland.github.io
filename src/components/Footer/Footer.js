@@ -8,7 +8,7 @@ export const Footer = (props) => {
   const [state] = useContext(Context);
 
   return (
-    <div className="Footer">
+    <div className={`Footer ${state.mobile ? 'footer-mobile' : 'footer-desktop'}`}>
       <Buddy />
       <footer className="footer">
         <div className="footer__addr">
