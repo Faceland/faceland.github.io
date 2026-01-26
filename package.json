@@ -5,9 +5,9 @@
   "private": true,
   "reactSnap": {
     "source": "build",
-    "inlineCss": true,
+    "inlineCss": false,
     "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
-    "include": ["/", "/guide", "/items", "/vote", "/facepals", "/map"]
+    "include": ["/", "/guide", "/items", "/vote", "/facepals"]
   },
   "dependencies": {
     "@hello-pangea/dnd": "^18.0.1",
