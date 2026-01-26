@@ -3,6 +3,12 @@
   "name": "faceland-website",
   "version": "1.0.0",
   "private": true,
+  "reactSnap": {
+    "source": "build",
+    "inlineCss": true,
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
+    "include": ["/", "/guide", "/items", "/vote", "/facepals", "/map"]
+  },
   "dependencies": {
     "@hello-pangea/dnd": "^18.0.1",
     "@material-tailwind/react": "^2.1.5",
@@ -39,6 +45,7 @@
   "scripts": {
     "start": "node_modules/.bin/react-scripts start",
     "build": "node_modules/.bin/react-scripts build",
+    "postbuild": "react-snap",
     "test": "node_modules/.bin/react-scripts test",
     "eject": "node_modules/.bin/react-scripts eject",
     "predeploy": "npm run build",
@@ -69,6 +76,7 @@
     "postcss": "^8.4.32",
     "prettier": "^3.1.0",
     "prettier-plugin-tailwindcss": "^0.5.9",
+    "react-snap": "^1.23.0",
     "tailwindcss": "^3.3.6"
   }
 }
