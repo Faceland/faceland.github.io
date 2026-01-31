@@ -72,6 +72,16 @@ export const SEO = ({ title, description }) => {
     if (twitterDescription && description) {
       twitterDescription.setAttribute('content', description);
     }
+
+    // Update OG image dimensions (ensure they're set for all pages)
+    const ogImageWidth = document.querySelector('meta[property="og:image:width"]');
+    if (ogImageWidth) {
+      ogImageWidth.setAttribute('content', '512');
+    }
+    const ogImageHeight = document.querySelector('meta[property="og:image:height"]');
+    if (ogImageHeight) {
+      ogImageHeight.setAttribute('content', '512');
+    }
   }, [title, description]);
 
   return null;

@@ -94,8 +94,8 @@
   overflow: hidden;
 }
 
-// Option states - using attribute selectors for consistency
-[class*="-option"] {
+// Option states - using attribute selectors scoped to react-select menus
+.css-1nmdiq5-menu [class*="-option"] {
   color: #2a2a2a !important;
 
   &:hover {
@@ -103,12 +103,12 @@
   }
 }
 
-[class*="-option"][class*="is-focused"] {
+.css-1nmdiq5-menu [class*="-option"][class*="is-focused"] {
   background-color: rgba(255, 190, 50, 0.5) !important;
   color: #2a2a2a !important;
 }
 
-[class*="-option"][class*="is-selected"] {
+.css-1nmdiq5-menu [class*="-option"][class*="is-selected"] {
   background-color: rgba(255, 180, 30, 0.7) !important;
   color: #2a2a2a !important;
 }
@@ -143,14 +143,15 @@
 
 .clearButton {
   cursor: pointer;
+  position: relative;
   min-height: 39px;
+  min-width: 65px;
+  padding: 0 12px;
   border-radius: 3px;
   color: #fff5e6;
   background: linear-gradient(180deg, #f04848 0%, #e03838 50%, #c82828 100%);
   border: 1px solid #401010;
   border-bottom-width: 3px;
-  position: relative;
-  top: -1px;
   box-shadow:
     inset 0 1px 0 rgba(255, 150, 100, 0.5),
     inset 0 -1px 0 rgba(0, 0, 0, 0.3),

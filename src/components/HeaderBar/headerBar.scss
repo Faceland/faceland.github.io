@@ -96,7 +96,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  z-index: 100;
+  z-index: 200;
 
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
@@ -194,6 +194,16 @@
     padding: 10px;
     margin-right: 8px;
     color: white;
+  }
+
+  .burgerButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 

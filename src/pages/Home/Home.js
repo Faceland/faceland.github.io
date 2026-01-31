@@ -23,6 +23,7 @@ export const Home = (props) => {
       autoPlay
       muted
       loop
+      preload="none"
       src="/assets/videos/mYH3xSq.mp4"
       poster="/assets/images/yCr2iAD.jpg"
       crossOrigin="anonymous"
@@ -52,6 +53,7 @@ export const Home = (props) => {
       autoPlay
       muted
       loop
+      preload="none"
       src="/assets/videos/qUbW0PT.mp4"
       poster="/assets/images/yCr2iAD.jpg"
       crossOrigin="anonymous"
@@ -80,6 +82,7 @@ export const Home = (props) => {
       autoPlay
       muted
       loop
+      preload="none"
       src="/assets/videos/vYSxlly.mp4"
       poster="/assets/images/yCr2iAD.jpg"
       crossOrigin="anonymous"

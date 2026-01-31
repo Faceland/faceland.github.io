@@ -80,6 +80,7 @@ export const MainBanner = () => {
         autoPlay
         muted
         loop
+        preload="none"
         src="/assets/videos/hDTyol4.mp4"
         poster="/assets/images/yCr2iAD.jpg"
         crossOrigin="anonymous"

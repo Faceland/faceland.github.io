@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import './headerBar.scss';
 import { Link } from 'react-router-dom';
 import { Context } from '../../Store';
@@ -12,23 +12,39 @@ export const HeaderBar = (props) => {
   );
   const [burgerOpen, setBurgerState] = useState(false);
 
-  window.onscroll = function () {
+  useEffect(() => {
     if (!props.fancy || state.mobile) return;
-    setScrollStyle(window.pageYOffset < 10 ? 'transparent' : 'solid');
-  };
+
+    const handleScroll = () => {
+      setScrollStyle(window.pageYOffset < 10 ? 'transparent' : 'solid');
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [props.fancy, state.mobile]);
 
   const toggleBurger = () => {
     setBurgerState(!burgerOpen);
   };
 
+  // TODO: Map subdomain (map.face.land) is pending HTTPS setup - using IP address temporarily
+  const mapUrl = 'http://199.127.61.235:8100/#Quest_world:27:0:893:506:0:0:0:0:perspective';
+
   const burger = (
-    <div className="burgerContainer" onClick={toggleBurger}>
+    <div
+      className="burgerContainer"
+      onClick={toggleBurger}
+      role="button"
+      aria-label="Close navigation menu"
+      tabIndex={0}
+      onKeyDown={(e) => e.key === 'Enter' && toggleBurger()}
+    >
       <div className="burgerNav">
         <Link to="/">Home</Link>
         <Link to="/guide">Guide</Link>
         <Link to="/vote">Vote</Link>
         <a
-          href="http://199.127.61.235:8100/#Quest_world:27:0:893:506:0:0:0:0:perspective"
+          href={mapUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -54,9 +70,14 @@ export const HeaderBar = (props) => {
         </Link>
         <div />
       </div>
-      <div>
-        <i className="fa fa-bars" onClick={toggleBurger} />
-      </div>
+      <button
+        aria-label="Open navigation menu"
+        aria-expanded={burgerOpen}
+        onClick={toggleBurger}
+        className="burgerButton"
+      >
+        <i className="fa fa-bars" />
+      </button>
     </div>
   );
 
@@ -85,7 +106,7 @@ export const HeaderBar = (props) => {
         </Link>
         <a
           className="navButton"
-          href="http://199.127.61.235:8100/#Quest_world:27:0:893:506:0:0:0:0:perspective"
+          href={mapUrl}
           target="_blank"
           rel="noopener noreferrer"
         >

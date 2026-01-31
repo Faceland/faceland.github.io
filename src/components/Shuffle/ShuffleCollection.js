@@ -414,9 +414,14 @@ export const ShuffleCollection = () => {
       </div>
       <div className="width5">
         <span className="filterTitles">Clear</span>
-        <div className="clearButton" onClick={clearAllFilters}>
+        <button
+          className="clearButton"
+          onClick={clearAllFilters}
+          aria-label="Clear all filters"
+          type="button"
+        >
           <ClearIcon />
-        </div>
+        </button>
       </div>
       </div>
     </div>
@@ -457,13 +462,15 @@ export const ShuffleCollection = () => {
             styles={selectStyles}
           />
         </div>
-        <div
+        <button
           className="clearButton"
           style={{ minWidth: '39px', height: '39px' }}
           onClick={clearAllFilters}
+          aria-label="Clear all filters"
+          type="button"
         >
           <ClearIcon />
-        </div>
+        </button>
       </div>
       <div className="flexRow align-left" style={{ padding: '4px 15px 8px' }}>
         <div className="width100 searchBox">
