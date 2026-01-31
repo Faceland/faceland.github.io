@@ -51,6 +51,12 @@
     align-items: center;
     height: 70%;
 
+    picture {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
     img {
       height: 100%;
       width: auto;
@@ -68,6 +74,10 @@
     flex-direction: column;
     width: 100%;
     max-width: 550px;
+
+    picture {
+      width: 100%;
+    }
 
     img {
       width: 100%;

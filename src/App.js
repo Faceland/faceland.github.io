@@ -13,9 +13,7 @@ import { Home } from './pages/Home/Home';
 import { DiscordWidget } from './components/DiscordWidget/DiscordWidget';
 import { Guide } from './pages/Guide/Guide';
 import { Portrait } from './pages/Portrait/Portrait';
-import { Map } from './pages/Map/Map';
 import { Vote } from './pages/Vote/Vote';
-import { Embed } from './pages/Embed/Embed';
 import { SEO } from './components/SEO/SEO';
 
 function App() {
@@ -28,9 +26,7 @@ function App() {
           <Route path="items" element={<About />} />
           <Route path="guide" element={<Guide />} />
           <Route path="vote" element={<Vote />} />
-          <Route path="map" element={<Map />} />
           <Route path="facepals" element={<Portrait />} />
-          <Route path="embed" element={<Embed />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </Store>

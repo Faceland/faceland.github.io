@@ -11,7 +11,7 @@ export const LoginModal = ({ isOpen, close }) => {
       onRequestClose={close}
       contentLabel="Login Modal"
     >
-      <button className="closeButton" onClick={close}>
+      <button className="closeButton" onClick={close} aria-label="Close login modal">
         X
       </button>
       <div className="loginModalContent">
@@ -19,8 +19,8 @@ export const LoginModal = ({ isOpen, close }) => {
         <div>
           Please provide your secure authentication credentials, dipshit
         </div>
-        <input placeholder="memefucker69@hotmail.gov" />
-        <input placeholder="P@sswerd" />
+        <input placeholder="memefucker69@hotmail.gov" aria-label="Email address" />
+        <input placeholder="P@sswerd" aria-label="Password" type="password" />
       </div>
     </ReactModal>
   );

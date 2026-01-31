@@ -30,7 +30,8 @@ export const PlayersOnlineBanner = (props) => {
         // instead of a catch() block so that we don't swallow
         // exceptions from actual bugs in components.
         (error) => {
-          console.log('Failed to get player online', error);
+          setIsOffline(true);
+          setPlayerCount(null);
         },
       );
     timer = setTimeout(() => {

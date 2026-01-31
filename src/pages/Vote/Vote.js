@@ -4,6 +4,7 @@ import { Footer } from '../../components/Footer/Footer';
 import { Context } from '../../Store';
 import { DiscordWidget } from '../../components/DiscordWidget/DiscordWidget';
 import { SEO } from '../../components/SEO/SEO';
+import { Picture } from '../../components/Picture/Picture';
 import './guide.scss';
 
 export const Vote = (props) => {
@@ -26,7 +27,7 @@ export const Vote = (props) => {
             overflow: 'hidden',
           }}
         >
-          <img
+          <Picture
             style={{
               display: 'block',
               width: '100vw',
@@ -34,13 +35,13 @@ export const Vote = (props) => {
               objectFit: 'cover',
             }}
             src="/assets/images/guide-bkg.png"
-            alt="info background"
+            alt="Vote page background"
           />
         </div>
         <div className="infoBanner shadow-darker">
-          <p>Vote for Faceland!</p>
-          <p>Rewards reset on the first of every month!</p>
-          <p>Be sure to login to collect rewards!</p>
+          <h1>Vote for Faceland!</h1>
+          <p>Vote for Faceland on votesites and collect various vote rewards in-game! Rewards get better and better the more you vote in the same month!</p>
+          <p>Rewards reset on the first of every month. Be sure to login to collect rewards!</p>
         </div>
         <div
           className="pixelImage"
@@ -63,10 +64,11 @@ export const Vote = (props) => {
               borderRadius: 6,
             }}
           >
-            <a href="https://minecraft-mp.com/server-s314207" target="_blank">
+            <a href="https://minecraft-mp.com/server-s314207" target="_blank" rel="noopener noreferrer">
               <img
                 src="https://minecraft-mp.com/banner-314207.png"
-                border="0"
+                alt="Vote for Faceland on Minecraft-MP"
+                loading="lazy"
               />
             </a>
           </div>
@@ -79,10 +81,11 @@ export const Vote = (props) => {
               borderRadius: 6,
             }}
           >
-            <a href="https://minecraft-mp.com/server-s314207" target="_blank">
+            <a href="https://minecraft-mp.com/server-s314207" target="_blank" rel="noopener noreferrer">
               <img
                 src="https://minecraft-mp.com/banner-314207.png"
-                border="0"
+                alt="Vote for Faceland on Minecraft-MP"
+                loading="lazy"
               />
             </a>
           </div>
@@ -95,10 +98,11 @@ export const Vote = (props) => {
               borderRadius: 6,
             }}
           >
-            <a href="https://minecraft-mp.com/server-s314207" target="_blank">
+            <a href="https://minecraft-mp.com/server-s314207" target="_blank" rel="noopener noreferrer">
               <img
                 src="https://minecraft-mp.com/banner-314207.png"
-                border="0"
+                alt="Vote for Faceland on Minecraft-MP"
+                loading="lazy"
               />
             </a>
           </div>
@@ -111,10 +115,11 @@ export const Vote = (props) => {
               borderRadius: 6,
             }}
           >
-            <a href="https://minecraft-mp.com/server-s314207" target="_blank">
+            <a href="https://minecraft-mp.com/server-s314207" target="_blank" rel="noopener noreferrer">
               <img
                 src="https://minecraft-mp.com/banner-314207.png"
-                border="0"
+                alt="Vote for Faceland on Minecraft-MP"
+                loading="lazy"
               />
             </a>
           </div>
@@ -127,10 +132,11 @@ export const Vote = (props) => {
               borderRadius: 6,
             }}
           >
-            <a href="https://minecraft-mp.com/server-s314207" target="_blank">
+            <a href="https://minecraft-mp.com/server-s314207" target="_blank" rel="noopener noreferrer">
               <img
                 src="https://minecraft-mp.com/banner-314207.png"
-                border="0"
+                alt="Vote for Faceland on Minecraft-MP"
+                loading="lazy"
               />
             </a>
           </div>
@@ -143,10 +149,11 @@ export const Vote = (props) => {
               borderRadius: 6,
             }}
           >
-            <a href="https://minecraft-mp.com/server-s314207" target="_blank">
+            <a href="https://minecraft-mp.com/server-s314207" target="_blank" rel="noopener noreferrer">
               <img
                 src="https://minecraft-mp.com/banner-314207.png"
-                border="0"
+                alt="Vote for Faceland on Minecraft-MP"
+                loading="lazy"
               />
             </a>
           </div>

@@ -3,6 +3,7 @@ import useSound from 'use-sound';
 
 import './buddy.scss';
 import boopSfx from '../../sounds/Player_hurt1.mp3';
+import { Picture } from '../Picture/Picture';
 
 export const Buddy = () => {
   const [life, setLife] = useState(Math.random() < 1 ? 5 : 0);
@@ -123,10 +124,10 @@ export const Buddy = () => {
           {marker.text}
         </div>
       ))}
-      <img
+      <Picture
         className={`buddy no-select ${shake ? 'hitShake' : ''}`}
         src="/assets/images/GY83tsk.png"
-        alt="facebuddy"
+        alt="Facebuddy character"
         onClick={() => {
           doShake();
           createHitMarker(life);

@@ -2,6 +2,7 @@ import React, { useContext, useState, useRef, useCallback } from 'react';
 import './mainBanner.scss';
 import { CopyWidget } from '../CopyWidget/CopyWidget';
 import { Context } from '../../Store';
+import { Picture } from '../Picture/Picture';
 
 export const MainBanner = () => {
   const [state] = useContext(Context);
@@ -86,9 +87,10 @@ export const MainBanner = () => {
         background video
       </video>
       <div className={state.mobile ? 'mobileTitle' : 'desktopTitle'}>
-        <img
+        <h1 className="sr-only">Faceland RPG - Free Minecraft MMORPG Server</h1>
+        <Picture
           src="/assets/images/AtRhZD2.png"
-          alt="Website Img"
+          alt="Faceland RPG Logo"
           onClick={handleLogoClick}
         />
         <div style={{ position: 'relative', top: '-10%' }}>

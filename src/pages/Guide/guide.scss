@@ -33,7 +33,7 @@
       background: linear-gradient(90deg, transparent, #4488dd, transparent);
     }
 
-    p {
+    h1, p {
       font-weight: 650;
       font-size: 1.3em;
       padding: 0;
@@ -109,6 +109,10 @@
     position: relative;
     width: 100%;
 
+    img, picture {
+      image-rendering: auto;
+    }
+
     img {
       width: 100%;
       min-height: 250px;
@@ -165,6 +169,10 @@
 
     &.closing {
       animation: collapseToOrigin 0.2s linear forwards;
+    }
+
+    img, picture {
+      image-rendering: auto;
     }
 
     img {

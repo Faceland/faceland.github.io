@@ -4,6 +4,7 @@ import { Footer } from '../../components/Footer/Footer';
 import { Context } from '../../Store';
 import { DiscordWidget } from '../../components/DiscordWidget/DiscordWidget';
 import { SEO } from '../../components/SEO/SEO';
+import { Picture } from '../../components/Picture/Picture';
 import './guide.scss';
 
 const FaqItem = ({ question, image, children, isOpen, onToggle }) => {
@@ -12,6 +13,7 @@ const FaqItem = ({ question, image, children, isOpen, onToggle }) => {
       <button
         className={`faq-question ${isOpen ? 'open' : ''}`}
         onClick={onToggle}
+        aria-expanded={isOpen}
       >
         {question}
       </button>
@@ -236,6 +238,78 @@ const faqContent = {
     ),
 };
 
+// FAQ structured data for SEO
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What Is Faceland?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Faceland is a Minecraft server that functions like a classic MMORPG! That basically means that you fight monsters to get stronger, complete quests, and get rare items. The server is 100% free and doesn't feature any pay2win or manipulative micro-transactions. You can join via the IP BETA.FACE.LAND!"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How Do I Play Faceland?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "After connecting to Faceland via your normal Minecraft launcher (IP BETA.FACE.LAND) You'll find yourself in the tutorial area. Be sure to read all floating text or signs for help! Pick a starter setup from one of the options presented to you, and begin your adventure!"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How To Fight in Faceland?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A lot of the appeal of Faceland comes from combat! Try attacking normally or pressing your number keys (1-4) to cast abilities. You can open your inventory to inspect your abilities further, and see their exact effects."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How To Use Abilities?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To use your abilities, press a number key between 1 and 3 with the appropriate weapon equipped. This will 'cast' the ability. Abilities appear in your hotbar. You start out with three basic abilities based on your fighting style choice in the tutorial. By visiting any Ability Trainer in a town, you can change your abilities at any time!"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why Is My Food Bar Weird? What Is Energy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On Faceland, your vanilla food bar reflects your energy, rather than hunger. Energy automatically recharges over time, or can be recovered with items such as potions. Energy is used to attack, sprint, and cast abilities. These actions may not work if your energy is too low."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How Do Skills And Leveling Work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When you kill enemies, you get experience. Your normal Minecraft experience bar and level show you your progress and current level. Your level gives you Levelpoints, which can be used to increase your stats. Use /levelup every time you go up a level and get stronger! Skills can be viewed by using /skills."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How Do Quests Work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Doing /quests will bring up your quest menu, and give you a guide of your current tasks. Completing quests grants various rewards such as items, experience, and unlocking additional quests. Quests also grant QuestPoints when completed, which unlock extra bank storage and reduce money dropped on death."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How Does Item And Money Storage Work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When you die, you drop most of your carried money, and can randomly drop some of your items that aren't equipped! To prevent this, be sure to store extra cash and items at the bank! There's one in every town!"
+      }
+    }
+  ]
+};
+
 export const Guide = () => {
   const [state] = useContext(Context);
   const [openItems, setOpenItems] = useState(['what-is-faceland']);
@@ -277,6 +351,22 @@ export const Guide = () => {
       window.removeEventListener('resize', handleScroll);
     };
   }, [state.mobile, openItems]);
+
+  // Inject FAQPage structured data for SEO
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'faq-structured-data';
+    script.textContent = JSON.stringify(faqStructuredData);
+    document.head.appendChild(script);
+
+    return () => {
+      const existingScript = document.getElementById('faq-structured-data');
+      if (existingScript) {
+        existingScript.remove();
+      }
+    };
+  }, []);
 
   const handleExpandImage = () => {
     if (imageWrapperRef.current) {
@@ -350,7 +440,7 @@ export const Guide = () => {
             overflow: 'hidden',
           }}
         >
-          <img
+          <Picture
             style={{
               display: 'block',
               width: '100vw',
@@ -358,11 +448,11 @@ export const Guide = () => {
               objectFit: 'cover',
             }}
             src="/assets/images/guide-bkg.png"
-            alt="info background"
+            alt="Guide page background"
           />
         </div>
         <div className="infoBanner shadow-normal">
-          <p>Faceland Guide For Epic Gamers</p>
+          <h1>Faceland Guide For Epic Gamers</h1>
         </div>
 
         <div
@@ -381,7 +471,7 @@ export const Guide = () => {
               onClick={handleExpandImage}
             >
               <div className="faq-image-wrapper" ref={imageWrapperRef}>
-                <img src={currentImage} alt="FAQ illustration" />
+                <Picture src={currentImage} alt="FAQ illustration" loading="lazy" />
                 <svg
                   className="faq-magnify-icon"
                   viewBox="0 0 24 24"
@@ -407,7 +497,7 @@ export const Guide = () => {
                   '--origin-height': `${expandOrigin.height}px`,
                 }}
               >
-                <img src={currentImage} alt="FAQ illustration expanded" />
+                <Picture src={currentImage} alt="FAQ illustration expanded" loading="lazy" />
                 <p className="faq-image-expanded-caption">{currentCaption}</p>
               </div>
             </div>

@@ -25,12 +25,13 @@ export const DiscordWidget = () => {
   };
 
   const button = (
-    <div
+    <button
       className="discordButton flex flex-col place-content-center"
       onClick={openWidget}
+      aria-label="Open Discord community widget"
     >
       <DiscordIcon className="h-12" />
-    </div>
+    </button>
   );
 
   const widget = (
@@ -39,7 +40,7 @@ export const DiscordWidget = () => {
         <DiscordIcon className="discordLoadingIcon" />
         <span className="discordLoadingText">Loading...</span>
       </div>
-      <button className="discordCloseButton" onClick={closeWidget}>
+      <button className="discordCloseButton" onClick={closeWidget} aria-label="Close Discord widget">
         ×
       </button>
       <iframe

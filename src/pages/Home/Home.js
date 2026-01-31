@@ -24,13 +24,14 @@ export const Home = (props) => {
       muted
       loop
       src="/assets/videos/mYH3xSq.mp4"
+      poster="/assets/images/yCr2iAD.jpg"
       crossOrigin="anonymous"
     />
   );
 
   const bodyOne = (
     <div>
-      <div className="panelTitle">Over 200 Amazing Abilities</div>
+      <h2 className="panelTitle">Over 200 Amazing Abilities</h2>
       <div className="panelText">
         Faceland has over 200 abilities to unlock! Each ability is unique and
         can range from crazy attacks to buffs for your whole party! Mix and
@@ -52,13 +53,14 @@ export const Home = (props) => {
       muted
       loop
       src="/assets/videos/qUbW0PT.mp4"
+      poster="/assets/images/yCr2iAD.jpg"
       crossOrigin="anonymous"
     />
   );
 
   const bodyTwo = (
     <div>
-      <div className="panelTitle">Skills Aren't Just For Combat!</div>
+      <h2 className="panelTitle">Skills Aren't Just For Combat!</h2>
       <div className="panelText">
         Level up up more than a dozen non-combat skills and become the ultimates
         tradesman! Make your money with Fishing, Enchanting, Crafting, Mining
@@ -79,13 +81,14 @@ export const Home = (props) => {
       muted
       loop
       src="/assets/videos/vYSxlly.mp4"
+      poster="/assets/images/yCr2iAD.jpg"
       crossOrigin="anonymous"
     />
   );
 
   const bodyThree = (
     <div>
-      <div className="panelTitle">Loot Loot Loot!</div>
+      <h2 className="panelTitle">Loot Loot Loot!</h2>
       <div className="panelText">
         Faceland features an amazing random item generation system, as well as
         some rare pre-made items from bosses and monsters! There's infinite

@@ -6,8 +6,17 @@
   "reactSnap": {
     "source": "build",
     "inlineCss": false,
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
-    "include": ["/", "/guide", "/items", "/vote", "/facepals"]
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ],
+    "include": [
+      "/",
+      "/guide",
+      "/items",
+      "/vote",
+      "/facepals"
+    ]
   },
   "dependencies": {
     "@hello-pangea/dnd": "^18.0.1",
@@ -49,7 +58,8 @@
     "test": "node_modules/.bin/react-scripts test",
     "eject": "node_modules/.bin/react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "node_modules/.bin/gh-pages -d build"
+    "deploy": "node_modules/.bin/gh-pages -d build",
+    "convert-images": "node scripts/convert-to-webp.js"
   },
   "eslintConfig": {
     "extends": [
@@ -77,6 +87,7 @@
     "prettier": "^3.1.0",
     "prettier-plugin-tailwindcss": "^0.5.9",
     "react-snap": "^1.23.0",
+    "sharp": "^0.33.5",
     "tailwindcss": "^3.3.6"
   }
 }

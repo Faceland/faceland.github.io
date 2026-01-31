@@ -31,6 +31,25 @@ const selectStyles = {
   }),
   valueContainer: (base) => ({ ...base, paddingTop: 0, paddingBottom: 0 }),
   indicatorsContainer: (base) => ({ ...base, height: 34 }),
+  multiValue: (base) => ({
+    ...base,
+    backgroundColor: '#f0d028',
+    borderRadius: 3,
+  }),
+  multiValueLabel: (base) => ({
+    ...base,
+    color: '#ffffff',
+    fontWeight: 600,
+    textShadow: '0 1px 2px rgba(0,0,0,0.3)',
+  }),
+  multiValueRemove: (base) => ({
+    ...base,
+    color: '#ffffff',
+    ':hover': {
+      backgroundColor: '#d4b020',
+      color: '#ffffff',
+    },
+  }),
   option: (base, state) => ({
     ...base,
     backgroundColor: state.isSelected

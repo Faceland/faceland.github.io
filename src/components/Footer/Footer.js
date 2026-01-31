@@ -12,16 +12,18 @@ export const Footer = (props) => {
       <Buddy />
       <footer className="footer">
         <div className="footer__addr">
-          <h1 className="footer__logo">Faceland RPG</h1>
+          <h3 className="footer__logo">Faceland RPG</h3>
 
           <address>
             1234 ImNotGivingYouWeirdosMyAddress Blvd 42069
-            <p>&copy; 2023 Faceland LLC. All rights reserved.</p>
+            <p>&copy; 2025 Faceland LLC. All rights reserved.</p>
             <p>
               Faceland proudly uses textures from the amazing{' '}
               <a
                 style={{ color: 'white', textDecoration: 'underline' }}
                 href="https://www.curseforge.com/minecraft/texture-packs/excalibur"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Excalibur 16x
               </a>
@@ -36,15 +38,15 @@ export const Footer = (props) => {
 
             <ul className="nav__ul">
               <li>
-                <a href="https://twitter.com/facelandr">Twitter</a>
+                <a href="https://twitter.com/facelandr" target="_blank" rel="noopener noreferrer">Twitter</a>
               </li>
 
               <li>
-                <a href="https://twitter.com/facelandr">Still Twitter</a>
+                <a href="https://twitter.com/facelandr" target="_blank" rel="noopener noreferrer">Still Twitter</a>
               </li>
 
               <li>
-                <a href="https://twitter.com/facelandr">
+                <a href="https://twitter.com/facelandr" target="_blank" rel="noopener noreferrer">
                   Send help, it's just Twitter
                 </a>
               </li>
@@ -56,17 +58,17 @@ export const Footer = (props) => {
 
             <ul className="nav__ul">
               <li>
-                <a href="http://199.127.61.235:8100/#Quest_world:27:0:893:506:0:0:0:0:perspective">
+                <a href="http://199.127.61.235:8100/#Quest_world:27:0:893:506:0:0:0:0:perspective" target="_blank" rel="noopener noreferrer">
                   World Map
                 </a>
               </li>
 
               <li>
-                <a href="https://discord.gg/Gkmk6G2fjd">Discord</a>
+                <a href="https://discord.gg/Gkmk6G2fjd" target="_blank" rel="noopener noreferrer">Discord</a>
               </li>
 
               <li>
-                <a href="https://shop.face.land">Cash Shop</a>
+                <a href="https://shop.face.land" target="_blank" rel="noopener noreferrer">Cash Shop</a>
               </li>
             </ul>
           </li>

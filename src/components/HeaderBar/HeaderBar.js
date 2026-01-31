@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import './headerBar.scss';
 import { Link } from 'react-router-dom';
 import { Context } from '../../Store';
+import { Picture } from '../Picture/Picture';
 
 export const HeaderBar = (props) => {
   const [state] = useContext(Context);
@@ -29,15 +30,16 @@ export const HeaderBar = (props) => {
         <a
           href="http://199.127.61.235:8100/#Quest_world:27:0:893:506:0:0:0:0:perspective"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Map
         </a>
         <Link to="/items">Items</Link>
         <Link to="/facepals">FacePals™</Link>
-        <a href="https://discord.gg/Gkmk6G2fjd" target="_blank">
+        <a href="https://discord.gg/Gkmk6G2fjd" target="_blank" rel="noopener noreferrer">
           Discord
         </a>
-        <a href="https://shop.face.land" target="_blank" className="buyGemsLink">
+        <a href="https://shop.face.land" target="_blank" rel="noopener noreferrer" className="buyGemsLink">
           Buy&nbsp;Gems
         </a>
       </div>
@@ -48,7 +50,7 @@ export const HeaderBar = (props) => {
     <div className={`headerBar barStyle-solid`}>
       <div className="logo mx-1">
         <Link className="logoButton" to="/">
-          <img src="/assets/images/u57KsyA.png" alt="Website Img" />
+          <Picture src="/assets/images/u57KsyA.png" alt="Faceland Logo" />
         </Link>
         <div />
       </div>
@@ -61,11 +63,11 @@ export const HeaderBar = (props) => {
   const desktopHeader = (
     <div className={`headerBar barStyle-${scrollStyle} shadow-normal`}>
       <div className="logo mx-1">
-        <Link to="/" alt="FACELAND ARE PEE GEE CLICK 2 GO HOME">
-          <img
+        <Link to="/">
+          <Picture
             className="logoButton"
             src="/assets/images/u57KsyA.png"
-            alt="Website Img"
+            alt="Faceland Logo"
           />
         </Link>
         <div />
@@ -85,6 +87,7 @@ export const HeaderBar = (props) => {
           className="navButton"
           href="http://199.127.61.235:8100/#Quest_world:27:0:893:506:0:0:0:0:perspective"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <span className="navHover" />
           Map
@@ -101,6 +104,7 @@ export const HeaderBar = (props) => {
           className="navButton"
           href="https://discord.gg/Gkmk6G2fjd"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <span className="navHover" />
           Discord
@@ -111,12 +115,13 @@ export const HeaderBar = (props) => {
           className="facegemButton m-2 bg-gradient-to-b from-purple-300 to-purple-600 px-4"
           href="https://shop.face.land"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <div className="flex items-center whitespace-nowrap font-bold text-white">
             <p>Buy FaceGems!</p>
-            <img
+            <Picture
               src="/assets/images/XAhGG80.png"
-              alt="gem icon"
+              alt="FaceGem icon"
               className="gemImg speed-2 m-1 ml-2 mr-0 h-8"
             />
           </div>

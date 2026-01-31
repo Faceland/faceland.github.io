@@ -165,6 +165,12 @@
       min-width: 171px;
     }
 
+    picture {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
     img {
       height: 100%;
       width: auto;

@@ -13,7 +13,7 @@ export const YeHaplessBuffoon = () => {
           </div>
           <img
             src="/assets/images/eb3dM.gif"
-            alt="aaaaaaaaaa"
+            alt="No search results found"
             className="h-28 w-28"
           />
           <div className="h-full w-full rounded-md bg-black bg-opacity-50 px-1 py-2">

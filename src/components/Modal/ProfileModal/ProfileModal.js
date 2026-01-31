@@ -32,7 +32,7 @@ export const ProfileModal = ({ isOpen, close }) => {
         onRequestClose={close}
         contentLabel="Login Modal"
       >
-        <button className="closeButton" onClick={close}>
+        <button className="closeButton" onClick={close} aria-label="Close modal">
           X
         </button>
         <div className="loginModalContent">
@@ -50,7 +50,7 @@ export const ProfileModal = ({ isOpen, close }) => {
       onRequestClose={close}
       contentLabel="Login Modal"
     >
-      <button className="closeButton" onClick={close}>
+      <button className="closeButton" onClick={close} aria-label="Close profile modal">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"

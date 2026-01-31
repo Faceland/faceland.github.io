@@ -302,6 +302,7 @@ export const Portrait = () => {
         description="Create custom NPC portraits for Faceland! Design unique characters with our FacePals portrait creator tool. Layer different features, colors, and styles."
       />
       <HeaderBar fancy={false} />
+      <h1 className="sr-only">FacePals Character Creator - Design Custom NPC Portraits</h1>
       {state.mobile ? mobileLayout : desktopLayout}
     </div>
   );
