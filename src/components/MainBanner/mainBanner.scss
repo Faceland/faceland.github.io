@@ -42,6 +42,8 @@
     min-height: 350px;
     z-index: -1;
     object-fit: cover; /* combined with 'absolute', works like background-size, but for DOM elements */
+    transform: scale(1.04);
+    filter: blur(0.5px) contrast(0.97) saturate(1.1) brightness(1.02);
   }
 
   .desktopTitle {
