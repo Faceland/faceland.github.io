@@ -12,4 +12,3 @@ Crawl-delay: 1
 
 # Disallow admin or private paths
 Disallow: /api/
-Disallow: /embed
