@@ -368,61 +368,72 @@ export const ShuffleCollection = () => {
   const desktopFilterSection = (
     <div style={{ position: 'sticky', top: 50, zIndex: 100 }}>
       <div style={stickyGradientStyle} />
-      <div className="flexRow align-left padding-full-15" style={{ width: filterWidth, margin: '0 auto', position: 'relative' }}>
-        <div className="width40">
-        <span className="filterTitles">Filter Tags</span>
-        <Select
-          placeholder="Select"
-          isMulti
-          value={selectedTags}
-          options={filterTags}
-          onChange={setSelectedTags}
-          styles={selectStyles}
-        />
-      </div>
-      <div className="width15">
-        <span className="filterTitles">Rarity</span>
-        <Select
-          placeholder="Select"
-          value={selectedRarity}
-          options={rarityOptions}
-          onChange={setSelectedRarity}
-          styles={selectStyles}
-        />
-      </div>
-      <div className="width15">
-        <span className="filterTitles">Item Type</span>
-        <Select
-          placeholder="Select"
-          value={selectedType}
-          options={typeOptions}
-          onChange={setSelectedType}
-          styles={selectStyles}
-        />
-      </div>
-      <div className="width20 searchBox">
-        <span className="filterTitles">Search</span>
-        <DebounceInput
-          placeholder="Enter whatever :O"
-          debounceTimeout={1000}
-          value={searchText}
-          forceNotifyByEnter={true}
-          forceNotifyOnBlur={true}
-          minLength={0}
-          onChange={(e) => setSearchText(e.target.value)}
-        />
-      </div>
-      <div className="width5">
-        <span className="filterTitles">Clear</span>
-        <button
-          className="clearButton"
-          onClick={clearAllFilters}
-          aria-label="Clear all filters"
-          type="button"
-        >
-          <ClearIcon />
-        </button>
-      </div>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'flex-end',
+        gap: '15px',
+        padding: '15px',
+        width: filterWidth,
+        margin: '0 auto',
+        position: 'relative',
+        boxSizing: 'border-box',
+        textAlign: 'left'
+      }}>
+        <div style={{ flex: 4, minWidth: 0 }}>
+          <span className="filterTitles">Filter Tags</span>
+          <Select
+            placeholder="Select"
+            isMulti
+            value={selectedTags}
+            options={filterTags}
+            onChange={setSelectedTags}
+            styles={selectStyles}
+          />
+        </div>
+        <div style={{ flex: 1.5, minWidth: 0 }}>
+          <span className="filterTitles">Rarity</span>
+          <Select
+            placeholder="Select"
+            value={selectedRarity}
+            options={rarityOptions}
+            onChange={setSelectedRarity}
+            styles={selectStyles}
+          />
+        </div>
+        <div style={{ flex: 1.5, minWidth: 0 }}>
+          <span className="filterTitles">Item Type</span>
+          <Select
+            placeholder="Select"
+            value={selectedType}
+            options={typeOptions}
+            onChange={setSelectedType}
+            styles={selectStyles}
+          />
+        </div>
+        <div className="searchBox" style={{ flex: 2, minWidth: 0 }}>
+          <span className="filterTitles">Search</span>
+          <DebounceInput
+            placeholder="Enter whatever :O"
+            debounceTimeout={1000}
+            value={searchText}
+            forceNotifyByEnter={true}
+            forceNotifyOnBlur={true}
+            minLength={0}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+        </div>
+        <div style={{ flexShrink: 0 }}>
+          <span className="filterTitles">Clear</span>
+          <button
+            className="clearButton"
+            onClick={clearAllFilters}
+            aria-label="Clear all filters"
+            type="button"
+          >
+            <ClearIcon />
+          </button>
+        </div>
       </div>
     </div>
   );
