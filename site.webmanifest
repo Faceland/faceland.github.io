@@ -1,1 +1,21 @@
-{"name":"","short_name":"","icons":[{"src":"/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}
+{
+  "name": "Faceland RPG - Minecraft MMORPG",
+  "short_name": "Faceland",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#1a1410",
+  "background_color": "#1a1410",
+  "display": "standalone",
+  "start_url": "/",
+  "description": "A free-to-play Minecraft MMORPG server featuring epic quests, custom classes, unique loot, dungeons, and raids."
+}
