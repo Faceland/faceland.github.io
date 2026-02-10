@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef, useLayoutEffect } from 'react';
+import React, { useState, useEffect, useContext, useRef, useLayoutEffect, useMemo } from 'react';
 import Select from 'react-select';
 import './Shuffle.scss';
 import '../Tooltip/tooltip.scss';
@@ -9,6 +9,7 @@ import { BetterMcText } from './mctext/BetterMcText';
 import { YeHaplessBuffoon } from './YeHaplessBuffoon';
 import { rarityOptions, typeOptions } from './constants';
 import { getCardItems } from './utils';
+import { useWindowVirtualizer } from '@tanstack/react-virtual';
 
 const ClearIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
@@ -84,6 +85,7 @@ export const ShuffleCollection = () => {
   const [selectedCardIds, setSelectedCardIds] = useState(new Set());
   const [filterWidth, setFilterWidth] = useState('100%');
   const [mobileMinWidth, setMobileMinWidth] = useState(340);
+  const [cardsPerRow, setCardsPerRow] = useState(1);
   const [isSticky, setIsSticky] = useState(false);
   const selectedCardIdsRef = useRef(new Set());
   const cardRefs = useRef({});
@@ -110,8 +112,9 @@ export const ShuffleCollection = () => {
     const updateFilterWidth = () => {
       const containerWidth = container.offsetWidth;
       const cardWidth = 340; // 320px card + 20px margin
-      const cardsPerRow = Math.floor(containerWidth / cardWidth);
-      const actualWidth = cardsPerRow * cardWidth + 20; // +20px padding
+      const cpr = Math.max(1, Math.floor(containerWidth / cardWidth));
+      setCardsPerRow(cpr);
+      const actualWidth = cpr * cardWidth + 20; // +20px padding
 
       if (state.mobile) {
         setMobileMinWidth(actualWidth > 0 ? actualWidth : 340);
@@ -244,6 +247,28 @@ export const ShuffleCollection = () => {
       }
     });
   };
+
+  const rows = useMemo(() => {
+    if (filteredItems.length === 0) return [];
+    const result = [];
+    for (let i = 0; i < filteredItems.length; i += cardsPerRow) {
+      result.push(filteredItems.slice(i, i + cardsPerRow));
+    }
+    return result;
+  }, [filteredItems, cardsPerRow]);
+
+  const virtualizer = useWindowVirtualizer({
+    count: rows.length,
+    estimateSize: () => 350,
+    overscan: 5,
+    scrollMargin: cardsContainerRef.current?.offsetTop ?? 0,
+  });
+
+  useEffect(() => {
+    if (animationKey === 0) return;
+    const timer = setTimeout(() => setNewCardIds(new Set()), 1500);
+    return () => clearTimeout(timer);
+  }, [animationKey]);
 
   const applyFilters = () => {
     saveCardPositions();
@@ -587,97 +612,123 @@ export const ShuffleCollection = () => {
   return (
     <div className="relative min-h-[76vh]">
       {state.mobile ? mobileFilterSection : desktopFilterSection}
-      <div ref={cardsContainerRef} className="flex place-content-center" style={{ flexFlow: 'wrap' }}>
-        {filteredItems?.length === 0 ? (
-          <div className="flex place-content-center">
-            <YeHaplessBuffoon />
-          </div>
-        ) : (
-          filteredItems.map((item, index) => {
-            const cardId = getCardId(item);
-            const isNewCard = newCardIds.has(cardId);
-            const isSelected = selectedCardIds.has(cardId);
-            return (
+      {filteredItems?.length === 0 ? (
+        <div ref={cardsContainerRef} className="flex place-content-center">
+          <YeHaplessBuffoon />
+        </div>
+      ) : (
+        <div
+          ref={cardsContainerRef}
+          style={{
+            height: `${virtualizer.getTotalSize()}px`,
+            width: '100%',
+            position: 'relative',
+          }}
+        >
+          {virtualizer.getVirtualItems().map((virtualRow) => (
             <div
-              className={`shuffleCard squishAnimation ${isNewCard ? 'card-enter' : ''} ${isSelected ? 'card-selected' : ''}`}
-              id={`card-${index}`}
-              key={`Card-${cardId}`}
-              ref={el => cardRefs.current[cardId] = el}
+              key={virtualRow.index}
+              data-index={virtualRow.index}
+              ref={virtualizer.measureElement}
               style={{
-                '--card-highlight': `${item?.background}`,
-                animationDelay: isNewCard ? `${Math.min(index * 0.03, 0.5)}s` : '0s'
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                transform: `translateY(${virtualRow.start - (virtualizer.options.scrollMargin ?? 0)}px)`,
+                display: 'flex',
+                justifyContent: 'center',
+                flexWrap: 'wrap',
               }}
-              onClick={(e) => toggleCardSelection(e, cardId)}
-              onMouseMove={(e) => handleMouseMove(e, e.currentTarget)}
-              onMouseLeave={(e) => handleMouseLeave(e.currentTarget)}
             >
-              <span className="highlight-bottom" />
-              <div className={`flex h-full flex-col items-center ${item?.gradient} m0 p-0`}>
-                <div
-                    className={`flex h-full w-full flex-col items-start bg-black/20 p-2 font-semibold transition duration-200 ease-in-out hover:bg-transparent`}>
+              {rows[virtualRow.index].map((item, localIndex) => {
+                const globalIndex = virtualRow.index * cardsPerRow + localIndex;
+                const cardId = getCardId(item);
+                const isNewCard = newCardIds.has(cardId);
+                const isSelected = selectedCardIds.has(cardId);
+                return (
                   <div
-                      className={`squishImg speed-2 absolute ${item?.imageId}`}
-                      style={{width: 32, height: 32, right: '4px', top: '4px'}}
-                  />
-                  <div className="flex w-full flex-row place-content-between">
-                    <BetterMcText
-                        line={item?.name}
-                        className="subtitle ml-0.5"
-                    />
-                  </div>
-                  <div className="mb-2 text-left">
-                    {item?.specialFlag && (
-                        <div className="m-0.5 inline-flex text-[10px] font-semibold uppercase text-white">
-                          <div
-                              className={`rounded-sm px-1 py-0.5 special-${item?.specialFlag}`}
+                    className={`shuffleCard squishAnimation ${isNewCard ? 'card-enter' : ''} ${isSelected ? 'card-selected' : ''}`}
+                    id={`card-${globalIndex}`}
+                    key={`Card-${cardId}`}
+                    ref={el => cardRefs.current[cardId] = el}
+                    style={{
+                      '--card-highlight': `${item?.background}`,
+                      animationDelay: isNewCard ? `${Math.min(globalIndex * 0.03, 0.5)}s` : '0s'
+                    }}
+                    onClick={(e) => toggleCardSelection(e, cardId)}
+                    onMouseMove={(e) => handleMouseMove(e, e.currentTarget)}
+                    onMouseLeave={(e) => handleMouseLeave(e.currentTarget)}
+                  >
+                    <span className="highlight-bottom" />
+                    <div className={`flex h-full flex-col items-center ${item?.gradient} m0 p-0`}>
+                      <div
+                          className={`flex h-full w-full flex-col items-start bg-black/20 p-2 font-semibold transition duration-200 ease-in-out hover:bg-transparent`}>
+                        <div
+                            className={`squishImg speed-2 absolute ${item?.imageId}`}
+                            style={{width: 32, height: 32, right: '4px', top: '4px'}}
+                        />
+                        <div className="flex w-full flex-row place-content-between">
+                          <BetterMcText
+                              line={item?.name}
+                              className="subtitle ml-0.5"
+                          />
+                        </div>
+                        <div className="mb-2 text-left">
+                          {item?.specialFlag && (
+                              <div className="m-0.5 inline-flex text-[10px] font-semibold uppercase text-white">
+                                <div
+                                    className={`rounded-sm px-1 py-0.5 special-${item?.specialFlag}`}
+                                >
+                                  {item?.specialFlag}
+                                </div>
+                              </div>
+                          )}
+                          <button
+                              className="m-0.5 inline-flex text-[10px] font-semibold uppercase text-white"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                const rarityOption = rarityOptions.find(r => r.value === item?.rarity);
+                                if (rarityOption) setSelectedRarity(rarityOption);
+                              }}
                           >
-                            {item?.specialFlag}
+                            <div
+                                className={`rounded-sm px-1 py-0.5 rarity-${item?.rarity}`}
+                            >
+                              {item?.rarity}
+                            </div>
+                          </button>
+                          {item?.groupNames?.map((tag, index2) => (
+                              <button
+                                  className="m-0.5 inline-flex rounded-sm bg-chambray px-1 py-0.5 text-[10px] font-semibold uppercase text-white hover:bg-san-marino"
+                                  key={`tag${index2}`}
+                                  onClick={(e) => { e.stopPropagation(); forceTag(tag); }}
+                              >
+                                {tag}
+                              </button>
+                          ))}
+                        </div>
+                        <div className="h-full w-full rounded-md bg-black/40 px-1 py-2">
+                          <div className="flex h-full flex-col justify-center leading-tight">
+                            {stats(item)}
+                            {item?.enchantable && <div className="enchantable"></div>}
+                            {item?.passives?.length > 0 && passives(item)}
+                            {(item?.gemSlots > 0 || item?.extendSlots > 0) && gemSlots(item)}
+                            {item?.flavorText?.length > 0 && flavorText(item)}
                           </div>
                         </div>
-                    )}
-                    <button
-                        className="m-0.5 inline-flex text-[10px] font-semibold uppercase text-white"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          const rarityOption = rarityOptions.find(r => r.value === item?.rarity);
-                          if (rarityOption) setSelectedRarity(rarityOption);
-                        }}
-                    >
-                      <div
-                          className={`rounded-sm px-1 py-0.5 rarity-${item?.rarity}`}
-                      >
-                        {item?.rarity}
+                        <div className="w-full rounded-md bg-black/40 px-1 py-1 mt-1">
+                          {dropLevel(item)}
+                        </div>
                       </div>
-                    </button>
-                    {item?.groupNames?.map((tag, index2) => (
-                        <button
-                            className="m-0.5 inline-flex rounded-sm bg-chambray px-1 py-0.5 text-[10px] font-semibold uppercase text-white hover:bg-san-marino"
-                            key={`tag${index2}`}
-                            onClick={(e) => { e.stopPropagation(); forceTag(tag); }}
-                        >
-                          {tag}
-                        </button>
-                    ))}
-                  </div>
-                  <div className="h-full w-full rounded-md bg-black/40 px-1 py-2">
-                    <div className="flex h-full flex-col justify-center leading-tight">
-                      {stats(item)}
-                      {item?.enchantable && <div className="enchantable"></div>}
-                      {item?.passives?.length > 0 && passives(item)}
-                      {(item?.gemSlots > 0 || item?.extendSlots > 0) && gemSlots(item)}
-                      {item?.flavorText?.length > 0 && flavorText(item)}
                     </div>
                   </div>
-                  <div className="w-full rounded-md bg-black/40 px-1 py-1 mt-1">
-                    {dropLevel(item)}
-                  </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
-          );
-          })
-        )}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
