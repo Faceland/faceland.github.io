@@ -1,0 +1,42 @@
+# Pets
+%Adopt loyal companions that fight alongside you and brighten your journey.
+
+Pets are companion creatures that follow you through the world, providing combat assistance, passive bonuses, and plenty of charm. Collecting and raising pets is one of the most beloved activities in Faceland.
+
+img:/assets/guides/pets_overview.png
+
+# Finding Pets
+Pets are obtained through various means, each with different rarity and availability.
+
+- Common pets are purchased from pet vendors in major towns
+- Wild pets can be captured using a Pet Snare item in the field
+- Rare pets hatch from eggs dropped by dungeon bosses
+- Event pets are available exclusively during seasonal celebrations
+- Legendary pets are rewarded for exceptional achievements
+
+%Every pet is unique in appearance and personality. Collect them all.
+
+# Pet Abilities
+Each pet has a set of abilities that activate automatically during combat and exploration.
+
+- Combat pets attack enemies alongside you, dealing supplemental damage
+- Tank pets draw enemy attention away from you with taunt abilities
+- Support pets periodically heal you or provide defensive buffs
+- Utility pets detect nearby resources, treasure, or hidden paths
+- Some pets have unique abilities tied to their species
+
+img:/assets/guides/pets_abilities.png
+
+# Raising Your Pet
+Pets gain experience alongside you and grow stronger over time.
+
+- Pets level up by participating in combat encounters
+- Higher level pets deal more damage and have improved abilities
+- Feeding your pet improves its happiness and grants temporary bonuses
+- Pet treats are crafted through the cooking profession
+- A happy pet performs better in combat and activates abilities more often
+
+%Check your pet's happiness regularly. An unhappy pet may refuse to fight.
+
+# Pet Stable
+You can own multiple pets but only have one active at a time. Your remaining pets are stored in the Pet Stable, accessible from any major town. Swap your active pet at the stable based on the content you are tackling, as different pets excel in different situations.

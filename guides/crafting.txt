@@ -1,0 +1,25 @@
+# Crafting
+
+Crafting is the cumulation of all the gathering and mining you've done so far.
+Use the materials you've collected to craft pieces of gear.
+
+# Materials
+Materials have two properties, their level, and tier. The level determines the crafted item's level, and tiers increase the chance of that item being higher quality.
+
+img:/assets/guides/Material.png
+%Has your luck been terrible? Are you in need of urgent gear upgrades? Look no further!
+
+# Recipe Book
+In the recipe book, you can find... recipes... They are slightly different from what you might be used to in vanilla Minecraft.
+
+# Stat Slots
+While crafting, you may end up with an item that has one or more empty stat slots. These can be filled with item essences that you obtain by using salvaging kits on gear.
+
+img:/assets/guides/Crafting_Slot2.png
+%Wow! Bottom text!
+
+# Crafting Level
+Bonuses you get from leveling your crafting are quite straightforward, you craft better items, along with having a higher chance to get empty slots on the items you craft.
+
+img:/assets/guides/Crafting_level.png
+%MOre text!

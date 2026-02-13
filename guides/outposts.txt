@@ -1,0 +1,42 @@
+# Outposts
+%Claim territory, defend your ground, and dominate the frontier.
+
+Outposts are capturable territorial locations spread across the wilderness of Faceland. Guilds compete to control outposts, which provide resource bonuses, strategic advantages, and bragging rights.
+
+img:/assets/guides/outposts_overview.png
+
+# Capturing an Outpost
+Taking control of an outpost requires coordination, combat skill, and determination.
+
+- Approach an unclaimed or enemy-held outpost with your guild
+- Begin the capture process by interacting with the outpost flag
+- Defend the capture point against enemy players and NPC guards
+- The capture bar fills over several minutes of uncontested control
+- Once captured, the outpost flies your guild's banner
+
+%Outpost captures are contested events. Bring a full group and prepare for a fight.
+
+# Outpost Benefits
+Controlling outposts provides significant advantages to the holding guild.
+
+- Resource nodes near the outpost generate bonus materials for your guild
+- A respawn point is established at controlled outposts
+- Vendor access allows buying and selling without returning to town
+- Defensive structures can be built to fortify your position
+- Nearby gathering and mining yields are increased for guild members
+
+img:/assets/guides/outposts_territory.png
+
+# Defending Your Outpost
+Once captured, rival guilds will attempt to take your outpost. Maintaining control requires vigilance.
+
+- Build walls, turrets, and barriers using guild resources
+- Station guild members as guards during peak attack hours
+- Upgrade the outpost's NPC defenders for passive protection
+- Set traps along common approach routes to slow attackers
+- Reinforce the capture point to extend the time needed to recapture
+
+%Well-defended outposts can hold for days, providing sustained income for your guild.
+
+# Outpost Warfare
+Large-scale outpost battles are some of the most exciting events in Faceland. When multiple guilds converge on a valuable outpost, the resulting conflict tests strategy, teamwork, and individual skill. Coordinate with your guild to time assaults during off-peak hours or mount surprise raids.

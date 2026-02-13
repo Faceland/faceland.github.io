@@ -1,0 +1,42 @@
+# Fishing
+%Cast your line and reel in the catch of a lifetime.
+
+Fishing is a relaxing yet rewarding profession in Faceland. Sit by any body of water, cast your line, and wait for a bite. The fish you catch can be cooked for powerful food buffs or sold for a tidy profit.
+
+img:/assets/guides/fishing_overview.png
+
+# Basic Fishing
+Getting started with fishing is simple and requires minimal investment.
+
+- Purchase a fishing rod from any tool vendor in town
+- Stand near the edge of any body of water and cast your line
+- Watch for the bobber to dip beneath the surface, then reel in
+- Different water types contain different species of fish
+- Your fishing level increases with each successful catch
+
+%Patience is a fisherman's greatest virtue. Rare catches take time.
+
+# Fish Species
+Faceland's waters are home to a wide variety of fish, each with unique properties and uses.
+
+- Sunscale Trout is common in rivers and a staple cooking ingredient
+- Moonlit Bass appears in lakes during nighttime hours
+- Ironjaw Pike inhabits deep underground waterways
+- Glacial Salmon swims in the frozen northern streams
+- Ember Koi is an extremely rare fish found near volcanic hot springs
+
+img:/assets/guides/fishing_species.png
+
+# Fishing Perks
+As your fishing skill grows, you gain access to perks that improve your catch rate and rewards.
+
+- Quick Reflexes shortens the reaction window needed to reel in fish
+- Deep Cast allows your line to reach deeper water where rarer fish swim
+- Lucky Angler increases the chance of catching uncommon species
+- Treasure Hunter gives a small probability of hooking treasure chests
+- Master Fisher reduces the chance of your line snapping on large catches
+
+%Combine fishing with cooking to create some of the best food buffs in the game.
+
+# Fishing Hotspots
+Certain locations are known for exceptional fishing. The crystal lake in the central highlands produces rare catches consistently, while the river delta near the coast offers high-volume fishing for traders. Explore different bodies of water to discover your favorite spots.

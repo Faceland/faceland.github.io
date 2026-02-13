@@ -1,0 +1,42 @@
+# Agility
+%Move swiftly, jump precisely, and leave your rivals in the dust.
+
+Agility is a unique skill trained by completing parkour courses and obstacle challenges scattered across the world. Increasing your agility level grants permanent movement bonuses and unlocks access to hidden shortcuts.
+
+img:/assets/guides/agility_overview.png
+
+# Agility Courses
+Agility courses are specially designed obstacle runs found in various locations. Each course tests your jumping and movement skills.
+
+- Beginner courses are located near spawn and teach basic mechanics
+- Intermediate courses introduce moving platforms and timed sections
+- Advanced courses feature complex multi-stage parkour challenges
+- Elite courses are hidden and require high agility levels to attempt
+- Completing a course awards agility experience and sometimes loot
+
+%Each course can be repeated, but experience diminishes after the first daily completion.
+
+# Movement Bonuses
+Higher agility levels passively improve your character's movement capabilities.
+
+- Base movement speed increases slightly with every 10 levels
+- Jump height receives small boosts at key milestones
+- Fall damage is progressively reduced as your agility grows
+- Sprint duration extends, letting you run farther without stopping
+- Dodge chance increases, giving a small probability to avoid attacks
+
+img:/assets/guides/agility_perks.png
+
+# Shortcuts
+Throughout the world, certain paths are blocked by agility gates that require a minimum agility level to pass through. These shortcuts significantly reduce travel time between locations.
+
+- Level 15 shortcuts bypass common terrain obstacles
+- Level 30 shortcuts provide access to hidden cave entrances
+- Level 50 shortcuts connect distant towns directly
+- Level 75 shortcuts lead to secret areas with rare resources
+- Level 99 shortcuts grant access to the legendary rooftop paths
+
+%Agility shortcuts are some of the most useful unlocks in the entire game.
+
+# Training Tips
+Focus on courses appropriate for your level to maximize experience gain. Running courses that are too easy provides minimal experience, while courses far above your level may be impossible to complete. Find the sweet spot and run your daily courses consistently.

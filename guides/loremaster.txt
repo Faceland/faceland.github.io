@@ -1,0 +1,42 @@
+# Loremaster
+%Uncover the hidden stories woven into the fabric of Faceland.
+
+The Loremaster skill represents your character's knowledge of the world's history, creatures, and secrets. As you explore, read ancient texts, and discover hidden lore, your understanding deepens and tangible benefits emerge.
+
+img:/assets/guides/loremaster_overview.png
+
+# Discovering Lore
+Lore entries are found throughout the world in various forms, each providing experience toward your Loremaster skill.
+
+- Ancient books and scrolls are hidden in libraries, ruins, and dungeons
+- Talking to specific NPCs reveals stories and historical accounts
+- Examining mysterious artifacts and landmarks yields lore fragments
+- Defeating certain bosses for the first time unlocks bestiary entries
+- Completing lore-related quests fills in major story chapters
+
+%Many lore discoveries are hidden in plain sight. Explore thoroughly and interact with everything.
+
+# Loremaster Benefits
+Increasing your Loremaster level grants practical gameplay advantages alongside the narrative rewards.
+
+- Higher levels reveal enemy health bars and weak points
+- Bestiary knowledge grants bonus damage against studied creatures
+- Ancient languages can be deciphered, unlocking secret quests
+- Trap detection improves, highlighting hidden dangers in dungeons
+- Rare vendor dialogues unlock, offering exclusive items for purchase
+
+img:/assets/guides/loremaster_codex.png
+
+# The Codex
+All discovered lore is stored in your personal Codex, an in-game journal organized by topic and region.
+
+- World History covers the major events that shaped Faceland
+- Bestiary catalogs every creature you have studied
+- Geography details regions, landmarks, and points of interest
+- Characters documents notable NPCs and their backgrounds
+- Mysteries tracks unsolved riddles and incomplete lore chains
+
+%Completing an entire Codex section rewards unique cosmetic items and titles.
+
+# Lore Hunting Tips
+Join forces with other players to tackle lore hunts more efficiently. Some lore entries require multiple players to access, and sharing discoveries helps everyone fill their Codex faster. The community wiki is a valuable resource for tracking down elusive entries.
