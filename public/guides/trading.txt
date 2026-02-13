@@ -1,0 +1,50 @@
+# Trading
+%Master the marketplace and build your fortune through shrewd deals.
+
+Trading is the economic backbone of Faceland. Whether you are selling crafted goods, rare materials, or hard-won dungeon loot, understanding the trading system lets you turn your efforts into wealth.
+
+img:/assets/guides/trading_overview.png
+
+# The Marketplace
+The central marketplace is where players list items for sale and browse offers from others. It operates as a persistent auction-style system.
+
+- List items for sale at any marketplace kiosk in major towns
+- Set your own asking price or use the suggested market value
+- Listings remain active for 48 hours before expiring
+- Sold items deliver currency directly to your account
+- A small listing fee is charged to prevent spam listings
+
+%Check current market prices before listing to avoid underselling valuable items.
+
+# Direct Trading
+For immediate transactions, players can trade directly with each other face to face.
+
+- Approach another player and send a trade request
+- Both parties place items and currency into the trade window
+- Both must confirm before the trade executes
+- A trade log records all transactions for dispute resolution
+- Direct trades have no listing fee but require both players to be present
+
+img:/assets/guides/trading_market.png
+
+# Supply and Demand
+Prices on the marketplace fluctuate based on player activity and game events.
+
+- Consumables like potions spike in price before major dungeon events
+- Crafting materials drop in value when new gathering areas are discovered
+- Rare drops from limited-time events command premium prices
+- Equipment prices vary based on the current meta and popular builds
+- Seasonal events often introduce exclusive tradeable cosmetics
+
+%Savvy traders buy low during quiet periods and sell high during peak demand.
+
+# Trading Perks
+The trading skill levels up as you complete transactions, unlocking useful perks.
+
+- Reduced marketplace listing fees at higher trading levels
+- Access to bulk listing tools for selling large quantities
+- Ability to place buy orders for specific items you need
+- Expanded marketplace listing slots for more simultaneous sales
+- Reputation bonuses that attract more buyers to your listings
+
+%Building a reputation as a reliable trader attracts repeat customers.

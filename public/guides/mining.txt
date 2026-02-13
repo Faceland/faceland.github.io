@@ -1,0 +1,41 @@
+# Mining
+%Dig deep and unearth the riches hidden beneath the surface.
+
+Mining is one of the primary gathering professions in Faceland. By breaking ore veins scattered throughout the world, you collect valuable materials used in crafting, upgrading, and trading.
+
+img:/assets/guides/mining_overview.png
+
+# Getting Started
+To begin mining, you need a pickaxe and access to any area with ore deposits. Ore veins appear as distinct blocks embedded in stone throughout caves and mountainsides.
+
+- Visit a tool vendor to purchase your first pickaxe
+- Approach an ore vein and begin breaking it to collect materials
+- Higher tier ores require a higher mining level to harvest
+- Your mining level increases with every ore you successfully mine
+
+%Mining is a great way to earn currency early on, as ore is always in demand.
+
+# Ore Types
+The world contains many types of ore, each found at different depths and locations.
+
+- Copper ore is abundant near the surface and smelts into basic ingots
+- Iron ore appears in shallow caves and is used for mid-tier crafting
+- Gold ore is found deeper underground and has high trade value
+- Mythril ore spawns in dangerous areas and is prized for enchanting
+- Starmetal ore is the rarest and only appears in specific biomes
+
+img:/assets/guides/mining_ores.png
+
+# Mining Perks
+As your mining level increases, you unlock special perks that improve your efficiency and rewards.
+
+- Double Strike has a chance to yield bonus ore from each vein
+- Prospector highlights nearby ore veins through walls
+- Efficient Swing reduces the time needed to break ore blocks
+- Gemfinder gives a small chance to discover gems while mining
+- Master Miner increases the yield from all ore types
+
+%Perks are unlocked at milestone levels and remain active permanently.
+
+# Mining Locations
+Different regions of the map specialize in different ore types. The northern mountains are rich in iron and mythril, while the eastern caverns hold abundant gold deposits. Explore new areas to discover mining hotspots that match your current level.

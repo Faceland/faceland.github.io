@@ -1,0 +1,42 @@
+# Sneak
+%Move unseen through the shadows and strike when least expected.
+
+Sneak is a stealth-focused skill that allows you to avoid enemy detection, bypass dangerous encounters, and execute devastating surprise attacks. A high sneak level opens up an entirely different approach to gameplay.
+
+img:/assets/guides/sneak_overview.png
+
+# Stealth Mechanics
+When you enter sneak mode, your character crouches and becomes harder for enemies to detect. Detection depends on several factors.
+
+- Distance from the enemy affects detection chance significantly
+- Light level plays a role, with darkness providing better cover
+- Movement speed matters, as running while sneaking increases noise
+- Enemy type influences awareness, with some mobs being more alert
+- Your sneak level directly reduces the detection radius around you
+
+%Enter sneak mode by crouching. A visibility indicator shows how hidden you are.
+
+# Sneak Attacks
+Attacking an enemy while undetected triggers a sneak attack, dealing massively increased damage.
+
+- Sneak attacks deal double damage at base sneak levels
+- Higher sneak levels increase the damage multiplier further
+- Critical hits during sneak attacks stack multiplicatively
+- Certain weapons have bonus sneak attack damage modifiers
+- Successfully eliminating an enemy in one sneak attack keeps you hidden
+
+img:/assets/guides/sneak_attack.png
+
+# Sneak Perks
+Progressing through sneak levels unlocks perks that enhance your stealth capabilities.
+
+- Shadow Step makes your footsteps completely silent while sneaking
+- Cloak of Darkness reduces detection range in dimly lit areas
+- Pickpocket allows you to steal items from certain NPCs
+- Vanish lets you re-enter stealth during combat with a cooldown
+- Ghost Walk makes you temporarily invisible for a short duration
+
+%Sneak pairs exceptionally well with high-damage weapons for a burst assassin playstyle.
+
+# Stealth Dungeons
+Certain dungeons feature optional stealth paths that allow skilled sneakers to bypass entire encounters and reach treasure rooms directly. These paths are marked by subtle environmental clues and require high sneak levels to navigate without being detected.

@@ -43,17 +43,17 @@ export const HeaderBar = (props) => {
         <Link to="/">Home</Link>
         <Link to="/guide">Guide</Link>
         <Link to="/vote">Vote</Link>
+        <Link to="/items">Items</Link>
+        <Link to="/facepals">FacePals™</Link>
         <a
           href={mapUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
-          Map
+          Map&#8239;&#x2197;
         </a>
-        <Link to="/items">Items</Link>
-        <Link to="/facepals">FacePals™</Link>
         <a href="https://discord.gg/Gkmk6G2fjd" target="_blank" rel="noopener noreferrer">
-          Discord
+          Discord&#8239;&#x2197;
         </a>
         <a href="https://shop.face.land" target="_blank" rel="noopener noreferrer" className="buyGemsLink">
           Buy&nbsp;Gems
@@ -104,15 +104,6 @@ export const HeaderBar = (props) => {
           <span className="navHover" />
           Vote
         </Link>
-        <a
-          className="navButton"
-          href={mapUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="navHover" />
-          Map
-        </a>
         <Link className="navButton" to="/items">
           <span className="navHover" />
           Items
@@ -123,12 +114,21 @@ export const HeaderBar = (props) => {
         </Link>
         <a
           className="navButton"
+          href={mapUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="navHover" />
+          Map&#8239;&#x2197;
+        </a>
+        <a
+          className="navButton"
           href="https://discord.gg/Gkmk6G2fjd"
           target="_blank"
           rel="noopener noreferrer"
         >
           <span className="navHover" />
-          Discord
+          Discord&#8239;&#x2197;
         </a>
       </div>
       <div className="profileSection h-fit">

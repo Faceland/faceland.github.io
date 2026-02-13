@@ -1,0 +1,42 @@
+# Guilds
+%Join forces with fellow adventurers and build something greater than yourself.
+
+Guilds are player-run organizations that provide a social framework, shared resources, and access to exclusive group content. Being part of a guild enhances nearly every aspect of the Faceland experience.
+
+img:/assets/guides/guilds_overview.png
+
+# Joining a Guild
+Finding the right guild is the first step toward a richer multiplayer experience.
+
+- Browse active guilds through the Guild Board in any major city
+- Read guild descriptions to find one matching your playstyle
+- Send an application to guilds that interest you
+- Guild leaders review applications and accept new members
+- You can only belong to one guild at a time
+
+%Look for guilds that share your goals, whether that is raiding, trading, or casual exploration.
+
+# Guild Ranks and Permissions
+Guilds have a rank system that determines what each member can do within the organization.
+
+- The Guild Master has full control over all guild settings and members
+- Officers can invite and kick members and manage guild events
+- Veterans have access to the guild vault and advanced permissions
+- Members are standard rank with basic guild access
+- Recruits are new members with limited permissions during a trial period
+
+img:/assets/guides/guilds_ranks.png
+
+# Guild Benefits
+Being in a guild provides tangible gameplay advantages beyond social connection.
+
+- Shared guild vault for storing and distributing items among members
+- Guild-wide experience bonuses that increase with guild level
+- Access to guild-exclusive quests and dungeon challenges
+- A private guild chat channel for coordination and socializing
+- Guild outposts that provide territorial advantages in the open world
+
+%Active guilds that complete challenges together level up faster, unlocking better perks.
+
+# Guild Events
+Guilds can organize events including dungeon raids, PvP tournaments, and community gatherings. Guild leaders schedule events through the guild calendar, and members can sign up in advance. Participating in guild events builds camaraderie and earns exclusive guild rewards.
