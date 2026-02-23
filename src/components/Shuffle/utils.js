@@ -2,6 +2,8 @@ import gems from './data/gems.json';
 import tomes from './data/tomes.json';
 import uniques from './data/uniques.json';
 import scrolls from './data/scrolls.json';
+import fish from './data/fish.json';
+import materials from './data/materials.json';
 
 export const getCardItems = () => {
   const newItems = [];
@@ -10,7 +12,6 @@ export const getCardItems = () => {
     item.type = 'gem';
     item.background = '#10c810';
     item.gradient = `bg-gradient-to-bl from-gordons-green to-gordons-green-end`;
-    //item.imageId = 'socketGemImg'
     newItems.push(item);
   }
   for (const [key, value] of Object.entries(tomes)) {
@@ -18,15 +19,13 @@ export const getCardItems = () => {
     item.type = 'tome';
     item.background = '#2869f4';
     item.gradient = `bg-gradient-to-bl from-murder-brown to-murder-brown-end`;
-    //item.imageId = 'bookImg'
     newItems.push(item);
   }
   for (const [key, value] of Object.entries(uniques)) {
     const item = value;
     item.type = 'unique';
-    item.background = '#d99712';
+    item.background = '#d97612';
     item.gradient = `bg-gradient-to-bl from-kilamanjaro to-kilamanjaro-end`;
-    //item.imageId = 'swordImg'
     newItems.push(item);
   }
   for (const [key, value] of Object.entries(scrolls)) {
@@ -34,7 +33,20 @@ export const getCardItems = () => {
     item.type = 'scroll';
     item.background = '#34981a';
     item.gradient = `bg-gradient-to-bl from-black-forest to-black-forest-end`;
-    //item.imageId = 'scrollImg'
+    newItems.push(item);
+  }
+  for (const [key, value] of Object.entries(fish)) {
+    const item = value;
+    item.type = 'fish';
+    item.background = '#4bdffa';
+    item.gradient = `bg-gradient-to-bl from-deep-sea to-deep-sea-end`;
+    newItems.push(item);
+  }
+  for (const [key, value] of Object.entries(materials)) {
+    const item = value;
+    item.type = 'material';
+    item.background = '#ffc23f';
+    item.gradient = `bg-gradient-to-bl from-gold-dust to-gold-dust-end`;
     newItems.push(item);
   }
 

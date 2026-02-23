@@ -4,6 +4,8 @@ export const typeOptions = [
   { value: 'tome', label: 'Tome' },
   { value: 'scroll', label: 'Scroll' },
   { value: 'unique', label: 'Unique' },
+  { value: 'fish', label: 'Fish' },
+  { value: 'material', label: 'Material' },
 ];
 
 export const rarityOptions = [

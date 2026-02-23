@@ -19,6 +19,10 @@ module.exports = withMT({
       'murder-brown-end': '#0f132d',
       'kilamanjaro': '#2c0d01',
       'kilamanjaro-end': '#1E0802',
+      'deep-sea': '#082a3a',
+      'deep-sea-end': '#051a24',
+      'gold-dust': '#3a2a08',
+      'gold-dust-end': '#241a05',
     },
     extend: {
       backgroundImage: {
