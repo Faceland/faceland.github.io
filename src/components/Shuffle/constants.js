@@ -13,3 +13,19 @@ export const rarityOptions = [
   { value: 'Rare', label: 'Rare' },
   { value: 'Epic', label: 'Epic' },
 ];
+
+export const sortOptions = [
+  { value: 'name-asc', label: 'By Name A-Z' },
+  { value: 'name-desc', label: 'By Name Z-A' },
+  { value: 'level-desc', label: 'By Highest Level' },
+  { value: 'level-asc', label: 'By Lowest Level' },
+  { value: 'rarity-desc', label: 'By Most Rare' },
+  { value: 'rarity-asc', label: 'By Most Common' },
+];
+
+export const rarityRank = {
+  'Common': 0,
+  'Uncommon': 1,
+  'Rare': 2,
+  'Epic': 3,
+};

@@ -7,7 +7,7 @@ import { DebounceInput } from 'react-debounce-input';
 import { Context } from '../../Store';
 import { BetterMcText } from './mctext/BetterMcText';
 import { YeHaplessBuffoon } from './YeHaplessBuffoon';
-import { rarityOptions, typeOptions } from './constants';
+import { rarityOptions, typeOptions, sortOptions, rarityRank } from './constants';
 import { getCardItems } from './utils';
 import { useWindowVirtualizer } from '@tanstack/react-virtual';
 
@@ -78,6 +78,7 @@ export const ShuffleCollection = () => {
     label: 'Gem',
   });
   const [selectedRarity, setSelectedRarity] = useState();
+  const [selectedSort, setSelectedSort] = useState({ value: 'name-asc', label: 'By Name A-Z' });
   const [searchText, setSearchText] = useState();
   const [filterTags, setFilterTags] = useState([]);
   const [animationKey, setAnimationKey] = useState(0);
@@ -146,7 +147,7 @@ export const ShuffleCollection = () => {
     if (cardItems.length > 0) {
       applyFilters();
     }
-  }, [searchText, selectedTags, selectedRarity, selectedType, cardItems]);
+  }, [searchText, selectedTags, selectedRarity, selectedType, selectedSort, cardItems]);
 
   const toggleCardSelection = (e, cardId) => {
     e.stopPropagation();
@@ -290,11 +291,23 @@ export const ShuffleCollection = () => {
         const bSelected = currentSelectedIds.has(bId);
         if (aSelected && !bSelected) return -1;
         if (bSelected && !aSelected) return 1;
-        return a.strippedName < b.strippedName
-          ? -1
-          : a.strippedName > b.strippedName
-            ? 1
-            : 0;
+
+        const sortVal = selectedSort?.value || 'name-asc';
+        switch (sortVal) {
+          case 'name-desc':
+            return b.strippedName.localeCompare(a.strippedName);
+          case 'level-desc':
+            return (b.level ?? -1) - (a.level ?? -1) || a.strippedName.localeCompare(b.strippedName);
+          case 'level-asc':
+            return (a.level ?? -1) - (b.level ?? -1) || a.strippedName.localeCompare(b.strippedName);
+          case 'rarity-desc':
+            return (rarityRank[b.rarity] ?? -1) - (rarityRank[a.rarity] ?? -1) || a.strippedName.localeCompare(b.strippedName);
+          case 'rarity-asc':
+            return (rarityRank[a.rarity] ?? -1) - (rarityRank[b.rarity] ?? -1) || a.strippedName.localeCompare(b.strippedName);
+          case 'name-asc':
+          default:
+            return a.strippedName.localeCompare(b.strippedName);
+        }
       });
 
     const newIds = new Set(newFiltered.map(getCardId));
@@ -373,6 +386,7 @@ export const ShuffleCollection = () => {
     setSelectedTags([]);
     setSelectedType(null);
     setSelectedRarity(null);
+    setSelectedSort({ value: 'name-asc', label: 'By Name A-Z' });
     setSearchText('');
   };
 
@@ -433,6 +447,16 @@ export const ShuffleCollection = () => {
             value={selectedType}
             options={typeOptions}
             onChange={setSelectedType}
+            styles={selectStyles}
+          />
+        </div>
+        <div style={{ flex: 2, minWidth: 0 }}>
+          <span className="filterTitles">Sort By</span>
+          <Select
+            placeholder="Select"
+            value={selectedSort}
+            options={sortOptions}
+            onChange={setSelectedSort}
             styles={selectStyles}
           />
         </div>
@@ -498,17 +522,17 @@ export const ShuffleCollection = () => {
             styles={selectStyles}
           />
         </div>
-        <button
-          className="clearButton"
-          style={{ minWidth: '39px', height: '39px' }}
-          onClick={clearAllFilters}
-          aria-label="Clear all filters"
-          type="button"
-        >
-          <ClearIcon />
-        </button>
+        <div style={{ flex: 1 }}>
+          <Select
+            placeholder="Sort By"
+            value={selectedSort}
+            options={sortOptions}
+            onChange={setSelectedSort}
+            styles={selectStyles}
+          />
+        </div>
       </div>
-      <div className="flexRow align-left" style={{ padding: '4px 15px 8px' }}>
+      <div className="flexRow align-left" style={{ padding: '4px 15px 8px', gap: '8px' }}>
         <div className="width100 searchBox">
           <DebounceInput
             placeholder="Search..."
@@ -520,6 +544,15 @@ export const ShuffleCollection = () => {
             onChange={(e) => setSearchText(e.target.value)}
           />
         </div>
+        <button
+          className="clearButton"
+          style={{ minWidth: '39px', height: '39px' }}
+          onClick={clearAllFilters}
+          aria-label="Clear all filters"
+          type="button"
+        >
+          <ClearIcon />
+        </button>
       </div>
       </div>
     </div>
