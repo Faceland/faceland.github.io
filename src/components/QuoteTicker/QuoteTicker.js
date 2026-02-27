@@ -21,6 +21,10 @@ export const QuoteTicker = () => {
       author: 'minecraft-servers-list.gov',
     },
     {
+      text: '...this game is FULL OF IT',
+      author: 'Kisu Kagante',
+    },
+    {
       text: 'I need OP to review your server, or it will be removed...',
       author: 'PMC Server Reviewer',
     },
