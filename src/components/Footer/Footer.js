@@ -59,7 +59,7 @@ export const Footer = (props) => {
             {/* TODO: Map subdomain (map.face.land) is pending HTTPS setup - using IP address temporarily */}
             <ul className="nav__ul">
               <li>
-                <a href="http://199.127.61.235:8100/#Quest_world:27:0:893:506:0:0:0:0:perspective" target="_blank" rel="noopener noreferrer">
+                <a href="http://199.127.61.235:8100/#quest_world:-4:90:870:166:-2.18:0.4:0:0:perspective" target="_blank" rel="noopener noreferrer">
                   World Map
                 </a>
               </li>

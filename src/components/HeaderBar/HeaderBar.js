@@ -28,7 +28,7 @@ export const HeaderBar = (props) => {
   };
 
   // TODO: Map subdomain (map.face.land) is pending HTTPS setup - using IP address temporarily
-  const mapUrl = 'http://199.127.61.235:8100/#Quest_world:27:0:893:506:0:0:0:0:perspective';
+  const mapUrl = 'http://199.127.61.235:8100/#quest_world:-4:90:870:166:-2.18:0.4:0:0:perspective';
 
   const burger = (
     <div
