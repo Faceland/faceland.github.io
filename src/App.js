@@ -80,7 +80,7 @@ function App() {
             <Route path="arenas" element={<ArenasGuide />} />
           </Route>
           <Route path="facepals" element={<Portrait />} />
-          <Route path="*" element={<Home />} />
+<Route path="*" element={<Home />} />
         </Routes>
       </Store>
     </Router>
