@@ -1,10 +1,19 @@
 import { useEffect } from 'react';
 
+// Fixed production origin. We must NOT derive this from window.location, because
+// react-snap pre-renders these pages inside a headless browser running on
+// http://localhost:45678. Using the live origin baked a "localhost" canonical /
+// og:url into the static HTML, which made Google treat each real page as a
+// duplicate of an unreachable URL and drop it from the index.
+const SITE_ORIGIN = 'https://face.land';
+
 export const SEO = ({ title, description }) => {
   useEffect(() => {
-    // Get the current page URL for canonical and OG tags
-    const currentUrl = window.location.href.split('?')[0]; // Remove query params
-    const canonicalUrl = currentUrl.replace(/\/$/, ''); // Remove trailing slash
+    // Build the canonical from the fixed origin + the current path so it is
+    // correct both during pre-render and in the live browser.
+    const path = window.location.pathname;
+    const cleanPath = path === '/' ? '/' : path.replace(/\/+$/, ''); // home keeps "/", others drop trailing slash
+    const canonicalUrl = `${SITE_ORIGIN}${cleanPath}`;
 
     // Update document title
     document.title = title
