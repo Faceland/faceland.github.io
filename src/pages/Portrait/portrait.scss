@@ -9,8 +9,12 @@
 
 .Portrait {
   // Wraps the creator so the loading overlay can fill it while the tool loads.
+  // The dark backdrop matches the overlay so the content fades in over dark
+  // (not the light .basicPage / white body) — preventing a bright white flash
+  // on reveal, the same way the map fades in over its dark section background.
   .loadZone {
     position: relative;
+    background: #0d1525;
   }
 
   .loadZone__content {

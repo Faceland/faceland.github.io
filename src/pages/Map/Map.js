@@ -22,9 +22,7 @@ export const Map = () => {
       />
       <HeaderBar fancy={false} />
       <section className="mapSection">
-        {showSpinner && (
-          <LoadingOverlay label="Loading map…" background="#1f1f1f" />
-        )}
+        {showSpinner && <LoadingOverlay background="#1f1f1f" />}
         <iframe
           className="mapFrame"
           style={{ opacity: showSpinner ? 0 : 1 }}

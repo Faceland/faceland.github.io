@@ -341,9 +341,7 @@ export const Portrait = () => {
       <HeaderBar fancy={false} />
       <h1 className="sr-only">FacePals Character Creator - Design Custom NPC Portraits</h1>
       <div className="loadZone">
-        {showSpinner && (
-          <LoadingOverlay label="Loading FacePals…" background="#0d1525" />
-        )}
+        {showSpinner && <LoadingOverlay background="#0d1525" />}
         <div
           className="loadZone__content"
           style={{ opacity: showSpinner ? 0 : 1 }}
