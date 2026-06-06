@@ -9,6 +9,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
+        with:
+          # Full history so scripts/generate-sitemap.js can read each page's real
+          # last-commit date for <lastmod> (a shallow clone dates everything the same).
+          fetch-depth: 0
       - name: reattach HEAD to Head Ref
         run: git checkout "$(echo ${{ github.head_ref }} | sed -E 's|refs/[a-zA-Z]+/||')"
         if: github.head_ref != ''

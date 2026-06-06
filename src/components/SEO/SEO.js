@@ -11,9 +11,12 @@ export const SEO = ({ title, description }) => {
   useEffect(() => {
     // Build the canonical from the fixed origin + the current path so it is
     // correct both during pre-render and in the live browser.
-    const path = window.location.pathname;
-    const cleanPath = path === '/' ? '/' : path.replace(/\/+$/, ''); // home keeps "/", others drop trailing slash
-    const canonicalUrl = `${SITE_ORIGIN}${cleanPath}`;
+    // GitHub Pages serves each page's 200 response only at the trailing-slash
+    // URL (it 301-redirects /map -> /map/), so the canonical must use the
+    // trailing slash to point at the final URL rather than a redirect.
+    let path = window.location.pathname;
+    if (!path.endsWith('/')) path += '/';
+    const canonicalUrl = `${SITE_ORIGIN}${path}`;
 
     // Update document title
     document.title = title

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { SEO } from '../../components/SEO/SEO';
+import { GUIDES } from './guidesData';
 import './guideContent.scss';
 
 const parseContent = (text) => {
@@ -42,6 +44,7 @@ const parseContent = (text) => {
 };
 
 export const GuideContent = ({ slug }) => {
+  const meta = GUIDES.find((g) => g.path === slug);
   const [elements, setElements] = useState(null);
 
   useEffect(() => {
@@ -52,11 +55,24 @@ export const GuideContent = ({ slug }) => {
       .catch(() => setElements([]));
   }, [slug]);
 
+  // Per-page SEO so each guide has a unique title/description (rendered in every
+  // state so the canonical/title are correct the moment react-snap pre-renders).
+  const seo = meta ? (
+    <SEO title={`${meta.name} Guide`} description={meta.description} />
+  ) : null;
+
   if (elements === null) {
-    return <div className="guideLoading">Loading...</div>;
+    return (
+      <>
+        {seo}
+        <div className="guideLoading">Loading...</div>
+      </>
+    );
   }
 
   return (
+    <>
+    {seo}
     <div className="guideContentWrapper">
       {elements.map((el, i) => {
         switch (el.type) {
@@ -86,5 +102,6 @@ export const GuideContent = ({ slug }) => {
       })}
       <Link to="/guides" className="guideReturnButton">Return To Guides</Link>
     </div>
+    </>
   );
 };
