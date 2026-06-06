@@ -74,18 +74,26 @@ export const MainBanner = () => {
       className={`mainBanner ${state.vignette !== false ? 'with-vignette' : ''}`}
       style={state.mobile ? { marginTop: '50px' } : { marginTop: '0' }}
     >
-      <video
-        className="videoBg"
-        playsInline
-        autoPlay
-        muted
-        loop
-        src="/assets/videos/hDTyol4.mp4"
-        poster="/assets/images/yCr2iAD.jpg"
-        crossOrigin="anonymous"
-      >
-        background video
-      </video>
+      {state.mobile === false ? (
+        <video
+          className="videoBg"
+          playsInline
+          autoPlay
+          muted
+          loop
+          src="/assets/videos/hDTyol4.mp4"
+          poster="/assets/images/yCr2iAD.jpg"
+          crossOrigin="anonymous"
+        >
+          background video
+        </video>
+      ) : (
+        // Mobile — and the initial/pre-rendered render before the viewport is
+        // known — show only the poster image. No <video> element is created, so
+        // phones never download or autoplay the clip. The video is swapped in
+        // only once we've confirmed a desktop (landscape) viewport.
+        <Picture className="videoBg" src="/assets/images/yCr2iAD.jpg" alt="" />
+      )}
       <div className={state.mobile ? 'mobileTitle' : 'desktopTitle'}>
         <h1 className="sr-only">Faceland RPG - Free Minecraft MMORPG Server</h1>
         <Picture

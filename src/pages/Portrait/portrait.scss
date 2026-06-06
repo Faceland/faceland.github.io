@@ -8,6 +8,15 @@
 }
 
 .Portrait {
+  // Wraps the creator so the loading overlay can fill it while the tool loads.
+  .loadZone {
+    position: relative;
+  }
+
+  .loadZone__content {
+    transition: opacity 0.35s ease;
+  }
+
   .droppable {
     width: calc(100% - 17px);
   }

@@ -14,6 +14,20 @@ import { useSearchParams } from 'react-router-dom';
 import { DragContainer } from './DragContainer';
 import { Footer } from '../../components/Footer/Footer';
 import { SEO } from '../../components/SEO/SEO';
+import {
+  LoadingOverlay,
+  useLoadingGate,
+} from '../../components/LoadingOverlay/LoadingOverlay';
+
+// Resolves once the image is in the browser cache (or fails) so the portrait
+// preview is fully drawn before we reveal it. Never rejects.
+const preloadImage = (src) =>
+  new Promise((resolve) => {
+    const img = new Image();
+    img.onload = resolve;
+    img.onerror = resolve;
+    img.src = src;
+  });
 
 export const Portrait = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -23,6 +37,13 @@ export const Portrait = () => {
   const [layerItems, setLayerItems] = useState([]);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [copyText, setCopyText] = useState(false);
+
+  // Loading gate: keep the creator hidden behind a spinner until the initial
+  // portrait layers are set, their images are preloaded, and a minimum 1s has
+  // passed — so the tool is only revealed once it's ready, never half-drawn.
+  const [initialized, setInitialized] = useState(false);
+  const [imagesReady, setImagesReady] = useState(false);
+  const showSpinner = useLoadingGate(imagesReady, { minMs: 1000 });
 
   const scrollBar = useRef();
 
@@ -34,10 +55,26 @@ export const Portrait = () => {
         } else {
           setLayerItems(defaultChoices);
         }
+        setInitialized(true);
       },
       state.mobile ? 500 : 100,
     );
   }, []);
+
+  // Preload the initial portrait's layer images, then open the gate.
+  useEffect(() => {
+    if (!initialized || imagesReady) return;
+    let cancelled = false;
+    const sources = layerItems
+      .filter((l) => l.selection && l.selection.value)
+      .map((l) => l.selection.value);
+    Promise.all(sources.map(preloadImage)).then(() => {
+      if (!cancelled) setImagesReady(true);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [initialized, imagesReady, layerItems]);
 
   useEffect(() => {
     buildQueryData(layerItems);
@@ -303,7 +340,17 @@ export const Portrait = () => {
       />
       <HeaderBar fancy={false} />
       <h1 className="sr-only">FacePals Character Creator - Design Custom NPC Portraits</h1>
-      {state.mobile ? mobileLayout : desktopLayout}
+      <div className="loadZone">
+        {showSpinner && (
+          <LoadingOverlay label="Loading FacePals…" background="#0d1525" />
+        )}
+        <div
+          className="loadZone__content"
+          style={{ opacity: showSpinner ? 0 : 1 }}
+        >
+          {state.mobile ? mobileLayout : desktopLayout}
+        </div>
+      </div>
     </div>
   );
 };

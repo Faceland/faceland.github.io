@@ -8,6 +8,7 @@
 
 .mapSection {
   box-sizing: border-box;
+  position: relative; // positioning context for the loading overlay
   width: 100%;
   // Fill everything below the fixed 50px navbar so the page never scrolls.
   height: calc(100vh - 50px);
@@ -25,4 +26,6 @@
   // Slight, uniform frame around the embedded map.
   border: 1px solid #0a0a0a;
   border-radius: 4px;
+  // Fade in once the spinner reveals it.
+  transition: opacity 0.4s ease;
 }
