@@ -1,0 +1,28 @@
+// The map page is a single, non-scrolling viewport: the fixed 50px navbar on
+// top and an iframe section that fills the rest of the screen exactly.
+.MapPage {
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.mapSection {
+  box-sizing: border-box;
+  width: 100%;
+  // Fill everything below the fixed 50px navbar so the page never scrolls.
+  height: calc(100vh - 50px);
+  height: calc(100dvh - 50px);
+  padding: 10px;
+  background-color: #1f1f1f;
+  display: flex;
+}
+
+.mapFrame {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  display: block;
+  // Slight, uniform frame around the embedded map.
+  border: 1px solid #0a0a0a;
+  border-radius: 4px;
+}

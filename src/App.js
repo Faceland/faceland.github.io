@@ -14,6 +14,7 @@ import { DiscordWidget } from './components/DiscordWidget/DiscordWidget';
 import { Guide } from './pages/Guide/Guide';
 import { Portrait } from './pages/Portrait/Portrait';
 import { Vote } from './pages/Vote/Vote';
+import { Map } from './pages/Map/Map';
 import { SEO } from './components/SEO/SEO';
 import { GuidesLayout } from './pages/Guides/GuidesLayout';
 import { GuidesIndex } from './pages/Guides/GuidesIndex';
@@ -52,6 +53,7 @@ function App() {
           <Route path="items" element={<About />} />
           <Route path="guide" element={<Guide />} />
           <Route path="vote" element={<Vote />} />
+          <Route path="map" element={<Map />} />
           <Route path="guides" element={<GuidesLayout />}>
             <Route index element={<GuidesIndex />} />
             <Route path="stats" element={<StatsGuide />} />

@@ -27,9 +27,6 @@ export const HeaderBar = (props) => {
     setBurgerState(!burgerOpen);
   };
 
-  // TODO: Map subdomain (map.face.land) is pending HTTPS setup - using IP address temporarily
-  const mapUrl = 'http://199.127.61.235:8100/#quest_world:-4:90:870:166:-2.18:0.4:0:0:perspective';
-
   const burger = (
     <div
       className="burgerContainer"
@@ -45,13 +42,7 @@ export const HeaderBar = (props) => {
         <Link to="/vote">Vote</Link>
         <Link to="/items">Items</Link>
         <Link to="/facepals">FacePals™</Link>
-        <a
-          href={mapUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Map&#8239;&#x2197;
-        </a>
+        <Link to="/map">Map</Link>
         <a href="https://discord.gg/Gkmk6G2fjd" target="_blank" rel="noopener noreferrer">
           Discord&#8239;&#x2197;
         </a>
@@ -112,15 +103,10 @@ export const HeaderBar = (props) => {
           <span className="navHover" />
           FacePals™
         </Link>
-        <a
-          className="navButton"
-          href={mapUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <Link className="navButton" to="/map">
           <span className="navHover" />
-          Map&#8239;&#x2197;
-        </a>
+          Map
+        </Link>
         <a
           className="navButton"
           href="https://discord.gg/Gkmk6G2fjd"
