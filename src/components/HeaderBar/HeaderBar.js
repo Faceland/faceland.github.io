@@ -38,11 +38,11 @@ export const HeaderBar = (props) => {
     >
       <div className="burgerNav">
         <Link to="/">Home</Link>
-        <Link to="/guide">Guide</Link>
-        <Link to="/vote">Vote</Link>
-        <Link to="/items">Items</Link>
-        <Link to="/facepals">FacePals™</Link>
-        <Link to="/map">Map</Link>
+        <Link to="/guide/">Guide</Link>
+        <Link to="/vote/">Vote</Link>
+        <Link to="/items/">Items</Link>
+        <Link to="/facepals/">FacePals™</Link>
+        <Link to="/map/">Map</Link>
         <a href="https://discord.gg/Gkmk6G2fjd" target="_blank" rel="noopener noreferrer">
           Discord&#8239;&#x2197;
         </a>
@@ -87,23 +87,23 @@ export const HeaderBar = (props) => {
           <span className="navHover" />
           Home
         </Link>
-        <Link className="navButton" to="/guide">
+        <Link className="navButton" to="/guide/">
           <span className="navHover" />
           Guide
         </Link>
-        <Link className="navButton" to="/vote">
+        <Link className="navButton" to="/vote/">
           <span className="navHover" />
           Vote
         </Link>
-        <Link className="navButton" to="/items">
+        <Link className="navButton" to="/items/">
           <span className="navHover" />
           Items
         </Link>
-        <Link className="navButton" to="/facepals">
+        <Link className="navButton" to="/facepals/">
           <span className="navHover" />
           FacePals™
         </Link>
-        <Link className="navButton" to="/map">
+        <Link className="navButton" to="/map/">
           <span className="navHover" />
           Map
         </Link>

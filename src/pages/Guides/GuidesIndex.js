@@ -13,7 +13,7 @@ export const GuidesIndex = () => {
       />
       <div className="guidesGrid">
         {GUIDES.map((guide) => (
-          <Link key={guide.name} to={guide.path} className="guidePanel">
+          <Link key={guide.name} to={`/guides/${guide.path}/`} className="guidePanel">
             <div
               className="guidePanelSquare"
               style={{

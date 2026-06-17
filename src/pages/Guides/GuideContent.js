@@ -100,7 +100,7 @@ export const GuideContent = ({ slug }) => {
             return null;
         }
       })}
-      <Link to="/guides" className="guideReturnButton">Return To Guides</Link>
+      <Link to="/guides/" className="guideReturnButton">Return To Guides</Link>
     </div>
     </>
   );
