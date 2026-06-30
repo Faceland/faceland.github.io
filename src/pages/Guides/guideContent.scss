@@ -111,3 +111,77 @@
   padding: 80px 0;
   font-size: 1.1rem;
 }
+
+.guideTitle {
+  margin: 0 0 0.4em;
+  color: #f7e9a0;
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.guideBreadcrumb {
+  margin-bottom: 1.6em;
+  font-size: 0.95rem;
+  color: #8a8078;
+
+  a {
+    color: #c9a23a;
+    text-decoration: none;
+
+    &:hover {
+      color: #f0d028;
+      text-decoration: underline;
+    }
+  }
+}
+
+.guideBreadcrumbSep {
+  margin: 0 0.5em;
+  color: #5a5048;
+}
+
+.guideBreadcrumbCurrent {
+  color: #ddd8d0;
+}
+
+.relatedGuides {
+  margin-top: 70px;
+  padding-top: 30px;
+  border-top: 1px solid #3a342c;
+}
+
+.relatedGuidesTitle {
+  margin: 0 0 0.8em;
+  color: #f0d028;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.relatedGuidesLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.relatedGuideLink {
+  display: inline-block;
+  padding: 10px 22px;
+  color: #fff5e6;
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-decoration: none;
+  background: rgba(20, 20, 20, 0.5);
+  border: 1px solid var(--panel-border, #3a342c);
+  border-bottom: 3px solid var(--panel-border, #3a342c);
+  border-radius: 3px;
+  transition: all 0.15s ease-out;
+
+  &:hover {
+    color: var(--panel-accent, #f0d028);
+    border-color: var(--panel-accent, #f0d028);
+    transform: translateY(-1px);
+  }
+}

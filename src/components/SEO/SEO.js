@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 // duplicate of an unreachable URL and drop it from the index.
 const SITE_ORIGIN = 'https://face.land';
 
-export const SEO = ({ title, description }) => {
+export const SEO = ({ title, description, noindex = false }) => {
   useEffect(() => {
     // Build the canonical from the fixed origin + the current path so it is
     // correct both during pre-render and in the live browser.
@@ -94,7 +94,16 @@ export const SEO = ({ title, description }) => {
     if (ogImageHeight) {
       ogImageHeight.setAttribute('content', '512');
     }
-  }, [title, description]);
+
+    // Robots: only the catch-all 404 page passes noindex, so search engines
+    // don't index "not found" responses. Every other page explicitly resets to
+    // "index, follow" so client-side navigation away from the 404 restores
+    // normal indexing (the static HTML already ships index,follow by default).
+    const robots = document.querySelector('meta[name="robots"]');
+    if (robots) {
+      robots.setAttribute('content', noindex ? 'noindex, follow' : 'index, follow');
+    }
+  }, [title, description, noindex]);
 
   return null;
 };

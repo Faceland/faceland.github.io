@@ -15,6 +15,7 @@ import { Guide } from './pages/Guide/Guide';
 import { Portrait } from './pages/Portrait/Portrait';
 import { Vote } from './pages/Vote/Vote';
 import { Map } from './pages/Map/Map';
+import { NotFound } from './pages/NotFound/NotFound';
 import { SEO } from './components/SEO/SEO';
 import { GuidesLayout } from './pages/Guides/GuidesLayout';
 import { GuidesIndex } from './pages/Guides/GuidesIndex';
@@ -82,7 +83,7 @@ function App() {
             <Route path="arenas" element={<ArenasGuide />} />
           </Route>
           <Route path="facepals" element={<Portrait />} />
-<Route path="*" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Store>
     </Router>

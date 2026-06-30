@@ -181,3 +181,34 @@ export const GUIDES = [
       'Battle other players in Faceland’s PvP arenas. Learn how duels, team fights, and ranked rewards work in this free Minecraft MMORPG.',
   },
 ];
+
+// Related-guide cross-links. Each guide points to a few thematically related
+// guides, rendered as contextual internal links at the bottom of its page. This
+// is the internal-linking layer that ties the guide cluster together for SEO and
+// keeps players moving between related topics. Keyed by `path`.
+export const RELATED = {
+  stats: ['abilities', 'equipment', 'upgrades'],
+  abilities: ['stats', 'equipment', 'dungeons'],
+  equipment: ['upgrades', 'enchanting', 'crafting'],
+  upgrades: ['equipment', 'enchanting', 'crafting'],
+  mining: ['crafting', 'gathering', 'trading'],
+  gathering: ['alchemy', 'cooking', 'mining'],
+  fishing: ['cooking', 'gathering', 'trading'],
+  crafting: ['mining', 'equipment', 'trading'],
+  enchanting: ['equipment', 'upgrades', 'alchemy'],
+  alchemy: ['gathering', 'cooking', 'enchanting'],
+  cooking: ['fishing', 'gathering', 'alchemy'],
+  agility: ['sneak', 'questing', 'mounts'],
+  loremaster: ['questing', 'prayer', 'dungeons'],
+  trading: ['crafting', 'mining', 'fishing'],
+  prayer: ['loremaster', 'dungeons', 'abilities'],
+  sneak: ['agility', 'abilities', 'arenas'],
+  questing: ['loremaster', 'dungeons', 'agility'],
+  houses: ['mounts', 'pets', 'trading'],
+  mounts: ['houses', 'pets', 'agility'],
+  pets: ['mounts', 'houses', 'abilities'],
+  guilds: ['outposts', 'arenas', 'dungeons'],
+  outposts: ['guilds', 'arenas', 'dungeons'],
+  dungeons: ['arenas', 'abilities', 'equipment'],
+  arenas: ['dungeons', 'guilds', 'abilities'],
+};

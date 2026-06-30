@@ -40,7 +40,9 @@ export const Home = (props) => {
       </div>
       <div className="panelText">
         Unlock new abilities by leveling up your combat skills! There's tons of
-        options like Swordsmanship, Archery, Arcane Magics, and more!
+        options like Swordsmanship, Archery, Arcane Magics, and more. Build your
+        own class, then put it to the test in challenging dungeons, epic boss
+        fights, and guild PvP arenas!
       </div>
     </div>
   );
@@ -62,13 +64,14 @@ export const Home = (props) => {
     <div>
       <h2 className="panelTitle">Skills Aren't Just For Combat!</h2>
       <div className="panelText">
-        Level up up more than a dozen non-combat skills and become the ultimates
-        tradesman! Make your money with Fishing, Enchanting, Crafting, Mining
-        and more!
+        Level up more than a dozen non-combat skills and become the ultimate
+        tradesman! Make your money with Fishing, Enchanting, Crafting, Mining,
+        Alchemy, Cooking and more!
       </div>
       <div className="panelText">
         Explore awesome mini-games or improve your character's stats with skills
-        like Agility and Sneak!
+        like Agility and Sneak! Gather rare materials, craft powerful gear, and
+        trade your way to a fortune in a living, player-driven economy.
       </div>
     </div>
   );
@@ -98,7 +101,8 @@ export const Home = (props) => {
       <div className="panelText">
         Upgrade your gear! Not only are there limitless options in what gear you
         can find, you can upgrade and customize items with gems, scrolls, and
-        tomes to make the perfect loadout!
+        tomes to make the perfect loadout. Complete epic quests, raid dungeons,
+        and conquer the arena to claim the rarest rewards!
       </div>
     </div>
   );

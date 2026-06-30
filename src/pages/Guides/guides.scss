@@ -65,3 +65,51 @@
   letter-spacing: 0.5px;
   margin-top: 12px;
 }
+
+.guidesIntro {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 70px 30px 0;
+  text-align: left;
+}
+
+.guidesHeading {
+  margin: 0 0 0.4em;
+  color: #f7e9a0;
+  font-size: 2.6rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.guidesIntroText {
+  margin: 0;
+  color: #ddd8d0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.guideBreadcrumb {
+  margin-bottom: 1.4em;
+  font-size: 0.95rem;
+  color: #8a8078;
+
+  a {
+    color: #c9a23a;
+    text-decoration: none;
+
+    &:hover {
+      color: #f0d028;
+      text-decoration: underline;
+    }
+  }
+}
+
+.guideBreadcrumbSep {
+  margin: 0 0.5em;
+  color: #5a5048;
+}
+
+.guideBreadcrumbCurrent {
+  color: #ddd8d0;
+}

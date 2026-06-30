@@ -39,6 +39,8 @@ export const HeaderBar = (props) => {
       <div className="burgerNav">
         <Link to="/">Home</Link>
         <Link to="/guide/">Guide</Link>
+        {/* Guides library — to-be-released content. Uncomment at launch.
+        <Link to="/guides/">Guides</Link> */}
         <Link to="/vote/">Vote</Link>
         <Link to="/items/">Items</Link>
         <Link to="/facepals/">FacePals™</Link>
@@ -91,6 +93,13 @@ export const HeaderBar = (props) => {
           <span className="navHover" />
           Guide
         </Link>
+        {/* Guides library (/guides) — finished and SEO-ready, but held back as
+            to-be-released content. Uncomment to surface it in the navbar at
+            launch. (Resolve the "Guide" vs. "Guides" label overlap then.)
+        <Link className="navButton" to="/guides/">
+          <span className="navHover" />
+          Guides
+        </Link> */}
         <Link className="navButton" to="/vote/">
           <span className="navHover" />
           Vote
