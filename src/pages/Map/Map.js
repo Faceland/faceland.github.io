@@ -21,13 +21,17 @@ export const Map = () => {
         description="Explore Faceland's live interactive world map! Discover quest zones, outposts, dungeons, and points of interest across our free-to-play Minecraft MMORPG."
       />
       <HeaderBar fancy={false} />
-      <section className="mapSection">
+      {/* aria-label gives this a named "region" landmark; the iframe's own
+          title is its accessible name. Both live here in the body on purpose —
+          not as anything added to the document <head>. */}
+      <section className="mapSection" aria-label="Interactive world map">
         {showSpinner && <LoadingOverlay background="#1f1f1f" />}
         <iframe
           className="mapFrame"
           style={{ opacity: showSpinner ? 0 : 1 }}
           src="https://map.face.land/#quest_world:-132:0:1253:2692:0:0:0:0:perspective"
           title="Faceland Interactive World Map"
+          loading="lazy"
           allowFullScreen
           onLoad={() => setIframeLoaded(true)}
         />
