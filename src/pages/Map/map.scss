@@ -23,9 +23,71 @@
   width: 100%;
   height: 100%;
   display: block;
+  // Sit above the placeholder so it covers it perfectly once loaded.
+  position: relative;
+  z-index: 2;
   // Slight, uniform frame around the embedded map.
   border: 1px solid #0a0a0a;
   border-radius: 4px;
   // Fade in once the spinner reveals it.
   transition: opacity 0.4s ease;
+}
+
+// Static preview behind the map. Absolutely positioned so it never affects the
+// iframe's flex sizing, and inset by the section's 10px padding so its box is
+// identical to the iframe's — the map covers it exactly on load.
+.mapPlaceholder {
+  position: absolute;
+  inset: 10px;
+  z-index: 1;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #1f1f1f;
+}
+
+.mapPlaceholder__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.mapPlaceholder__caption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // Keep the copy at the bottom, clear of the centered loading spinner.
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 28px 24px;
+  text-align: center;
+  // Dark at the bottom for legibility, fading up so the map preview shows.
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.78) 0%,
+    rgba(0, 0, 0, 0.4) 38%,
+    rgba(0, 0, 0, 0) 72%
+  );
+}
+
+.mapPlaceholder__hint {
+  margin: 0;
+  color: #f4e4bf;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.85);
+}
+
+.mapPlaceholder__desc {
+  margin: 0;
+  max-width: 720px;
+  color: #d9ccb2;
+  font-size: 14px;
+  line-height: 1.5;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
 }

@@ -46,7 +46,32 @@ export const Map = () => {
           title is its accessible name. Both live here in the body on purpose —
           not as anything added to the document <head>. */}
       <section className="mapSection" aria-label="Interactive world map">
-        {showSpinner && <LoadingOverlay background="#1f1f1f" />}
+        {/* Visible poster + copy that sits behind the map. It's baked into the
+            prerender, so /map/ ships real, indexable content and gives people a
+            preview (and how-to hint) while BlueMap spins up. The iframe fades in
+            on top of it once ready; the spinner is transparent so this stays
+            visible during load rather than being hidden behind an overlay. */}
+        <div className="mapPlaceholder">
+          <img
+            src="/assets/stupid_map.webp"
+            alt="Preview of Faceland's live 3D world map"
+            className="mapPlaceholder__img"
+            width="980"
+            height="629"
+          />
+          <div className="mapPlaceholder__caption">
+            <p className="mapPlaceholder__hint">Scroll To Zoom!</p>
+            <p className="mapPlaceholder__desc">
+              Explore Faceland&apos;s world in a live, fully 3D map powered by
+              BlueMap &mdash; pan and rotate the camera, zoom from a
+              continent-wide view down to individual builds, and switch between
+              3D perspective, flat top-down, and free-fly views. Track quest
+              zones, towns, outposts, dungeons, and points of interest across the
+              server.
+            </p>
+          </div>
+        </div>
+        {showSpinner && <LoadingOverlay background="transparent" />}
         {mountFrame && (
           <iframe
             className="mapFrame"
