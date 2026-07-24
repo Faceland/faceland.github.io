@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import ReactModal from 'react-modal';
 import { SHOP_ORIGIN, gemTitle, money } from './gemsData';
+import { MC_NAME_RE, MC_NAME_PATTERN, lookupMinecraftName } from './minecraftName';
 
 const FRAME_NAME = 'gemCheckoutFrame';
 const STORE_TOS = `${SHOP_ORIGIN}/terms`;
@@ -12,11 +13,9 @@ const GATEWAYS = [
   { value: 'stripe', label: 'Credit / Debit Card', icon: 'fa-credit-card' },
 ];
 
-// Minecraft (Java) username rules: 3–16 characters, letters/digits/underscore
-// only. Same expression is mirrored into the input's `pattern` so the browser's
-// native validation blocks submission too.
-const MC_NAME_RE = /^[A-Za-z0-9_]{3,16}$/;
-const MC_NAME_PATTERN = '[A-Za-z0-9_]{3,16}';
+// Enough to gate the button; the input's type="email" does the strict checking.
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const NAME_CHECK_DELAY_MS = 1000;
 
 // Custom, on-brand checkout. It renders OUR OWN form and drives a HIDDEN
 // CraftingStore iframe underneath: on submit we clear the basket, add exactly
@@ -39,9 +38,48 @@ export const GemCheckoutModal = ({ pkg, onClose }) => {
   const [processing, setProcessing] = useState(false);
   const [error, setError] = useState(null);
 
-  // Only flag a bad name once something has been typed — an empty field is
-  // already covered by `required`, and reddening an untouched field is hostile.
-  const nameInvalid = mcName.length > 0 && !MC_NAME_RE.test(mcName);
+  // Name verification. A pause in typing triggers a format check and then a
+  // real-account lookup, because a fake name breaks fulfilment.
+  // Statuses: idle | typing | badFormat | checking | ok | notFound | unverified
+  const [nameStatus, setNameStatus] = useState('idle');
+
+  useEffect(() => {
+    if (!mcName) {
+      setNameStatus('idle');
+      return undefined;
+    }
+    // Stay quiet while they're mid-word — no error flashing on every keystroke.
+    setNameStatus('typing');
+
+    const controller = new AbortController();
+    const timer = setTimeout(() => {
+      if (!MC_NAME_RE.test(mcName)) {
+        setNameStatus('badFormat');
+        return;
+      }
+      setNameStatus('checking');
+      lookupMinecraftName(mcName, controller.signal)
+        .then((exists) => {
+          // `null` means we couldn't reach the lookup — let it through rather
+          // than blocking a real customer behind a third-party outage.
+          if (exists === false) setNameStatus('notFound');
+          else if (exists === true) setNameStatus('ok');
+          else setNameStatus('unverified');
+        })
+        .catch(() => {
+          /* aborted: a newer keystroke owns the state now */
+        });
+    }, NAME_CHECK_DELAY_MS);
+
+    return () => {
+      clearTimeout(timer);
+      controller.abort();
+    };
+  }, [mcName]);
+
+  const nameInvalid = nameStatus === 'badFormat' || nameStatus === 'notFound';
+  const nameAccepted = nameStatus === 'ok' || nameStatus === 'unverified';
+  const canSubmit = nameAccepted && EMAIL_RE.test(email.trim()) && !processing;
 
   // Reset transient state each time the modal opens.
   useEffect(() => {
@@ -208,9 +246,23 @@ export const GemCheckoutModal = ({ pkg, onClose }) => {
             aria-describedby={nameInvalid ? 'gemMcNameError' : undefined}
             required
           />
-          {nameInvalid && (
+          {nameStatus === 'badFormat' && (
             <small id="gemMcNameError" className="gemFieldError">
               Minecraft names are 3–16 characters, using only letters, numbers, and underscores.
+            </small>
+          )}
+          {nameStatus === 'notFound' && (
+            <small id="gemMcNameError" className="gemFieldError">
+              We couldn&rsquo;t find a Minecraft account with that name — check the spelling.
+            </small>
+          )}
+          {nameStatus === 'checking' && (
+            <small className="gemFieldHint">Checking that name&hellip;</small>
+          )}
+          {nameStatus === 'ok' && <small className="gemFieldOk">✓ Account found</small>}
+          {nameStatus === 'unverified' && (
+            <small className="gemFieldHint">
+              Couldn&rsquo;t verify that name right now — you can still continue.
             </small>
           )}
         </div>
@@ -294,7 +346,7 @@ export const GemCheckoutModal = ({ pkg, onClose }) => {
 
         {error && <div className="gemCheckoutError">{error}</div>}
 
-        <button type="submit" className="gemBuyBtn gemCheckoutSubmit" disabled={processing}>
+        <button type="submit" className="gemBuyBtn gemCheckoutSubmit" disabled={!canSubmit}>
           {gateway === 'paypal' ? 'Continue to PayPal' : 'Continue to Card Payment'} ·{' '}
           {pkg ? money(pkg.priceUSD) : ''}
         </button>
