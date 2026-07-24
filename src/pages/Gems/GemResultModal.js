@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import ReactModal from 'react-modal';
+import { dropGemConfetti } from './gemConfetti';
 
 // Post-payment result. CraftingStore returns the buyer to
 // /gems?payment=success (or ?payment=failed); Gems.js maps that to `status`,
@@ -19,13 +20,26 @@ export const paymentStatusFrom = (value) => {
 
 export const GemResultModal = ({ status, onClose }) => {
   const success = status === 'success';
+  const firedRef = useRef(false);
+
+  // Rain FaceGems on arrival, once per success. Reset when the status clears so
+  // a later purchase celebrates again. Intentionally no cleanup — the confetti
+  // self-removes, so closing the modal doesn't cut it short.
+  useEffect(() => {
+    if (success && !firedRef.current) {
+      firedRef.current = true;
+      dropGemConfetti();
+    } else if (!success) {
+      firedRef.current = false;
+    }
+  }, [success]);
 
   return (
     <ReactModal
       isOpen={!!status}
       onRequestClose={onClose}
       className={{
-        base: 'gemModal gemResultModal',
+        base: `gemModal gemResultModal ${success ? '' : 'is-error'}`,
         afterOpen: 'gemModal--after-open',
         beforeClose: 'gemModal--before-close',
       }}
@@ -46,7 +60,11 @@ export const GemResultModal = ({ status, onClose }) => {
 
       <div className="gemModalBody gemResultBody">
         <div className="gemResultIcon" aria-hidden="true">
-          {success ? '💎' : '⚠️'}
+          {success ? (
+            <img className="gemResultGem pixelImage" src="/assets/images/XAhGG80.png" alt="" />
+          ) : (
+            '⚠️'
+          )}
         </div>
         <p>
           {success

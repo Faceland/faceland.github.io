@@ -12,7 +12,10 @@ import { GemInfoModal } from './GemInfoModal';
 import { GemCheckoutModal } from './GemCheckoutModal';
 import { GemTicker } from './GemTicker';
 import { GemResultModal, paymentStatusFrom } from './GemResultModal';
-import { GemConstructionModal } from './GemConstructionModal'; // TEMP: remove when shop is live
+// TEMP (disabled): under-construction notice. The shop is tested and working,
+// so it's switched off — uncomment this and its <GemConstructionModal /> below
+// to bring it back during maintenance.
+// import { GemConstructionModal } from './GemConstructionModal';
 import './gems.scss';
 
 // In-site FaceGems storefront. Wraps the CraftingStore shop (shop.face.land) in
@@ -117,8 +120,8 @@ export const Gems = () => {
         packages={shop.packages}
       />
 
-      {/* TEMP: under-construction notice while testing in production. */}
-      <GemConstructionModal />
+      {/* TEMP (disabled): under-construction notice — see the commented import.
+          <GemConstructionModal /> */}
 
       <GemResultModal status={paymentStatus} onClose={clearPayment} />
 
