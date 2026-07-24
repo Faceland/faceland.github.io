@@ -1,4 +1,5 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { HeaderBar } from '../../components/HeaderBar/HeaderBar';
 import { Footer } from '../../components/Footer/Footer';
 import { DiscordWidget } from '../../components/DiscordWidget/DiscordWidget';
@@ -10,6 +11,7 @@ import { GemPackageCard } from './GemPackageCard';
 import { GemInfoModal } from './GemInfoModal';
 import { GemCheckoutModal } from './GemCheckoutModal';
 import { GemTicker } from './GemTicker';
+import { GemResultModal, paymentStatusFrom } from './GemResultModal';
 import { GemConstructionModal } from './GemConstructionModal'; // TEMP: remove when shop is live
 import './gems.scss';
 
@@ -46,6 +48,18 @@ export const Gems = () => {
       alive = false;
     };
   }, []);
+
+  // The gateway returns the buyer to /gems?payment=success|failed. Clearing the
+  // param is a history *replace*, so the modal closes without reloading the page
+  // and without leaving a back-button entry that would re-open it. Any other
+  // query params the gateway tacks on are preserved.
+  const [searchParams, setSearchParams] = useSearchParams();
+  const paymentStatus = paymentStatusFrom(searchParams.get('payment'));
+  const clearPayment = useCallback(() => {
+    const next = new URLSearchParams(searchParams);
+    next.delete('payment');
+    setSearchParams(next, { replace: true });
+  }, [searchParams, setSearchParams]);
 
   const openInfo = useCallback((pkg) => setInfoPkg(pkg), []);
   const closeInfo = useCallback(() => setInfoPkg(null), []);
@@ -105,6 +119,8 @@ export const Gems = () => {
 
       {/* TEMP: under-construction notice while testing in production. */}
       <GemConstructionModal />
+
+      <GemResultModal status={paymentStatus} onClose={clearPayment} />
 
       <GemInfoModal pkg={infoPkg} onClose={closeInfo} onBuy={openCheckout} />
       <GemCheckoutModal pkg={checkoutPkg} onClose={closeCheckout} />

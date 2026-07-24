@@ -751,6 +751,40 @@ $gem-accent: #c084fc;
   }
 }
 
+// ─── Payment result modal (?payment=success | failed) ───────────────────────
+.gemResultModal {
+  width: 460px;
+  max-width: 92vw;
+}
+
+// Red header for the failure case; success keeps the standard purple.
+.gemModalHeader.is-error {
+  background: linear-gradient(180deg, #d4483f 0%, #b23a33 100%);
+  border-bottom-color: #7f2722;
+}
+
+.gemResultBody {
+  text-align: center;
+
+  p {
+    margin: 0;
+    font-size: 1.02em;
+    line-height: 1.5;
+    color: #ece6f7;
+  }
+}
+
+.gemResultIcon {
+  margin-bottom: 12px;
+  font-size: 2.6em;
+  line-height: 1;
+}
+
+// Overrides .gemModalFooter's space-between (same specificity, later source).
+.gemResultFooter {
+  justify-content: center;
+}
+
 // ─── Bottom ticker: top donor + recent purchases ────────────────────────────
 // Mirrors .quoteTicker on the home page, in the .gemsBanner purple.
 .gemTicker {
