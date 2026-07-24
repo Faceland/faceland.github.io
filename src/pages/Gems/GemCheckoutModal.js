@@ -3,8 +3,6 @@ import ReactModal from 'react-modal';
 import { SHOP_ORIGIN, gemTitle, money } from './gemsData';
 
 const FRAME_NAME = 'gemCheckoutFrame';
-// Safety net: if a cross-origin load event is ever missed, advance anyway.
-const STEP_TIMEOUT_MS = 9000;
 
 // The checkout modal. It wraps the REAL CraftingStore /checkout/basket page in
 // an iframe and drives it "blindly": we can navigate the frame and POST into it,
@@ -57,40 +55,57 @@ export const GemCheckoutModal = ({ pkg, onClose }) => {
     let cancelled = false;
     setPhase('preparing');
 
-    // Navigate (via `doNav`) and resolve on the frame's next load event, or
-    // after STEP_TIMEOUT_MS. A fresh one-shot listener per step keeps the steps
-    // from interfering with one another (and ignores the initial about:blank).
-    const navigate = (doNav) =>
+    const reveal = () => {
+      if (!cancelled) setPhase('ready');
+    };
+
+    // Absolute backstop: the "Preparing…" overlay must NEVER hang, even if a
+    // cross-origin load event never arrives.
+    const safety = setTimeout(reveal, 12000);
+
+    // Resolve on the iframe's next load event (it fires even cross-origin; the
+    // content is just opaque to us) or after maxMs. The listener is attached
+    // BEFORE the navigation so a fast load can't slip past us.
+    const afterNextLoad = (maxMs) =>
       new Promise((resolve) => {
         let settled = false;
-        const finish = () => {
+        const done = () => {
           if (settled) return;
           settled = true;
-          clearTimeout(timer);
-          iframe.removeEventListener('load', finish);
+          clearTimeout(t);
+          iframe.removeEventListener('load', done);
           resolve();
         };
-        const timer = setTimeout(finish, STEP_TIMEOUT_MS);
-        iframe.addEventListener('load', finish);
-        doNav();
+        const t = setTimeout(done, maxMs);
+        iframe.addEventListener('load', done);
       });
 
     (async () => {
-      await navigate(() => {
-        iframe.src = `${SHOP_ORIGIN}/checkout/basket/forget`;
-      });
-      if (cancelled) return;
-      await navigate(() => submitAdd(pkg.id));
-      if (cancelled) return;
-      await navigate(() => {
-        iframe.src = `${SHOP_ORIGIN}/checkout/basket`;
-      });
-      if (cancelled) return;
-      setPhase('ready');
+      try {
+        const s1 = afterNextLoad(5000);
+        iframe.src = `${SHOP_ORIGIN}/checkout/basket/forget`; // 1. clear
+        await s1;
+        if (cancelled) return;
+
+        const s2 = afterNextLoad(5000);
+        submitAdd(pkg.id); // 2. add this package
+        await s2;
+        if (cancelled) return;
+
+        const s3 = afterNextLoad(6000);
+        iframe.src = `${SHOP_ORIGIN}/checkout/basket`; // 3. show the real checkout
+        await s3;
+      } catch (err) {
+        /* fall through — reveal whatever the frame ended up on */
+      } finally {
+        clearTimeout(safety);
+        reveal();
+      }
     })();
 
     return () => {
       cancelled = true;
+      clearTimeout(safety);
       if (formHostRef.current) formHostRef.current.innerHTML = '';
     };
   }, [open, pkg, submitAdd]);

@@ -61,6 +61,7 @@ $gem-accent: #c084fc;
     .gemsBannerIcon {
       height: 56px;
       width: auto;
+      image-rendering: auto;
       filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4));
     }
 
@@ -125,6 +126,9 @@ $gem-accent: #c084fc;
     max-width: 90%;
     width: auto;
     object-fit: contain;
+    // Product art is not pixel-art; opt out of the page's pixelated rendering
+    // (image-rendering is inherited from the .pixelImage page container).
+    image-rendering: auto;
     filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.4));
   }
 
@@ -342,6 +346,7 @@ $gem-accent: #c084fc;
 .gemInfoImage {
   max-height: 140px;
   width: auto;
+  image-rendering: auto;
   filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5));
 }
 

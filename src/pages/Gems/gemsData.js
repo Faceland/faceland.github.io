@@ -22,7 +22,7 @@ const IMG_BASE =
 // but rendered with cents. `id` is the CraftingStore package id used to add to
 // the basket via POST /checkout/{id}.
 export const gemPackages = [
-  { id: 932891, baseGems: 500, bonusPct: 0, priceUSD: 5, image: 'p3aqap0vqsvnqxxzqc8e.png' },
+  { id: 932891, baseGems: 500, bonusPct: 0, priceUSD: 5, image: 'yxbizgkt75svfxbu1ha9.png' },
   { id: 932894, baseGems: 1000, bonusPct: 10, priceUSD: 10, image: '80zcgvkocxqzcqad57wl.png' },
   { id: 932897, baseGems: 2000, bonusPct: 15, priceUSD: 20, image: 'wwylqrz9ruawvcgohp7w.png' },
   { id: 932900, baseGems: 3500, bonusPct: 20, priceUSD: 35, image: '9w62xvqyx2gwo8dyocp7.png' },
