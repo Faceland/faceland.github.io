@@ -287,9 +287,8 @@ $gem-accent: #c084fc;
 }
 
 .gemCheckoutModal {
-  width: 940px;
-  max-width: 96vw;
-  height: 88vh;
+  width: 540px;
+  max-width: 94vw;
 }
 
 .gemModalHeader {
@@ -419,18 +418,179 @@ $gem-accent: #c084fc;
   color: $gem-accent;
 }
 
-.gemCheckoutFrameWrap {
-  position: relative;
-  flex: 1 1 auto;
-  min-height: 0;
-  background: #2f2f2f;
+// The CraftingStore session the custom form drives — kept off-screen (still
+// "rendered" so its load events fire reliably).
+.gemHiddenFrame {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
 }
 
-.gemCheckoutFrame {
-  display: block;
+.gemCheckoutForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  overflow-y: auto;
+}
+
+.gemField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+
+  label,
+  .gemFieldLabel {
+    font-size: 0.85em;
+    font-weight: 650;
+    letter-spacing: 0.3px;
+    color: #c9bce4;
+  }
+
+  input[type='text'],
+  input[type='email'] {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 0.95em;
+    color: #f3ecff;
+    background: #171320;
+    border: 1px solid #3f3358;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
+    transition: border-color 0.15s, box-shadow 0.15s;
+
+    &::placeholder {
+      color: #6f6488;
+    }
+
+    &:focus {
+      border-color: #a855f7;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(168, 85, 247, 0.25);
+    }
+  }
+}
+
+.gemFieldHint {
+  font-size: 0.75em;
+  color: #8a7fa5;
+}
+
+.gemGateways {
+  display: flex;
+  gap: 10px;
+}
+
+.gemGateway {
+  position: relative;
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 10px;
+  font-weight: 650;
+  color: #d6c8f0;
+  cursor: pointer;
+  background: #221c30;
+  border: 1px solid #3f3358;
+  border-radius: 6px;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+
+  input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
+  .fa {
+    font-size: 1.15em;
+  }
+
+  &:hover {
+    border-color: #6d28d9;
+  }
+
+  &.is-selected {
+    color: #fff;
+    background: linear-gradient(180deg, rgba(168, 85, 247, 0.25), rgba(124, 58, 237, 0.2));
+    border-color: #a855f7;
+    box-shadow: 0 0 0 1px #a855f7, 0 0 12px rgba(168, 85, 247, 0.35);
+  }
+}
+
+.gemCouponToggle {
+  align-self: flex-start;
+  padding: 0;
+  font-size: 0.85em;
+  font-weight: 650;
+  color: #c084fc;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+
+  &:hover {
+    color: #d8b4fe;
+  }
+}
+
+.gemTos {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  font-size: 0.82em;
+  line-height: 1.4;
+  text-align: left;
+  color: #c9bce4;
+  cursor: pointer;
+
+  input {
+    flex: 0 0 auto;
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    accent-color: #a855f7;
+    cursor: pointer;
+  }
+
+  a {
+    color: #c084fc;
+    text-decoration: underline;
+
+    &:hover {
+      color: #d8b4fe;
+    }
+  }
+}
+
+.gemCheckoutError {
+  padding: 9px 12px;
+  font-size: 0.85em;
+  text-align: left;
+  color: #ffd7d7;
+  background: rgba(180, 40, 40, 0.18);
+  border: 1px solid rgba(220, 70, 70, 0.5);
+  border-radius: 5px;
+}
+
+.gemCheckoutSubmit {
   width: 100%;
-  height: 100%;
-  border: 0;
+  margin-top: 4px;
+  padding: 12px;
+  font-size: 1.02em;
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: default;
+  }
 }
 
 .gemCheckoutOverlay {
@@ -508,7 +668,10 @@ $gem-accent: #c084fc;
 
   .gemCheckoutModal {
     width: 96vw;
-    height: 90vh;
+  }
+
+  .gemGateways {
+    flex-direction: column;
   }
 
   .gemModalFooter {
