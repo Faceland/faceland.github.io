@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import './footer.scss';
 import { Buddy } from '../Buddy/Buddy';
 import { useContext } from 'react';
@@ -69,7 +70,7 @@ export const Footer = (props) => {
               </li>
 
               <li>
-                <a href="https://shop.face.land" target="_blank" rel="noopener noreferrer">Cash Shop</a>
+                <Link to="/gems">Cash Shop</Link>
               </li>
             </ul>
           </li>

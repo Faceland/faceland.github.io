@@ -48,9 +48,9 @@ export const HeaderBar = (props) => {
         <a href="https://discord.gg/Gkmk6G2fjd" target="_blank" rel="noopener noreferrer">
           Discord&#8239;&#x2197;
         </a>
-        <a href="https://shop.face.land" target="_blank" rel="noopener noreferrer" className="buyGemsLink">
+        <Link to="/gems" className="buyGemsLink">
           Buy&nbsp;Gems
-        </a>
+        </Link>
       </div>
     </div>
   );
@@ -127,11 +127,9 @@ export const HeaderBar = (props) => {
         </a>
       </div>
       <div className="profileSection h-fit">
-        <a
+        <Link
           className="facegemButton m-2 bg-gradient-to-b from-purple-300 to-purple-600 px-4"
-          href="https://shop.face.land"
-          target="_blank"
-          rel="noopener noreferrer"
+          to="/gems"
         >
           <div className="flex items-center whitespace-nowrap font-bold text-white">
             <p>Buy FaceGems!</p>
@@ -141,7 +139,7 @@ export const HeaderBar = (props) => {
               className="gemImg speed-2 m-1 ml-2 mr-0 h-8"
             />
           </div>
-        </a>
+        </Link>
       </div>
     </div>
   );

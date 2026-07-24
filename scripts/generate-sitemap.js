@@ -33,6 +33,7 @@ const STATIC_SOURCE = {
   '/vote': 'src/pages/Vote/Vote.js',
   '/map': 'src/pages/Map/Map.js',
   '/facepals': 'src/pages/Portrait/Portrait.js',
+  '/gems': 'src/pages/Gems/Gems.js',
   '/guides': 'src/pages/Guides/GuidesIndex.js',
 };
 

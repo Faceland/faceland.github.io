@@ -1,0 +1,551 @@
+// FaceGems storefront styling. Purple throughout, echoing the header's
+// .facegemButton gradient and the .infoBanner bordered-banner idiom, on the
+// site's dark bordered-panel look.
+
+$gem-purple-1: #a855f7;
+$gem-purple-2: #8b5cf6;
+$gem-purple-3: #7c3aed;
+$gem-border: #6d28d9;
+$gem-border-dark: #5b21b6;
+$gem-accent: #c084fc;
+
+.Gems {
+  // ---- Page shell ---------------------------------------------------------
+  // Background texture is applied via inline style in Gems.js (the project's
+  // convention for public assets — SCSS url() would be resolved as a module).
+  .gemsPage {
+    min-height: 100vh;
+    padding-bottom: 60px;
+    background-color: #14101c;
+  }
+
+  // ---- Banner (purple twin of .Guide .infoBanner) -------------------------
+  .gemsBanner {
+    position: relative;
+    width: 100%;
+    padding: 20px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    text-align: left;
+    color: #f7f0ff;
+    background: linear-gradient(180deg, $gem-purple-1 0%, $gem-purple-2 50%, $gem-purple-3 100%);
+    border-top: 2px solid $gem-border-dark;
+    border-bottom: 3px solid #4c1d95;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+      0 2px 8px rgba(0, 0, 0, 0.35);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #d8b4fe, transparent);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, $gem-purple-1, transparent);
+    }
+
+    .gemsBannerIcon {
+      height: 56px;
+      width: auto;
+      filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4));
+    }
+
+    .gemsBannerText {
+      max-width: 760px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.8em;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+      margin: 4px 0 0;
+      font-weight: 550;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  // ---- Card grid ----------------------------------------------------------
+  .gemGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 1080px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+
+  .gemCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 18px 16px 16px;
+    background: linear-gradient(180deg, #232029 0%, #1b1822 100%);
+    border: 1px solid #3a2f52;
+    border-bottom: 3px solid #2a2140;
+    border-radius: 6px;
+    transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, border-color 0.12s ease-out;
+
+    &:hover {
+      transform: translateY(-3px);
+      border-color: $gem-purple-3;
+      box-shadow: 0 0 16px rgba(168, 85, 247, 0.35), 0 6px 14px rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  .gemCardImageWrap {
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .gemCardImage {
+    max-height: 110px;
+    max-width: 90%;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.4));
+  }
+
+  .gemCardTitle {
+    margin: 4px 0 2px;
+    font-size: 1.05em;
+    font-weight: 750;
+    color: #f3ecff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .gemCardPrice {
+    margin-bottom: 14px;
+    font-size: 1.35em;
+    font-weight: 800;
+    color: $gem-accent;
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+  }
+
+  .gemCardActions {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    margin-top: auto;
+  }
+
+  .gemsFinePrint {
+    max-width: 760px;
+    margin: 10px auto 0;
+    padding: 0 20px;
+    font-size: 0.8em;
+    line-height: 1.4;
+    color: #8a7fa5;
+  }
+}
+
+// ---- Shared badge + buttons (used on cards AND inside modals) -------------
+.gemCardBadge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 3px 8px;
+  font-size: 0.72em;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  color: #3a2600;
+  background: linear-gradient(180deg, #fbbf24, #f59e0b);
+  border: 1px solid #b45309;
+  border-radius: 999px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.gemBuyBtn {
+  flex: 1 1 auto;
+  padding: 9px 12px;
+  font-weight: 750;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #a855f7 0%, #8b5cf6 50%, #7c3aed 100%);
+  border: 1px solid #6d28d9;
+  border-bottom: 2px solid #5b21b6;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  transition: background 0.15s ease-out, box-shadow 0.15s ease-out, transform 0.05s ease-out;
+
+  &:hover {
+    background: linear-gradient(180deg, #c084fc 0%, #a855f7 50%, #8b5cf6 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      0 0 14px rgba(168, 85, 247, 0.55);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.gemInfoBtn {
+  flex: 0 0 auto;
+  padding: 9px 12px;
+  font-weight: 650;
+  color: #d6c8f0;
+  cursor: pointer;
+  border-radius: 4px;
+  background: #2a2436;
+  border: 1px solid #43395c;
+  border-bottom: 2px solid #2f2743;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: background 0.15s ease-out, color 0.15s ease-out, border-color 0.15s ease-out;
+
+  .fa {
+    margin-right: 4px;
+  }
+
+  &:hover {
+    background: #342c45;
+    color: #fff;
+    border-color: $gem-purple-3;
+  }
+}
+
+// ---- Modals (Info + Checkout share .gemModal / .gemModalOverlay) ---------
+// Custom overlay/content class names mean react-modal applies NO default inline
+// styles, so we own all layout here.
+.gemModalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(8, 4, 16, 0.82);
+  opacity: 0;
+  transition: opacity 0.15s ease-out;
+
+  &--after-open {
+    opacity: 1;
+  }
+
+  &--before-close {
+    opacity: 0;
+  }
+}
+
+.gemModal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-height: 92vh;
+  overflow: hidden;
+  outline: none;
+  color: #ece6f7;
+  background: linear-gradient(180deg, #201b2b 0%, #1a1622 100%);
+  border: 1px solid #4c3a72;
+  border-bottom: 3px solid #3a2c58;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.25), 0 18px 50px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transform: translateY(6px) scale(0.99);
+  transition: opacity 0.15s ease-out, transform 0.15s ease-out;
+
+  &--after-open {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.gemInfoModal {
+  width: 560px;
+  max-width: 94vw;
+}
+
+.gemCheckoutModal {
+  width: 940px;
+  max-width: 96vw;
+  height: 88vh;
+}
+
+.gemModalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: linear-gradient(180deg, #8b5cf6 0%, #7c3aed 100%);
+  border-bottom: 2px solid #5b21b6;
+
+  h2 {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.45);
+  }
+}
+
+.gemModalClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  line-height: 1;
+  color: #fff;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+  transition: background 0.15s;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.4);
+  }
+}
+
+// Info modal body
+.gemModalBody {
+  padding: 18px;
+  overflow-y: auto;
+}
+
+.gemInfoImageWrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.gemInfoImage {
+  max-height: 140px;
+  width: auto;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5));
+}
+
+.gemInfoBadge {
+  top: 0;
+  right: 6px;
+}
+
+.gemInfoDesc {
+  font-size: 0.95em;
+  line-height: 1.5;
+  text-align: left;
+  color: #d8cfe8;
+
+  p {
+    margin: 0 0 10px;
+  }
+
+  u {
+    text-underline-offset: 2px;
+  }
+
+  .gemDisclaimer {
+    margin-top: 12px;
+    font-size: 0.8em;
+    color: #9488ad;
+  }
+}
+
+.gemModalFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 18px;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid #3a2c58;
+
+  .gemBuyBtn {
+    flex: 0 0 auto;
+    min-width: 160px;
+  }
+}
+
+.gemInfoPrice {
+  font-size: 1.5em;
+  font-weight: 800;
+  color: $gem-accent;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+}
+
+// Checkout modal
+.gemCheckoutSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: rgba(124, 58, 237, 0.14);
+  border-bottom: 1px solid #3a2c58;
+}
+
+.gemCheckoutSummaryName {
+  font-weight: 750;
+  color: #f3ecff;
+}
+
+.gemCheckoutSummaryPrice {
+  font-size: 1.15em;
+  font-weight: 800;
+  color: $gem-accent;
+}
+
+.gemCheckoutFrameWrap {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  background: #2f2f2f;
+}
+
+.gemCheckoutFrame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.gemCheckoutOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-weight: 600;
+  color: #d8cfe8;
+  background: linear-gradient(180deg, #201b2b, #14101c);
+}
+
+.gemSpinner {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 4px solid rgba(168, 85, 247, 0.25);
+  border-top-color: $gem-purple-1;
+  animation: gemSpin 0.8s linear infinite;
+}
+
+@keyframes gemSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.gemCheckoutFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 18px;
+  font-size: 0.82em;
+  color: #9488ad;
+  background: rgba(0, 0, 0, 0.25);
+  border-top: 1px solid #3a2c58;
+
+  a {
+    font-weight: 650;
+    color: $gem-accent;
+    text-decoration: none;
+
+    &:hover {
+      color: #d8b4fe;
+      text-decoration: underline;
+    }
+  }
+}
+
+// ---- Responsive ----------------------------------------------------------
+@media (max-width: 640px) {
+  .Gems {
+    .gemsBanner {
+      flex-direction: column;
+      gap: 10px;
+      padding: 16px 14px;
+      text-align: center;
+
+      h1 {
+        font-size: 1.4em;
+      }
+    }
+
+    .gemGrid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 14px;
+      padding: 0 14px;
+    }
+  }
+
+  .gemCheckoutModal {
+    width: 96vw;
+    height: 90vh;
+  }
+
+  .gemModalFooter {
+    flex-direction: column;
+    align-items: stretch;
+
+    .gemBuyBtn {
+      width: 100%;
+    }
+  }
+}
+
+// ─── TEMP: under-construction notice (see GemConstructionModal.js). ──────────
+// Remove this block together with that component when the shop goes live.
+.gemNoticeModal {
+  width: 480px;
+  max-width: 92vw;
+}
+
+.gemNoticeBody {
+  text-align: center;
+
+  p {
+    margin: 0 0 12px;
+    line-height: 1.5;
+    color: #e6ddf5;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  strong {
+    color: #fbbf24;
+  }
+}
+
+.gemNoticeFooter {
+  justify-content: center;
+
+  .gemBuyBtn {
+    flex: 0 0 auto;
+    min-width: 200px;
+  }
+}
