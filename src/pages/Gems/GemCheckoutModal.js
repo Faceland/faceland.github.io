@@ -49,8 +49,6 @@ export const GemCheckoutModal = ({ pkg, onClose }) => {
 
   useEffect(() => {
     if (!open || !pkg) return undefined;
-    const iframe = iframeRef.current;
-    if (!iframe) return undefined;
 
     let cancelled = false;
     setPhase('preparing');
@@ -59,14 +57,16 @@ export const GemCheckoutModal = ({ pkg, onClose }) => {
       if (!cancelled) setPhase('ready');
     };
 
-    // Absolute backstop: the "Preparing…" overlay must NEVER hang, even if a
-    // cross-origin load event never arrives.
+    // Backstop armed FIRST, before we touch the iframe ref: react-modal mounts
+    // its content into a portal that may not be attached on the tick this
+    // effect first runs, so iframeRef can briefly be null. The overlay must
+    // clear regardless — arming this after a ref check was the "hang forever".
     const safety = setTimeout(reveal, 12000);
 
-    // Resolve on the iframe's next load event (it fires even cross-origin; the
-    // content is just opaque to us) or after maxMs. The listener is attached
-    // BEFORE the navigation so a fast load can't slip past us.
-    const afterNextLoad = (maxMs) =>
+    // Resolve on the iframe's next load event (fires even cross-origin; content
+    // is opaque) or after maxMs. Listener attached BEFORE the navigation so a
+    // fast load can't slip past.
+    const afterNextLoad = (iframe, maxMs) =>
       new Promise((resolve) => {
         let settled = false;
         const done = () => {
@@ -80,19 +80,32 @@ export const GemCheckoutModal = ({ pkg, onClose }) => {
         iframe.addEventListener('load', done);
       });
 
+    // The iframe ref may not be attached yet on the first run — poll briefly.
+    const waitForIframe = async () => {
+      for (let waited = 0; !cancelled && waited < 4000; waited += 50) {
+        if (iframeRef.current) return iframeRef.current;
+        // eslint-disable-next-line no-await-in-loop
+        await new Promise((r) => setTimeout(r, 50));
+      }
+      return iframeRef.current;
+    };
+
     (async () => {
       try {
-        const s1 = afterNextLoad(5000);
+        const iframe = await waitForIframe();
+        if (cancelled || !iframe) return;
+
+        const s1 = afterNextLoad(iframe, 5000);
         iframe.src = `${SHOP_ORIGIN}/checkout/basket/forget`; // 1. clear
         await s1;
         if (cancelled) return;
 
-        const s2 = afterNextLoad(5000);
+        const s2 = afterNextLoad(iframe, 5000);
         submitAdd(pkg.id); // 2. add this package
         await s2;
         if (cancelled) return;
 
-        const s3 = afterNextLoad(6000);
+        const s3 = afterNextLoad(iframe, 6000);
         iframe.src = `${SHOP_ORIGIN}/checkout/basket`; // 3. show the real checkout
         await s3;
       } catch (err) {

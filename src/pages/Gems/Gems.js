@@ -31,7 +31,7 @@ export const Gems = () => {
     <div className={`App Gems ${state.mobile ? 'gems-mobile' : ''}`}>
       <SEO
         title="Buy FaceGems"
-        description="Purchase FaceGems for Faceland RPG — spend them on in-game cosmetics and global boosts, and unlock the Contributor rank on your first purchase. Pick a package and check out securely."
+        description="Purchase FaceGems for Faceland RPG and spend them on in-game cosmetics and global boosts, and get bonus perks on your first purchase. Pick a package and check out securely."
       />
       <HeaderBar fancy={false} />
 
@@ -50,10 +50,9 @@ export const Gems = () => {
             aria-hidden="true"
           />
           <div className="gemsBannerText">
-            <h1>Buy FaceGems</h1>
+            <h1>Buy FaceGems?!</h1>
             <p>
-              Fuel your adventure — spend FaceGems on in-game cosmetics and global boosts.
-              Your first purchase unlocks the Contributor rank!
+              The only gem with a face right on it! You can spend FaceGems on cool cosmetics and global boosts in-game! Your first purchase unlocks some exclusive perks!
             </p>
           </div>
         </div>
