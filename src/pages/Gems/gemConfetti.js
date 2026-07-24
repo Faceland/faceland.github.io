@@ -8,10 +8,14 @@
 
 const GEM_SRC = '/assets/images/XAhGG80.png';
 
-export const dropGemConfetti = (count = 200) => {
+// `parent` lets the caller mount the layer inside a modal overlay so the gems
+// fall in front of the backdrop but behind the dialog. A fixed-position overlay
+// with a z-index forms its own stacking context, so a body-level sibling could
+// never be slotted between its backdrop and its child.
+export const dropGemConfetti = (parent = document.body, count = 200) => {
   const container = document.createElement('div');
-  container.className = 'forb-confetti-container';
-  document.body.appendChild(container);
+  container.className = 'forb-confetti-container gemConfettiLayer';
+  (parent || document.body).appendChild(container);
 
   for (let i = 0; i < count; i += 1) {
     const gem = document.createElement('img');

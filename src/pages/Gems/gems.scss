@@ -290,6 +290,9 @@ $gem-accent: #c084fc;
 
 .gemModal {
   position: relative;
+  // Sits above the confetti layer mounted inside the overlay (see
+  // .gemConfettiLayer) so gems fall behind the dialog, in front of the backdrop.
+  z-index: 2;
   display: flex;
   flex-direction: column;
   max-height: 92vh;
@@ -817,7 +820,12 @@ $gem-accent: #c084fc;
   }
 }
 
+// Flex-centred rather than relying on inherited text-align, so the gem image
+// (a replaced inline element) is reliably centred, not just the emoji.
 .gemResultIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 12px;
   font-size: 2.6em;
   line-height: 1;
@@ -825,9 +833,33 @@ $gem-accent: #c084fc;
 
 // The success icon is the real FaceGem texture, pixel-scaled (see .pixelImage).
 .gemResultGem {
+  display: block;
   height: 72px;
   width: auto;
   filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5));
+  animation: gemResultPulse 1s ease-in-out infinite;
+}
+
+@keyframes gemResultPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gemResultGem {
+    animation: none;
+  }
+}
+
+// Confetti mounted inside the modal overlay: above the dark backdrop, below the
+// dialog. Overrides .forb-confetti-container's z-index: 9999.
+.gemModalOverlay .gemConfettiLayer {
+  z-index: 1;
 }
 
 // Overrides .gemModalFooter's space-between (same specificity, later source).

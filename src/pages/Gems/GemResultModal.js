@@ -21,17 +21,38 @@ export const paymentStatusFrom = (value) => {
 export const GemResultModal = ({ status, onClose }) => {
   const success = status === 'success';
   const firedRef = useRef(false);
+  const overlayRef = useRef(null);
 
   // Rain FaceGems on arrival, once per success. Reset when the status clears so
   // a later purchase celebrates again. Intentionally no cleanup — the confetti
   // self-removes, so closing the modal doesn't cut it short.
   useEffect(() => {
-    if (success && !firedRef.current) {
-      firedRef.current = true;
-      dropGemConfetti();
-    } else if (!success) {
+    if (!success) {
       firedRef.current = false;
+      return undefined;
     }
+    if (firedRef.current) return undefined;
+    firedRef.current = true;
+
+    let cancelled = false;
+    let tries = 0;
+    // react-modal mounts its portal a beat after this effect first runs, so the
+    // overlay node can briefly be null. Give it a few frames, then fall back to
+    // the body rather than skipping the celebration entirely.
+    const start = () => {
+      if (cancelled) return;
+      if (overlayRef.current || tries > 10) {
+        dropGemConfetti(overlayRef.current || document.body);
+        return;
+      }
+      tries += 1;
+      setTimeout(start, 30);
+    };
+    start();
+
+    return () => {
+      cancelled = true;
+    };
   }, [success]);
 
   return (
@@ -50,6 +71,9 @@ export const GemResultModal = ({ status, onClose }) => {
       }}
       contentLabel={success ? 'Payment successful' : 'Payment failed'}
       ariaHideApp={false}
+      overlayRef={(node) => {
+        overlayRef.current = node;
+      }}
     >
       <div className={`gemModalHeader ${success ? '' : 'is-error'}`}>
         <h2>{success ? 'Payment Successful' : 'Payment Failed'}</h2>
