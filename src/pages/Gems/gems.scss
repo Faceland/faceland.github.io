@@ -13,9 +13,12 @@ $gem-accent: #c084fc;
   // ---- Page shell ---------------------------------------------------------
   // Background texture is applied via inline style in Gems.js (the project's
   // convention for public assets — SCSS url() would be resolved as a module).
+  // No min-height here: forcing 100vh padded the page out with dead space
+  // whenever the content was shorter than the viewport, which pushed the ticker
+  // far below the disclaimer (and grew on taller screens). The ticker, Discord
+  // widget and footer below already cover the fold.
   .gemsPage {
-    min-height: 100vh;
-    padding-bottom: 60px;
+    padding-bottom: 18px;
     background-color: #14101c;
   }
 
@@ -87,9 +90,14 @@ $gem-accent: #c084fc;
   }
 
   // ---- Card grid ----------------------------------------------------------
+  // Flex wrap rather than grid: a grid's partial last row always lands in the
+  // leftmost tracks, so a row holding fewer cards can't be centred.
+  // `justify-content: center` centres each wrapped row independently while the
+  // gap stays identical between every card.
   .gemGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
     max-width: 1080px;
     margin: 30px auto;
@@ -98,9 +106,15 @@ $gem-accent: #c084fc;
 
   .gemCard {
     position: relative;
+    // max-width caps growth so the cards in a short row stay the same size as
+    // those in a full row instead of stretching to fill it.
+    flex: 1 1 220px;
+    max-width: 240px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    // The whole tile opens the info modal, so signal that it's clickable.
+    cursor: pointer;
     padding: 18px 16px 16px;
     background: linear-gradient(180deg, #232029 0%, #1b1822 100%);
     border: 1px solid #3a2f52;
@@ -709,9 +723,13 @@ $gem-accent: #c084fc;
     }
 
     .gemGrid {
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
       gap: 14px;
       padding: 0 14px;
+    }
+
+    .gemCard {
+      flex-basis: 140px;
+      max-width: 200px;
     }
   }
 
@@ -815,8 +833,17 @@ $gem-accent: #c084fc;
   font-size: 0.62em;
   font-weight: 800;
   letter-spacing: 0.8px;
-  color: #f2c314;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+
+  // Tag colour tracks the avatar border: gold for the top donor, silver for
+  // recent buyers.
+  &.is-gold {
+    color: #f2c314;
+  }
+
+  &.is-silver {
+    color: #dcdce6;
+  }
 }
 
 .gemTickerName {

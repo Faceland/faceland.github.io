@@ -23,7 +23,7 @@ export const GemTicker = ({ topDonor, recentPurchases = [], packages }) => {
     ...recentPurchases.map((entry, i) => ({
       key: `recent-${i}-${entry.name}`,
       tone: 'silver',
-      tag: null,
+      tag: 'RECENT PURCHASE',
       avatar: entry.avatar,
       name: entry.name,
       amount: purchaseLabel(entry, packages),
@@ -45,7 +45,9 @@ export const GemTicker = ({ topDonor, recentPurchases = [], packages }) => {
               loading="lazy"
             />
             <div className="gemTickerText">
-              {entry.tag && <span className="gemTickerTag">{entry.tag}</span>}
+              {entry.tag && (
+                <span className={`gemTickerTag is-${entry.tone}`}>{entry.tag}</span>
+              )}
               <span className="gemTickerName">{entry.name}</span>
               <span className="gemTickerAmount">{entry.amount}</span>
             </div>
