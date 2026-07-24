@@ -1,48 +1,42 @@
-// Curated FaceGems package catalog.
+import snapshot from './shopSnapshot.json';
+
+// FaceGems catalog + shop sidebar.
 //
-// WHY THIS IS STATIC: the storefront (shop.face.land) is a CraftingStore-hosted
-// webstore on a DIFFERENT origin. The same-origin policy makes it impossible to
-// read anything back out of a shop iframe (no CORS, no cooperating postMessage,
-// document.domain is dead), so we cannot scrape prices/descriptions at runtime.
-// Instead this data was captured from https://shop.face.land/category/336956 and
-// is baked in here. Packages change rarely; re-run scripts/scrape-gems.js to
-// refresh (see that file), or edit the array below by hand.
+// Live data is fetched at runtime in shopFetch.js (through a CORS proxy, since
+// shop.face.land sends no Access-Control-Allow-Origin and a cross-origin iframe
+// can never be read). `staticShopData` below is the FALLBACK rendered until that
+// resolves — and permanently if the proxy is down.
 //
-// The cart itself is still driven live through the iframe at checkout time — see
-// GemCheckoutModal.js. Only the *display* data lives here.
+// The fallback is NOT hand-maintained: scripts/scrape-gems.js regenerates
+// shopSnapshot.json from the live shop on every `prebuild`, so each deploy ships
+// a current one. Its shape must stay identical to what shopFetch returns.
 
 export const SHOP_ORIGIN = 'https://shop.face.land';
+export const CATEGORY_URL = `${SHOP_ORIGIN}/category/336956`;
 
-// CraftingStore CDN path for this store's product images.
-const IMG_BASE =
-  'https://cdn.craftingstore.net/rPPmDHlLQ1/0c94e9d3960688abe2d4124bbf7fc97c/';
-
-// baseGems = advertised base amount; the headline total already folds in the
-// bonus (e.g. 1000 base +10% = 1,100 FaceGems). priceUSD is whole-dollar here
-// but rendered with cents. `id` is the CraftingStore package id used to add to
-// the basket via POST /checkout/{id}.
-export const gemPackages = [
-  { id: 932891, baseGems: 500, bonusPct: 0, priceUSD: 5, image: 'yxbizgkt75svfxbu1ha9.png' },
-  { id: 932894, baseGems: 1000, bonusPct: 10, priceUSD: 10, image: '80zcgvkocxqzcqad57wl.png' },
-  { id: 932897, baseGems: 2000, bonusPct: 15, priceUSD: 20, image: 'wwylqrz9ruawvcgohp7w.png' },
-  { id: 932900, baseGems: 3500, bonusPct: 20, priceUSD: 35, image: '9w62xvqyx2gwo8dyocp7.png' },
-  { id: 932903, baseGems: 5000, bonusPct: 25, priceUSD: 50, image: 'dwbpoj03uelwpttecvyu.png' },
-  { id: 932906, baseGems: 10000, bonusPct: 30, priceUSD: 100, image: 'lr4ftao7n3kzykr1rbny.png' },
-].map((p) => ({
-  ...p,
-  totalGems: Math.round(p.baseGems * (1 + p.bonusPct / 100)),
-  image: IMG_BASE + p.image,
-}));
+export const staticShopData = snapshot;
 
 const num = (n) => n.toLocaleString('en-US');
 
 export const money = (usd) => `$${usd.toFixed(2)}`;
 export const gemTitle = (pkg) => `${num(pkg.totalGems)} FaceGems`;
-export const bonusLabel = (pkg) => (pkg.bonusPct > 0 ? `+${pkg.bonusPct}% Value!` : null);
+// The leading "+" is rendered separately (see .gemPlus) so it can be nudged
+// onto the optical centre — hence it is not part of this string.
+export const bonusLabel = (pkg) => (pkg.bonusPct > 0 ? `${pkg.bonusPct}% Value!` : null);
 
-// The rich "buy now" blurb shown in the Info modal. Rebuilt from data (rather
-// than stored verbatim) so it stays in sync with the numbers above. Purple
-// (#a855f7) and gold (#f2c314) match the site's FaceGem accent colors.
+// Whole dollars only — no cents, no "USD". e.g. "$5", "$2,845".
+export const dollars = (usd) => `$${Math.round(usd).toLocaleString('en-US')}`;
+
+// The shop records only what was bought ("1x 2,300 FaceGems [+15% Value!]"), not
+// the price — so match it back to the catalog by gem total. Falls back to the
+// bare package name (no "1x", no bonus tag) when it isn't a package we know.
+export const purchaseLabel = (entry, list = snapshot.packages) => {
+  const pkg = list.find((p) => p.totalGems === entry.gems);
+  return pkg ? dollars(pkg.priceUSD) : `${num(entry.gems)} FaceGems`;
+};
+
+// Built from the numbers rather than scraped, so it stays on-brand (and so no
+// third-party HTML is ever injected into the page).
 const accent = (t) => `<span style="color:#c084fc;font-weight:700">${t}</span>`;
 export const descriptionHtml = (pkg) => {
   const amount =

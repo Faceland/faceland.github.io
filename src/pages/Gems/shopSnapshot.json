@@ -1,0 +1,80 @@
+{
+  "packages": [
+    {
+      "id": 932891,
+      "baseGems": 500,
+      "bonusPct": 0,
+      "priceUSD": 5,
+      "image": "https://cdn.craftingstore.net/rPPmDHlLQ1/0c94e9d3960688abe2d4124bbf7fc97c/yxbizgkt75svfxbu1ha9.png",
+      "totalGems": 500
+    },
+    {
+      "id": 932894,
+      "baseGems": 1000,
+      "bonusPct": 10,
+      "priceUSD": 10,
+      "image": "https://cdn.craftingstore.net/rPPmDHlLQ1/0c94e9d3960688abe2d4124bbf7fc97c/80zcgvkocxqzcqad57wl.png",
+      "totalGems": 1100
+    },
+    {
+      "id": 932897,
+      "baseGems": 2000,
+      "bonusPct": 15,
+      "priceUSD": 20,
+      "image": "https://cdn.craftingstore.net/rPPmDHlLQ1/0c94e9d3960688abe2d4124bbf7fc97c/wwylqrz9ruawvcgohp7w.png",
+      "totalGems": 2300
+    },
+    {
+      "id": 932900,
+      "baseGems": 3500,
+      "bonusPct": 20,
+      "priceUSD": 35,
+      "image": "https://cdn.craftingstore.net/rPPmDHlLQ1/0c94e9d3960688abe2d4124bbf7fc97c/9w62xvqyx2gwo8dyocp7.png",
+      "totalGems": 4200
+    },
+    {
+      "id": 932903,
+      "baseGems": 5000,
+      "bonusPct": 25,
+      "priceUSD": 50,
+      "image": "https://cdn.craftingstore.net/rPPmDHlLQ1/0c94e9d3960688abe2d4124bbf7fc97c/dwbpoj03uelwpttecvyu.png",
+      "totalGems": 6250
+    },
+    {
+      "id": 932906,
+      "baseGems": 10000,
+      "bonusPct": 30,
+      "priceUSD": 100,
+      "image": "https://cdn.craftingstore.net/rPPmDHlLQ1/0c94e9d3960688abe2d4124bbf7fc97c/lr4ftao7n3kzykr1rbny.png",
+      "totalGems": 13000
+    }
+  ],
+  "topDonor": {
+    "name": "The_Axolotl",
+    "avatar": "https://crafthead.net/avatar/79d6b5c28a664c1d9a8209de9051247f/100",
+    "totalUSD": 2845
+  },
+  "recentPurchases": [
+    {
+      "name": "JustSteve97",
+      "avatar": "https://crafthead.net/avatar/1bcd9ed0d05847548d4445c6fe6b47d1/100",
+      "gems": 500
+    },
+    {
+      "name": "JustSteve97",
+      "avatar": "https://crafthead.net/avatar/1bcd9ed0d05847548d4445c6fe6b47d1/100",
+      "gems": 1100
+    },
+    {
+      "name": "JustSteve97",
+      "avatar": "https://crafthead.net/avatar/1bcd9ed0d05847548d4445c6fe6b47d1/100",
+      "gems": 2300
+    },
+    {
+      "name": "Mangosita",
+      "avatar": "https://crafthead.net/avatar/f20a247d22af4746b1228b044b7d183d/100",
+      "gems": 2300
+    }
+  ],
+  "scrapedAt": "2026-07-24T07:45:10.280Z"
+}

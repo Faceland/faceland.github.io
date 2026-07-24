@@ -35,7 +35,12 @@ export const GemInfoModal = ({ pkg, onClose, onBuy }) => (
         <div className="gemModalBody">
           <div className="gemInfoImageWrap">
             <img className="gemInfoImage" src={pkg.image} alt={gemTitle(pkg)} />
-            {bonusLabel(pkg) && <div className="gemCardBadge gemInfoBadge">{bonusLabel(pkg)}</div>}
+            {bonusLabel(pkg) && (
+              <div className="gemCardBadge gemInfoBadge">
+                <span className="gemPlus">+</span>
+                {bonusLabel(pkg)}
+              </div>
+            )}
           </div>
           <div
             className="gemInfoDesc"

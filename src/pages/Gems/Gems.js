@@ -1,13 +1,15 @@
-import React, { useCallback, useContext, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { HeaderBar } from '../../components/HeaderBar/HeaderBar';
 import { Footer } from '../../components/Footer/Footer';
 import { DiscordWidget } from '../../components/DiscordWidget/DiscordWidget';
 import { SEO } from '../../components/SEO/SEO';
 import { Context } from '../../Store';
-import { gemPackages } from './gemsData';
+import { staticShopData } from './gemsData';
+import { fetchLiveShopData } from './shopFetch';
 import { GemPackageCard } from './GemPackageCard';
 import { GemInfoModal } from './GemInfoModal';
 import { GemCheckoutModal } from './GemCheckoutModal';
+import { GemTicker } from './GemTicker';
 import { GemConstructionModal } from './GemConstructionModal'; // TEMP: remove when shop is live
 import './gems.scss';
 
@@ -18,6 +20,32 @@ export const Gems = () => {
   const [state] = useContext(Context);
   const [infoPkg, setInfoPkg] = useState(null);
   const [checkoutPkg, setCheckoutPkg] = useState(null);
+
+  // Packages and the sidebar (top donor / recent buys) are pulled live from the
+  // shop on each visit, via a CORS proxy — the browser can't read
+  // shop.face.land directly. Until that resolves, or if it fails outright, the
+  // baked-in snapshot in gemsData.js renders instead.
+  const [shop, setShop] = useState(staticShopData);
+  useEffect(() => {
+    let alive = true;
+    fetchLiveShopData()
+      .then((live) => {
+        if (!alive || !live) return;
+        setShop((prev) => ({
+          packages: live.packages?.length ? live.packages : prev.packages,
+          topDonor: live.topDonor || prev.topDonor,
+          recentPurchases: live.recentPurchases?.length
+            ? live.recentPurchases
+            : prev.recentPurchases,
+        }));
+      })
+      .catch(() => {
+        /* keep the fallback */
+      });
+    return () => {
+      alive = false;
+    };
+  }, []);
 
   const openInfo = useCallback((pkg) => setInfoPkg(pkg), []);
   const closeInfo = useCallback(() => setInfoPkg(null), []);
@@ -44,7 +72,7 @@ export const Gems = () => {
       >
         <div className="gemsBanner shadow-darker">
           <img
-            className="gemsBannerIcon"
+            className="gemsBannerIcon pixelImage"
             src="/assets/images/XAhGG80.png"
             alt=""
             aria-hidden="true"
@@ -52,13 +80,13 @@ export const Gems = () => {
           <div className="gemsBannerText">
             <h1>Buy FaceGems?!</h1>
             <p>
-              The only gem with a face right on it! You can spend FaceGems on cool cosmetics and global boosts in-game! Your first purchase unlocks some exclusive perks!
+              The only gem with a face right on it! You can spend FaceGems in-game for cool cosmetics and global boosts! Your first purchase unlocks some exclusive perks!
             </p>
           </div>
         </div>
 
         <div className="gemGrid">
-          {gemPackages.map((pkg) => (
+          {shop.packages.map((pkg) => (
             <GemPackageCard key={pkg.id} pkg={pkg} onInfo={openInfo} onBuy={openCheckout} />
           ))}
         </div>
@@ -68,6 +96,12 @@ export const Gems = () => {
           product and is not associated with Mojang or Microsoft.
         </p>
       </div>
+
+      <GemTicker
+        topDonor={shop.topDonor}
+        recentPurchases={shop.recentPurchases}
+        packages={shop.packages}
+      />
 
       {/* TEMP: under-construction notice while testing in production. */}
       <GemConstructionModal />

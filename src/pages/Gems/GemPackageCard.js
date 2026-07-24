@@ -10,7 +10,12 @@ export const GemPackageCard = ({ pkg, onInfo, onBuy }) => {
 
   return (
     <div className="gemCard shadow-darker">
-      {badge && <div className="gemCardBadge">{badge}</div>}
+      {badge && (
+        <div className="gemCardBadge">
+          <span className="gemPlus">+</span>
+          {badge}
+        </div>
+      )}
 
       <div className="gemCardImageWrap">
         <img className="gemCardImage" src={pkg.image} alt={title} loading="lazy" />

@@ -83,7 +83,8 @@
   "scripts": {
     "start": "node_modules/.bin/react-scripts start",
     "generate-sitemap": "node scripts/generate-sitemap.js",
-    "prebuild": "node scripts/generate-sitemap.js",
+    "scrape-gems": "node scripts/scrape-gems.js",
+    "prebuild": "node scripts/scrape-gems.js && node scripts/generate-sitemap.js",
     "build": "node_modules/.bin/react-scripts build",
     "postbuild": "react-snap",
     "test": "node_modules/.bin/react-scripts test",

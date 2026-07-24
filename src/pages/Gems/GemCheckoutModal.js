@@ -12,6 +12,12 @@ const GATEWAYS = [
   { value: 'stripe', label: 'Credit / Debit Card', icon: 'fa-credit-card' },
 ];
 
+// Minecraft (Java) username rules: 3–16 characters, letters/digits/underscore
+// only. Same expression is mirrored into the input's `pattern` so the browser's
+// native validation blocks submission too.
+const MC_NAME_RE = /^[A-Za-z0-9_]{3,16}$/;
+const MC_NAME_PATTERN = '[A-Za-z0-9_]{3,16}';
+
 // Custom, on-brand checkout. It renders OUR OWN form and drives a HIDDEN
 // CraftingStore iframe underneath: on submit we clear the basket, add exactly
 // this package, apply any coupon, then hand the payment form off to the TOP
@@ -32,6 +38,10 @@ export const GemCheckoutModal = ({ pkg, onClose }) => {
   const [agreed, setAgreed] = useState(false);
   const [processing, setProcessing] = useState(false);
   const [error, setError] = useState(null);
+
+  // Only flag a bad name once something has been typed — an empty field is
+  // already covered by `required`, and reddening an untouched field is hostile.
+  const nameInvalid = mcName.length > 0 && !MC_NAME_RE.test(mcName);
 
   // Reset transient state each time the modal opens.
   useEffect(() => {
@@ -99,6 +109,10 @@ export const GemCheckoutModal = ({ pkg, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (processing) return;
+    if (!MC_NAME_RE.test(mcName)) {
+      setError('Please enter a valid Minecraft username: 3–16 letters, numbers, or underscores.');
+      return;
+    }
     setError(null);
     setProcessing(true);
     try {
@@ -180,11 +194,25 @@ export const GemCheckoutModal = ({ pkg, onClose }) => {
             id="gemMcName"
             type="text"
             value={mcName}
-            onChange={(e) => setMcName(e.target.value)}
+            // Spaces are never valid in a Minecraft name — strip them as typed
+            // or pasted so the raw value always matches what we validate.
+            onChange={(e) => setMcName(e.target.value.replace(/\s/g, ''))}
             placeholder="Your Minecraft username"
             autoComplete="off"
+            spellCheck="false"
+            autoCapitalize="none"
+            maxLength={16}
+            pattern={MC_NAME_PATTERN}
+            title="3–16 characters, using only letters, numbers, and underscores"
+            aria-invalid={nameInvalid || undefined}
+            aria-describedby={nameInvalid ? 'gemMcNameError' : undefined}
             required
           />
+          {nameInvalid && (
+            <small id="gemMcNameError" className="gemFieldError">
+              Minecraft names are 3–16 characters, using only letters, numbers, and underscores.
+            </small>
+          )}
         </div>
 
         <div className="gemField">
@@ -275,7 +303,7 @@ export const GemCheckoutModal = ({ pkg, onClose }) => {
       <div className="gemCheckoutFooter">
         <span>You&rsquo;ll finish paying securely on {gateway === 'paypal' ? 'PayPal' : 'the card'} page.</span>
         <a href={`${SHOP_ORIGIN}/checkout/basket`} target="_blank" rel="noopener noreferrer">
-          Prefer the classic checkout?&nbsp;↗
+          Issues? Click for classic checkout!&nbsp;↗
         </a>
       </div>
 

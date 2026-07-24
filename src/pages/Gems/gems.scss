@@ -58,10 +58,12 @@ $gem-accent: #c084fc;
       background: linear-gradient(90deg, transparent, $gem-purple-1, transparent);
     }
 
+    // Genuine pixel art (same asset as the header gem), so it keeps the site's
+    // .pixelImage nearest-neighbour scaling — unlike the package art, which is
+    // not pixel art and is explicitly reset to `auto`.
     .gemsBannerIcon {
       height: 56px;
       width: auto;
-      image-rendering: auto;
       filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4));
     }
 
@@ -310,13 +312,15 @@ $gem-accent: #c084fc;
 }
 
 .gemModalClose {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 30px;
   height: 30px;
-  font-size: 20px;
-  line-height: 1;
+  // The × glyph sits on the maths axis, which renders visibly low. Hide it and
+  // draw the cross with pseudo-elements so it is exactly centred in any font.
+  font-size: 0;
   color: #fff;
   cursor: pointer;
   background: rgba(0, 0, 0, 0.2);
@@ -324,9 +328,35 @@ $gem-accent: #c084fc;
   border-radius: 5px;
   transition: background 0.15s;
 
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 13px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 1px;
+  }
+
+  &::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
   &:hover {
     background: rgba(0, 0, 0, 0.4);
   }
+}
+
+// Same maths-axis problem as the × above: a leading "+" reads low next to
+// digits, so lift it slightly to optically centre it.
+.gemPlus {
+  vertical-align: 0.06em;
 }
 
 // Info modal body
@@ -459,6 +489,9 @@ $gem-accent: #c084fc;
     padding: 10px 12px;
     font-size: 0.95em;
     color: #f3ecff;
+    // App.scss globally sets `cursor: pointer` on input[type='text'] — restore
+    // the normal text caret for real text fields.
+    cursor: text;
     background: #171320;
     border: 1px solid #3f3358;
     border-radius: 5px;
@@ -473,7 +506,23 @@ $gem-accent: #c084fc;
       border-color: #a855f7;
       box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(168, 85, 247, 0.25);
     }
+
+    // Driven by aria-invalid rather than :invalid, so an untouched empty field
+    // never shows as an error.
+    &[aria-invalid='true'] {
+      border-color: #e05a5a;
+
+      &:focus {
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(224, 90, 90, 0.25);
+      }
+    }
   }
+}
+
+.gemFieldError {
+  font-size: 0.75em;
+  line-height: 1.35;
+  color: #ff9b9b;
 }
 
 .gemFieldHint {
@@ -681,6 +730,110 @@ $gem-accent: #c084fc;
     .gemBuyBtn {
       width: 100%;
     }
+  }
+}
+
+// ─── Bottom ticker: top donor + recent purchases ────────────────────────────
+// Mirrors .quoteTicker on the home page, in the .gemsBanner purple.
+.gemTicker {
+  position: relative;
+  padding: 26px 0;
+  background: linear-gradient(180deg, $gem-purple-1 0%, $gem-purple-2 50%, $gem-purple-3 100%);
+  border-top: 2px solid $gem-border-dark;
+  border-bottom: 3px solid #4c1d95;
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.2),
+    0 4px 12px rgba(0, 0, 0, 0.3);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #d8b4fe, transparent);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, $gem-purple-1, transparent);
+  }
+
+  .ticker {
+    height: 100% !important;
+  }
+
+  .ticker__element {
+    height: 100% !important;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.gemTickerEntry {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  // Far wider than the quote ticker's 160px — there are only ~5 entries.
+  margin-right: 260px;
+}
+
+.gemTickerAvatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 4px;
+  // Downscaled from a 100px head — keep it smooth, not pixel-snapped.
+  image-rendering: auto;
+
+  &.is-silver {
+    border: 2px solid #dcdce6;
+    box-shadow: 0 0 8px rgba(220, 220, 235, 0.5), 0 2px 5px rgba(0, 0, 0, 0.4);
+  }
+
+  &.is-gold {
+    border: 2px solid #f2c314;
+    box-shadow: 0 0 10px rgba(242, 195, 20, 0.6), 0 2px 5px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.gemTickerText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.gemTickerTag {
+  font-size: 0.62em;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: #f2c314;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.gemTickerName {
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.gemTickerAmount {
+  font-weight: 800;
+  color: #f7f0ff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+@media (max-width: 640px) {
+  .gemTickerEntry {
+    margin-right: 120px;
   }
 }
 
