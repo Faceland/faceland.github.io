@@ -1,0 +1,282 @@
+// Screen reader only - visually hidden but accessible to assistive technologies
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+button,
+input[type='submit'],
+input[type='reset'],
+input[type='text'] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+.theme-primary {
+  color: whitesmoke;
+  background-color: #48ba3b;
+
+  &:hover {
+    background-color: #6ad45e;
+    transition: background-color 0.2s;
+    transition-timing-function: ease-in-out;
+  }
+}
+
+.theme-white {
+  color: black;
+  background-color: #ffffff;
+
+  &:hover {
+    background-color: #d2d2d2;
+  }
+}
+
+.theme-red {
+  color: whitesmoke;
+  background-color: #b33d3d;
+
+  &:hover {
+    background-color: #c94b4b;
+  }
+}
+
+.theme-gray {
+  color: whitesmoke;
+  background-color: #282c34;
+
+  &:hover {
+    background-color: #30343b;
+  }
+}
+
+.mx-1 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.circle-border {
+  border-radius: 300px;
+}
+
+.border-5 {
+  border-radius: 5px;
+}
+
+.centerContent {
+  justify-content: center;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.margin-full-5 {
+  margin: 5px;
+}
+
+.margin-full-10 {
+  margin: 10px;
+}
+
+.padding-full-5 {
+  padding: 5px;
+}
+
+.padding-full-10 {
+  padding: 10px;
+}
+
+.padding-full-15 {
+  padding: 15px;
+}
+
+.flexCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+.flex-grow-2 {
+  flex-grow: 2;
+}
+
+.flex-grow-4 {
+  flex-grow: 4;
+}
+
+.flex-grow-8 {
+  flex-grow: 8;
+}
+
+.width5 {
+  width: 5%;
+}
+
+.width10 {
+  width: 10%;
+}
+
+.width15 {
+  width: 15%;
+}
+
+.width20 {
+  width: 20%;
+}
+
+.width25 {
+  width: 25%;
+}
+
+.width30 {
+  width: 30%;
+}
+
+.width40 {
+  width: 40%;
+}
+
+.width50 {
+  width: 50%;
+}
+
+.width60 {
+  width: 60%;
+}
+
+.width100 {
+  width: 100%;
+}
+
+.width-full {
+  width: 90vw;
+}
+
+.App {
+  text-align: center;
+  scroll-behavior: smooth !important;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.pixelImage {
+  -ms-interpolation-mode: nearest-neighbor;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-pixelated;
+  image-rendering: pixelated;
+}
+
+.preserve-whitespace {
+  white-space: pre;
+}
+
+.thin-underline {
+  border-bottom: solid;
+  border-width: 1px;
+  color: #d4a824;
+  border-color: #d4a824;
+}
+
+.no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.bodySection {
+  width: 100%;
+  background-color: #2a2530;
+}
+
+.bodyPadding {
+  padding: 0;
+}
+
+.shadow-normal {
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.2));
+}
+
+.shadow-dark {
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
+}
+
+.shadow-darker {
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.5));
+}
+
+.basicPage {
+  width: 100%;
+  background-color: #eeeeee;
+}
+
+.floatingButton {
+  border: none;
+  margin: 0px 10px;
+  outline: 0;
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 4px;
+
+  &:hover {
+    transition: background-color 0.2s;
+    transition-timing-function: ease-in-out;
+  }
+}

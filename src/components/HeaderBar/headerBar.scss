@@ -1,0 +1,266 @@
+.barStyle-solid {
+  background-color: #1f1f1f;
+  border-bottom: 1px solid #0a0a0a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+  .navButton {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    transition: background-color 0s 0.15s, border-color 0s 0.15s, box-shadow 0s 0.15s, color 0s;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: transparent;
+      border-radius: 3px;
+      transition: background-color 0.05s ease-out !important;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    &:hover {
+      background-color: transparent;
+      border-color: transparent;
+      box-shadow: none;
+      color: #ffffff;
+
+      &::after {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+
+  .navHover {
+    display: none;
+  }
+}
+
+.barStyle-transparent {
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0);
+}
+
+.navButton {
+  color: #e0e0e0;
+  background-color: #272727;
+  position: relative;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 2px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  border: 1px solid #151515;
+  border-bottom: 1px solid #0a0a0a;
+
+  margin: 4px 10px 2px 10px;
+  outline: 0;
+  padding: 6px 14px 9px 14px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.5px;
+  transition: background-color 0s, border-color 0s, box-shadow 0s, color 0s;
+
+  &:hover {
+    background-color: #333333;
+    color: #ffffff;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+      0 0 8px rgba(255, 255, 255, 0.15);
+  }
+
+  .navHover {
+    display: none;
+  }
+}
+
+.headerBar {
+  top: 0;
+  right: 0;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 200;
+
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  .profileSection {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .vignetteToggle {
+      background-color: #333;
+      color: #fff;
+      border: 1px solid #555;
+      border-radius: 3px;
+      padding: 4px 10px;
+      margin-right: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 12px;
+
+      &:hover {
+        background-color: #444;
+      }
+    }
+
+    .facegemButton {
+      background: linear-gradient(180deg, #a855f7 0%, #8b5cf6 50%, #7c3aed 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+        0 2px 4px rgba(0, 0, 0, 0.3);
+      border-radius: 3px;
+      border: 1px solid #6d28d9;
+      border-bottom: 2px solid #5b21b6;
+      transition: all 0.2s ease-out;
+    }
+    .facegemButton:hover {
+      background: linear-gradient(180deg, #c084fc 0%, #a855f7 50%, #8b5cf6 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+        0 0 15px rgba(168, 85, 247, 0.6);
+
+      .gemImg {
+        animation-name: squishy;
+        transform-origin: bottom;
+        animation-timing-function: ease;
+      }
+    }
+  }
+
+  .logo {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 5px;
+    margin-left: 5px;
+
+    .logoButton {
+      margin-bottom: 1px;
+      margin-top: 2px;
+      margin-left: 5px;
+      min-width: 171px;
+    }
+
+    picture {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    img {
+      height: 100%;
+      width: auto;
+      margin-right: 15px;
+    }
+
+    /* For making the logo text not-styled */
+    a {
+      text-decoration: none;
+    }
+
+    p {
+      color: black;
+      font-weight: 1000;
+      margin-right: 30px;
+      margin-left: 10px;
+    }
+  }
+
+  .fa {
+    padding: 10px;
+    margin-right: 8px;
+    color: white;
+  }
+
+  .burgerButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.burgerContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+
+.burgerNav {
+  background: linear-gradient(180deg, #252525 0%, #1a1a1a 100%);
+  border-bottom: 2px solid #0a0a0a;
+  position: fixed;
+  top: 50px;
+  right: 0;
+  padding: 5px 0px 8px;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+
+  z-index: 1000;
+
+  transition: background-color 0.15s;
+  transition-timing-function: ease-in-out;
+
+  a {
+    display: block;
+    width: 200px;
+    text-align: left;
+    padding: 15px 100% 15px 20px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #e0e0e0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease-out;
+    border-left: 3px solid transparent;
+
+    &:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.05);
+      border-left-color: #ffffff;
+    }
+  }
+
+  .buyGemsLink {
+    color: #c850c0;
+    font-weight: 600;
+    white-space: nowrap;
+    text-shadow: 0 0 10px rgba(200, 80, 192, 0.6), 1px 1px 2px rgba(0, 0, 0, 0.5);
+
+    &:hover {
+      color: #e070d8;
+      text-shadow: 0 0 15px rgba(224, 112, 216, 0.8), 1px 1px 2px rgba(0, 0, 0, 0.5);
+      border-left-color: #e070d8;
+    }
+  }
+}

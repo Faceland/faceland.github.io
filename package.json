@@ -1,0 +1,125 @@
+{
+  "homepage": "https://face.land",
+  "name": "faceland-website",
+  "version": "1.0.0",
+  "private": true,
+  "reactSnap": {
+    "source": "build",
+    "inlineCss": false,
+    "skipThirdPartyRequests": true,
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ],
+    "include": [
+      "/",
+      "/guide",
+      "/items",
+      "/vote",
+      "/map",
+      "/facepals",
+      "/gems",
+      "/guides",
+      "/guides/stats",
+      "/guides/abilities",
+      "/guides/equipment",
+      "/guides/upgrades",
+      "/guides/mining",
+      "/guides/gathering",
+      "/guides/fishing",
+      "/guides/crafting",
+      "/guides/enchanting",
+      "/guides/alchemy",
+      "/guides/cooking",
+      "/guides/agility",
+      "/guides/loremaster",
+      "/guides/trading",
+      "/guides/prayer",
+      "/guides/sneak",
+      "/guides/questing",
+      "/guides/houses",
+      "/guides/mounts",
+      "/guides/pets",
+      "/guides/guilds",
+      "/guides/outposts",
+      "/guides/dungeons",
+      "/guides/arenas"
+    ]
+  },
+  "dependencies": {
+    "@hello-pangea/dnd": "^18.0.1",
+    "@material-tailwind/react": "^2.1.5",
+    "@tanstack/react-virtual": "^3.13.18",
+    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.1",
+    "array-move": "^4.0.0",
+    "lodash": "^4.17.21",
+    "p5": "^1.9.0",
+    "react": "^18.2.0",
+    "react-accessible-accordion": "^5.0.0",
+    "react-color": "^2.19.3",
+    "react-custom-scrollbars": "^4.2.1",
+    "react-debounce-input": "^3.3.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
+    "react-dom": "^18.2.0",
+    "react-fast-marquee": "^1.6.2",
+    "react-flexbox-grid": "^2.1.2",
+    "react-icon-tint": "^2.5.1",
+    "react-modal": "^3.16.1",
+    "react-router": "^6.20.1",
+    "react-router-dom": "^6.20.1",
+    "react-scripts": "^5.0.1",
+    "react-select": "^5.8.0",
+    "react-spring": "^9.7.3",
+    "reactcss": "^1.2.3",
+    "sass": "^1.69.5",
+    "use-deep-compare-effect": "^1.8.1",
+    "use-sound": "^4.0.1",
+    "uuid": "^9.0.1",
+    "web-vitals": "^3.5.0"
+  },
+  "scripts": {
+    "start": "node_modules/.bin/react-scripts start",
+    "generate-sitemap": "node scripts/generate-sitemap.js",
+    "scrape-gems": "node scripts/scrape-gems.js",
+    "prebuild": "node scripts/scrape-gems.js && node scripts/generate-sitemap.js",
+    "build": "node_modules/.bin/react-scripts build",
+    "postbuild": "react-snap",
+    "test": "node_modules/.bin/react-scripts test",
+    "eject": "node_modules/.bin/react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "node_modules/.bin/gh-pages -d build",
+    "convert-images": "node scripts/convert-to-webp.js"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "gh-pages": "^6.1.0",
+    "history": "^5.3.0",
+    "postcss": "^8.4.32",
+    "prettier": "^3.1.0",
+    "prettier-plugin-tailwindcss": "^0.5.9",
+    "react-snap": "^1.23.0",
+    "sharp": "^0.33.5",
+    "tailwindcss": "^3.3.6"
+  }
+}

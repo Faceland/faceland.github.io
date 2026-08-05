@@ -1,0 +1,39 @@
+# Upgrades
+%Push your equipment beyond its limits with the upgrade system.
+
+The upgrade system in Faceland allows you to enhance your existing equipment, making good items great and great items extraordinary. Rather than constantly replacing gear, upgrades let you invest in pieces you love.
+
+img:/assets/guides/upgrades_overview.png
+
+# How Upgrading Works
+Upgrading is performed at an Upgrade Station found in most major towns. You provide the item, the required materials, and a fee to attempt the upgrade.
+
+- Each upgrade level increases the item's base stats
+- Success chance decreases at higher upgrade levels
+- Failed upgrades do not destroy the item but consume materials
+- Some rare materials can increase the success chance
+
+%Always check the success probability before committing valuable materials.
+
+# Upgrade Levels
+Items can be upgraded through multiple tiers, each providing progressively larger bonuses.
+
+- Levels 1 through 3 have high success rates and modest stat gains
+- Levels 4 through 6 offer meaningful power increases with moderate risk
+- Levels 7 through 9 provide major stat boosts but with lower success rates
+- Level 10 is the maximum and grants a visual glow effect on the item
+
+img:/assets/guides/upgrades_levels.png
+
+# Upgrade Materials
+Different types of equipment require different materials for upgrading. These materials are gathered through crafting, dungeons, and world events.
+
+- Ore shards are used for weapons and heavy armor
+- Leather strips are needed for light armor and accessories
+- Arcane dust is required for magical equipment upgrades
+- Celestial fragments are rare materials that boost success rates
+
+%Upgrade materials can be traded with other players through the trading system.
+
+# Tips for Upgrading
+Planning your upgrade path is important for efficient resource usage. Focus on upgrading your weapon first, as it provides the largest damage increase. Save your rarest materials for items you intend to keep long-term, and consider using success boosters on attempts above level 6.

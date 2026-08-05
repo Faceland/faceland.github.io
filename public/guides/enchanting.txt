@@ -1,0 +1,41 @@
+# Enchanting
+%Infuse your equipment with arcane power to transcend ordinary limits.
+
+Enchanting allows you to add magical properties to your equipment, granting bonus stats, special effects, and elemental damage. A well-enchanted loadout can be the difference between victory and defeat in challenging content.
+
+img:/assets/guides/enchanting_overview.png
+
+# The Enchanting Table
+Enchanting is performed at an Enchanting Table, a specialized station found in major cities and certain dungeon safe rooms.
+
+- Place an enchantable item on the table to see available enchantments
+- Select the desired enchantment and provide the required materials
+- The enchantment is applied instantly upon successful completion
+- Items marked with the enchantable tag in the database can be enchanted
+- Each item can hold one enchantment at a time
+
+%Replacing an existing enchantment destroys the previous one permanently.
+
+# Types of Enchantments
+Enchantments fall into several categories depending on the equipment slot and desired effect.
+
+- Elemental enchantments add fire, ice, or lightning damage to weapons
+- Defensive enchantments boost armor, magic resist, or health on armor pieces
+- Utility enchantments improve movement speed, gathering rates, or experience gain
+- Vampiric enchantments grant life steal or mana steal on hit
+- Thorns enchantments reflect a portion of incoming damage back to attackers
+
+img:/assets/guides/enchanting_types.png
+
+# Enchanting Materials
+The materials needed for enchanting are distinct from crafting materials and are obtained through specific activities.
+
+- Arcane Dust drops from magical enemies and is the base enchanting material
+- Elemental Cores are found in biome-specific areas and grant elemental enchantments
+- Enchanted Scrolls provide rare enchantment recipes
+- Void Crystals are premium materials that unlock the most powerful enchantments
+
+%Disenchanting unwanted magical items is a reliable source of arcane dust.
+
+# Enchanting Strategy
+Focus enchantments that complement your build. A melee fighter benefits most from elemental weapon enchantments and defensive armor enchantments. Casters should prioritize mana-related enchantments and utility boosts. Always enchant your highest rarity gear first to maximize value.

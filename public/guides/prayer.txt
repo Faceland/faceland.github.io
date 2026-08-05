@@ -1,0 +1,42 @@
+# Prayer
+%Seek divine favor and channel blessings to protect and empower.
+
+Prayer is a devotional skill that allows you to call upon higher powers for passive blessings and protective effects. By visiting shrines and performing rituals, you earn prayer experience and unlock increasingly powerful boons.
+
+img:/assets/guides/prayer_overview.png
+
+# Shrines
+Shrines are sacred locations scattered across the world where you can pray and receive blessings.
+
+- Each shrine is dedicated to a different deity or spirit
+- Praying at a shrine grants experience and a temporary blessing
+- Shrines have a cooldown period between uses
+- Some shrines are hidden and require exploration to discover
+- Restoring damaged shrines grants large one-time experience bonuses
+
+%Visiting a new shrine for the first time always grants bonus prayer experience.
+
+# Blessings
+Blessings are passive effects you can activate using prayer points earned through worship. You may have a limited number of blessings active simultaneously.
+
+- Protection blessings reduce incoming damage from various sources
+- Vitality blessings increase health regeneration rates
+- Fortitude blessings improve resistance to crowd control effects
+- Wrath blessings add bonus damage to your attacks
+- Providence blessings increase the quality of loot drops
+
+img:/assets/guides/prayer_blessings.png
+
+# Prayer Points
+Prayer points are the resource spent to activate and maintain blessings. Higher level blessings cost more points to sustain.
+
+- Your total prayer point pool grows as your prayer level increases
+- Active blessings continuously drain prayer points over time
+- Visiting shrines periodically restores a portion of your points
+- Resting at sacred sites fully replenishes your prayer pool
+- Certain rare items grant bonus prayer points passively
+
+%Balance your active blessings carefully to avoid depleting your prayer points too quickly.
+
+# Rituals
+At high prayer levels, you unlock the ability to perform rituals that provide powerful group-wide effects. These rituals require specific materials and a consecrated location, but their benefits are unmatched for guild events and dungeon raids.

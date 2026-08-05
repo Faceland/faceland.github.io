@@ -1,0 +1,41 @@
+# Character Stats
+%Understanding your stats is the foundation of becoming a powerful adventurer.
+
+Every player in Faceland has a set of core attributes that determine their effectiveness in combat, crafting, and exploration. As you level up and acquire better gear, these stats will grow and shape your playstyle.
+
+img:/assets/guides/stats_overview.png
+
+# Primary Attributes
+Your primary attributes form the backbone of your character build. Each one influences different aspects of gameplay.
+
+- Strength increases your melee damage and carrying capacity
+- Dexterity improves your attack speed and critical hit chance
+- Intelligence boosts your magical damage and mana pool
+- Vitality raises your maximum health and health regeneration
+- Endurance affects your stamina and physical damage resistance
+
+%Primary attributes can be increased through leveling, equipment, and special upgrades.
+
+# Secondary Stats
+Secondary stats are derived from your primary attributes and equipment bonuses. They provide more specific combat advantages.
+
+- Critical Hit Chance determines how often you land devastating blows
+- Armor Rating reduces incoming physical damage by a percentage
+- Magic Resist lowers the impact of enemy spells and abilities
+- Life Steal returns a portion of damage dealt as health
+- Movement Speed affects how quickly you traverse the world
+
+img:/assets/guides/stats_secondary.png
+
+# How Stats Scale
+Stats in Faceland follow a diminishing returns curve. The first few points in any attribute provide the largest benefit, while later points offer smaller incremental gains. This encourages balanced builds rather than dumping everything into a single stat.
+
+- Each point of Strength adds roughly 2 melee damage at low levels
+- Armor Rating soft caps at around 60% damage reduction
+- Critical Hit Chance is most efficient between 15% and 40%
+- Movement Speed bonuses are halved beyond 130% base speed
+
+%Experiment with different stat distributions to find the build that suits your playstyle best.
+
+# Viewing Your Stats
+You can view your full stat breakdown at any time by opening the character panel. This displays all primary attributes, secondary stats, and any active bonuses from equipment or buffs. Hover over individual stats to see detailed tooltips explaining exactly what each one does.

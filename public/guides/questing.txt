@@ -1,0 +1,42 @@
+# Questing
+%Embark on epic adventures and shape the fate of Faceland.
+
+Questing is the primary story-driven activity in Faceland. Through quests, you explore the world, meet memorable characters, earn valuable rewards, and uncover the deep lore that ties everything together.
+
+img:/assets/guides/questing_overview.png
+
+# Quest Types
+Faceland features several categories of quests, each offering different experiences and rewards.
+
+- Main Story quests follow the central narrative and unlock new regions
+- Side quests provide optional adventures with unique stories and rewards
+- Daily quests reset each day and offer consistent currency income
+- Repeatable quests can be completed multiple times for grinding resources
+- Hidden quests are discovered through exploration and NPC interactions
+
+%Main story quests are marked with a golden icon above the quest giver's head.
+
+# Accepting and Tracking Quests
+The quest system is designed to guide you without restricting your freedom.
+
+- Talk to NPCs with quest markers to accept new quests
+- Your quest log tracks all active quests and their objectives
+- Map markers highlight quest objectives and destinations
+- Multiple quests can be active simultaneously
+- Abandon unwanted quests from the quest log at any time
+
+img:/assets/guides/questing_log.png
+
+# Quest Rewards
+Completing quests grants a variety of rewards depending on the quest's difficulty and type.
+
+- Experience points towards your character level
+- Currency for purchasing items and services
+- Equipment drops appropriate to your current level
+- Unique cosmetic items only available through specific quests
+- Reputation gains with local factions and organizations
+
+%Some quest chains culminate in powerful unique item rewards found nowhere else.
+
+# Quest Tips
+Read quest dialogue carefully, as it often contains hints about optional objectives and hidden bonuses. Some quests have branching paths where your choices affect the outcome and rewards. Explore thoroughly during quest areas, as bonus objectives and hidden lore are frequently tucked away off the main path.

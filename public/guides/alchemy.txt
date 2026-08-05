@@ -1,0 +1,42 @@
+# Alchemy
+%Brew potions of incredible power from the simplest ingredients.
+
+Alchemy is the science of combining gathered herbs, mushrooms, and reagents into potions that provide temporary but powerful effects. From healing draughts to damage-boosting elixirs, a well-stocked potion belt gives you a massive advantage.
+
+img:/assets/guides/alchemy_overview.png
+
+# Brewing Basics
+Potions are brewed at an Alchemy Station using a combination of a base ingredient, a catalyst, and one or more reagents.
+
+- The base ingredient determines the potion's primary effect category
+- The catalyst controls the potion's duration and potency
+- Reagents fine-tune the exact stats and add secondary effects
+- Higher alchemy skill allows more complex recipes with better results
+- Failed brews produce Murky Potions with weakened or random effects
+
+%Start with simple health and mana potions to build your alchemy skill safely.
+
+# Potion Types
+The world of alchemy offers a vast array of potions to suit every situation.
+
+- Health Potions restore hit points instantly or over time
+- Mana Potions replenish your magical energy reserves
+- Strength Elixirs temporarily boost your damage output
+- Resistance Potions reduce incoming damage from specific elements
+- Speed Tonics increase your movement and attack speed
+
+img:/assets/guides/alchemy_potions.png
+
+# Rare Reagents
+Some of the most powerful potions require rare reagents only found in dangerous locations or during unusual circumstances.
+
+- Nightbloom Petals grow only at midnight in the enchanted forest
+- Magma Salt crystallizes near active volcanic vents
+- Frostcap Spores appear on mushrooms in frozen caves
+- Starlight Essence can only be collected during clear nights at high altitudes
+- Dragon Tears are dropped by elite dragon enemies
+
+%Rare reagents are tradeable and often fetch premium prices from other players.
+
+# Alchemy Tips
+Keep a stockpile of common potions for everyday use and save rare reagents for boss fights and dungeon runs. Brewing in bulk slightly increases your yield per ingredient. Experiment with unusual combinations, as some undocumented recipes produce unique and surprising results.

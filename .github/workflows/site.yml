@@ -1,0 +1,81 @@
+name: Site Publish CI
+on:
+  push:
+    branches:
+      - develop
+  # Keeps /gems current without a third-party CORS proxy. The browser can't read
+  # shop.face.land (no ACAO), but a runner can, so we re-scrape here and rebuild
+  # only when the shop data actually moved. Offset from the hour because GitHub
+  # drops scheduled runs at peak times; treat this as "roughly every 15-30 min".
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+  # Manual "deploy now" escape hatch — always builds, change or not.
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Never let a scheduled run overlap a push deploy; both force-push to master.
+concurrency:
+  group: site-publish
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          # Full history so scripts/generate-sitemap.js can read each page's real
+          # last-commit date for <lastmod> (a shallow clone dates everything the same).
+          fetch-depth: 0
+      # No "reattach HEAD" steps: those worked around actions/checkout@master
+      # leaving a detached HEAD. v2+ checks the branch out properly, so HEAD is
+      # already on develop and the snapshot push below just works.
+      - name: Setup Git User
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          # Held at 20 on purpose. `postbuild` runs react-snap, which prerenders
+          # all 32 routes on puppeteer 1.20.0 (2019) — bumping node needs to be
+          # verified against that prerender, not slipped in as a drive-by.
+          node-version: '20.x'
+          cache: yarn
+      # Runs before `yarn install` on purpose: scrape-gems.js has no npm deps, so
+      # an unchanged shop costs us a few seconds instead of a full build.
+      - name: Refresh shop snapshot
+        id: shop
+        if: github.event_name == 'schedule'
+        run: |
+          node scripts/scrape-gems.js
+          if git diff --quiet -- src/pages/Gems/shopSnapshot.json; then
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
+            echo 'Shop unchanged — skipping build.'
+          else
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Build
+        if: github.event_name != 'schedule' || steps.shop.outputs.changed == 'true'
+        run: yarn install --frozen-lockfile && yarn build
+      - name: Deploy
+        if: github.event_name != 'schedule' || steps.shop.outputs.changed == 'true'
+        # v4 moved these from env vars to `with:` inputs; the secret is unchanged.
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_branch: master
+          publish_dir: ./build
+      # Last, so the snapshot is only recorded as current once it has actually
+      # shipped — a failed build leaves develop alone and the next run retries.
+      # This push uses GITHUB_TOKEN, which by design cannot trigger another
+      # workflow run, so it can't loop back into this one.
+      - name: Commit refreshed snapshot
+        if: github.event_name == 'schedule' && steps.shop.outputs.changed == 'true'
+        run: |
+          git commit -m 'chore: refresh gem shop snapshot [skip ci]' \
+            -- src/pages/Gems/shopSnapshot.json
+          git push origin HEAD:develop

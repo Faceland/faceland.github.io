@@ -1,0 +1,42 @@
+# Mounts
+%Ride in style and traverse the world at incredible speed.
+
+Mounts are rideable companions that dramatically increase your travel speed across the vast landscapes of Faceland. From horses to exotic creatures, mounts are both practical transportation and a status symbol.
+
+img:/assets/guides/mounts_overview.png
+
+# Obtaining Your First Mount
+Every adventurer can earn their first mount relatively early in the game.
+
+- Complete the introductory mount quest available at level 10
+- Visit the Stables in any major city to browse available mounts
+- Basic mounts are affordable with currency earned through questing
+- Rare mounts drop from specific bosses and world events
+- Some mounts are earned through achievements and milestones
+
+%Your first mount makes a massive difference in travel efficiency. Prioritize getting one early.
+
+# Mount Types
+Different mount types offer varying speeds and visual styles.
+
+- Horses are the most common mounts with reliable speed
+- Wolves provide slightly faster speed in forested terrain
+- Bears are slower but cannot be dismounted by enemy attacks
+- Flying mounts allow limited aerial travel in certain zones
+- Exotic mounts are rare collectibles with unique appearances
+
+img:/assets/guides/mounts_types.png
+
+# Mount Equipment
+Mounts can be outfitted with equipment that enhances their capabilities and appearance.
+
+- Saddles increase the base movement speed of your mount
+- Armor plating reduces the damage your mount takes from enemies
+- Saddlebags expand your carrying capacity while mounted
+- Decorative barding changes the visual appearance of your mount
+- Horseshoes provide small bonuses like reduced stamina drain
+
+%Mount equipment is crafted by leatherworkers and metalworkers with specialized recipes.
+
+# Mount Stamina
+Mounts have a stamina bar that depletes while sprinting. When stamina runs out, the mount slows to walking pace until it regenerates. Managing your mount's stamina by alternating between sprinting and trotting lets you cover more ground efficiently on long journeys.

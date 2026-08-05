@@ -1,0 +1,42 @@
+# Houses
+%Build your dream home and create a sanctuary in the world of Faceland.
+
+Player housing allows you to own, customize, and upgrade a personal space within the game. Your house serves as a base of operations with functional crafting stations, storage, and decorative freedom.
+
+img:/assets/guides/houses_overview.png
+
+# Acquiring a House
+Before you can start decorating, you need to purchase a plot and build your home.
+
+- Visit the Housing District in any major city to browse available plots
+- Plots come in small, medium, and large sizes with different prices
+- Purchase a plot using in-game currency to claim ownership
+- Place a house template on your plot to begin construction
+- Upgrade your house template over time for more rooms and space
+
+%Your house location persists permanently once purchased. Choose a neighborhood you enjoy.
+
+# Furniture and Decoration
+The decoration system gives you full creative control over your home's interior and exterior.
+
+- Furniture is crafted, purchased from vendors, or earned through quests
+- Items can be placed, rotated, and scaled freely within your home
+- Wall hangings, rugs, lighting, and plants add personality
+- Themed furniture sets provide bonus aesthetics when placed together
+- Seasonal event furniture is available during holidays
+
+img:/assets/guides/houses_interior.png
+
+# Functional Features
+Houses are more than just cosmetic. They provide tangible gameplay advantages.
+
+- Personal storage chests keep your overflow items safe
+- Crafting stations can be installed for convenient home crafting
+- A cooking fire in your kitchen lets you prepare meals at home
+- Trophy displays showcase your greatest achievements
+- A personal portal stone allows fast travel to your house from anywhere
+
+%Upgrading your house increases the number of functional stations you can install.
+
+# Visiting Other Houses
+You can visit the houses of friends and guild members to see their designs, and they can visit yours. Open your house to the public to show off your creativity, or keep it private for your own enjoyment. Community housing contests are held regularly with cosmetic prizes.

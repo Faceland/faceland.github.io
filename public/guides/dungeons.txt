@@ -1,0 +1,42 @@
+# Dungeons
+%Descend into darkness and face the deadliest challenges Faceland has to offer.
+
+Dungeons are instanced multi-room challenges filled with powerful enemies, devious traps, and valuable loot. They represent the pinnacle of PvE content and require skill, preparation, and often a coordinated group.
+
+img:/assets/guides/dungeons_overview.png
+
+# Dungeon Tiers
+Dungeons are organized into difficulty tiers that determine enemy strength and reward quality.
+
+- Tier 1 dungeons are introductory and suitable for solo or duo players
+- Tier 2 dungeons require a small group and introduce boss mechanics
+- Tier 3 dungeons demand full parties with coordinated roles
+- Tier 4 dungeons are the hardest content, requiring optimized builds
+- Challenge modes add extra modifiers for the most skilled groups
+
+%Always check the recommended level and group size before entering a dungeon.
+
+# Dungeon Mechanics
+Each dungeon features unique mechanics that keep encounters fresh and engaging.
+
+- Boss fights have telegraphed attack patterns that must be dodged
+- Puzzle rooms require solving environmental challenges to progress
+- Trap corridors test your reflexes and awareness
+- Mini-bosses guard checkpoints and drop intermediate rewards
+- Hidden rooms contain bonus treasure for thorough explorers
+
+img:/assets/guides/dungeons_boss.png
+
+# Loot and Rewards
+Dungeons provide some of the best rewards available in Faceland.
+
+- Boss enemies drop rare and epic equipment with unique stat rolls
+- Treasure chests appear in hidden rooms and after boss defeats
+- Dungeon currency is earned for completing runs and spent at special vendors
+- First-time completion bonuses reward extra loot on your initial clear
+- Weekly lockouts on the highest tier dungeons limit the best rewards
+
+%Run lower tier dungeons to gear up before attempting higher difficulties.
+
+# Dungeon Preparation
+Success in dungeons begins before you ever enter. Stock up on health and mana potions, ensure your equipment is repaired and enchanted, and coordinate roles with your group. Having a balanced party with damage dealers, a tank, and a support player makes most dungeons significantly easier.

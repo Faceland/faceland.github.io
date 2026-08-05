@@ -1,0 +1,42 @@
+# Arenas
+%Test your mettle against other players in glorious combat.
+
+Arenas are structured PvP battlegrounds where players compete against each other for ranking, rewards, and honor. Whether you prefer duels or team fights, the arena system provides a competitive outlet for every warrior.
+
+img:/assets/guides/arenas_overview.png
+
+# Arena Modes
+Several arena formats are available, each with different rules and team sizes.
+
+- Duel mode is a one-on-one battle testing pure individual skill
+- Skirmish mode pits teams of three against each other
+- Battle Royale drops multiple players into a shrinking arena
+- Guild War mode allows large-scale team fights between guilds
+- Seasonal tournaments feature special rulesets and exclusive prizes
+
+%Queue for arena matches at the Arena Master NPC found in every major city.
+
+# Ranking System
+Arena performance is tracked through a competitive ranking system.
+
+- Wins increase your rating while losses decrease it
+- Players are grouped into tiers from Bronze through Diamond
+- Higher tiers provide better end-of-season rewards
+- Matchmaking pairs you against players of similar skill
+- Seasonal resets give everyone a fresh start with placement matches
+
+img:/assets/guides/arenas_ranking.png
+
+# Arena Rewards
+Competing in arenas earns currency and exclusive items unavailable elsewhere.
+
+- Arena tokens are earned per match, with bonus tokens for wins
+- Token vendors sell unique weapons, armor, and cosmetic items
+- Seasonal rankings reward exclusive titles and visual effects
+- Top-ranked players receive legendary arena gear each season
+- Participation rewards ensure everyone benefits from competing
+
+%Even losses earn arena tokens, so there is always a reason to keep fighting.
+
+# Arena Tips
+Study your opponents during the opening seconds of each match to identify their build and adjust your strategy accordingly. Positioning and cooldown management are often more important than raw damage output. Practice in casual matches before entering ranked to refine your technique.

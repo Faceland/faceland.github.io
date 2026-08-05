@@ -1,0 +1,41 @@
+# Gathering
+%Forage the wilds and collect nature's bounty.
+
+Gathering is the art of collecting herbs, flowers, mushrooms, and other natural materials from the environment. These resources are essential ingredients for alchemy, cooking, and various crafting recipes.
+
+img:/assets/guides/gathering_overview.png
+
+# How Gathering Works
+Gatherable resources spawn throughout the world in specific biomes. Walk up to a glowing plant or resource node and interact with it to collect the material.
+
+- Each resource type grows in a preferred biome and climate
+- Gathered nodes respawn after a short cooldown period
+- Higher level resources require a minimum gathering skill to harvest
+- Some rare resources only appear during specific weather or time of day
+
+%Keep an eye out for sparkling nodes, which indicate rare resource spawns.
+
+# Resource Categories
+Gathered materials fall into several broad categories, each serving different purposes.
+
+- Herbs are used primarily in alchemy for potion brewing
+- Flowers provide ingredients for dyes, perfumes, and special recipes
+- Mushrooms are versatile ingredients used in both cooking and alchemy
+- Bark and sap come from trees and are used in crafting recipes
+- Wild vegetables and fruits serve as cooking ingredients
+
+img:/assets/guides/gathering_herbs.png
+
+# Gathering Perks
+Leveling your gathering skill unlocks useful perks that streamline collection.
+
+- Keen Eye causes nearby resource nodes to glow more brightly
+- Gentle Hands increases the quantity received from each harvest
+- Botanist allows you to identify unknown plants for bonus experience
+- Nature's Bounty gives a chance to receive rare bonus materials
+- Herbalist Supreme lets you gather resources one tier above your level
+
+%Gathering pairs exceptionally well with alchemy and cooking professions.
+
+# Best Gathering Routes
+Experienced gatherers follow optimized routes through resource-rich zones. The meadows south of spawn are excellent for early herbs, while the dark forest offers high-level mushrooms and rare flowers. Planning a loop through multiple biomes maximizes your haul per trip.

@@ -1,0 +1,39 @@
+# Abilities
+%Unleash devastating skills and master the art of combat.
+
+Abilities are powerful skills that define how you fight in Faceland. Every class has access to a unique set of abilities that can be unlocked, upgraded, and customized as you progress through the game.
+
+img:/assets/guides/abilities_overview.png
+
+# Active Abilities
+Active abilities are skills you trigger manually during combat. They consume mana or stamina and often have cooldown timers.
+
+- Damage abilities deal direct harm to enemies in various patterns
+- Crowd control abilities stun, slow, or knock back groups of foes
+- Movement abilities let you dash, teleport, or leap across the battlefield
+- Ultimate abilities are rare and powerful skills with long cooldowns
+
+%Active abilities can be bound to your hotbar for quick access during combat.
+
+# Passive Abilities
+Passive abilities provide permanent bonuses without any input from the player. They activate automatically when conditions are met.
+
+- Some passives increase your base damage or defense
+- Others trigger bonus effects when you land critical hits
+- Certain passives activate when your health drops below a threshold
+- A few passives improve your resource gathering or crafting efficiency
+
+img:/assets/guides/abilities_passive.png
+
+# Upgrading Abilities
+As you gain experience, you earn ability points that can be spent to upgrade your existing skills. Each ability has multiple ranks, and higher ranks increase the skill's power, reduce its cooldown, or add entirely new effects.
+
+- Rank 1 unlocks the base version of the ability
+- Rank 3 often reduces the cooldown or mana cost
+- Rank 5 typically adds a secondary effect or bonus
+- Rank 7 is the maximum and provides a major enhancement
+
+%Choose your upgrades wisely, as ability points are limited and valuable.
+
+# Ability Combos
+Certain abilities synergize with each other to create powerful combinations. Landing a stun followed by a heavy damage ability deals bonus damage. Experiment with different ability orders to discover hidden combos that maximize your effectiveness.

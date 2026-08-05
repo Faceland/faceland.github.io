@@ -1,0 +1,42 @@
+# Equipment
+%Gear up and prepare for the challenges that await.
+
+Equipment is the cornerstone of character progression in Faceland. From humble leather scraps to legendary enchanted armor, the gear you wear determines your combat effectiveness and survivability.
+
+img:/assets/guides/equipment_overview.png
+
+# Equipment Slots
+Your character has several equipment slots, each serving a different purpose in your overall build.
+
+- Helmet protects your head and often boosts intelligence or perception
+- Chestplate provides the highest armor value of any single piece
+- Leggings offer solid defense and frequently enhance endurance
+- Boots improve movement speed and sometimes grant agility bonuses
+- Weapon determines your primary damage output and attack style
+- Offhand can hold a shield, tome, or secondary weapon
+
+%Filling every equipment slot is essential for maximizing your character's potential.
+
+# Rarity Tiers
+Equipment comes in several rarity tiers, each indicating the overall power level of the item.
+
+- Common items are basic and widely available from any enemy
+- Uncommon items have slightly better stats and one bonus attribute
+- Rare items feature multiple bonus stats and begin to define builds
+- Epic items are powerful drops with unique stat combinations
+- Legendary items are the rarest and most powerful gear in the game
+
+img:/assets/guides/equipment_rarity.png
+
+# Gem Slots
+Many pieces of equipment have gem slots that allow you to socket gems for additional stat bonuses. Higher rarity items tend to have more gem slots. Some items also have extender slots that unlock with upgrades.
+
+- Standard gem slots accept any color gem
+- Extender slots provide smaller bonuses but stack with existing gems
+- Removing a socketed gem destroys it, so choose carefully
+- Certain gem combinations unlock hidden set bonuses
+
+%Check the Items page for a full database of available equipment and their stats.
+
+# Finding Equipment
+Equipment drops from enemies throughout the world, with stronger enemies dropping higher rarity gear. Dungeon bosses and arena champions have the best loot tables, but even common monsters can occasionally surprise you with a rare find.

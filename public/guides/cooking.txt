@@ -1,0 +1,42 @@
+# Cooking
+%Prepare hearty meals that fuel your adventures and warm your spirit.
+
+Cooking transforms raw fish, meat, vegetables, and other ingredients into delicious meals that provide lasting stat buffs. A good meal before a dungeon run can boost your performance significantly.
+
+img:/assets/guides/cooking_overview.png
+
+# Cooking Basics
+Meals are prepared at a Cooking Fire or Kitchen Station using a recipe and the required ingredients.
+
+- Stand near a cooking fire and open the cooking interface
+- Select a recipe from your known recipes list
+- Provide the necessary ingredients from your inventory
+- Wait for the cooking timer to complete
+- Higher cooking skill unlocks better recipes with stronger buffs
+
+%You can build portable campfires to cook in the field during long expeditions.
+
+# Food Buffs
+Cooked meals provide temporary buffs that last for a set duration. Only one food buff can be active at a time.
+
+- Hearty Stew increases maximum health by a flat amount
+- Grilled Fish Platter boosts critical hit chance and damage
+- Spiced Meat Skewers enhance strength and attack speed
+- Forest Salad improves gathering yield and movement speed
+- Golden Feast provides a balanced boost to all primary stats
+
+img:/assets/guides/cooking_meals.png
+
+# Ingredient Sources
+Cooking ingredients come from many different activities across Faceland.
+
+- Fish are caught through the fishing profession
+- Meat drops from animal enemies found throughout the world
+- Vegetables and fruits are collected through gathering
+- Spices are purchased from specialty vendors in distant towns
+- Rare ingredients are sometimes found in treasure chests
+
+%Combining ingredients from multiple professions often produces the strongest meals.
+
+# Cooking Mastery
+At high cooking levels, you unlock the ability to prepare feasts that buff your entire party. These multi-serving meals are essential for guild events and dungeon groups. Mastering cooking makes you an invaluable asset to any team.
