@@ -1,0 +1,56 @@
+# NOTE: `master` is the deploy branch. The published site at the repo ROOT
+# (index.html, static/, assets/, guides/, ...) is tracked on purpose - do not
+# add unanchored rules like `static/` or `build` here. Every path rule below is
+# anchored with a leading `/` so it only matches the repo root, never the
+# published output.
+
+# --- Claude Code ---
+.claude/
+CLAUDE.local.md
+
+# --- JetBrains (WebStorm, IntelliJ, ...) ---
+.idea/
+.idea_modules/
+*.iml
+*.iws
+*.ipr
+
+# --- VS Code / Zed / Sublime ---
+.vscode/
+.zed/
+*.sublime-project
+*.sublime-workspace
+
+# --- Vim / Emacs ---
+*.swp
+*.swo
+*~
+\#*#
+.#*
+
+# --- Dependencies ---
+/node_modules
+/.pnp
+.pnp.js
+/.yarn
+
+# --- Build output (produced on the source branch, not committed here) ---
+/build
+/coverage
+
+# --- Logs ---
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Local env ---
+.env.local
+.env.*.local
+
+# --- Lockfiles (generated, kept on the source branch) ---
+/package-lock.json
+/yarn.lock
+
+# --- OS cruft ---
+.DS_Store
+Thumbs.db
