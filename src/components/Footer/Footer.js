@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 import './footer.scss';
 import { Buddy } from '../Buddy/Buddy';
 import { useContext } from 'react';
@@ -59,17 +58,7 @@ export const Footer = (props) => {
 
             <ul className="nav__ul">
               <li>
-                <a href="https://map.face.land/#quest_world:-4:90:870:166:-2.18:0.4:0:0:perspective" target="_blank" rel="noopener noreferrer">
-                  World Map
-                </a>
-              </li>
-
-              <li>
                 <a href="https://discord.gg/Gkmk6G2fjd" target="_blank" rel="noopener noreferrer">Discord</a>
-              </li>
-
-              <li>
-                <Link to="/gems">Cash Shop</Link>
               </li>
             </ul>
           </li>
