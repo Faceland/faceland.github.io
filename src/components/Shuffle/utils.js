@@ -61,3 +61,59 @@ export const getCardItems = () => {
 
   return newItems;
 };
+
+export const getCardId = (item) => {
+  if (item.type === 'unique') {
+    return `${item.strippedName}+${item.tier}+${item.dropBase}`;
+  }
+  return `${item.name}-${item.type}`;
+};
+
+// Card ids carry colour codes and spaces, which turn a shared link into a wall
+// of percent-escapes. Tokens say the same thing in url-safe characters —
+// `transmute.gem`, `sad-connection.platelegs.52` — and are exactly as
+// discriminating as the ids they stand in for.
+const slugify = (value) =>
+  String(value)
+    .toLowerCase()
+    .replace(/\|[a-z]*\|/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+const getCardToken = (item) =>
+  item.type === 'unique'
+    ? `${slugify(item.strippedName)}.${slugify(item.tier)}.${item.dropBase}`
+    : `${slugify(item.strippedName)}.${item.type}`;
+
+// Matches the separator facepals already uses for its `?data=` layers.
+const SELECTION_SEPARATOR = '~';
+
+export const buildSelectionCodec = (items) => {
+  const idToToken = new Map();
+  const tokenToId = new Map();
+  items.forEach((item) => {
+    const id = getCardId(item);
+    const token = getCardToken(item);
+    if (!idToToken.has(id)) idToToken.set(id, token);
+    if (!tokenToId.has(token)) tokenToId.set(token, id);
+  });
+  return { idToToken, tokenToId };
+};
+
+export const encodeSelection = (selectedCardIds, codec) =>
+  Array.from(selectedCardIds)
+    .map((id) => codec.idToToken.get(id))
+    .filter(Boolean)
+    .join(SELECTION_SEPARATOR);
+
+// Tokens that no longer match an item are dropped, so a link shared before an
+// item was renamed still opens with whatever else it pointed at.
+export const decodeSelection = (param, codec) => {
+  const ids = new Set();
+  if (!param) return ids;
+  param.split(SELECTION_SEPARATOR).forEach((token) => {
+    const id = codec.tokenToId.get(token.trim().toLowerCase());
+    if (id) ids.add(id);
+  });
+  return ids;
+};

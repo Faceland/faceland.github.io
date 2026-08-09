@@ -14,6 +14,7 @@ import { useSearchParams } from 'react-router-dom';
 import { DragContainer } from './DragContainer';
 import { Footer } from '../../components/Footer/Footer';
 import { SEO } from '../../components/SEO/SEO';
+import { ShareWidget } from '../../components/ShareWidget/ShareWidget';
 import {
   LoadingOverlay,
   useLoadingGate,
@@ -44,6 +45,9 @@ export const Portrait = () => {
   const [initialized, setInitialized] = useState(false);
   const [imagesReady, setImagesReady] = useState(false);
   const showSpinner = useLoadingGate(imagesReady, { minMs: 1000 });
+
+  const [shareTrigger, setShareTrigger] = useState(0);
+  const shareBaseline = useRef(null);
 
   const scrollBar = useRef();
 
@@ -77,8 +81,24 @@ export const Portrait = () => {
   }, [initialized, imagesReady, layerItems]);
 
   useEffect(() => {
-    buildQueryData(layerItems);
+    const data = buildQueryData(layerItems);
+    setSearchParams(data ? { data } : {});
   }, [layerItems]);
+
+  // Doubles as the share prompt's change detector: the first portrait settled
+  // after the restore is the baseline, and only edits the visitor makes on top
+  // of it are worth offering to share.
+  useEffect(() => {
+    if (!initialized) return;
+    const signature = buildQueryData(layerItems);
+    if (shareBaseline.current === null) {
+      shareBaseline.current = signature;
+      return;
+    }
+    if (signature === shareBaseline.current) return;
+    shareBaseline.current = signature;
+    setShareTrigger((count) => count + 1);
+  }, [layerItems, initialized]);
 
   const buildQueryData = (layerItems) => {
     let dataLayers = [];
@@ -90,11 +110,7 @@ export const Portrait = () => {
         );
       }
     }
-    if (dataLayers.length === 0) {
-      setSearchParams({});
-    } else {
-      setSearchParams({ data: dataLayers.join('~') });
-    }
+    return dataLayers.join('~');
   };
 
   const parseQueryData = (data) => {
@@ -349,6 +365,7 @@ export const Portrait = () => {
           {state.mobile ? mobileLayout : desktopLayout}
         </div>
       </div>
+      <ShareWidget label="Share Portrait" trigger={shareTrigger} />
     </div>
   );
 };

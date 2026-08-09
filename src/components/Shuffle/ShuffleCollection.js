@@ -8,8 +8,18 @@ import { Context } from '../../Store';
 import { BetterMcText } from './mctext/BetterMcText';
 import { YeHaplessBuffoon } from './YeHaplessBuffoon';
 import { rarityOptions, typeOptions, sortOptions, rarityRank } from './constants';
-import { getCardItems } from './utils';
+import {
+  getCardId,
+  getCardItems,
+  buildSelectionCodec,
+  encodeSelection,
+  decodeSelection,
+} from './utils';
 import { useWindowVirtualizer } from '@tanstack/react-virtual';
+import { useSearchParams } from 'react-router-dom';
+import { ShareWidget } from '../ShareWidget/ShareWidget';
+
+const SELECTION_PARAM = 'items';
 
 const ClearIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
@@ -67,6 +77,7 @@ const selectStyles = {
 
 export const ShuffleCollection = () => {
   const [state] = useContext(Context);
+  const [searchParams, setSearchParams] = useSearchParams();
   const [cardItems, setCardItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([
     { name: 'loading', meme: 'yes' },
@@ -88,6 +99,7 @@ export const ShuffleCollection = () => {
   const [mobileMinWidth, setMobileMinWidth] = useState(340);
   const [cardsPerRow, setCardsPerRow] = useState(1);
   const [isSticky, setIsSticky] = useState(false);
+  const [shareTrigger, setShareTrigger] = useState(0);
   const selectedCardIdsRef = useRef(new Set());
   const cardRefs = useRef({});
   const cardPositions = useRef({});
@@ -101,8 +113,20 @@ export const ShuffleCollection = () => {
 
   useEffect(() => {
     if (cardItems.length === 0) {
-      setCardItems(getCardItems());
+      const items = getCardItems();
+      setCardItems(items);
       setSelectedTags([]);
+
+      // Adopt a shared selection before the first filter pass runs, so linked
+      // cards arrive already pinned to the front of the grid.
+      const shared = decodeSelection(
+        searchParams.get(SELECTION_PARAM),
+        buildSelectionCodec(items),
+      );
+      if (shared.size > 0) {
+        setSelectedCardIds(shared);
+        selectedCardIdsRef.current = shared;
+      }
     }
   }, []);
 
@@ -149,9 +173,29 @@ export const ShuffleCollection = () => {
     }
   }, [searchText, selectedTags, selectedRarity, selectedType, selectedSort, cardItems]);
 
+  const selectionCodec = useMemo(
+    () => buildSelectionCodec(cardItems),
+    [cardItems],
+  );
+
+  const writeSelectionToUrl = (ids) => {
+    const nextParams = new URLSearchParams(searchParams);
+    const encoded = encodeSelection(ids, selectionCodec);
+    if (encoded) {
+      nextParams.set(SELECTION_PARAM, encoded);
+    } else {
+      nextParams.delete(SELECTION_PARAM);
+    }
+    // Replace rather than push: picking through cards shouldn't bury whatever
+    // page the visitor arrived from under a stack of history entries.
+    setSearchParams(nextParams, { replace: true });
+  };
+
   const toggleCardSelection = (e, cardId) => {
     e.stopPropagation();
-    const newSet = new Set(selectedCardIds);
+    // Off the ref, not the state: several toggles can land in one batch, and
+    // the ref is the copy that's already current by the time the next one runs.
+    const newSet = new Set(selectedCardIdsRef.current);
     if (newSet.has(cardId)) {
       newSet.delete(cardId);
     } else {
@@ -159,6 +203,10 @@ export const ShuffleCollection = () => {
     }
     setSelectedCardIds(newSet);
     selectedCardIdsRef.current = newSet;
+    writeSelectionToUrl(newSet);
+    // Offer the link on every change that leaves something to point at;
+    // clearing the last card retracts the prompt instead.
+    setShareTrigger((count) => (newSet.size === 0 ? 0 : count + 1));
   };
 
   useEffect(() => {
@@ -176,13 +224,6 @@ export const ShuffleCollection = () => {
     });
     setFilterTags(tags);
   }, [cardItems]);
-
-  const getCardId = (item) => {
-    if (item.type === 'unique') {
-      return `${item.strippedName}+${item.tier}+${item.dropBase}`;
-    }
-    return `${item.name}-${item.type}`;
-  };
 
   const handleMouseMove = (e, el) => {
     const rect = el.getBoundingClientRect();
@@ -762,6 +803,7 @@ export const ShuffleCollection = () => {
           ))}
         </div>
       )}
+      <ShareWidget label="Share Selection" trigger={shareTrigger} stacked />
     </div>
   );
 };
