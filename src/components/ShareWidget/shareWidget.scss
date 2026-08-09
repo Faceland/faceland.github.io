@@ -1,12 +1,12 @@
 .shareContainer {
   position: fixed;
   bottom: 0;
-  right: 0;
+  left: 0;
 
   // Under the portrait modal (200) but over the items filter bar (100).
   z-index: 150;
 
-  padding-right: 20px;
+  padding-left: 20px;
   padding-bottom: 20px;
 
   pointer-events: none;
@@ -15,11 +15,6 @@
   transition:
     transform 0.3s cubic-bezier(0.2, 0.8, 0.3, 1),
     opacity 0.25s ease-out;
-
-  // Clears the Discord button: 80px tall, inset 20px, plus a 20px gap.
-  &.shareStacked {
-    padding-bottom: 120px;
-  }
 
   &.shareVisible {
     pointer-events: auto;

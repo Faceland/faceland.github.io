@@ -42,14 +42,12 @@ const copyToClipboard = (text) => {
 };
 
 /**
- * Slides a "copy this link" prompt up from the bottom-right corner whenever the
+ * Slides a "copy this link" prompt up from the bottom-left corner whenever the
  * page has something new worth sharing, then retracts itself once the visitor
  * takes it. Parents drive it with `trigger`: bump the number on every change
  * that alters the shareable URL, or set it to 0 when there is nothing to share.
- *
- * `stacked` lifts the prompt clear of the Discord widget on pages that show one.
  */
-export const ShareWidget = ({ label, trigger, stacked = false }) => {
+export const ShareWidget = ({ label, trigger }) => {
   const [visible, setVisible] = useState(false);
   const [copied, setCopied] = useState(false);
   const hideTimeout = useRef(null);
@@ -89,11 +87,7 @@ export const ShareWidget = ({ label, trigger, stacked = false }) => {
   };
 
   return (
-    <div
-      className={`shareContainer${stacked ? ' shareStacked' : ''}${
-        visible ? ' shareVisible' : ''
-      }`}
-    >
+    <div className={`shareContainer${visible ? ' shareVisible' : ''}`}>
       <button
         type="button"
         className={`shareButton${copied ? ' shareCopied' : ''}`}

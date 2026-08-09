@@ -803,7 +803,7 @@ export const ShuffleCollection = () => {
           ))}
         </div>
       )}
-      <ShareWidget label="Share Selection" trigger={shareTrigger} stacked />
+      <ShareWidget label="Share Selection" trigger={shareTrigger} />
     </div>
   );
 };
