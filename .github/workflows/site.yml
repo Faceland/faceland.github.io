@@ -3,6 +3,13 @@ on:
   push:
     branches:
       - develop
+    # Resource packs are inert hosted files — nothing in src/ links to them, so
+    # a pack-only push has nothing to rebuild. scripts/publish-resource-packs.js
+    # already tags its commits [skip ci]; this is the backstop for a hand-made
+    # commit that forgets. A commit touching packs AND real source still builds,
+    # because paths-ignore only skips when every changed file matches.
+    paths-ignore:
+      - 'public/resource-packs/**'
   # Keeps /gems current without a third-party CORS proxy. The browser can't read
   # shop.face.land (no ACAO), but a runner can, so we re-scrape here and rebuild
   # only when the shop data actually moved. Offset from the hour because GitHub
