@@ -268,6 +268,132 @@ export const getDataFromConfigId = (configId) => {
   return null;
 };
 
+// A portrait's "layers" is a map of groups rather than one flat list, and the
+// plugin draws the groups in the order it reads them, so configs are written in
+// this order no matter how the layers were stacked in the creator.
+export const configGroups = [
+  'background',
+  'body',
+  'hair-lower',
+  'cloth-lower',
+  'ears',
+  'eyes',
+  'mouth',
+  'nose',
+  'face',
+  'hair-upper',
+  'clothes-upper',
+  'overlay',
+];
+
+// The group each dropdown category writes into. 'hair' and 'clothes' are
+// families rather than groups, because whether they end up in the lower or the
+// upper group depends on where they were stacked -- see buildLayerGroups.
+const groupByCategory = {
+  backgroundOptions: 'background',
+  bodyTypes: 'body',
+  clothesOptions: 'clothes',
+  hairOptions: 'hair-upper', // styles sit on the head, always over the face
+  eyeOptions: 'eyes',
+  earOptions: 'ears',
+  noseOptions: 'nose',
+  mouthOptions: 'mouth',
+  extraHair: 'face', // facial hair, apart from the extensions listed below
+  faceOptions: 'face',
+  headwearOptions: 'clothes-upper',
+};
+
+// Textures that belong to a different group than the rest of their dropdown.
+const groupByTexture = {
+  frame: 'overlay',
+  // The hair that can fall either side of the outfit, rather than the beards
+  // they share a dropdown with
+  'long-hair': 'hair',
+  'long-braids': 'hair',
+  'shoulder-hair': 'hair',
+  'pony-tail': 'hair',
+  // Worn in the hair rather than over it
+  'hair-bow': 'hair-upper',
+  'hair-flower': 'hair-upper',
+  'flower-crown-warm': 'hair-upper',
+  'flower-crown-cool': 'hair-upper',
+  // Sit on the face, under anything worn on the head
+  monocle: 'face',
+  'eyepatch-left': 'face',
+  'eyepatch-right': 'face',
+  'plague-mask': 'face',
+  shadow: 'face',
+  'mouth-toast': 'face',
+};
+
+const categoryByTexture = {};
+for (let obj of textureSelections) {
+  for (let texture of obj.textures) {
+    categoryByTexture[texture.configId] = obj.option.value;
+  }
+}
+
+// Falls back to 'overlay' so a texture the dropdowns no longer know about is
+// still written out, drawn last where nothing can hide it.
+const getTextureGroup = (configId) =>
+  groupByTexture[configId] ||
+  groupByCategory[categoryByTexture[configId]] ||
+  'overlay';
+
+/**
+ * Sorts a portrait's layers into the config groups, keeping the order they were
+ * stacked in within each group. Only the lower/upper split is positional, and
+ * it reads the stack the same way the preview does.
+ *
+ * @returns {{ group: string, layers: object[] }[]} the non empty groups, in the
+ * order they are drawn.
+ */
+export const buildLayerGroups = (layerItems) => {
+  const layers = layerItems.filter(
+    (layer) => layer.selection && layer.selection.configId,
+  );
+  const families = layers.map((layer) =>
+    getTextureGroup(layer.selection.configId),
+  );
+
+  // Hair extensions hang behind the outfit when they were stacked below it, and
+  // over it when they were stacked above.
+  const firstClothes = families.indexOf('clothes');
+  const resolved = families.map((family, index) => {
+    if (family !== 'hair') {
+      return family;
+    }
+    return firstClothes !== -1 && index < firstClothes
+      ? 'hair-lower'
+      : 'hair-upper';
+  });
+
+  // Garments stacked on top of everything worn on the head are drawn over it,
+  // which is how a cloak ends up above a hood or armor above a helmet. Hair
+  // that already went behind the outfit is not something to climb over.
+  let lastHead = -1;
+  resolved.forEach((group, index) => {
+    if (group === 'hair-upper' || group === 'clothes-upper') {
+      lastHead = index;
+    }
+  });
+
+  const grouped = {};
+  layers.forEach((layer, index) => {
+    let group = resolved[index];
+    if (group === 'clothes') {
+      group =
+        lastHead !== -1 && index > lastHead ? 'clothes-upper' : 'cloth-lower';
+    }
+    grouped[group] = grouped[group] || [];
+    grouped[group].push(layer);
+  });
+
+  return configGroups
+    .filter((group) => grouped[group])
+    .map((group) => ({ group, layers: grouped[group] }));
+};
+
 export const defaultChoices = [
   {
     id: uuidv4(),

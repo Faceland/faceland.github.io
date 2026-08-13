@@ -7,6 +7,7 @@ import Modal from 'react-modal';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { ImageRenderer } from '../../components/Portrait/ImageRenderer';
 import {
+  buildLayerGroups,
   defaultChoices,
   getDataFromConfigId,
 } from '../../components/Portrait/DropdownOptions';
@@ -209,30 +210,41 @@ export const Portrait = () => {
     );
   };
 
+  // Indented to drop straight under the "portraits:" key of portraits.yml.
+  const buildConfigLines = () => {
+    const lines = [
+      '  npc-id-here:',
+      '    prebuilt-colors: []',
+      '    layers:',
+    ];
+    for (let { group, layers } of buildLayerGroups(layerItems)) {
+      lines.push('      ' + group + ':');
+      for (let layer of layers) {
+        lines.push(
+          '        - "' + layer.selection.configId + colorSuffix(layer) + '"',
+        );
+      }
+    }
+    return lines;
+  };
+
+  // White is the untouched texture, which the plugin already draws by default.
+  const colorSuffix = (layer) => {
+    if (!layer.color) {
+      return '';
+    }
+    const hex = layer.color.hex.toUpperCase();
+    return hex === '#FFFFFF' ? '' : ',' + hex;
+  };
+
   const buildConfigOutput = () => {
     return (
       <>
-        <div className={'preserve-whitespace'}>npc-id-here:</div>
-        <div className={'preserve-whitespace'}> prebuilt-colors: []</div>
-        <div className={'preserve-whitespace'}> layers:</div>
-        {layerItems.map((layer, index) => {
-          if (layer.selection && layer.selection.configId) {
-            let colorData;
-            if (layer.color) {
-              colorData = layer.color.hex.toUpperCase();
-              colorData = colorData !== '#FFFFFF' ? ',' + colorData : '';
-            } else {
-              colorData = '';
-            }
-            return (
-              <div className={'preserve-whitespace'} key={index}>
-                {' '}
-                - "{layer.selection.configId}
-                {colorData}"
-              </div>
-            );
-          }
-        })}
+        {buildConfigLines().map((line, index) => (
+          <div className={'preserve-whitespace'} key={index}>
+            {line}
+          </div>
+        ))}
       </>
     );
   };
