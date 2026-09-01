@@ -41,7 +41,7 @@ export const CopyWidget = () => {
           <span className="copyText">BETA.FACE.LAND</span>
         </div>
       </div>
-      <p className="copyVersion">Minecraft Version: 1.21.11+</p>
+      <p className="copyVersion">Minecraft Version: 26.2+</p>
     </div>
   );
 };
