@@ -71,6 +71,11 @@
   },
   "recentPurchases": [
     {
+      "name": "IsoCat",
+      "avatar": "https://crafthead.net/avatar/41533745c43044b79167f8497556e9ee/100",
+      "gems": 13000
+    },
+    {
       "name": "Durmatt",
       "avatar": "https://crafthead.net/avatar/ad197bf2d66349ca9d141ec0d06b0b43/100",
       "gems": 2300
@@ -84,12 +89,7 @@
       "name": "6pplebad",
       "avatar": "https://crafthead.net/avatar/8c24822e5d734735ba6eca7f99a0a955/100",
       "gems": 500
-    },
-    {
-      "name": "IsoCat",
-      "avatar": "https://crafthead.net/avatar/41533745c43044b79167f8497556e9ee/100",
-      "gems": 2300
     }
   ],
-  "scrapedAt": "2026-09-03T06:27:02.105Z"
+  "scrapedAt": "2026-09-04T22:38:06.735Z"
 }
