@@ -2,6 +2,7 @@ import gems from './data/gems.json';
 import tomes from './data/tomes.json';
 import uniques from './data/uniques.json';
 import scrolls from './data/scrolls.json';
+import utility from './data/utility.json';
 import fish from './data/fish.json';
 import materials from './data/materials.json';
 
@@ -33,6 +34,13 @@ export const getCardItems = () => {
     item.type = 'scroll';
     item.background = '#34981a';
     item.gradient = `bg-gradient-to-bl from-black-forest to-black-forest-end`;
+    newItems.push(item);
+  }
+  for (const [key, value] of Object.entries(utility)) {
+    const item = value;
+    item.type = 'utility';
+    item.background = '#e42333';
+    item.gradient = `bg-gradient-to-bl from-aubergine to-aubergine-end`;
     newItems.push(item);
   }
   for (const [key, value] of Object.entries(fish)) {

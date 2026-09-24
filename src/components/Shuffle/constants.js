@@ -3,6 +3,7 @@ export const typeOptions = [
   { value: 'gem', label: 'Gem' },
   { value: 'tome', label: 'Tome' },
   { value: 'scroll', label: 'Scroll' },
+  { value: 'utility', label: 'Utility' },
   { value: 'unique', label: 'Unique' },
   { value: 'fish', label: 'Fish' },
   { value: 'material', label: 'Material' },
