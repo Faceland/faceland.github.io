@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.c65f180d.css",
-    "main.js": "/static/js/main.084b0251.js",
+    "main.css": "/static/css/main.de2de260.css",
+    "main.js": "/static/js/main.cb426e54.js",
     "static/js/510.590ab9db.chunk.js": "/static/js/510.590ab9db.chunk.js",
     "static/media/book.webp": "/static/media/book.139faa112def3e5c6a96.webp",
+    "static/media/forb.gif": "/static/media/forb.7de647e9029b7c2a40a4.gif",
     "index.html": "/index.html",
     "static/media/Player_hurt1.mp3": "/static/media/Player_hurt1.c11857ea03750678447f.mp3"
   },
   "entrypoints": [
-    "static/css/main.c65f180d.css",
-    "static/js/main.084b0251.js"
+    "static/css/main.de2de260.css",
+    "static/js/main.cb426e54.js"
   ]
 }
