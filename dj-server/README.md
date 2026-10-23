@@ -2,7 +2,8 @@
 
 Realtime backend for [face.land/dj](https://face.land/dj). GitHub Pages only
 serves static files, so this small Node process holds the room: who's on the
-floor, the DJ queue, each person's song list, and which video started when.
+floor, the DJ queue, a copy of each person's selected playlist (what they
+play from on their turn), and which video started when.
 It never streams media. Every browser plays the video from YouTube itself and
 seeks to `now - startedAt`, so a YouTube ad only delays the person watching it.
 
@@ -17,6 +18,15 @@ Avatars are a face emoji plus optional eyes and a hat, from the lists in
 `avatarParts.js` (the page has the same lists in `src/pages/DJ/avatarParts.js`;
 change both together). The server only checks choices against them; drawing
 happens in each browser (see `scripts/dj-avatars/`).
+
+Playlists (up to three per person) belong to the page, which keeps them in
+the browser for now (`src/pages/DJ/playlistModel.js`, written to move to
+accounts later). The page sends the room only the selected one, as video ids
+(`setList`), and asks the server to look up pasted links (`lookup`: the
+server knows titles and which videos can be embedded, and rate-limits new
+lookups). When a song starts, its DJ's copy rotates it to the bottom and the
+page is told (`played`), so it does the same. Pages from before this
+(protocol < 3) still use the older `addTrack` / `removeTrack` / `bumpTrack`.
 
 ## Run locally
 
@@ -102,5 +112,5 @@ The box also runs the Minecraft servers (AMP), so the room is fenced in:
   song's length when the room doesn't already know it.
 
 Everything is in memory. Restarting the server empties the room; people's
-names and song lists survive because their browsers keep them and send them
+names and playlists survive because their browsers keep them and send them
 back when they reconnect.

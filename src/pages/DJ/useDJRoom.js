@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { MAX_TRACKS, usePlaylists } from './playlistModel';
 
 // The room server lives outside GitHub Pages (see dj-server/). In development
 // it defaults to port 8787 on whatever host served the page, so phones on the
@@ -14,7 +15,8 @@ const SERVER_URL =
 
 const STORAGE_KEY = 'faceland.dj';
 
-// No accounts: name, look and song list just live in this browser.
+// No accounts: name and look just live in this browser (and playlists, in
+// playlistModel.js).
 const loadSaved = () => {
   try {
     return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
@@ -43,16 +45,24 @@ const CHAT_LINES_KEPT = 150;
 // How long a like/cheer animation plays (matches the CSS in dj.scss).
 export const REACTION_MS = 1100;
 
+// Edits to the selected playlist reach the room after this pause, so a
+// burst of them (holding Ctrl+Z) is one message.
+const LIST_SYNC_MS = 150;
+// A link lookup that hasn't come back by now has failed.
+const LOOKUP_TIMEOUT_MS = 15000;
+
+const listSignature = (playlist) =>
+  playlist.tracks.map((track) => track.videoId).join(',');
+
 export const useDJRoom = () => {
   const [status, setStatus] = useState(SERVER_URL ? 'connecting' : 'offline');
   // Clicked Join this visit. Stays true through reconnects, unlike `me`.
   const [entered, setEntered] = useState(false);
   const [room, setRoom] = useState(EMPTY_ROOM);
   const [me, setMe] = useState(null);
-  const [list, setList] = useState(() => loadSaved().list || []);
+  const playlists = usePlaylists();
   const [savedName] = useState(() => loadSaved().name);
   const [notice, setNotice] = useState(null);
-  const [adding, setAdding] = useState(false);
   const [chat, setChat] = useState([]);
   const [chatNotice, setChatNotice] = useState(null);
   // videoId -> 'skipped' | 'failed': how your songs went the last time they
@@ -64,6 +74,14 @@ export const useDJRoom = () => {
   const wsRef = useRef(null);
   // Whether we've joined, so a reconnect can rejoin without asking again.
   const joinedRef = useRef(false);
+  // The latest playlists, for handlers set up once.
+  const playlistsRef = useRef(playlists);
+  playlistsRef.current = playlists;
+  // The selected playlist as the room last heard it (video ids, in order).
+  const sentListRef = useRef(null);
+  // Link lookups waiting on the server: id -> { resolve, reject, timer }.
+  const lookupsRef = useRef(new Map());
+  const lookupIdRef = useRef(0);
 
   const send = useCallback((message) => {
     const ws = wsRef.current;
@@ -73,15 +91,19 @@ export const useDJRoom = () => {
 
   const hello = useCallback(() => {
     const saved = loadSaved();
+    const { active } = playlistsRef.current;
+    sentListRef.current = listSignature(active);
     send({
       t: 'hello',
       // Protocol 2: floor moves arrive as compact [id, x, y] triples.
-      v: 2,
+      // Protocol 3: this page owns its playlists and sends the room just
+      // the selected one, as video ids.
+      v: 3,
       name: saved.name,
       emoji: saved.emoji,
       eyes: saved.eyes,
       hat: saved.hat,
-      list: saved.list,
+      list: active.tracks.map((track) => track.videoId),
     });
     // Background tabs skip the floor's animation traffic (see below).
     if (document.hidden) send({ t: 'visibility', hidden: true });
@@ -161,11 +183,18 @@ export const useDJRoom = () => {
             hat: msg.hat,
           });
           break;
-        case 'list':
-          setList(msg.list);
-          setAdding(false);
-          save({ list: msg.list });
+        case 'played':
+          playlistsRef.current.played(msg.videoId);
           break;
+        case 'lookup': {
+          const waiting = lookupsRef.current.get(msg.id);
+          if (!waiting) break;
+          lookupsRef.current.delete(msg.id);
+          clearTimeout(waiting.timer);
+          if (msg.track) waiting.resolve(msg.track);
+          else waiting.reject(new Error(msg.error || "Couldn't add that."));
+          break;
+        }
         case 'outcome':
           setOutcomes((prev) => {
             const next = { ...prev };
@@ -203,7 +232,6 @@ export const useDJRoom = () => {
             break;
           }
           setNotice({ message: msg.message, at: Date.now() });
-          setAdding(false);
           break;
         default:
           break;
@@ -224,8 +252,12 @@ export const useDJRoom = () => {
         if (disposed) return;
         // A restarted server hands out new ids; ours is stale until we rejoin.
         setMe(null);
-        setAdding(false);
         setStatus('reconnecting');
+        lookupsRef.current.forEach(({ reject, timer }) => {
+          clearTimeout(timer);
+          reject(new Error('Lost the connection. Try again.'));
+        });
+        lookupsRef.current.clear();
         retryTimer = setTimeout(connect, retryDelay);
         retryDelay = Math.min(retryDelay * 2, 15000);
       };
@@ -238,6 +270,73 @@ export const useDJRoom = () => {
       ws.close();
     };
   }, [hello]);
+
+  // Keep the room's copy of the selected playlist current: it's what you
+  // play from. Sent shortly after edits, and right away before joining the
+  // queue (which needs a song in it).
+  const signature = listSignature(playlists.active);
+  const syncList = useCallback(() => {
+    const { active } = playlistsRef.current;
+    const latest = listSignature(active);
+    if (!joinedRef.current || latest === sentListRef.current) return;
+    sentListRef.current = latest;
+    send({ t: 'setList', list: active.tracks.map((track) => track.videoId) });
+  }, [send]);
+  const meId = me && me.id;
+  useEffect(() => {
+    if (!meId) return undefined;
+    const timer = setTimeout(syncList, LIST_SYNC_MS);
+    return () => clearTimeout(timer);
+  }, [signature, meId, syncList]);
+
+  // Looks up a pasted link (the server knows titles and which videos can be
+  // played here); resolves to { videoId, title, duration }.
+  const lookup = useCallback(
+    (url) =>
+      new Promise((resolve, reject) => {
+        const ws = wsRef.current;
+        if (!meId || !ws || ws.readyState !== WebSocket.OPEN) {
+          reject(new Error("Can't look up songs while reconnecting."));
+          return;
+        }
+        lookupIdRef.current += 1;
+        const id = lookupIdRef.current;
+        const timer = setTimeout(() => {
+          lookupsRef.current.delete(id);
+          reject(new Error("YouTube didn't answer. Try again."));
+        }, LOOKUP_TIMEOUT_MS);
+        lookupsRef.current.set(id, { resolve, reject, timer });
+        send({ t: 'lookup', id, url });
+      }),
+    [meId, send],
+  );
+
+  // Adds a pasted link to a playlist; resolves to why not, or null.
+  const addSong = useCallback(
+    async (playlistId, url) => {
+      const fullMessage = `This playlist is full (${MAX_TRACKS} songs).`;
+      const full = () => {
+        const playlist = playlistsRef.current.find(playlistId);
+        return !!playlist && playlist.tracks.length >= MAX_TRACKS;
+      };
+      if (full()) return fullMessage;
+      let track;
+      try {
+        track = await lookup(url);
+      } catch (err) {
+        return err.message;
+      }
+      const playlist = playlistsRef.current.find(playlistId);
+      if (!playlist) return 'That playlist was deleted.';
+      if (full()) return fullMessage;
+      if (playlist.tracks.some((t) => t.videoId === track.videoId)) {
+        return "That song's already in this playlist.";
+      }
+      playlistsRef.current.addTrack(playlistId, track);
+      return null;
+    },
+    [lookup],
+  );
 
   const join = useCallback(
     (name) => {
@@ -260,13 +359,11 @@ export const useDJRoom = () => {
       save(look);
       send({ t: 'setLook', ...look });
     },
-    addTrack: (url) => {
-      setAdding(true);
-      send({ t: 'addTrack', url });
+    addSong,
+    setDJ: (on) => {
+      if (on) syncList();
+      send({ t: 'setDJ', on });
     },
-    removeTrack: (key) => send({ t: 'removeTrack', key }),
-    bumpTrack: (key) => send({ t: 'bumpTrack', key }),
-    setDJ: (on) => send({ t: 'setDJ', on }),
     skip: () => send({ t: 'skip' }),
     sendChat: (text) => send({ t: 'chat', text }),
     react: (kind, on) => send({ t: 'react', kind, on }),
@@ -293,9 +390,8 @@ export const useDJRoom = () => {
     savedName,
     room,
     me,
-    list,
+    playlists,
     notice,
-    adding,
     chat,
     chatNotice,
     reactions,

@@ -99,6 +99,8 @@ const LIKE_INTERVAL_MS = 1000;
 const ACTIVE_ACTIONS = new Set([
   'setName',
   'setLook',
+  'setList',
+  'lookup',
   'chat',
   'move',
   'react',
@@ -325,7 +327,12 @@ function broadcastState() {
   scheduleFlush();
 }
 
-const sendList = (user) => send(user.ws, { t: 'list', list: user.list });
+// Pages from before protocol 3 keep their list on the server and get it
+// back after every change. Newer pages own their playlists and only send
+// the selected one (setList); they're told which song played instead.
+const sendList = (user) => {
+  if (user.protocol < 3) send(user.ws, { t: 'list', list: user.list });
+};
 
 // `scope: 'chat'` notices show under the chat box instead of as a toast.
 const notify = (user, message, scope) =>
@@ -363,9 +370,12 @@ function setDuration(seconds, source) {
 
 function play(dj) {
   // The song goes to the bottom of the DJ's list, like a playlist on repeat.
+  // The page does the same to its copy (and sends the list back, which
+  // also undoes any edit of its that crossed this in flight).
   const track = dj.list.shift();
   dj.list.push(track);
   sendList(dj);
+  if (dj.protocol >= 3) send(dj.ws, { t: 'played', videoId: track.videoId });
 
   const playId = crypto.randomUUID();
   const cached = videoCache.get(track.videoId);
@@ -657,20 +667,38 @@ async function lookupVideo(videoId) {
 
 const newKey = () => crypto.randomUUID().slice(0, 8);
 
-function join(ws, msg) {
-  const list = (Array.isArray(msg.list) ? msg.list : [])
-    .filter((track) => track && isVideoId(track.videoId))
-    .slice(0, MAX_LIST)
-    .map((track) => ({
+// A list as a page sends it: video ids (protocol 3), or track objects
+// (older pages, whose titles are only ever shown back to them; the room
+// always uses looked-up titles). Invalid entries and repeats are dropped.
+function listFrom(input) {
+  const seen = new Set();
+  const list = [];
+  for (const item of Array.isArray(input) ? input : []) {
+    const track = typeof item === 'string' ? { videoId: item } : item;
+    if (!track || !isVideoId(track.videoId) || seen.has(track.videoId)) {
+      continue;
+    }
+    seen.add(track.videoId);
+    const cached = videoCache.get(track.videoId);
+    list.push({
       key: newKey(),
       videoId: track.videoId,
-      // Only ever shown back to this user; the room uses looked-up titles.
-      title: clean(track.title, MAX_TITLE) || track.videoId,
+      title:
+        (cached && cached.title) ||
+        clean(track.title, MAX_TITLE) ||
+        track.videoId,
       duration:
         Number(track.duration) > 0
           ? Math.min(MAX_TRACK_SECONDS, Math.round(track.duration))
           : null,
-    }));
+    });
+    if (list.length >= MAX_LIST) break;
+  }
+  return list;
+}
+
+function join(ws, msg) {
+  const list = listFrom(msg.list);
   // A saved name that breaks the rules (e.g. from before they existed) just
   // falls back to Guest.
   const name = clean(msg.name, MAX_NAME);
@@ -678,7 +706,8 @@ function join(ws, msg) {
     id: crypto.randomUUID().slice(0, 8),
     ws,
     ip: ws.ip,
-    // 2 = compact moves. Pages from before that send no version.
+    // 2 = compact moves, 3 = the page owns its playlists. Pages from
+    // before either send no version.
     protocol: Number(msg.v) || 1,
     name: (name && !nameProblem(name) && name) || 'Guest',
     emoji: FACES.includes(msg.emoji) ? msg.emoji : pick(FACES),
@@ -713,6 +742,40 @@ function join(ws, msg) {
   broadcastState();
 }
 
+// Looks up a pasted link for a page adding it to one of its playlists, and
+// answers with the track or why not. Links already looked up cost nothing;
+// new ones count toward the per-person and room-wide lookup limits.
+async function lookupTrack(user, msg) {
+  const reply = (body) => send(user.ws, { t: 'lookup', id: msg.id, ...body });
+  try {
+    const videoId = parseVideoId(msg.url);
+    if (!videoId) throw new UserError("That doesn't look like a YouTube link.");
+    if (!videoCache.has(videoId)) {
+      if (user.adding) throw new UserError('Still adding your last song.');
+      const now = Date.now();
+      user.addTimes = user.addTimes.filter((at) => now - at < 60000);
+      if (user.addTimes.length >= ADDS_PER_MINUTE) {
+        throw new UserError(
+          "You're adding songs too fast. Try again in a minute.",
+        );
+      }
+      user.addTimes.push(now);
+    }
+    user.adding = true;
+    let meta;
+    try {
+      meta = await lookupVideo(videoId);
+    } finally {
+      user.adding = false;
+    }
+    reply({ track: { videoId, title: meta.title, duration: meta.duration } });
+  } catch (err) {
+    if (!(err instanceof UserError)) throw err;
+    reply({ error: err.message });
+  }
+}
+
+// For pages from before protocol 3 (see sendList).
 async function addTrack(user, msg) {
   try {
     if (user.adding) throw new UserError('Still adding your last song.');
@@ -853,6 +916,16 @@ function handle(ws, msg) {
         Math.round(user.y * 1000),
       ]);
       scheduleFlush();
+      break;
+
+    case 'setList':
+      user.list = listFrom(msg.list);
+      break;
+
+    case 'lookup':
+      // The id only pairs the answer with the request; it's echoed back.
+      if (!(Number.isSafeInteger(msg.id) && msg.id >= 0)) break;
+      lookupTrack(user, msg).catch((err) => console.error('lookup:', err));
       break;
 
     case 'addTrack':

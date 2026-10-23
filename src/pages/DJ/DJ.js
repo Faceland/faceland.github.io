@@ -18,17 +18,14 @@ import {
 import { lookImage } from './avatarArt';
 import { EYES, FACES, HATS } from './avatarParts';
 import { DJScreen } from './DJScreen';
+import { formatTime } from './format';
+import { PlaylistCard, usePlaylistKeys } from './Playlists';
 import { useDJRoom } from './useDJRoom';
 import './dj.scss';
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
 const pick = (items) => items[Math.floor(Math.random() * items.length)];
-
-const formatTime = (seconds) => {
-  const s = Math.max(0, Math.floor(seconds));
-  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
-};
 
 // Stable per-user number, so everyone's dance bob starts out of step.
 const hash = (text) =>
@@ -557,32 +554,6 @@ const DJChat = ({
   );
 };
 
-const AddTrackForm = ({ adding, onAdd }) => {
-  const [url, setUrl] = useState('');
-  return (
-    <form
-      className="djAddTrack"
-      onSubmit={(event) => {
-        event.preventDefault();
-        if (!url.trim() || adding) return;
-        onAdd(url.trim());
-        setUrl('');
-      }}
-    >
-      <input
-        className="djInput"
-        placeholder="Paste a YouTube link"
-        aria-label="YouTube link"
-        value={url}
-        onChange={(event) => setUrl(event.target.value)}
-      />
-      <button type="submit" className="djButton" disabled={adding}>
-        {adding ? '…' : 'Add'}
-      </button>
-    </form>
-  );
-};
-
 // True until performance.now() reaches `until`; re-renders once, right when
 // it does (a single timer, no ticking).
 const useLockedUntil = (until) => {
@@ -785,17 +756,11 @@ const LookEditor = ({ look, onDone, onCancel }) => {
   );
 };
 
-// Your songs that didn't play out last time (outlined in the list).
-const OUTCOME_WARNINGS = {
-  skipped: 'This song skipped last time it was played!',
-  failed: 'This song failed to play last time!',
-};
-
-// Your name and look on one card, your song list on another below it (on
+// Your name and look on one card, your playlists on another below it (on
 // desktop, and stacked the same way in the mobile pop-out, where the first
-// card gets the title and minimize button). Only the list scrolls; while the
-// look editor is open it takes the list's space instead.
-const Panel = ({ me, room, list, outcomes, adding, actions, onMinimize }) => {
+// card gets the title and minimize button). Only the playlist scrolls;
+// while the look editor is open it takes the playlist's space instead.
+const Panel = ({ me, room, playlists, outcomes, actions, onMinimize }) => {
   const [editing, setEditing] = useState(false);
   const self = me && (room.users.find((user) => user.id === me.id) || me);
 
@@ -839,69 +804,13 @@ const Panel = ({ me, room, list, outcomes, adding, actions, onMinimize }) => {
         )}
       </aside>
 
-      {/* The card doesn't scroll (its glow never repaints); its inside does.
-          Hidden rather than unmounted, so a half-pasted link survives. */}
-      <aside
-        className="djCard djPlaylist"
-        aria-label="Your list"
+      {/* Hidden rather than unmounted, so a half-pasted link survives. */}
+      <PlaylistCard
+        playlists={playlists}
+        outcomes={outcomes}
+        addSong={actions.addSong}
         hidden={editing}
-      >
-        <div className="djPlaylist__scroll djScroll">
-          <h2>Your list</h2>
-          <AddTrackForm adding={adding} onAdd={actions.addTrack} />
-          {list.length ? (
-            <ol className="djTracks">
-              {list.map((track, index) => {
-                const outcome = outcomes[track.videoId];
-                const warning = OUTCOME_WARNINGS[outcome];
-                return (
-                  <li
-                    key={track.key}
-                    className={outcome ? `djTracks--${outcome}` : undefined}
-                    title={warning}
-                  >
-                    <span
-                      className="djTracks__title"
-                      title={
-                        warning ? `${track.title}\n${warning}` : track.title
-                      }
-                    >
-                      {track.title}
-                    </span>
-                    {track.duration ? (
-                      <span className="djTracks__time">
-                        {formatTime(track.duration)}
-                      </span>
-                    ) : null}
-                    <button
-                      className="djIconButton"
-                      title="Play next"
-                      aria-label={`Play ${track.title} next`}
-                      disabled={index === 0}
-                      onClick={() => actions.bumpTrack(track.key)}
-                    >
-                      ⤒
-                    </button>
-                    <button
-                      className="djIconButton"
-                      title="Remove"
-                      aria-label={`Remove ${track.title}`}
-                      onClick={() => actions.removeTrack(track.key)}
-                    >
-                      ✕
-                    </button>
-                  </li>
-                );
-              })}
-            </ol>
-          ) : (
-            <p className="djHint">
-              Add a song to join the DJ queue. Your top song plays when
-              it&apos;s your turn, then moves to the bottom.
-            </p>
-          )}
-        </div>
-      </aside>
+      />
     </div>
   );
 };
@@ -1095,9 +1004,8 @@ export const DJ = () => {
     savedName,
     room,
     me,
-    list,
+    playlists,
     notice,
-    adding,
     chat,
     chatNotice,
     reactions,
@@ -1110,6 +1018,7 @@ export const DJ = () => {
   const dj = current && users.find((user) => user.id === current.djId);
   const amDJ = !!(me && current && current.djId === me.id);
   const self = me && users.find((user) => user.id === me.id);
+  usePlaylistKeys(playlists, entered);
 
   // Phones: the page is exactly one screen and never scrolls (only the
   // pop-outs do); no rubber-banding or pull-to-refresh moving it either.
@@ -1155,7 +1064,12 @@ export const DJ = () => {
           <div className="djBooth">
             <div className="djBooth__side">
               {entered && (
-                <DJQueue me={me} room={room} list={list} actions={actions} />
+                <DJQueue
+                  me={me}
+                  room={room}
+                  list={playlists.active.tracks}
+                  actions={actions}
+                />
               )}
               <div className="djBooth__dj">
                 {dj && (
@@ -1209,9 +1123,8 @@ export const DJ = () => {
           <Panel
             me={me}
             room={room}
-            list={list}
+            playlists={playlists}
             outcomes={outcomes}
-            adding={adding}
             actions={actions}
           />
         )}
@@ -1224,7 +1137,7 @@ export const DJ = () => {
           self={self}
           chat={chat}
           chatNotice={chatNotice}
-          panel={{ me, room, list, outcomes, adding, actions }}
+          panel={{ me, room, playlists, outcomes, actions }}
         />
       )}
       <Toast notice={notice} />
