@@ -240,6 +240,8 @@ function snapshot() {
         voters: [...current.skipVotes].filter((id) => users.has(id)),
       },
       likes: [...current.likes].filter((id) => users.has(id)),
+      // How long until the DJ may skip or leave (relative, like elapsed).
+      skipLock: Math.max(0, current.startedAt + MIN_SKIP_MS - Date.now()),
     },
   };
 }
@@ -459,6 +461,17 @@ function skipTally() {
       Math.max(1, Math.ceil(room.size / 2)) +
       Math.floor(ipsOf(current.likes).size / 2),
   };
+}
+
+// The DJ's own Skip and Leave booth wait for MIN_SKIP_MS too: both start a
+// new video for everyone, just like a vote skip. (A DJ who disconnects still
+// ends their song; that can't be refused.) Returns whether it's too soon,
+// telling the DJ when it opens up.
+function djLocked(user) {
+  const wait = current.startedAt + MIN_SKIP_MS - Date.now();
+  if (wait <= 0) return false;
+  notify(user, `You can skip or leave in ${Math.ceil(wait / 1000)}s.`);
+  return true;
 }
 
 // Skips if the vote passes and the song is past MIN_SKIP_MS. A vote that
@@ -819,6 +832,8 @@ function handle(ws, msg) {
 
     case 'setDJ':
       if (!msg.on) {
+        // Leaving the booth mid-song ends it, so it waits like a skip.
+        if (current && current.djId === user.id && djLocked(user)) break;
         leaveQueue(user);
         break;
       }
@@ -840,7 +855,7 @@ function handle(ws, msg) {
       break;
 
     case 'skip':
-      if (current && current.djId === user.id) advance();
+      if (current && current.djId === user.id && !djLocked(user)) advance();
       break;
 
     case 'react':

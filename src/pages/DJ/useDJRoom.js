@@ -122,6 +122,8 @@ export const useDJRoom = () => {
               // Anchor the song to this browser's clock: where the song should
               // be is always (performance.now() - startPerf).
               startPerf: performance.now() - msg.current.elapsed,
+              // When the DJ's Skip / Leave booth open up, on the same clock.
+              unlockPerf: performance.now() + (msg.current.skipLock || 0),
             },
           });
           break;

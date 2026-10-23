@@ -502,19 +502,50 @@ const AddTrackForm = ({ adding, onAdd }) => {
   );
 };
 
+// True until performance.now() reaches `until`; re-renders once, right when
+// it does (a single timer, no ticking).
+const useLockedUntil = (until) => {
+  const [, wake] = useState(0);
+  const remaining = until ? until - performance.now() : 0;
+  useEffect(() => {
+    if (!(remaining > 0)) return undefined;
+    const timer = setTimeout(() => wake((n) => n + 1), remaining + 30);
+    return () => clearTimeout(timer);
+    // `remaining` changes every render; the timer only needs re-arming when
+    // `until` does.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [until]);
+  return remaining > 0;
+};
+
 const DJControls = ({ me, room, list, actions }) => {
   const { current, djQueue } = room;
   const place = djQueue.indexOf(me.id);
+  const onDecks = !!(current && current.djId === me.id);
+  // Skipping or leaving starts a new video for everyone, so (like a vote
+  // skip) the server only allows it 10s into your song; dimmed until then.
+  const locked = useLockedUntil(onDecks ? current.unlockPerf : 0);
 
-  if (current && current.djId === me.id) {
+  if (onDecks) {
+    const lockedTitle = locked ? 'Available 10 seconds into your song' : '';
     return (
       <div className="djControls">
         <p>You&apos;re on the decks! 🎧</p>
         <div className="djControls__row">
-          <button className="djButton" onClick={actions.skip}>
+          <button
+            className="djButton"
+            onClick={actions.skip}
+            disabled={locked}
+            title={lockedTitle}
+          >
             Skip song
           </button>
-          <button className="djButton" onClick={() => actions.setDJ(false)}>
+          <button
+            className="djButton"
+            onClick={() => actions.setDJ(false)}
+            disabled={locked}
+            title={lockedTitle}
+          >
             Leave booth
           </button>
         </div>
