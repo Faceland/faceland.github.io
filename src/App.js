@@ -60,7 +60,7 @@ const LazyDJ = lazy(() =>
 // The header plus the room's dark background, so nothing flashes while the
 // DJ chunk loads.
 const DJLoading = () => (
-  <div className="App" style={{ minHeight: '100vh', background: '#141019' }}>
+  <div className="App" style={{ minHeight: '100vh', background: '#0a090e' }}>
     <HeaderBar fancy={false} />
   </div>
 );

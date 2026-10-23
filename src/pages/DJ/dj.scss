@@ -3,9 +3,6 @@
 // panel floating over its edges as cards. Narrower screens put a full-height
 // stage on top with the cards below it, and let the page scroll.
 $dj-radius: 5px; // the subtle rounding shared by cards and booth buttons
-$dj-bg: #141019;
-$dj-panel: #1c1a22;
-$dj-line: #2c2836;
 $dj-text: #e8e2f0;
 $dj-muted: #9a91a8;
 $dj-cream: #f4e4bf;
@@ -21,10 +18,25 @@ $dj-accent: #48ba3b;
   --dj-glow2-alpha: 0;
   --dj-floor-top-rgb: 29, 21, 48;
   --dj-floor-bottom-rgb: 13, 10, 18;
+  // The dark surfaces: near-black grays with the faintest tint of the glow
+  // (ambient.js's SURFACES, here at the purple's hue; its surfaceDefaults()
+  // prints these).
+  --dj-bg-rgb: 10, 9, 14;
+  --dj-panel-rgb: 19, 18, 23;
+  --dj-line-rgb: 36, 35, 42;
+  --dj-raised-rgb: 34, 32, 40;
+  --dj-raised-hover-rgb: 47, 46, 55;
+  --dj-field-rgb: 6, 6, 9;
 }
 
 @function glow($alpha: 1) {
   @return rgba(var(--dj-glow-rgb), $alpha);
+}
+
+// bg (the page), panel (cards), line (borders and tracks), raised and
+// raised-hover (buttons), field (inputs, the darkest).
+@function surface($name, $alpha: 1) {
+  @return rgba(var(--dj-#{$name}-rgb), $alpha);
 }
 
 .DJPage {
@@ -32,7 +44,7 @@ $dj-accent: #48ba3b;
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
-  background: $dj-bg;
+  background: surface(bg);
   color: $dj-text;
 }
 
@@ -115,7 +127,7 @@ $dj-accent: #48ba3b;
       rgba(var(--dj-glow2-rgb), var(--dj-glow2-alpha)),
       rgba(var(--dj-glow2-rgb), 0) 70%
     ),
-    $dj-bg;
+    surface(bg);
 }
 
 // --- Booth -------------------------------------------------------------------
@@ -379,9 +391,9 @@ $dj-accent: #48ba3b;
   display: inline-flex;
   align-items: center;
   padding: 6px 12px;
-  border: 1px solid $dj-line;
+  border: 1px solid surface(line);
   border-radius: $dj-radius;
-  background: rgba($dj-panel, 0.85);
+  background: surface(panel, 0.85);
   color: $dj-text;
   font-size: 13px;
   font-weight: 700;
@@ -475,7 +487,7 @@ $dj-accent: #48ba3b;
   overflow: hidden;
   background: #000;
   box-shadow:
-    0 0 0 2px #2a2238,
+    0 0 0 2px surface(line),
     0 0 40px glow(0.45);
 }
 
@@ -533,9 +545,9 @@ $dj-accent: #48ba3b;
   height: 34px;
   margin-top: 6px;
   padding: 0 4px;
-  border: 1px solid $dj-line;
+  border: 1px solid surface(line);
   border-radius: 6px;
-  background: rgba($dj-panel, 0.85);
+  background: surface(panel, 0.85);
 }
 
 .djScreen__button {
@@ -557,7 +569,7 @@ $dj-accent: #48ba3b;
   }
 
   &:hover:not(:disabled) {
-    background: $dj-line;
+    background: surface(line);
   }
 
   &:disabled {
@@ -573,7 +585,7 @@ $dj-accent: #48ba3b;
   height: 4px;
   margin: 0 10px;
   border-radius: 2px;
-  background: $dj-line;
+  background: surface(line);
   overflow: hidden;
 }
 
@@ -601,7 +613,7 @@ $dj-accent: #48ba3b;
   margin-left: -18px;
   border: 1px solid glow(0.55);
   border-radius: $dj-radius;
-  background: $dj-panel;
+  background: surface(panel);
   box-shadow: 0 0 14px glow(0.3);
 
   // A small hit bridge, so moving the mouse from button to slider doesn't
@@ -638,7 +650,7 @@ $dj-accent: #48ba3b;
     background: linear-gradient(
       to right,
       glow() var(--fill),
-      $dj-line var(--fill)
+      surface(line) var(--fill)
     );
   }
 
@@ -655,7 +667,7 @@ $dj-accent: #48ba3b;
   &::-moz-range-track {
     height: 4px;
     border-radius: 2px;
-    background: $dj-line;
+    background: surface(line);
   }
 
   &::-moz-range-progress {
@@ -995,16 +1007,16 @@ img.djArt--fit {
   align-items: center;
   justify-content: center;
   padding: 16px;
-  background: rgba(10, 8, 14, 0.72);
+  background: surface(field, 0.72);
 }
 
 .djJoin__card {
   width: 100%;
   max-width: 340px;
   padding: 24px;
-  border: 1px solid $dj-line;
+  border: 1px solid surface(line);
   border-radius: 8px;
-  background: $dj-panel;
+  background: surface(panel);
   text-align: center;
 
   h1 {
@@ -1046,9 +1058,9 @@ img.djArt--fit {
   width: 100%;
   min-width: 0;
   padding: 8px 10px;
-  border: 1px solid $dj-line;
+  border: 1px solid surface(line);
   border-radius: 4px;
-  background: $dj-bg;
+  background: surface(bg);
   color: $dj-text;
   font-size: 14px;
 
@@ -1060,7 +1072,7 @@ img.djArt--fit {
 .djButton {
   padding: 8px 14px;
   border-radius: 4px;
-  background: #2c2836;
+  background: surface(raised);
   color: $dj-text;
   font-size: 14px;
   font-weight: 700;
@@ -1069,7 +1081,7 @@ img.djArt--fit {
   transition: background-color 0.2s ease-in-out;
 
   &:hover:not(:disabled) {
-    background: #3a3546;
+    background: surface(raised-hover);
   }
 
   &:disabled {
@@ -1106,7 +1118,7 @@ img.djArt--fit {
   cursor: pointer;
 
   &:hover:not(:disabled) {
-    background: $dj-line;
+    background: surface(line);
     color: $dj-text;
   }
 
@@ -1178,7 +1190,7 @@ img.djArt--fit {
   min-height: 0;
   border: 1px solid glow(0.55);
   border-radius: $dj-radius;
-  background: rgba($dj-panel, 0.96);
+  background: surface(panel, 0.96);
   box-shadow: 0 0 16px glow(0.3);
   overflow: hidden;
   contain: paint;
@@ -1230,7 +1242,7 @@ img.djArt--fit {
 
   &:hover,
   &:focus-visible {
-    background: $dj-line;
+    background: surface(line);
     color: $dj-text;
   }
 }
@@ -1268,7 +1280,7 @@ img.djArt--fit {
   flex: none;
   display: flex;
   padding: 12px 14px;
-  border-top: 1px solid $dj-line;
+  border-top: 1px solid surface(line);
 
   .djButton {
     margin-left: 8px;
@@ -1341,7 +1353,7 @@ img.djArt--fit {
   width: 54px;
   height: 54px;
   padding: 2px;
-  border: 1px solid $dj-line;
+  border: 1px solid surface(line);
   border-radius: $dj-radius;
   background: rgba(255, 255, 255, 0.03);
   cursor: pointer;
@@ -1385,7 +1397,7 @@ img.djArt--fit {
 .djLook__tabs {
   display: flex;
   margin-bottom: 10px;
-  border-bottom: 1px solid $dj-line;
+  border-bottom: 1px solid surface(line);
 }
 
 .djLook__tab {
@@ -1507,12 +1519,12 @@ img.djArt--fit {
   box-sizing: border-box;
   height: 37px;
   padding: 0 28px 0 10px;
-  border: 1px solid $dj-line;
+  border: 1px solid surface(line);
   border-radius: 4px;
   background:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%239a91a8' d='M7.4 8.6 12 13.2l4.6-4.6L18 10l-6 6-6-6z'/%3E%3C/svg%3E")
       right 6px center / 18px no-repeat,
-    #100e14;
+    surface(field);
   color: $dj-text;
   font: inherit;
   font-size: 14px;
@@ -1526,7 +1538,7 @@ img.djArt--fit {
   }
 
   option {
-    background: $dj-panel;
+    background: surface(panel);
     color: $dj-text;
   }
 }
@@ -1572,7 +1584,7 @@ img.djArt--fit {
   > li.djTracks--dragging {
     z-index: 2;
     transition: none;
-    background: #2a2633;
+    background: surface(raised);
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
   }
 }
@@ -1599,7 +1611,7 @@ img.djArt--fit {
 
   &:hover,
   &:focus-visible {
-    background: $dj-line;
+    background: surface(line);
     color: $dj-text;
   }
 
@@ -1665,7 +1677,7 @@ img.djArt--fit {
   align-items: center;
   justify-content: center;
   padding: 16px;
-  background: rgba(8, 6, 12, 0.72);
+  background: surface(field, 0.72);
   color: $dj-text;
   animation: djSheetIn 0.18s ease-out;
 }
@@ -1676,7 +1688,7 @@ img.djArt--fit {
   max-width: 100%;
   height: 720px;
   max-height: 100%;
-  background: $dj-panel;
+  background: surface(panel);
   outline: none;
 
   // Phones: all of the screen there is.
@@ -1710,7 +1722,7 @@ img.djArt--fit {
   margin: 6px 6px 0 0;
   padding: 6px 12px;
   overflow: hidden;
-  border: 1px solid $dj-line;
+  border: 1px solid surface(line);
   border-radius: $dj-radius;
   color: $dj-muted;
   font-size: 13px;
@@ -1737,7 +1749,7 @@ img.djArt--fit {
 .djEditor__meta {
   flex: none;
   padding: 14px 16px 12px;
-  border-bottom: 1px solid $dj-line;
+  border-bottom: 1px solid surface(line);
 }
 
 .djEditor__name {
@@ -1807,7 +1819,7 @@ img.djArt--fit {
   display: flex;
   align-items: center;
   padding: 12px 16px;
-  border-top: 1px solid $dj-line;
+  border-top: 1px solid surface(line);
 
   .djButton + .djButton {
     margin-left: 8px;
@@ -1867,7 +1879,7 @@ img.djArt--fit {
   max-width: calc(100% - 32px);
   padding: 10px 16px;
   border-radius: 6px;
-  background: #2c2836;
+  background: surface(raised);
   color: $dj-text;
   font-size: 14px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
@@ -2093,7 +2105,7 @@ img.djArt--fit {
   height: 54px;
   border: 1px solid glow(0.6);
   border-radius: 50%;
-  background: rgba($dj-panel, 0.94);
+  background: surface(panel, 0.94);
   box-shadow: 0 0 14px glow(0.35);
   font-size: 26px;
   line-height: 1;
@@ -2158,12 +2170,12 @@ img.djArt--fit {
   // Backs the gap between your two cards, so the stage doesn't show through.
   .djSide {
     border-radius: $dj-radius;
-    background: $dj-bg;
+    background: surface(bg);
   }
 
   // Fully opaque here: unlike on desktop, there's stage text underneath.
   .djCard {
-    background: $dj-panel;
+    background: surface(panel);
   }
 
   .djPlaylist__scroll,

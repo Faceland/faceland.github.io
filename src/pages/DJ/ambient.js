@@ -7,8 +7,9 @@ import { useEffect, useRef } from 'react';
 // The player is a cross-origin iframe, so its pixels can't be read. What
 // can be: the video's thumbnail and three frames YouTube grabs from about
 // 25%, 50% and 75% of the way through (small images on i.ytimg.com, which
-// allows it). Each one's dominant hue becomes a color, and the room glides
-// from one to the next as the song plays.
+// allows it). Each one's dominant hue becomes a color, and the room moves
+// from one to the next as the song plays (see paletteAt). The dark surfaces
+// (cards, buttons, lines) carry the faintest tint of the same hue.
 //
 // Hues are picked and colors made in OKLCH: pixels count by how colorful
 // they are (grays and near-black barely count), and every color is drawn
@@ -16,13 +17,15 @@ import { useEffect, useRef } from 'react';
 // stays orange instead of turning brown and nothing comes out gray. Mostly
 // colorless images keep the purple.
 
-// The images, and how far through the song each one shows.
+// The images, and how far through the song each one's colors are fully in.
 const FRAMES = [
   { file: 'mqdefault.jpg', at: 0 },
   { file: 'mq1.jpg', at: 0.25 },
   { file: 'mq2.jpg', at: 0.5 },
   { file: 'mq3.jpg', at: 0.75 },
 ];
+// How much of the song each change of colors takes (see paletteAt).
+const BLEND = 0.1;
 // How often the colors follow the song (cheap: no image work, just math).
 const TICK_MS = 250;
 // How quickly the shown colors chase the target (seconds to get ~63% there).
@@ -287,22 +290,27 @@ const distance = (p, q) => {
   );
 };
 
-// Where the song is between its frames: the two frames either side, mixed
-// by position. Before the length is known, the first frame.
+// The colors at this point in the song (a fraction of its length): each
+// frame's colors hold until BLEND before the next frame's spot, then ease
+// into it, and the last stretch eases back to the room's own colors so
+// the next song starts from them. So: thumbnail; into the 25% frame from
+// 15% to 25%; into the 50% frame from 40%; into the 75% frame from 65%;
+// home from 90%. A frame YouTube doesn't have just holds the one before
+// longer. Before the length is known, the thumbnail.
 const paletteAt = (frames, fraction) => {
   if (!(fraction >= 0)) return frames[0].palette;
-  let before = frames[0];
-  let after = null;
-  frames.forEach((frame) => {
-    if (frame.at <= fraction) before = frame;
-    else if (!after) after = frame;
-  });
-  if (!after || after === before) return before.palette;
-  return mix(
-    before.palette,
-    after.palette,
-    (fraction - before.at) / (after.at - before.at),
-  );
+  const stops = [...frames.slice(1), { at: 1, palette: DEFAULT_PALETTE }];
+  let palette = frames[0].palette;
+  for (const stop of stops) {
+    if (fraction >= stop.at) {
+      palette = stop.palette;
+    } else {
+      const t = (fraction - (stop.at - BLEND)) / BLEND;
+      if (t > 0) palette = mix(palette, stop.palette, t * t * (3 - 2 * t));
+      break;
+    }
+  }
+  return palette;
 };
 
 const PROPERTIES = {
@@ -311,6 +319,31 @@ const PROPERTIES = {
   floorTop: '--dj-floor-top-rgb',
   floorBottom: '--dj-floor-bottom-rgb',
 };
+
+// The room's dark surfaces, [lightness, chroma] in OKLCH, drawn in the
+// glow's hue: near-black grays with just a trace of its color. dj.scss
+// has these same surfaces at the purple's hue as its defaults (printed by
+// surfaceDefaults below).
+const SURFACES = {
+  bg: [0.145, 0.01],
+  panel: [0.185, 0.01],
+  line: [0.26, 0.014],
+  raised: [0.25, 0.014],
+  'raised-hover': [0.305, 0.016],
+  field: [0.125, 0.008],
+};
+
+const surfaceColors = (hue) =>
+  Object.entries(SURFACES).map(([name, [L, C]]) => [
+    `--dj-${name}-rgb`,
+    rgbTriplet([L, C, hue]),
+  ]);
+
+// For dj.scss's :root, if SURFACES or the purple change.
+export const surfaceDefaults = () =>
+  surfaceColors(PURPLE[2])
+    .map(([name, rgb]) => `  ${name}: ${rgb};`)
+    .join('\n');
 
 // Keeps the room's colors on the playing video's (`current` from the room;
 // null with nothing playing), as CSS variables on the page root.
@@ -334,6 +367,9 @@ export const useAmbientColors = (current) => {
         write(name, idle ? null : rgbTriplet(palette[key])),
       );
       write('--dj-glow2-alpha', idle ? null : palette.accentAlpha.toFixed(3));
+      surfaceColors(palette.glow[2]).forEach(([name, rgb]) =>
+        write(name, idle ? null : rgb),
+      );
     };
 
     let shown = DEFAULT_PALETTE;
@@ -389,10 +425,7 @@ export const useAmbientColors = (current) => {
       disposed = true;
       clearInterval(timer);
       cancelAnimationFrame(raf);
-      Object.values(PROPERTIES).forEach((name) =>
-        root.style.removeProperty(name),
-      );
-      root.style.removeProperty('--dj-glow2-alpha');
+      Object.keys(written).forEach((name) => root.style.removeProperty(name));
     };
   }, []);
 };
