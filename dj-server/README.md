@@ -6,6 +6,13 @@ floor, the DJ queue, each person's song list, and which video started when.
 It never streams media. Every browser plays the video from YouTube itself and
 seeks to `now - startedAt`, so a YouTube ad only delays the person watching it.
 
+Chat is relayed, never stored: each message goes to whoever is in the room at
+that moment and is then forgotten (it isn't logged either), so people only see
+what's said while they're there. Messages and names pass the rules in
+`chatRules.js` (profanity via the `obscenity` package, links, spam, and 3
+messages per 5 seconds / 12 per minute). The page runs an identical copy,
+`src/pages/DJ/chatRules.js`, for instant feedback; change both together.
+
 ## Run locally
 
 ```sh
@@ -51,7 +58,7 @@ Ship a change from the repo root (`npm ci` installs exactly what
 `package-lock.json` pins, without running any package scripts):
 
 ```sh
-scp dj-server/server.js dj-server/package.json dj-server/package-lock.json root@199.127.61.235:/opt/faceland-dj/
+scp dj-server/server.js dj-server/chatRules.js dj-server/package.json dj-server/package-lock.json root@199.127.61.235:/opt/faceland-dj/
 ssh root@199.127.61.235 "cd /opt/faceland-dj && npm ci --omit=dev --ignore-scripts && systemctl restart faceland-dj"
 ```
 
@@ -72,7 +79,8 @@ The box also runs the Minecraft servers (AMP), so the room is fenced in:
   second, however fast people act), drops clients that stop reading,
   rate-limits YouTube lookups, and ignores "song ended/broken" reports unless
   most of the room's IPs agree. A YouTube API key makes song lengths
-  server-side facts, which removes even that.
+  server-side facts, which removes even that. Chat is batched into the same
+  broadcasts, goes only to people who joined, and is rate-limited per person.
 
 Everything is in memory. Restarting the server empties the room; people's
 names and song lists survive because their browsers keep them and send them

@@ -16,6 +16,12 @@ const http = require('http');
 const fs = require('fs');
 const crypto = require('crypto');
 const { WebSocketServer } = require('ws');
+const {
+  MAX_CHAT_LENGTH,
+  chatProblem,
+  nameProblem,
+  rateLimitWait,
+} = require('./chatRules');
 
 // In production nginx connects over a Unix socket (SOCKET_PATH), so the
 // service needs no loopback networking at all. Otherwise it listens on
@@ -197,11 +203,20 @@ function snapshot() {
   };
 }
 
+// Chat goes only to people who joined (spectators on the join screen don't
+// need it), and is never stored: it's relayed once and forgotten.
+function broadcastToMembers(message) {
+  const data = JSON.stringify(message);
+  for (const user of users.values()) sendRaw(user.ws, data);
+}
+
 // Everything the room hears goes out from here, at most once per
 // BROADCAST_INTERVAL_MS however fast people act: the full state if anything
-// changed (it includes positions), otherwise just the latest moves.
+// changed (it includes positions), otherwise just the latest moves, plus any
+// chat said since the last flush.
 let stateDirty = false;
 const pendingMoves = new Map(); // user id -> { id, x, y }
+let pendingChat = [];
 let flushTimer = null;
 let lastFlushAt = 0;
 
@@ -212,8 +227,12 @@ function flush() {
   else if (pendingMoves.size) {
     broadcast({ t: 'moves', moves: [...pendingMoves.values()] });
   }
+  if (pendingChat.length) {
+    broadcastToMembers({ t: 'chat', messages: pendingChat });
+  }
   stateDirty = false;
   pendingMoves.clear();
+  pendingChat = [];
 }
 
 function scheduleFlush() {
@@ -229,7 +248,9 @@ function broadcastState() {
 
 const sendList = (user) => send(user.ws, { t: 'list', list: user.list });
 
-const notify = (user, message) => send(user.ws, { t: 'notice', message });
+// `scope: 'chat'` notices show under the chat box instead of as a toast.
+const notify = (user, message, scope) =>
+  send(user.ws, { t: 'notice', message, scope });
 
 // --- The booth ---------------------------------------------------------------
 
@@ -486,11 +507,14 @@ function join(ws, msg) {
           ? Math.min(MAX_TRACK_SECONDS, Math.round(track.duration))
           : null,
     }));
+  // A saved name that breaks the rules (e.g. from before they existed) just
+  // falls back to Guest.
+  const name = clean(msg.name, MAX_NAME);
   const user = {
     id: crypto.randomUUID().slice(0, 8),
     ws,
     ip: ws.ip,
-    name: clean(msg.name, MAX_NAME) || 'Guest',
+    name: (name && !nameProblem(name) && name) || 'Guest',
     emoji: EMOJIS.includes(msg.emoji) ? msg.emoji : pick(EMOJIS),
     // Somewhere in the middle of the floor until they choose a spot.
     x: 0.15 + Math.random() * 0.7,
@@ -500,6 +524,8 @@ function join(ws, msg) {
     lastNameAt: 0,
     addTimes: [],
     adding: false,
+    chatTimes: [],
+    lastChat: { text: '', at: 0 },
   };
   ws.user = user;
   users.set(user.id, user);
@@ -549,6 +575,38 @@ async function addTrack(user, msg) {
   }
 }
 
+function sendChat(user, msg, now) {
+  // Every attempt counts toward the limits, refused ones included, so a
+  // modified client can't probe the filter at full speed.
+  user.chatTimes = user.chatTimes.filter((at) => now - at < 60000);
+  const wait = rateLimitWait(user.chatTimes, now, 250);
+  if (wait > 0) {
+    notify(user, `Slow down: wait ${Math.ceil(wait / 1000)}s.`, 'chat');
+    return;
+  }
+  user.chatTimes.push(now);
+  const text = clean(msg.text, MAX_CHAT_LENGTH);
+  if (!text) return;
+  const problem = chatProblem(text);
+  if (problem) {
+    notify(user, problem, 'chat');
+    return;
+  }
+  if (text === user.lastChat.text && now - user.lastChat.at < 30000) {
+    notify(user, 'You just said that.', 'chat');
+    return;
+  }
+  user.lastChat = { text, at: now };
+  pendingChat.push({
+    id: newKey(),
+    userId: user.id,
+    emoji: user.emoji,
+    name: user.name,
+    text,
+  });
+  scheduleFlush();
+}
+
 function handle(ws, msg) {
   const user = ws.user;
   if (msg.t === 'hello') {
@@ -559,14 +617,23 @@ function handle(ws, msg) {
   const now = Date.now();
 
   switch (msg.t) {
-    case 'setName':
+    case 'setName': {
       if (now - user.lastNameAt < NAME_INTERVAL_MS) {
         notify(user, 'Wait a moment before changing your name again.');
         break;
       }
       user.lastNameAt = now;
-      user.name = clean(msg.name, MAX_NAME) || 'Guest';
+      const name = clean(msg.name, MAX_NAME) || 'Guest';
+      const problem = nameProblem(name);
+      if (problem) notify(user, problem);
+      else user.name = name;
+      // Even on a refusal: the fresh state snaps their name box back.
       broadcastState();
+      break;
+    }
+
+    case 'chat':
+      sendChat(user, msg, now);
       break;
 
     case 'move':

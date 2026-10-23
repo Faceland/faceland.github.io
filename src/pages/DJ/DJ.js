@@ -1,6 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { HeaderBar } from '../../components/HeaderBar/HeaderBar';
 import { SEO } from '../../components/SEO/SEO';
+import {
+  MAX_CHAT_LENGTH,
+  chatProblem,
+  nameProblem,
+  rateLimitWait,
+} from './chatRules';
 import { DJScreen } from './DJScreen';
 import { useDJRoom } from './useDJRoom';
 import './dj.scss';
@@ -142,6 +148,7 @@ const NowPlaying = ({ current, dj }) => {
 
 const JoinOverlay = ({ status, room, savedName, onJoin }) => {
   const [name, setName] = useState(savedName || 'Guest');
+  const [problem, setProblem] = useState(null);
   const count = room.users.length;
   const lines = {
     offline: "The DJ room isn't open right now.",
@@ -156,7 +163,10 @@ const JoinOverlay = ({ status, room, savedName, onJoin }) => {
         className="djJoin__card"
         onSubmit={(event) => {
           event.preventDefault();
-          onJoin(name.trim() || 'Guest');
+          const next = name.trim() || 'Guest';
+          const why = nameProblem(next);
+          if (why) setProblem(why);
+          else onJoin(next);
         }}
       >
         <h1>DJ Room</h1>
@@ -174,9 +184,17 @@ const JoinOverlay = ({ status, room, savedName, onJoin }) => {
           className="djInput"
           value={name}
           maxLength={20}
-          onChange={(event) => setName(event.target.value)}
+          onChange={(event) => {
+            setName(event.target.value);
+            setProblem(null);
+          }}
           onFocus={(event) => event.target.select()}
         />
+        {problem && (
+          <p className="djError" role="alert">
+            {problem}
+          </p>
+        )}
         <button
           type="submit"
           className="djButton djButton--primary"
@@ -191,22 +209,147 @@ const JoinOverlay = ({ status, room, savedName, onJoin }) => {
 
 const NameField = ({ name, onCommit }) => {
   const [value, setValue] = useState(name);
+  const [problem, setProblem] = useState(null);
   useEffect(() => setValue(name), [name]);
   const commit = () => {
     const next = value.trim() || 'Guest';
+    const why = nameProblem(next);
+    if (why) {
+      setProblem(why);
+      setValue(name);
+      return;
+    }
     setValue(next);
     if (next !== name) onCommit(next);
   };
   return (
-    <input
-      className="djInput djPanel__name"
-      aria-label="Your name"
-      value={value}
-      maxLength={20}
-      onChange={(event) => setValue(event.target.value)}
-      onBlur={commit}
-      onKeyDown={(event) => event.key === 'Enter' && event.target.blur()}
-    />
+    <div className="djPanel__name">
+      <input
+        className="djInput"
+        aria-label="Your name"
+        value={value}
+        maxLength={20}
+        onChange={(event) => {
+          setValue(event.target.value);
+          setProblem(null);
+        }}
+        onBlur={commit}
+        onKeyDown={(event) => event.key === 'Enter' && event.target.blur()}
+      />
+      {problem && (
+        <p className="djError" role="alert">
+          {problem}
+        </p>
+      )}
+    </div>
+  );
+};
+
+const DJChat = ({ messages, meId, notice, onSend }) => {
+  const logRef = useRef(null);
+  // Follow new messages only while the reader is at (or near) the bottom.
+  const pinnedRef = useRef(true);
+  const sentRef = useRef([]); // this tab's send times, for the rate limit
+  const lastRef = useRef({ text: '', at: 0 });
+  const [draft, setDraft] = useState('');
+  const [problem, setProblem] = useState(null);
+
+  useLayoutEffect(() => {
+    const log = logRef.current;
+    if (log && pinnedRef.current) log.scrollTop = log.scrollHeight;
+  }, [messages]);
+
+  // The server runs the same checks; its rare refusals show here too.
+  useEffect(() => {
+    if (notice) setProblem(notice.message);
+  }, [notice]);
+
+  const submit = (event) => {
+    event.preventDefault();
+    const text = draft.trim();
+    if (!text) return;
+    const now = Date.now();
+    const wait = rateLimitWait(sentRef.current, now);
+    const why =
+      (wait > 0 && `Slow down: wait ${Math.ceil(wait / 1000)}s.`) ||
+      chatProblem(text) ||
+      (text === lastRef.current.text &&
+        now - lastRef.current.at < 30000 &&
+        'You just said that.');
+    if (why) {
+      setProblem(why);
+      return;
+    }
+    sentRef.current = sentRef.current
+      .filter((at) => now - at < 60000)
+      .concat(now);
+    lastRef.current = { text, at: now };
+    onSend(text);
+    setDraft('');
+    setProblem(null);
+  };
+
+  return (
+    <aside className="djChat" aria-label="Chat">
+      <h2>Chat</h2>
+      <ol
+        ref={logRef}
+        className="djChat__log djScroll"
+        role="log"
+        onScroll={() => {
+          const log = logRef.current;
+          pinnedRef.current =
+            log.scrollHeight - log.scrollTop - log.clientHeight < 40;
+        }}
+      >
+        {messages.length ? (
+          messages.map((message) => (
+            <li key={message.id}>
+              <span className="djChat__emoji">{message.emoji}</span>
+              <span
+                className={`djChat__name${
+                  message.userId === meId ? ' djChat__name--self' : ''
+                }`}
+              >
+                {message.name}
+              </span>
+              : {message.text}
+            </li>
+          ))
+        ) : (
+          <li className="djHint">
+            Say hi! Chat isn&apos;t saved anywhere, so you only see what&apos;s
+            said while you&apos;re here.
+          </li>
+        )}
+      </ol>
+      <form className="djChat__form" onSubmit={submit}>
+        <input
+          className="djInput"
+          aria-label="Chat message"
+          placeholder={meId ? 'Say something' : 'Reconnecting…'}
+          value={draft}
+          maxLength={MAX_CHAT_LENGTH}
+          disabled={!meId}
+          onChange={(event) => {
+            setDraft(event.target.value);
+            setProblem(null);
+          }}
+        />
+        <button
+          type="submit"
+          className="djButton"
+          disabled={!meId || !draft.trim()}
+        >
+          Send
+        </button>
+      </form>
+      {problem && (
+        <p className="djError djChat__problem" role="alert">
+          {problem}
+        </p>
+      )}
+    </aside>
   );
 };
 
@@ -284,7 +427,7 @@ const DJControls = ({ me, room, list, actions }) => {
 const Panel = ({ me, room, list, adding, actions }) => {
   if (!me) {
     return (
-      <aside className="djPanel">
+      <aside className="djPanel djScroll">
         <p className="djHint">Reconnecting&hellip;</p>
       </aside>
     );
@@ -293,7 +436,7 @@ const Panel = ({ me, room, list, adding, actions }) => {
   const self = byId[me.id] || me;
 
   return (
-    <aside className="djPanel">
+    <aside className="djPanel djScroll">
       <section className="djPanel__section djPanel__me">
         <span className="djPanel__meEmoji">{self.emoji}</span>
         <NameField name={self.name} onCommit={actions.setName} />
@@ -395,6 +538,8 @@ export const DJ = () => {
     list,
     notice,
     adding,
+    chat,
+    chatNotice,
     actions,
   } = useDJRoom();
   const { users, current } = room;
@@ -409,7 +554,15 @@ export const DJ = () => {
         noindex
       />
       <HeaderBar fancy={false} />
-      <div className="djRoom">
+      <div className={`djRoom${entered ? ' djRoom--entered' : ''}`}>
+        {entered && (
+          <DJChat
+            messages={chat}
+            meId={me && me.id}
+            notice={chatNotice}
+            onSend={actions.sendChat}
+          />
+        )}
         <section className="djStage" aria-label="DJ room">
           <div className="djBooth">
             <div className="djBooth__dj">

@@ -36,6 +36,10 @@ const save = (patch) => {
 
 const EMPTY_ROOM = { users: [], djQueue: [], current: null };
 
+// Chat is never stored anywhere: this tab only shows what was said while it
+// was open, and only the most recent lines of that.
+const CHAT_LINES_KEPT = 150;
+
 export const useDJRoom = () => {
   const [status, setStatus] = useState(SERVER_URL ? 'connecting' : 'offline');
   // Clicked Join this visit. Stays true through reconnects, unlike `me`.
@@ -46,6 +50,8 @@ export const useDJRoom = () => {
   const [savedName] = useState(() => loadSaved().name);
   const [notice, setNotice] = useState(null);
   const [adding, setAdding] = useState(false);
+  const [chat, setChat] = useState([]);
+  const [chatNotice, setChatNotice] = useState(null);
 
   const wsRef = useRef(null);
   // Whether we've joined, so a reconnect can rejoin without asking again.
@@ -115,7 +121,14 @@ export const useDJRoom = () => {
           setAdding(false);
           save({ list: msg.list });
           break;
+        case 'chat':
+          setChat((prev) => prev.concat(msg.messages).slice(-CHAT_LINES_KEPT));
+          break;
         case 'notice':
+          if (msg.scope === 'chat') {
+            setChatNotice({ message: msg.message, at: Date.now() });
+            break;
+          }
           setNotice({ message: msg.message, at: Date.now() });
           setAdding(false);
           break;
@@ -177,6 +190,7 @@ export const useDJRoom = () => {
     bumpTrack: (key) => send({ t: 'bumpTrack', key }),
     setDJ: (on) => send({ t: 'setDJ', on }),
     skip: () => send({ t: 'skip' }),
+    sendChat: (text) => send({ t: 'chat', text }),
     move: (x, y) => {
       // Step locally right away; the server echoes the same spot back.
       setRoom((prev) => ({
@@ -202,6 +216,8 @@ export const useDJRoom = () => {
     list,
     notice,
     adding,
+    chat,
+    chatNotice,
     actions,
   };
 };
