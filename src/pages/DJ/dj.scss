@@ -1,7 +1,8 @@
 // The DJ room is one non-scrolling viewport on desktop: the fixed 50px navbar,
-// then chat | stage (booth + dance floor) | control panel. Narrower screens
-// put a full-height stage on top with chat and the panel below it, and let
-// the page scroll.
+// then a full-width stage (booth + dance floor) with chat and the control
+// panel floating over its edges as cards. Narrower screens put a full-height
+// stage on top with the cards below it, and let the page scroll.
+$dj-radius: 5px; // the subtle rounding shared by cards and booth buttons
 $dj-bg: #141019;
 $dj-panel: #1c1a22;
 $dj-line: #2c2836;
@@ -29,9 +30,46 @@ $dj-glow: #8f5cff;
   height: calc(100dvh - 50px);
 }
 
+// Joined, on a wide screen: the stage spans the whole width and the two
+// cards float over its edges. The stage's own content (booth, the walkable
+// floor) stays --dj-side clear of each edge, so nothing ends up behind a card.
 .djRoom--entered {
-  grid-template-columns: 260px minmax(0, 1fr) 300px;
-  grid-template-areas: 'chat stage panel';
+  --dj-card: 268px;
+  --dj-gap: 10px;
+  --dj-side: calc(var(--dj-card) + 2 * var(--dj-gap));
+  grid-template-columns:
+    calc(var(--dj-card) + var(--dj-gap))
+    minmax(0, 1fr)
+    calc(var(--dj-card) + var(--dj-gap));
+  grid-template-rows: minmax(0, 1fr);
+  grid-template-areas: none;
+
+  .djStage {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .djChat {
+    grid-column: 1;
+    grid-row: 1;
+    margin: var(--dj-gap) 0 var(--dj-gap) var(--dj-gap);
+  }
+
+  .djPanel {
+    grid-column: 3;
+    grid-row: 1;
+    margin: var(--dj-gap) var(--dj-gap) var(--dj-gap) 0;
+  }
+
+  .djBooth {
+    padding-left: var(--dj-side);
+    padding-right: var(--dj-side);
+  }
+
+  .djFloor__area {
+    left: var(--dj-side);
+    right: var(--dj-side);
+  }
 }
 
 .djStage {
@@ -42,6 +80,8 @@ $dj-glow: #8f5cff;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  // Keeps the avatars' z-indexes inside the stage, under the cards.
+  isolation: isolate;
   background:
     radial-gradient(
       ellipse 70% 45% at 50% 0%,
@@ -118,7 +158,7 @@ $dj-glow: #8f5cff;
   align-items: center;
   padding: 6px 12px;
   border: 1px solid $dj-line;
-  border-radius: 999px;
+  border-radius: $dj-radius;
   background: rgba($dj-panel, 0.85);
   color: $dj-text;
   font-size: 13px;
@@ -420,7 +460,17 @@ $dj-glow: #8f5cff;
   user-select: none;
 }
 
-.djFloor--walkable {
+// Where avatars stand and clicks land. The floor itself (and its grid) runs
+// the full width; on wide screens this stops short of the floating cards.
+.djFloor__area {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.djFloor--walkable .djFloor__area {
   cursor: pointer;
 }
 
@@ -786,7 +836,9 @@ $dj-glow: #8f5cff;
     width: 10px;
   }
 
+  // Inset from the top and bottom of whatever card it scrolls.
   &::-webkit-scrollbar-track {
+    margin: 6px 0;
     background: transparent;
   }
 
@@ -806,7 +858,27 @@ $dj-glow: #8f5cff;
   }
 }
 
-// --- Side panels ---------------------------------------------------------------
+// --- Side panels (floating cards) ----------------------------------------------
+
+// A thin purple border and a soft glow. The glow is a static box-shadow (not
+// animated, no blur filters or backdrop effects), so it's painted once, and
+// the scrolling happens in an inner element, which doesn't repaint it.
+// `contain: paint` keeps any repaint inside a card from spreading outside it.
+.djChat,
+.djPanel {
+  box-sizing: border-box;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border: 1px solid rgba($dj-glow, 0.55);
+  border-radius: $dj-radius;
+  background: rgba($dj-panel, 0.96);
+  box-shadow: 0 0 16px rgba($dj-glow, 0.3);
+  overflow: hidden;
+  contain: paint;
+  text-align: left;
+}
 
 .djPanel h2,
 .djChat h2 {
@@ -820,25 +892,19 @@ $dj-glow: #8f5cff;
 
 .djChat {
   grid-area: chat;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-  border-right: 1px solid $dj-line;
-  background: $dj-panel;
-  text-align: left;
 
   h2 {
     flex: none;
-    padding: 16px 16px 0;
+    padding: 14px 14px 0;
   }
 }
 
+// The scrollbar sits a few pixels in from the card's edge, never on it.
 .djChat__log {
   flex: 1 1 auto;
   min-height: 0;
-  margin: 0;
-  padding: 0 16px 8px;
+  margin: 0 4px 6px 0;
+  padding: 0 8px 4px 14px;
   list-style: none;
 
   li {
@@ -865,7 +931,7 @@ $dj-glow: #8f5cff;
 .djChat__form {
   flex: none;
   display: flex;
-  padding: 12px 16px;
+  padding: 12px 14px;
   border-top: 1px solid $dj-line;
 
   .djButton {
@@ -875,19 +941,19 @@ $dj-glow: #8f5cff;
 
 .djChat__problem {
   flex: none;
-  margin: -4px 16px 12px;
+  margin: -4px 14px 12px;
 }
 
 .djPanel {
   grid-area: panel;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
+}
+
+// Inset from the card's top, right and bottom edges, so its scrollbar is too.
+.djPanel__scroll {
+  flex: 1 1 auto;
   min-height: 0;
-  padding: 0 16px 16px;
-  border-left: 1px solid $dj-line;
-  background: $dj-panel;
-  text-align: left;
+  margin: 4px 4px 4px 0;
+  padding: 0 8px 10px 14px;
 }
 
 .djPanel__section {
@@ -1024,9 +1090,9 @@ $dj-glow: #8f5cff;
 
 // --- Narrow screens ------------------------------------------------------------
 
-// Too narrow for three columns (the booth row alone needs ~820px): the stage
-// on top at full height, then chat and the panel side by side.
-@media (max-width: 1380px) {
+// Too narrow for cards beside the booth (it needs ~810px between them): the
+// stage on top at full height, then the two cards side by side below it.
+@media (max-width: 1390px) {
   .DJPage {
     height: auto;
     overflow: visible;
@@ -1038,9 +1104,34 @@ $dj-glow: #8f5cff;
 
   .djRoom--entered {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: none;
     grid-template-areas:
       'stage stage'
       'chat panel';
+
+    .djStage {
+      grid-area: stage;
+    }
+
+    .djChat {
+      grid-area: chat;
+      margin: var(--dj-gap) calc(var(--dj-gap) / 2) var(--dj-gap) var(--dj-gap);
+    }
+
+    .djPanel {
+      grid-area: panel;
+      margin: var(--dj-gap) var(--dj-gap) var(--dj-gap) calc(var(--dj-gap) / 2);
+    }
+
+    .djBooth {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .djFloor__area {
+      left: 0;
+      right: 0;
+    }
   }
 
   .djStage {
@@ -1052,11 +1143,6 @@ $dj-glow: #8f5cff;
   .djChat,
   .djPanel {
     height: 440px;
-    border-top: 1px solid $dj-line;
-  }
-
-  .djChat {
-    border-right: 0;
   }
 }
 
@@ -1111,16 +1197,27 @@ $dj-glow: #8f5cff;
       'stage'
       'chat'
       'panel';
+
+    .djChat {
+      margin: var(--dj-gap) var(--dj-gap) calc(var(--dj-gap) / 2);
+    }
+
+    .djPanel {
+      margin: calc(var(--dj-gap) / 2) var(--dj-gap) var(--dj-gap);
+    }
   }
 
   .djChat {
     height: 360px;
   }
 
+  // The panel just grows to fit here; the page scrolls instead.
   .djPanel {
     height: auto;
+  }
+
+  .djPanel__scroll {
     overflow: visible;
-    border-left: 0;
   }
 
   .djScreen__frame {

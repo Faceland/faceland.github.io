@@ -171,30 +171,38 @@ const DJFloor = ({ users, meId, reactions, playing, canMove, onMove }) => {
   const handlePointerDown = (event) => {
     if (!canMove) return;
     const rect = floorRef.current.getBoundingClientRect();
-    // Keep a margin so the emoji and its name label stay on screen.
+    // Keep a margin so the emoji and its name label stay on screen and
+    // clear of the floating cards, even at front-row (largest) size.
     onMove(
-      clamp((event.clientX - rect.left) / rect.width, 0.03, 0.97),
+      clamp((event.clientX - rect.left) / rect.width, 0.05, 0.95),
       clamp((event.clientY - rect.top) / rect.height, 0, 0.9),
     );
   };
 
+  // The floor and its grid run full width (under the floating cards on wide
+  // screens); the area inside is where avatars stand and clicks count, and
+  // the CSS keeps it clear of the cards.
   return (
     <div
-      ref={floorRef}
       className={`djFloor${canMove ? ' djFloor--walkable' : ''}${
         playing ? ' djFloor--playing' : ''
       }`}
-      onPointerDown={handlePointerDown}
     >
       <FloorGrid />
-      {users.map((user) => (
-        <Avatar
-          key={user.id}
-          user={user}
-          self={user.id === meId}
-          reaction={reactions[user.id]}
-        />
-      ))}
+      <div
+        ref={floorRef}
+        className="djFloor__area"
+        onPointerDown={handlePointerDown}
+      >
+        {users.map((user) => (
+          <Avatar
+            key={user.id}
+            user={user}
+            self={user.id === meId}
+            reaction={reactions[user.id]}
+          />
+        ))}
+      </div>
     </div>
   );
 };
@@ -551,8 +559,10 @@ const DJControls = ({ me, room, list, actions }) => {
 const Panel = ({ me, room, list, adding, actions }) => {
   if (!me) {
     return (
-      <aside className="djPanel djScroll">
-        <p className="djHint">Reconnecting&hellip;</p>
+      <aside className="djPanel">
+        <div className="djPanel__scroll djScroll">
+          <p className="djHint">Reconnecting&hellip;</p>
+        </div>
       </aside>
     );
   }
@@ -560,79 +570,82 @@ const Panel = ({ me, room, list, adding, actions }) => {
   const self = byId[me.id] || me;
 
   return (
-    <aside className="djPanel djScroll">
-      <section className="djPanel__section djPanel__me">
-        <span className="djPanel__meEmoji">{self.emoji}</span>
-        <NameField name={self.name} onCommit={actions.setName} />
-      </section>
+    // The card itself doesn't scroll (its glow never repaints); this does.
+    <aside className="djPanel">
+      <div className="djPanel__scroll djScroll">
+        <section className="djPanel__section djPanel__me">
+          <span className="djPanel__meEmoji">{self.emoji}</span>
+          <NameField name={self.name} onCommit={actions.setName} />
+        </section>
 
-      <section className="djPanel__section">
-        <DJControls me={me} room={room} list={list} actions={actions} />
-      </section>
+        <section className="djPanel__section">
+          <DJControls me={me} room={room} list={list} actions={actions} />
+        </section>
 
-      <section className="djPanel__section">
-        <h2>DJ queue</h2>
-        {room.djQueue.length ? (
-          <ol className="djQueue">
-            {room.djQueue.map((id, index) => {
-              const user = byId[id];
-              if (!user) return null;
-              const onDecks = index === 0 && room.current;
-              return (
-                <li key={id} className={id === me.id ? 'djQueue--self' : ''}>
-                  <span>{user.emoji}</span> {user.name}
-                  {onDecks && <span className="djQueue__now">🎧 now</span>}
-                </li>
-              );
-            })}
-          </ol>
-        ) : (
-          <p className="djHint">Nobody yet. Be the first!</p>
-        )}
-      </section>
+        <section className="djPanel__section">
+          <h2>DJ queue</h2>
+          {room.djQueue.length ? (
+            <ol className="djQueue">
+              {room.djQueue.map((id, index) => {
+                const user = byId[id];
+                if (!user) return null;
+                const onDecks = index === 0 && room.current;
+                return (
+                  <li key={id} className={id === me.id ? 'djQueue--self' : ''}>
+                    <span>{user.emoji}</span> {user.name}
+                    {onDecks && <span className="djQueue__now">🎧 now</span>}
+                  </li>
+                );
+              })}
+            </ol>
+          ) : (
+            <p className="djHint">Nobody yet. Be the first!</p>
+          )}
+        </section>
 
-      <section className="djPanel__section djPanel__list">
-        <h2>Your list</h2>
-        <AddTrackForm adding={adding} onAdd={actions.addTrack} />
-        {list.length ? (
-          <ol className="djTracks">
-            {list.map((track, index) => (
-              <li key={track.key}>
-                <span className="djTracks__title" title={track.title}>
-                  {track.title}
-                </span>
-                {track.duration ? (
-                  <span className="djTracks__time">
-                    {formatTime(track.duration)}
+        <section className="djPanel__section djPanel__list">
+          <h2>Your list</h2>
+          <AddTrackForm adding={adding} onAdd={actions.addTrack} />
+          {list.length ? (
+            <ol className="djTracks">
+              {list.map((track, index) => (
+                <li key={track.key}>
+                  <span className="djTracks__title" title={track.title}>
+                    {track.title}
                   </span>
-                ) : null}
-                <button
-                  className="djIconButton"
-                  title="Play next"
-                  aria-label={`Play ${track.title} next`}
-                  disabled={index === 0}
-                  onClick={() => actions.bumpTrack(track.key)}
-                >
-                  ⤒
-                </button>
-                <button
-                  className="djIconButton"
-                  title="Remove"
-                  aria-label={`Remove ${track.title}`}
-                  onClick={() => actions.removeTrack(track.key)}
-                >
-                  ✕
-                </button>
-              </li>
-            ))}
-          </ol>
-        ) : (
-          <p className="djHint">
-            Your top song plays when it&apos;s your turn, then moves to the
-            bottom.
-          </p>
-        )}
-      </section>
+                  {track.duration ? (
+                    <span className="djTracks__time">
+                      {formatTime(track.duration)}
+                    </span>
+                  ) : null}
+                  <button
+                    className="djIconButton"
+                    title="Play next"
+                    aria-label={`Play ${track.title} next`}
+                    disabled={index === 0}
+                    onClick={() => actions.bumpTrack(track.key)}
+                  >
+                    ⤒
+                  </button>
+                  <button
+                    className="djIconButton"
+                    title="Remove"
+                    aria-label={`Remove ${track.title}`}
+                    onClick={() => actions.removeTrack(track.key)}
+                  >
+                    ✕
+                  </button>
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <p className="djHint">
+              Your top song plays when it&apos;s your turn, then moves to the
+              bottom.
+            </p>
+          )}
+        </section>
+      </div>
     </aside>
   );
 };
