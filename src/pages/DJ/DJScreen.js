@@ -7,6 +7,8 @@ const DRIFT_LIMIT_S = 2;
 // drift again, or a slow connection would chase the target forever.
 const SEEK_COOLDOWN_MS = 3000;
 
+const VOLUME_KEY = 'faceland.dj.volume';
+
 let apiPromise = null;
 
 const loadYouTubeApi = () => {
@@ -33,10 +35,49 @@ const loadYouTubeApi = () => {
 
 const targetTime = (current) => (performance.now() - current.startPerf) / 1000;
 
+// Volume is a per-browser preference, so it survives reloads.
+const loadVolume = () => {
+  try {
+    const saved = JSON.parse(localStorage.getItem(VOLUME_KEY));
+    if (saved && saved.level >= 0 && saved.level <= 100) {
+      return { level: saved.level, muted: !!saved.muted };
+    }
+  } catch {
+    // Unreadable or blocked storage: fall through to the default.
+  }
+  return { level: 70, muted: false };
+};
+
+const applyVolume = (player, { level, muted }) => {
+  player.setVolume(level);
+  if (muted || level === 0) player.mute();
+  else player.unMute();
+};
+
+const Icon = ({ name }) => {
+  const paths = {
+    play: 'M8 5v14l11-7z',
+    pause: 'M6 5h4v14H6zM14 5h4v14h-4z',
+    volume:
+      'M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z',
+    muted:
+      'M3 9v6h4l5 5V4L7 9H3zm13.6 3 2.7-2.7-1.4-1.4-2.7 2.7-2.7-2.7-1.4 1.4 2.7 2.7-2.7 2.7 1.4 1.4 2.7-2.7 2.7 2.7 1.4-1.4z',
+  };
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d={paths[name]} />
+    </svg>
+  );
+};
+
 // The booth's video. Every listener plays the room's song from YouTube on
 // their own and keeps nudging themselves to where the room is. Ads need no
 // special handling: while one plays, this listener just falls behind, and the
 // first check after the song starts jumps them forward to the room.
+//
+// YouTube's own control bar is turned off (controls=0, a documented player
+// parameter); the bar under the video drives the player through its API.
+// Nothing is ever drawn over the player itself.
 export const DJScreen = ({ current, joined, onDuration, onEnded, onError }) => {
   const hostRef = useRef(null);
   const playerRef = useRef(null);
@@ -46,9 +87,21 @@ export const DJScreen = ({ current, joined, onDuration, onEnded, onError }) => {
   const lastSeekRef = useRef(0);
   const callbacksRef = useRef();
   const [problem, setProblem] = useState(null);
+  const [volume, setVolume] = useState(loadVolume);
+  const volumeRef = useRef(volume);
+  // The listener's own pause. It only affects this browser: the room plays
+  // on, and pressing play again jumps back to where the room is.
+  const [paused, setPaused] = useState(false);
+  const pausedRef = useRef(false);
 
   currentRef.current = current;
   callbacksRef.current = { onDuration, onEnded, onError };
+  volumeRef.current = volume;
+
+  const markPaused = useCallback((value) => {
+    pausedRef.current = value;
+    setPaused(value);
+  }, []);
 
   const syncTrack = useCallback(() => {
     const player = playerRef.current;
@@ -63,10 +116,13 @@ export const DJScreen = ({ current, joined, onDuration, onEnded, onError }) => {
     loadedRef.current = cur.playId;
     reportedRef.current = 0;
     setProblem(null);
-    player.loadVideoById({
+    const video = {
       videoId: cur.videoId,
       startSeconds: Math.max(0, targetTime(cur)),
-    });
+    };
+    // Paused listeners get the new song loaded but not playing.
+    if (pausedRef.current) player.cueVideoById(video);
+    else player.loadVideoById(video);
   }, []);
 
   const resync = useCallback(() => {
@@ -109,6 +165,10 @@ export const DJScreen = ({ current, joined, onDuration, onEnded, onError }) => {
           height: '100%',
           playerVars: {
             autoplay: 1,
+            controls: 0,
+            disablekb: 1,
+            fs: 0,
+            iv_load_policy: 3,
             playsinline: 1,
             rel: 0,
             origin: window.location.origin,
@@ -116,13 +176,18 @@ export const DJScreen = ({ current, joined, onDuration, onEnded, onError }) => {
           events: {
             onReady: () => {
               playerRef.current = player;
+              applyVolume(player, volumeRef.current);
               syncTrack();
             },
             onStateChange: ({ data }) => {
               const cur = currentRef.current;
               if (data === YT.PlayerState.PLAYING) {
                 setProblem((p) => (p === 'blocked' ? null : p));
+                markPaused(false);
                 resync();
+              } else if (data === YT.PlayerState.PAUSED) {
+                // Also catches a click on the video itself.
+                markPaused(true);
               } else if (
                 data === YT.PlayerState.ENDED &&
                 cur &&
@@ -151,13 +216,38 @@ export const DJScreen = ({ current, joined, onDuration, onEnded, onError }) => {
       if (player) player.destroy();
       host.innerHTML = '';
     };
-  }, [joined, syncTrack, resync]);
+  }, [joined, syncTrack, resync, markPaused]);
 
   useEffect(syncTrack, [current && current.playId, syncTrack]);
 
+  useEffect(() => {
+    if (playerRef.current) applyVolume(playerRef.current, volume);
+    try {
+      localStorage.setItem(VOLUME_KEY, JSON.stringify(volume));
+    } catch {
+      // Private mode / blocked storage: the volume just isn't remembered.
+    }
+  }, [volume]);
+
+  const togglePlay = () => {
+    const player = playerRef.current;
+    const cur = currentRef.current;
+    if (!player || !cur) return;
+    if (pausedRef.current) {
+      markPaused(false);
+      player.seekTo(Math.max(0, targetTime(cur)), true);
+      player.playVideo();
+    } else {
+      markPaused(true);
+      player.pauseVideo();
+    }
+  };
+
+  const silent = volume.muted || volume.level === 0;
+  const shownLevel = silent ? 0 : volume.level;
   const messages = {
     blocked:
-      'Your browser blocked autoplay. Press play on the video to listen.',
+      'Your browser blocked autoplay. Press play below (or tap the video) to listen.',
     error: "This video won't play for you here. The next song will.",
     api: "Couldn't load the YouTube player. Check your connection or ad blocker.",
   };
@@ -190,6 +280,48 @@ export const DJScreen = ({ current, joined, onDuration, onEnded, onError }) => {
           </div>
         )}
       </div>
+      {joined && (
+        <div className="djScreen__bar">
+          <button
+            className="djScreen__button"
+            onClick={togglePlay}
+            disabled={!current}
+            aria-label={paused ? 'Play' : 'Pause'}
+            title={paused ? 'Play (rejoins the room live)' : 'Pause'}
+          >
+            <Icon name={paused ? 'play' : 'pause'} />
+          </button>
+          <button
+            className="djScreen__button"
+            onClick={() => {
+              // Unmuting from zero would stay silent, so bring it back up.
+              setVolume((v) =>
+                silent
+                  ? { level: v.level || 50, muted: false }
+                  : { ...v, muted: true },
+              );
+            }}
+            aria-label={silent ? 'Unmute' : 'Mute'}
+            title={silent ? 'Unmute' : 'Mute'}
+          >
+            <Icon name={silent ? 'muted' : 'volume'} />
+          </button>
+          <input
+            type="range"
+            className="djScreen__volume"
+            min="0"
+            max="100"
+            step="1"
+            value={shownLevel}
+            aria-label="Volume"
+            style={{ '--fill': `${shownLevel}%` }}
+            onChange={(event) =>
+              setVolume({ level: Number(event.target.value), muted: false })
+            }
+          />
+          {paused && current && <span className="djScreen__state">Paused</span>}
+        </div>
+      )}
       {joined && current && problem && (
         <p className="djScreen__problem">{messages[problem]}</p>
       )}

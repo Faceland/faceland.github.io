@@ -230,6 +230,113 @@ $dj-glow: #8f5cff;
   text-align: center;
 }
 
+// Our own play/pause + volume, under the video (never over it). YouTube's
+// control bar is switched off with controls=0.
+.djScreen__bar {
+  display: flex;
+  align-items: center;
+  height: 34px;
+  margin-top: 6px;
+  padding: 0 8px 0 4px;
+  border: 1px solid $dj-line;
+  border-radius: 6px;
+  background: rgba($dj-panel, 0.85);
+}
+
+.djScreen__button {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: $dj-text;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+
+  &:hover:not(:disabled) {
+    background: $dj-line;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+}
+
+// A themed range input: the filled part is a gradient stop at --fill, set
+// inline from the current level (Firefox draws it with ::-moz-range-progress).
+.djScreen__volume {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 18px;
+  margin: 0 4px 0 6px;
+  background: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+
+  &::-webkit-slider-runnable-track {
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(
+      to right,
+      $dj-glow var(--fill),
+      $dj-line var(--fill)
+    );
+  }
+
+  &::-webkit-slider-thumb {
+    width: 12px;
+    height: 12px;
+    margin-top: -4px;
+    border: 0;
+    border-radius: 50%;
+    background: $dj-cream;
+    -webkit-appearance: none;
+  }
+
+  &::-moz-range-track {
+    height: 4px;
+    border-radius: 2px;
+    background: $dj-line;
+  }
+
+  &::-moz-range-progress {
+    height: 4px;
+    border-radius: 2px;
+    background: $dj-glow;
+  }
+
+  &::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border: 0;
+    border-radius: 50%;
+    background: $dj-cream;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $dj-glow;
+    outline-offset: 2px;
+  }
+}
+
+.djScreen__state {
+  flex: none;
+  margin-left: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: $dj-cream;
+}
+
 .djNowPlaying {
   flex: none;
   width: 100%;
