@@ -650,7 +650,8 @@ $dj-glow: #8f5cff;
   transform-origin: bottom center;
 }
 
-.djFloor--playing .djAvatar__emoji {
+// Liking the song gets you dancing.
+.djAvatar--dancing .djAvatar__emoji {
   animation: djBob 0.45s ease-in-out infinite alternate;
 }
 
@@ -798,7 +799,7 @@ img.djArt--fit {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .djFloor--playing .djAvatar__emoji,
+  .djAvatar--dancing .djAvatar__emoji,
   .djBooth__djEmoji,
   .djHop--go {
     animation: none;

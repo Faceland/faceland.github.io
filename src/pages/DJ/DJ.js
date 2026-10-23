@@ -159,13 +159,15 @@ const ReactiveAvatar = ({ look, reaction, className, style, burst }) => (
   </>
 );
 
-const Avatar = ({ user, self, reaction }) => {
+const Avatar = ({ user, self, reaction, dancing }) => {
   // Faked perspective: the nearer the bottom of the floor, the nearer the
   // viewer, so the bigger the emoji (and the later it's painted).
   const scale = 0.55 + user.y;
   return (
     <div
-      className={`djAvatar${self ? ' djAvatar--self' : ''}`}
+      className={`djAvatar${self ? ' djAvatar--self' : ''}${
+        dancing ? ' djAvatar--dancing' : ''
+      }`}
       style={{
         left: `${user.x * 100}%`,
         top: `${user.y * 100}%`,
@@ -190,7 +192,9 @@ const Avatar = ({ user, self, reaction }) => {
   );
 };
 
-const DJFloor = ({ users, meId, reactions, playing, canMove, onMove }) => {
+// Only people who like the current song dance (the DJ always does, up in
+// the booth).
+const DJFloor = ({ users, meId, reactions, likes, canMove, onMove }) => {
   const floorRef = useRef(null);
 
   const handlePointerDown = (event) => {
@@ -208,11 +212,7 @@ const DJFloor = ({ users, meId, reactions, playing, canMove, onMove }) => {
   // screens); the area inside is where avatars stand and clicks count, and
   // the CSS keeps it clear of the cards.
   return (
-    <div
-      className={`djFloor${canMove ? ' djFloor--walkable' : ''}${
-        playing ? ' djFloor--playing' : ''
-      }`}
-    >
+    <div className={`djFloor${canMove ? ' djFloor--walkable' : ''}`}>
       <FloorGrid />
       <div
         ref={floorRef}
@@ -225,6 +225,7 @@ const DJFloor = ({ users, meId, reactions, playing, canMove, onMove }) => {
             user={user}
             self={user.id === meId}
             reaction={reactions[user.id]}
+            dancing={likes.includes(user.id)}
           />
         ))}
       </div>
@@ -1144,7 +1145,7 @@ export const DJ = () => {
             users={users.filter((user) => !current || user.id !== current.djId)}
             meId={me && me.id}
             reactions={reactions}
-            playing={!!current}
+            likes={(current && current.likes) || []}
             canMove={!!me && !amDJ}
             onMove={actions.move}
           />
