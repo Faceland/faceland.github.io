@@ -32,6 +32,7 @@ in a second (private) window to see two people in the room.
 | `HOST`            | `127.0.0.1`                                | Listen address (`0.0.0.0` to test from phones on your LAN). |
 | `SOCKET_PATH`     | none                                       | Listen on this Unix socket instead of `HOST:PORT` (production). |
 | `MAX_TRACK_MINUTES` | `15`                                     | Songs end at this length no matter what. |
+| `MIN_SKIP_SECONDS` | `10`                                      | A vote to skip can't take effect before this point in a song. |
 | `ALLOWED_ORIGINS` | `https://face.land,http://localhost:3000`  | Pages allowed to connect (`*` for any). |
 | `YOUTUBE_API_KEY` | none                                       | Optional [Data API v3](https://console.cloud.google.com/apis/library/youtube.googleapis.com) key. |
 
@@ -83,8 +84,11 @@ The box also runs the Minecraft servers (AMP), so the room is fenced in:
   broadcasts, goes only to people who joined, and is rate-limited per person.
   Vote to skip passes at half the room, plus one more vote for every 2 likes,
   where the room is the IPs active in the last minute (`AFK_SECONDS`) plus
-  anyone who voted; one vote and one like per IP. The DJ can't like or cheer
-  their own song. Like/Cheer animations are rate-limited server-side too.
+  anyone who voted; one vote and one like per IP. A vote can't skip before
+  10 seconds into a song (`MIN_SKIP_SECONDS`), since every skip has every
+  listener load a new video; one that passes earlier skips at the mark. The
+  DJ can't like or cheer their own song. Like/Cheer animations are
+  rate-limited server-side too.
 - **Bandwidth:** messages over 1 KB are compressed (permessage-deflate,
   typically ~4x smaller room updates). Floor moves are compact
   `[id, x, y]` triples (protocol v2; older pages that don't send `v: 2` get

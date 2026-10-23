@@ -48,6 +48,13 @@ const MAX_TRACK_SECONDS = (Number(process.env.MAX_TRACK_MINUTES) || 15) * 60;
 // People idle this long stop counting toward the room size for skip votes.
 // (AFK_SECONDS mainly exists so tests don't have to wait a minute.)
 const AFK_MS = (Number(process.env.AFK_SECONDS) || 60) * 1000;
+// A vote to skip only takes effect once the song has played this long. Every
+// skip makes every listener load a new video from YouTube, so this caps how
+// fast a room can be skip-spammed. Votes still count (and the button fills)
+// in the meantime; a vote that passes early skips at the mark.
+const MIN_SKIP_SECONDS = Number(process.env.MIN_SKIP_SECONDS ?? 10);
+const MIN_SKIP_MS =
+  (Number.isFinite(MIN_SKIP_SECONDS) ? MIN_SKIP_SECONDS : 10) * 1000;
 
 const MAX_NAME = 20;
 const MAX_TITLE = 200;
@@ -375,6 +382,7 @@ function play(dj) {
     erroredBy: new Set(), // IPs whose player couldn't play it
     skipVotes: new Set(), // user ids that voted to skip
     likes: new Set(), // user ids that like it (every 2 make skipping harder)
+    skipTimer: null, // set when a vote passed before MIN_SKIP_MS
     shownNeeded: null, // the "votes needed" the room last saw
   };
   scheduleEnd();
@@ -399,6 +407,7 @@ function play(dj) {
 // Ends whatever is playing (if anything) and hands the booth to the next DJ.
 function advance() {
   clearTimeout(endTimer);
+  if (current) clearTimeout(current.skipTimer);
   if (current && djQueue[0] === current.djId) djQueue.push(djQueue.shift());
   current = null;
   while (djQueue.length) {
@@ -452,13 +461,34 @@ function skipTally() {
   };
 }
 
+// Skips if the vote passes and the song is past MIN_SKIP_MS. A vote that
+// passes earlier arms a timer for the mark, which re-checks then (the room
+// may have changed its mind). Returns whether it skipped.
+function trySkip(tally = skipTally()) {
+  if (tally.votes < tally.needed) return false;
+  const wait = current.startedAt + MIN_SKIP_MS - Date.now();
+  if (wait > 0) {
+    if (!current.skipTimer) {
+      const { playId } = current;
+      current.skipTimer = setTimeout(() => {
+        if (!current || current.playId !== playId) return;
+        current.skipTimer = null;
+        checkSkip();
+      }, wait);
+    }
+    return false;
+  }
+  advance();
+  return true;
+}
+
 // Re-checks the vote after the room changes (someone left or went idle):
 // skips if it now passes, or refreshes the "x/y votes" everyone sees.
 function checkSkip() {
   if (!current) return;
   const tally = skipTally();
-  if (tally.votes >= tally.needed) advance();
-  else if (tally.needed !== current.shownNeeded) broadcastState();
+  if (trySkip(tally)) return;
+  if (tally.needed !== current.shownNeeded) broadcastState();
 }
 
 // --- YouTube lookups ----------------------------------------------------------
@@ -825,9 +855,7 @@ function handle(ws, msg) {
         else current.likes.delete(user.id);
         // Likes change how many skip votes are needed; an un-like can be
         // what lets a standing vote pass.
-        const tally = skipTally();
-        if (tally.votes >= tally.needed) advance();
-        else broadcastState();
+        if (!trySkip()) broadcastState();
         // Only liking animates, at most once a second.
         if (!liked || now - user.lastLikeAt < LIKE_INTERVAL_MS) break;
         user.lastLikeAt = now;
@@ -845,9 +873,7 @@ function handle(ws, msg) {
       if (Boolean(msg.on) === current.skipVotes.has(user.id)) break;
       if (msg.on) current.skipVotes.add(user.id);
       else current.skipVotes.delete(user.id);
-      const tally = skipTally();
-      if (tally.votes >= tally.needed) advance();
-      else broadcastState();
+      if (!trySkip()) broadcastState();
       break;
     }
 
