@@ -123,6 +123,73 @@ $dj-glow: #8f5cff;
   white-space: nowrap;
 }
 
+// Phones: the title stays on one line (see NowPlayingTitle in DJ.js). The
+// copies are inline-blocks so ResizeObserver can tell when they overflow.
+.djNowTitle--line {
+  margin: 0 16px;
+  padding-left: 0;
+  padding-right: 0;
+  overflow: hidden;
+  white-space: nowrap;
+
+  .djNowTitle__track,
+  .djNowTitle__copy {
+    display: inline-block;
+  }
+}
+
+// Too long to fit: it scrolls by as a ticker, fading out at both edges. The
+// track holds two copies (each with its trailing gap) and slides left by
+// exactly one of them, so the loop is seamless; transform-only, so the
+// compositor runs it.
+.djNowTitle--ticker {
+  text-align: left;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 18px,
+    #000 calc(100% - 18px),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 18px,
+    #000 calc(100% - 18px),
+    transparent
+  );
+
+  .djNowTitle__track {
+    animation: djTicker linear infinite;
+  }
+
+  .djNowTitle__copy {
+    padding-right: 48px;
+  }
+}
+
+@keyframes djTicker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+// No motion wanted: it just sits, cut off by the right-hand fade.
+@media (prefers-reduced-motion: reduce) {
+  .djNowTitle--ticker {
+    .djNowTitle__track {
+      animation: none;
+    }
+
+    .djNowTitle__copy + .djNowTitle__copy {
+      display: none;
+    }
+  }
+}
+
 .djBooth__dj {
   justify-self: end;
   display: flex;

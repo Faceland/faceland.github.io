@@ -209,16 +209,43 @@ const DJFloor = ({ users, meId, reactions, playing, canMove, onMove }) => {
   );
 };
 
-// Above the video: "Now Playing: Title (1:02/3:45)", wrapping rather than
-// truncating. Only this line ticks each second (the progress bar under the
-// video animates itself).
-const NowPlayingTitle = ({ current }) => {
+// Seconds per character for the mobile ticker: a steady reading speed
+// whatever the title's length (a pixel-measured speed would shift as the
+// clock's digits change, and changing a running animation's duration jumps).
+const TICKER_S_PER_CHAR = 0.22;
+
+// Above the video: "Now Playing: Title (1:02/3:45)". Only this line ticks
+// each second (the progress bar under the video animates itself). On
+// desktop a long title wraps. On phones it stays on one line, and if it
+// doesn't fit it scrolls by as a ticker with faded edges: two copies of the
+// text slide left by exactly one copy's width and loop, all in CSS.
+const NowPlayingTitle = ({ current, mobile }) => {
   const [, tick] = useState(0);
+  const boxRef = useRef(null);
+  const copyRef = useRef(null);
+  const [overflowing, setOverflowing] = useState(false);
+
   useEffect(() => {
     if (!current) return undefined;
     const interval = setInterval(() => tick((n) => n + 1), 1000);
     return () => clearInterval(interval);
   }, [current]);
+
+  const title = current && current.title;
+  useLayoutEffect(() => {
+    if (!mobile || !title) return undefined;
+    const box = boxRef.current;
+    const measure = () => {
+      if (box && copyRef.current) {
+        setOverflowing(copyRef.current.offsetWidth > box.clientWidth);
+      }
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(box);
+    observer.observe(copyRef.current);
+    return () => observer.disconnect();
+  }, [mobile, title, overflowing]);
 
   if (!current) return null;
   const elapsed = clamp(
@@ -226,12 +253,41 @@ const NowPlayingTitle = ({ current }) => {
     0,
     current.duration || Infinity,
   );
-  return (
-    <p className="djNowTitle">
+  const text = (
+    <>
       Now Playing: {current.title}{' '}
       <span className="djNowTitle__time">
         ({formatTime(elapsed)}
         {current.duration ? `/${formatTime(current.duration)}` : ''})
+      </span>
+    </>
+  );
+
+  if (!mobile) return <p className="djNowTitle">{text}</p>;
+  const ticker = overflowing;
+  return (
+    <p
+      ref={boxRef}
+      className={`djNowTitle djNowTitle--line${ticker ? ' djNowTitle--ticker' : ''}`}
+    >
+      <span
+        className="djNowTitle__track"
+        style={
+          ticker
+            ? {
+                animationDuration: `${(current.title.length + 30) * TICKER_S_PER_CHAR}s`,
+              }
+            : undefined
+        }
+      >
+        <span ref={copyRef} className="djNowTitle__copy">
+          {text}
+        </span>
+        {ticker && (
+          <span className="djNowTitle__copy" aria-hidden="true">
+            {text}
+          </span>
+        )}
       </span>
     </p>
   );
@@ -908,7 +964,7 @@ export const DJ = () => {
           />
         )}
         <section ref={stageRef} className="djStage" aria-label="DJ room">
-          <NowPlayingTitle current={current} />
+          <NowPlayingTitle current={current} mobile={mobile} />
           <div className="djBooth">
             <div className="djBooth__dj">
               {dj && (
