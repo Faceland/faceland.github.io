@@ -238,8 +238,12 @@ const NowPlayingTitle = ({ current }) => {
 };
 
 const JoinOverlay = ({ status, room, savedName, onJoin }) => {
-  const [name, setName] = useState(savedName || 'Guest');
+  // 'Guest' first, matching the pre-rendered page, then the saved name.
+  const [name, setName] = useState('Guest');
   const [problem, setProblem] = useState(null);
+  useEffect(() => {
+    if (savedName) setName(savedName);
+  }, [savedName]);
   const count = room.users.length;
   const lines = {
     offline: "The DJ room isn't open right now.",

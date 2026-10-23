@@ -47,8 +47,14 @@ import { ArenasGuide } from './pages/Guides/ArenasGuide';
 
 // The DJ room is its own download: its realtime client, chat filter and word
 // list would otherwise ship with every page on the site.
-const DJ = lazy(() =>
-  import('./pages/DJ/DJ').then((module) => ({ default: module.DJ })),
+let djModule = null;
+export const preloadDJ = () =>
+  import('./pages/DJ/DJ').then((module) => {
+    djModule = module;
+    return module;
+  });
+const LazyDJ = lazy(() =>
+  preloadDJ().then((module) => ({ default: module.DJ })),
 );
 
 // The header plus the room's dark background, so nothing flashes while the
@@ -58,6 +64,18 @@ const DJLoading = () => (
     <HeaderBar fancy={false} />
   </div>
 );
+
+// Once the DJ code is in (index.js loads it before hydrating a pre-rendered
+// /dj), render it directly: going through lazy() would suspend for a moment
+// and replace the pre-rendered page with the loading placeholder.
+const DJRoute = () =>
+  djModule ? (
+    <djModule.DJ />
+  ) : (
+    <Suspense fallback={<DJLoading />}>
+      <LazyDJ />
+    </Suspense>
+  );
 
 function App() {
   return (
@@ -99,16 +117,9 @@ function App() {
           </Route>
           <Route path="facepals" element={<Portrait />} />
           <Route path="gems" element={<Gems />} />
-          {/* Not pre-rendered or in the sitemap: it's a live room that needs
-              the dj-server/ backend, with nothing useful to index. */}
-          <Route
-            path="dj"
-            element={
-              <Suspense fallback={<DJLoading />}>
-                <DJ />
-              </Suspense>
-            }
-          />
+          {/* Pre-rendered (so /dj isn't served as the 404 page) but noindex
+              and kept out of the sitemap: a live room has nothing to index. */}
+          <Route path="dj" element={<DJRoute />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Store>

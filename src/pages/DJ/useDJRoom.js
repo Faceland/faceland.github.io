@@ -95,7 +95,11 @@ export const useDJRoom = () => {
   }, [send]);
 
   useEffect(() => {
-    if (!SERVER_URL) return undefined;
+    // Not during the build's react-snap pre-render: the static /dj page
+    // should say "Connecting…", exactly what a browser renders first.
+    if (!SERVER_URL || navigator.userAgent.includes('ReactSnap')) {
+      return undefined;
+    }
     let ws;
     let retryTimer;
     let retryDelay = 1000;

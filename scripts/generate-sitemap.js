@@ -12,6 +12,8 @@
  *     signal Google can trust. (Google ignores <priority> and <changefreq>, so
  *     we deliberately omit them.)
  *   - <loc> values match each page's self-referential canonical exactly.
+ *   - Pre-rendered pages marked noindex (NOINDEX_ROUTES) are left out: listing
+ *     a page while telling Google not to index it sends mixed signals.
  */
 
 const fs = require('fs');
@@ -21,8 +23,14 @@ const { execSync } = require('child_process');
 const SITE_ORIGIN = 'https://face.land';
 const ROOT = path.join(__dirname, '..');
 
+// Pre-rendered only so a direct visit doesn't get the 404 page; their SEO
+// component sets noindex.
+const NOINDEX_ROUTES = ['/dj'];
+
 const pkg = require(path.join(ROOT, 'package.json'));
-const routes = (pkg.reactSnap && pkg.reactSnap.include) || ['/'];
+const routes = ((pkg.reactSnap && pkg.reactSnap.include) || ['/']).filter(
+  (route) => !NOINDEX_ROUTES.includes(route),
+);
 
 // Maps a route to the source file whose git history best represents when that
 // page's content last changed. Guide pages are driven by their .txt content.
