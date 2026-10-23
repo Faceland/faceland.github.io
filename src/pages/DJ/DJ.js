@@ -15,6 +15,7 @@ import {
   nameProblem,
   rateLimitWait,
 } from './chatRules';
+import { useAmbientColors } from './ambient';
 import { lookImage } from './avatarArt';
 import { EYES, FACES, HATS } from './avatarParts';
 import { DJScreen } from './DJScreen';
@@ -1019,6 +1020,7 @@ export const DJ = () => {
   const amDJ = !!(me && current && current.djId === me.id);
   const self = me && users.find((user) => user.id === me.id);
   usePlaylistKeys(playlists, entered);
+  useAmbientColors(current);
 
   // Phones: the page is exactly one screen and never scrolls (only the
   // pop-outs do); no rubber-banding or pull-to-refresh moving it either.

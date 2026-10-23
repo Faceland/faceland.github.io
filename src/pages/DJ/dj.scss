@@ -10,7 +10,22 @@ $dj-text: #e8e2f0;
 $dj-muted: #9a91a8;
 $dj-cream: #f4e4bf;
 $dj-accent: #48ba3b;
-$dj-glow: #8f5cff;
+
+// The room's glow color, as "r, g, b" so it works with any alpha: purple
+// (#8f5cff) by default; while a song plays ambient.js sets these on the
+// root from the video's colors (with a second color, --dj-glow2, for the
+// stage's top corners, and the floor's dark tints).
+:root {
+  --dj-glow-rgb: 143, 92, 255;
+  --dj-glow2-rgb: var(--dj-glow-rgb);
+  --dj-glow2-alpha: 0;
+  --dj-floor-top-rgb: 29, 21, 48;
+  --dj-floor-bottom-rgb: 13, 10, 18;
+}
+
+@function glow($alpha: 1) {
+  @return rgba(var(--dj-glow-rgb), $alpha);
+}
 
 .DJPage {
   --dj-emoji-size: 46px;
@@ -89,10 +104,16 @@ $dj-glow: #8f5cff;
   // Keeps the avatars' z-indexes inside the stage, under the cards.
   isolation: isolate;
   background:
+    radial-gradient(ellipse 70% 45% at 50% 0%, glow(0.35), glow(0) 70%),
     radial-gradient(
-      ellipse 70% 45% at 50% 0%,
-      rgba($dj-glow, 0.35),
-      rgba($dj-glow, 0) 70%
+      ellipse 40% 50% at 0% 0%,
+      rgba(var(--dj-glow2-rgb), var(--dj-glow2-alpha)),
+      rgba(var(--dj-glow2-rgb), 0) 70%
+    ),
+    radial-gradient(
+      ellipse 40% 50% at 100% 0%,
+      rgba(var(--dj-glow2-rgb), var(--dj-glow2-alpha)),
+      rgba(var(--dj-glow2-rgb), 0) 70%
     ),
     $dj-bg;
 }
@@ -377,7 +398,7 @@ $dj-glow: #8f5cff;
   }
 
   &:hover:not(:disabled) {
-    border-color: $dj-glow;
+    border-color: glow();
   }
 
   // Also Cheer's 3-second cooldown: the button goes dark until it's back.
@@ -455,7 +476,7 @@ $dj-glow: #8f5cff;
   background: #000;
   box-shadow:
     0 0 0 2px #2a2238,
-    0 0 40px rgba($dj-glow, 0.45);
+    0 0 40px glow(0.45);
 }
 
 .djScreen__player {
@@ -578,10 +599,10 @@ $dj-glow: #8f5cff;
   width: 36px;
   height: 132px;
   margin-left: -18px;
-  border: 1px solid rgba($dj-glow, 0.55);
+  border: 1px solid glow(0.55);
   border-radius: $dj-radius;
   background: $dj-panel;
-  box-shadow: 0 0 14px rgba($dj-glow, 0.3);
+  box-shadow: 0 0 14px glow(0.3);
 
   // A small hit bridge, so moving the mouse from button to slider doesn't
   // leave the control and close it.
@@ -616,7 +637,7 @@ $dj-glow: #8f5cff;
     border-radius: 2px;
     background: linear-gradient(
       to right,
-      $dj-glow var(--fill),
+      glow() var(--fill),
       $dj-line var(--fill)
     );
   }
@@ -640,7 +661,7 @@ $dj-glow: #8f5cff;
   &::-moz-range-progress {
     height: 4px;
     border-radius: 2px;
-    background: $dj-glow;
+    background: glow();
   }
 
   &::-moz-range-thumb {
@@ -652,7 +673,7 @@ $dj-glow: #8f5cff;
   }
 
   &:focus-visible {
-    outline: 2px solid $dj-glow;
+    outline: 2px solid glow();
     outline-offset: 2px;
   }
 }
@@ -666,7 +687,7 @@ $dj-glow: #8f5cff;
   left: 0;
   width: 100%;
   height: 100%;
-  background: $dj-glow;
+  background: glow();
   transform-origin: left center;
 }
 
@@ -700,9 +721,13 @@ $dj-glow: #8f5cff;
   position: relative;
   flex: 1 1 auto;
   min-height: 160px;
-  border-top: 2px solid rgba($dj-glow, 0.6);
-  box-shadow: 0 -6px 24px -8px rgba($dj-glow, 0.7);
-  background: linear-gradient(to bottom, #1d1530, #0d0a12);
+  border-top: 2px solid glow(0.6);
+  box-shadow: 0 -6px 24px -8px glow(0.7);
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--dj-floor-top-rgb)),
+    rgb(var(--dj-floor-bottom-rgb))
+  );
   touch-action: manipulation;
   user-select: none;
 }
@@ -730,7 +755,7 @@ $dj-glow: #8f5cff;
   pointer-events: none;
 
   line {
-    stroke: rgba($dj-glow, 0.22);
+    stroke: glow(0.22);
     stroke-width: 1;
   }
 }
@@ -1028,7 +1053,7 @@ img.djArt--fit {
   font-size: 14px;
 
   &:focus {
-    border-color: $dj-glow;
+    border-color: glow();
   }
 }
 
@@ -1126,16 +1151,16 @@ img.djArt--fit {
   &::-webkit-scrollbar-thumb {
     border: 3px solid transparent;
     border-radius: 6px;
-    background: rgba($dj-glow, 0.45) padding-box;
+    background: glow(0.45) padding-box;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background-color: rgba($dj-glow, 0.8);
+    background-color: glow(0.8);
   }
 
   @supports not selector(::-webkit-scrollbar) {
     scrollbar-width: thin;
-    scrollbar-color: rgba($dj-glow, 0.55) transparent;
+    scrollbar-color: glow(0.55) transparent;
   }
 }
 
@@ -1151,10 +1176,10 @@ img.djArt--fit {
   display: flex;
   flex-direction: column;
   min-height: 0;
-  border: 1px solid rgba($dj-glow, 0.55);
+  border: 1px solid glow(0.55);
   border-radius: $dj-radius;
   background: rgba($dj-panel, 0.96);
-  box-shadow: 0 0 16px rgba($dj-glow, 0.3);
+  box-shadow: 0 0 16px glow(0.3);
   overflow: hidden;
   contain: paint;
   text-align: left;
@@ -1326,8 +1351,8 @@ img.djArt--fit {
 
   &:hover:not(:disabled),
   &.djAccount__look--on {
-    border-color: rgba($dj-glow, 0.8);
-    background: rgba($dj-glow, 0.12);
+    border-color: glow(0.8);
+    background: glow(0.12);
   }
 }
 
@@ -1354,7 +1379,7 @@ img.djArt--fit {
   margin-bottom: 12px;
   padding: 4px;
   border-radius: $dj-radius;
-  background: linear-gradient(rgba($dj-glow, 0.04), rgba($dj-glow, 0.18));
+  background: linear-gradient(glow(0.04), glow(0.18));
 }
 
 .djLook__tabs {
@@ -1379,7 +1404,7 @@ img.djArt--fit {
 }
 
 .djLook__tab--on {
-  border-bottom-color: $dj-glow;
+  border-bottom-color: glow();
   color: $dj-text;
 }
 
@@ -1418,11 +1443,11 @@ img.djArt--fit {
 }
 
 .djLook__option--on {
-  border-color: $dj-glow;
-  background: rgba($dj-glow, 0.25);
+  border-color: glow();
+  background: glow(0.25);
 
   &:hover {
-    background: rgba($dj-glow, 0.3);
+    background: glow(0.3);
   }
 }
 
@@ -1497,7 +1522,7 @@ img.djArt--fit {
 
   &:focus {
     outline: none;
-    border-color: $dj-glow;
+    border-color: glow();
   }
 
   option {
@@ -1700,8 +1725,8 @@ img.djArt--fit {
 }
 
 .djEditor__tab--on {
-  border-color: $dj-glow;
-  background: rgba($dj-glow, 0.2);
+  border-color: glow();
+  background: glow(0.2);
   color: $dj-text;
 }
 
@@ -2066,10 +2091,10 @@ img.djArt--fit {
   justify-content: center;
   width: 54px;
   height: 54px;
-  border: 1px solid rgba($dj-glow, 0.6);
+  border: 1px solid glow(0.6);
   border-radius: 50%;
   background: rgba($dj-panel, 0.94);
-  box-shadow: 0 0 14px rgba($dj-glow, 0.35);
+  box-shadow: 0 0 14px glow(0.35);
   font-size: 26px;
   line-height: 1;
   cursor: pointer;
