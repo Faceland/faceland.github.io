@@ -190,15 +190,52 @@ $dj-glow: #8f5cff;
 }
 
 // The DJ queue, then the DJ (a fixed width, so the queue doesn't jump when
-// a song starts or stops).
+// a song starts or stops). The column's spare room is shared evenly between
+// the gaps before the queue, between it and the DJ, and between the DJ and
+// the screen (the margins below are each gap's minimum, counting the 16px
+// either side of the DJ's emoji), up to a point: on very wide screens the
+// pair stays near the screen rather than drifting off to the left.
 .djBooth__side {
   justify-self: end;
   display: flex;
   align-items: center;
-  margin-right: 20px;
+  justify-content: space-evenly;
+  width: 100%;
+  max-width: 500px;
+}
+
+.djBooth__side .djQueueBox {
+  margin-right: 8px;
+}
+
+.djBooth__side .djBooth__dj {
+  margin-right: 12px;
+}
+
+// Where a row of the two would be cramped (just above each switch to a
+// narrower layout), the DJ stands above the queue instead, the pair centred
+// in the space beside the screen. The DJ's spot keeps its height while
+// nobody's playing, so the queue doesn't jump when a song starts.
+@media (min-width: 1431px) and (max-width: 1699px),
+  (min-width: 891px) and (max-width: 1149px) {
+  .djBooth__side {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+
+  .djBooth__side .djQueueBox {
+    margin-right: 0;
+  }
+
+  .djBooth__side .djBooth__dj {
+    justify-content: flex-end;
+    min-height: 94px;
+    margin: 0 0 14px;
+  }
 }
 
 .djBooth__dj {
+  flex: none;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -207,9 +244,9 @@ $dj-glow: #8f5cff;
 }
 
 .djQueueBox {
+  flex: none;
   box-sizing: border-box;
   width: 150px;
-  margin-right: 12px;
   text-align: left;
 
   h2 {
@@ -1899,7 +1936,7 @@ img.djArt--fit {
     display: contents;
   }
 
-  .djBooth__dj {
+  .djBooth__side .djBooth__dj {
     grid-area: dj;
     justify-self: center;
     flex-direction: row;
@@ -1912,7 +1949,7 @@ img.djArt--fit {
     grid-area: screen;
   }
 
-  .djQueueBox {
+  .djBooth__side .djQueueBox {
     grid-area: queue;
     align-self: start;
     justify-self: end;
