@@ -6,42 +6,71 @@
 // keeps YouTube ads from desyncing the room: an ad only delays the person
 // watching it, who then jumps forward to the room's position when the song
 // starts. Nobody ever waits on anybody else.
+//
+// Anyone can connect without an account, so every input is treated as
+// hostile: connections are capped per IP, broadcasts are batched, slow readers
+// are dropped, outbound YouTube lookups are rate limited, and nothing a single
+// listener says can end or skip a song for the whole room.
 
 const http = require('http');
+const fs = require('fs');
 const crypto = require('crypto');
 const { WebSocketServer } = require('ws');
 
+// In production nginx connects over a Unix socket (SOCKET_PATH), so the
+// service needs no loopback networking at all. Otherwise it listens on
+// HOST:PORT, loopback-only unless told otherwise.
+const SOCKET_PATH = process.env.SOCKET_PATH || '';
 const PORT = Number(process.env.PORT) || 8787;
-// Set to 127.0.0.1 behind a reverse proxy; unset listens on every interface.
-const HOST = process.env.HOST || undefined;
+const HOST = process.env.HOST || '127.0.0.1';
 // Optional. With a key, video durations come from the YouTube Data API (one
 // quota unit per lookup) and songs end exactly on time. Without one, titles
 // come from oEmbed and the duration is learned from the listeners' players.
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY || '';
 // Browsers always send Origin on a WebSocket upgrade, so this stops other
-// sites from embedding the room. '*' disables the check.
+// sites from embedding the room. It is not a security boundary: non-browser
+// clients can send any Origin. '*' disables the check.
 const ALLOWED_ORIGINS = (
   process.env.ALLOWED_ORIGINS || 'https://face.land,http://localhost:3000'
 )
   .split(',')
   .map((origin) => origin.trim())
   .filter(Boolean);
+// Songs end at this length no matter what, so nobody can hold the booth with
+// a 10-hour video or a live stream.
+const MAX_TRACK_SECONDS = (Number(process.env.MAX_TRACK_MINUTES) || 15) * 60;
 
 const MAX_NAME = 20;
 const MAX_TITLE = 200;
 const MAX_LIST = 100;
-const MAX_TRACK_SECONDS = 4 * 60 * 60;
 // API durations are exact, so the room moves on right after the song.
 const API_END_GRACE_MS = 1500;
-// Player-reported durations get a longer grace: the end is normally triggered
-// earlier by a listener's "ended" report, and the slack covers a player that
-// briefly reported something shorter (e.g. while an ad was loading).
+// Player-reported durations are only a fallback: songs normally end when most
+// of the room reports "ended", and the slack covers listeners who paused.
 const CLIENT_END_GRACE_MS = 8000;
 // If no listener's player manages to report a duration, the video is broken
 // for everyone (removed, region-locked, ...) and the booth moves on.
 const UNKNOWN_DURATION_TIMEOUT_MS = 60000;
-const MOVE_INTERVAL_MS = 60;
-const MESSAGES_PER_SECOND = 30;
+
+// Abuse limits. Every state change goes to everyone, so the costs that matter
+// are connections, how often anything is broadcast, and how much a slow or
+// hostile reader can leave queued in memory.
+const MAX_CONNECTIONS = 200;
+const MAX_CONNECTIONS_PER_IP = 6;
+const MAX_DJS_PER_IP = 2;
+const MESSAGES_PER_SECOND = 20;
+const MOVE_INTERVAL_MS = 100;
+const NAME_INTERVAL_MS = 2000;
+const BROADCAST_INTERVAL_MS = 150;
+const MAX_BUFFERED_BYTES = 256 * 1024;
+// Outbound YouTube lookups: one at a time per person, a few a minute each,
+// and a global ceiling so the room can't be used to hammer YouTube (or burn
+// the API quota). Failures are remembered so repeats cost nothing.
+const ADDS_PER_MINUTE = 10;
+const LOOKUPS_PER_SECOND = 5;
+const MAX_LOOKUPS_IN_FLIGHT = 10;
+const FAILED_LOOKUP_TTL_MS = 10 * 60 * 1000;
+const MAX_CACHED_VIDEOS = 5000;
 
 // prettier-ignore
 const EMOJIS = [
@@ -54,36 +83,94 @@ const EMOJIS = [
 
 const VIDEO_ID = /^[\w-]{11}$/;
 
-// Error whose message is safe to show the user who caused it.
-class UserError extends Error {}
+// Error whose message is safe to show the user who caused it. `permanent`
+// means the video itself is unusable (not just YouTube being unreachable).
+class UserError extends Error {
+  constructor(message, { permanent = false } = {}) {
+    super(message);
+    this.permanent = permanent;
+  }
+}
 
 const users = new Map(); // id -> user, for everyone who has joined
+const connectionsByIp = new Map(); // ip -> open sockets
 let djQueue = []; // user ids; while a track plays, djQueue[0] is its DJ
 let current = null;
 let endTimer = null;
 const videoCache = new Map(); // videoId -> { title, duration }
+const failedLookups = new Map(); // videoId -> { error, until }
 
+// Text from users: compatibility-normalized so lookalike letters collapse,
+// with control and invisible formatting characters (bidi overrides,
+// zero-width spaces) removed, and cut by code point, not UTF-16 unit.
 const clean = (value, max) =>
-  String(value ?? '')
-    .replace(/[\u0000-\u001f\u007f]/g, '')
-    .trim()
-    .slice(0, max);
+  Array.from(
+    (typeof value === 'string' ? value : '')
+      .normalize('NFKC')
+      .replace(/[\p{Cc}\p{Cf}\p{Co}\p{Cs}]/gu, '')
+      .replace(/\s+/g, ' ')
+      .trim(),
+  )
+    .slice(0, max)
+    .join('')
+    .trim();
+
+const isVideoId = (value) => typeof value === 'string' && VIDEO_ID.test(value);
 
 const clamp01 = (value) => Math.min(1, Math.max(0, Number(value) || 0));
 
 const pick = (items) => items[Math.floor(Math.random() * items.length)];
 
+const remember = (map, key, value) => {
+  map.set(key, value);
+  if (map.size > MAX_CACHED_VIDEOS) map.delete(map.keys().next().value);
+};
+
+// Logs at most 10 warnings a minute, so a flood can't flood the journal too.
+let warnWindowStart = 0;
+let warnCount = 0;
+function warn(message) {
+  const now = Date.now();
+  if (now - warnWindowStart > 60000) {
+    warnWindowStart = now;
+    warnCount = 0;
+  }
+  if (++warnCount <= 10) console.warn(message);
+}
+
+// nginx sets X-Real-IP (overwriting anything the client sent), so trust it
+// only for connections that came through the local proxy.
+function clientIp(req) {
+  const remote = req.socket.remoteAddress;
+  const viaProxy =
+    !remote ||
+    remote === '127.0.0.1' ||
+    remote === '::1' ||
+    remote === '::ffff:127.0.0.1';
+  const forwarded = req.headers['x-real-ip'];
+  return (viaProxy && typeof forwarded === 'string' && forwarded) || remote;
+}
+
+const roomIps = () => new Set([...users.values()].map((user) => user.ip));
+
 // --- Outgoing messages ------------------------------------------------------
 
-function send(ws, message) {
-  if (ws.readyState === ws.OPEN) ws.send(JSON.stringify(message));
+function sendRaw(ws, data) {
+  if (ws.readyState !== ws.OPEN) return;
+  // A client that stops reading would make us queue its messages in memory
+  // without limit; drop it instead (a real browser just reconnects).
+  if (ws.bufferedAmount > MAX_BUFFERED_BYTES) {
+    ws.terminate();
+    return;
+  }
+  ws.send(data);
 }
+
+const send = (ws, message) => sendRaw(ws, JSON.stringify(message));
 
 function broadcast(message) {
   const data = JSON.stringify(message);
-  for (const ws of wss.clients) {
-    if (ws.readyState === ws.OPEN) ws.send(data);
-  }
+  for (const ws of wss.clients) sendRaw(ws, data);
 }
 
 function snapshot() {
@@ -110,7 +197,35 @@ function snapshot() {
   };
 }
 
-const broadcastState = () => broadcast(snapshot());
+// Everything the room hears goes out from here, at most once per
+// BROADCAST_INTERVAL_MS however fast people act: the full state if anything
+// changed (it includes positions), otherwise just the latest moves.
+let stateDirty = false;
+const pendingMoves = new Map(); // user id -> { id, x, y }
+let flushTimer = null;
+let lastFlushAt = 0;
+
+function flush() {
+  flushTimer = null;
+  lastFlushAt = Date.now();
+  if (stateDirty) broadcast(snapshot());
+  else if (pendingMoves.size) {
+    broadcast({ t: 'moves', moves: [...pendingMoves.values()] });
+  }
+  stateDirty = false;
+  pendingMoves.clear();
+}
+
+function scheduleFlush() {
+  if (flushTimer) return;
+  const wait = Math.max(0, lastFlushAt + BROADCAST_INTERVAL_MS - Date.now());
+  flushTimer = setTimeout(flush, wait);
+}
+
+function broadcastState() {
+  stateDirty = true;
+  scheduleFlush();
+}
 
 const sendList = (user) => send(user.ws, { t: 'list', list: user.list });
 
@@ -127,6 +242,7 @@ function scheduleEnd() {
       current.durationSource === 'api' ? API_END_GRACE_MS : CLIENT_END_GRACE_MS;
     wait = current.duration * 1000 + grace - elapsed;
   }
+  wait = Math.min(wait, MAX_TRACK_SECONDS * 1000 - elapsed);
   endTimer = setTimeout(advance, Math.max(0, wait));
 }
 
@@ -136,6 +252,7 @@ function setDuration(seconds, source) {
   if (source === 'client') {
     if (current.durationSource === 'api') return;
     // Keep the longest report: a player mid-ad might briefly report less.
+    // Nobody can shorten a song this way, only delay the fallback timer.
     if (current.duration && duration <= current.duration + 1) return;
   }
   current.duration = duration;
@@ -151,29 +268,36 @@ function play(dj) {
   sendList(dj);
 
   const playId = crypto.randomUUID();
+  const cached = videoCache.get(track.videoId);
   current = {
     playId,
     djId: dj.id,
     videoId: track.videoId,
-    title: track.title,
+    // Titles in a list restored from someone's browser are whatever that
+    // browser sent, so the room only ever shows titles this server looked up.
+    title: cached ? cached.title : track.videoId,
     duration: null,
     durationSource: null,
     startedAt: Date.now(),
-    errors: new Set(),
+    endedBy: new Set(), // IPs whose player reported the song ended
+    erroredBy: new Set(), // IPs whose player couldn't play it
   };
   scheduleEnd();
 
-  const cached = videoCache.get(track.videoId);
   if (cached && cached.duration) {
     setDuration(cached.duration, 'api');
-  } else if (YOUTUBE_API_KEY) {
+  } else if (!cached || YOUTUBE_API_KEY) {
     lookupVideo(track.videoId)
       .then((meta) => {
-        if (current && current.playId === playId && meta.duration) {
-          setDuration(meta.duration, 'api');
-        }
+        if (!current || current.playId !== playId) return;
+        current.title = meta.title;
+        if (meta.duration) setDuration(meta.duration, 'api');
+        broadcastState();
       })
-      .catch(() => {});
+      .catch((err) => {
+        // Gone private, unembeddable or live since it was added: skip it.
+        if (err.permanent && current && current.playId === playId) advance();
+      });
   }
 }
 
@@ -201,11 +325,16 @@ function leaveQueue(user) {
   else broadcastState();
 }
 
+// Listener reports (ended / couldn't play) only take effect when they come
+// from more than half of the distinct IPs in the room, so one person (or one
+// person with many tabs) can't skip songs for everybody else.
+const roomAgrees = (ips) => ips.size * 2 > roomIps().size;
+
 // --- YouTube lookups ----------------------------------------------------------
 
 function parseVideoId(input) {
   const text = clean(input, 500);
-  if (VIDEO_ID.test(text)) return text;
+  if (isVideoId(text)) return text;
   let url;
   try {
     url = new URL(/^https?:\/\//i.test(text) ? text : `https://${text}`);
@@ -230,7 +359,7 @@ function parseVideoId(input) {
       );
     }
   }
-  return id && VIDEO_ID.test(id) ? id : null;
+  return isVideoId(id) ? id : null;
 }
 
 // ISO 8601 durations as the Data API returns them, e.g. PT1H2M3S.
@@ -243,22 +372,30 @@ function parseIsoDuration(iso) {
   return ((d * 24 + h) * 60 + m) * 60 + s || null;
 }
 
+const unreachable = () =>
+  new UserError("Couldn't reach YouTube. Try again in a bit.");
+const missing = () =>
+  new UserError("That video doesn't exist or is private.", { permanent: true });
+const notEmbeddable = () =>
+  new UserError("That video's owner doesn't allow it on other sites.", {
+    permanent: true,
+  });
+
 async function lookupWithApi(videoId) {
   const url =
     'https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,status' +
     `&id=${videoId}&key=${encodeURIComponent(YOUTUBE_API_KEY)}`;
   const res = await fetch(url, { signal: AbortSignal.timeout(8000) });
   if (!res.ok) {
-    console.warn(`Data API lookup failed (${res.status}): ${await res.text()}`);
-    throw new UserError("Couldn't reach YouTube. Try again in a bit.");
+    const body = (await res.text()).slice(0, 300);
+    warn(`Data API lookup failed (${res.status}): ${body}`);
+    throw unreachable();
   }
   const item = ((await res.json()).items || [])[0];
-  if (!item) throw new UserError("That video doesn't exist or is private.");
-  if (!item.status.embeddable) {
-    throw new UserError("That video's owner doesn't allow it on other sites.");
-  }
+  if (!item) throw missing();
+  if (!item.status.embeddable) throw notEmbeddable();
   if (item.snippet.liveBroadcastContent !== 'none') {
-    throw new UserError("Live streams can't be added.");
+    throw new UserError("Live streams can't be added.", { permanent: true });
   }
   return {
     title: item.snippet.title,
@@ -273,27 +410,61 @@ async function lookupWithOembed(videoId) {
     { signal: AbortSignal.timeout(8000) },
   );
   // oEmbed refuses videos whose owner turned off embedding.
-  if (res.status === 401 || res.status === 403) {
-    throw new UserError("That video's owner doesn't allow it on other sites.");
+  if (res.status === 401 || res.status === 403) throw notEmbeddable();
+  if (res.status === 400 || res.status === 404) throw missing();
+  if (!res.ok) {
+    warn(`oEmbed lookup failed (${res.status})`);
+    throw unreachable();
   }
-  if (!res.ok) throw new UserError("That video doesn't exist or is private.");
   return { title: (await res.json()).title, duration: null };
+}
+
+const lookupBucket = { tokens: LOOKUPS_PER_SECOND, at: Date.now() };
+let lookupsInFlight = 0;
+
+function takeLookupSlot() {
+  const now = Date.now();
+  lookupBucket.tokens = Math.min(
+    LOOKUPS_PER_SECOND,
+    lookupBucket.tokens + ((now - lookupBucket.at) / 1000) * LOOKUPS_PER_SECOND,
+  );
+  lookupBucket.at = now;
+  if (lookupBucket.tokens < 1 || lookupsInFlight >= MAX_LOOKUPS_IN_FLIGHT) {
+    return false;
+  }
+  lookupBucket.tokens -= 1;
+  return true;
 }
 
 async function lookupVideo(videoId) {
   const cached = videoCache.get(videoId);
   if (cached) return cached;
+  const failed = failedLookups.get(videoId);
+  if (failed && failed.until > Date.now()) throw failed.error;
+  if (!takeLookupSlot()) {
+    throw new UserError('The room is busy. Try again in a moment.');
+  }
+  lookupsInFlight++;
   let meta;
   try {
     meta = await (YOUTUBE_API_KEY ? lookupWithApi : lookupWithOembed)(videoId);
   } catch (err) {
-    if (err instanceof UserError) throw err;
-    console.warn(`Lookup for ${videoId} failed:`, err.message);
-    throw new UserError("Couldn't reach YouTube. Try again in a bit.");
+    if (!(err instanceof UserError)) {
+      warn(`Lookup for ${videoId} failed: ${err.message}`);
+      throw unreachable();
+    }
+    if (err.permanent) {
+      remember(failedLookups, videoId, {
+        error: err,
+        until: Date.now() + FAILED_LOOKUP_TTL_MS,
+      });
+    }
+    throw err;
+  } finally {
+    lookupsInFlight--;
   }
   meta.title = clean(meta.title, MAX_TITLE) || videoId;
-  videoCache.set(videoId, meta);
-  if (videoCache.size > 5000) videoCache.delete(videoCache.keys().next().value);
+  remember(videoCache, videoId, meta);
   return meta;
 }
 
@@ -303,17 +474,22 @@ const newKey = () => crypto.randomUUID().slice(0, 8);
 
 function join(ws, msg) {
   const list = (Array.isArray(msg.list) ? msg.list : [])
-    .filter((track) => track && VIDEO_ID.test(track.videoId))
+    .filter((track) => track && isVideoId(track.videoId))
     .slice(0, MAX_LIST)
     .map((track) => ({
       key: newKey(),
       videoId: track.videoId,
+      // Only ever shown back to this user; the room uses looked-up titles.
       title: clean(track.title, MAX_TITLE) || track.videoId,
-      duration: Number(track.duration) > 0 ? Math.round(track.duration) : null,
+      duration:
+        Number(track.duration) > 0
+          ? Math.min(MAX_TRACK_SECONDS, Math.round(track.duration))
+          : null,
     }));
   const user = {
     id: crypto.randomUUID().slice(0, 8),
     ws,
+    ip: ws.ip,
     name: clean(msg.name, MAX_NAME) || 'Guest',
     emoji: EMOJIS.includes(msg.emoji) ? msg.emoji : pick(EMOJIS),
     // Somewhere in the middle of the floor until they choose a spot.
@@ -321,6 +497,9 @@ function join(ws, msg) {
     y: 0.3 + Math.random() * 0.5,
     list,
     lastMoveAt: 0,
+    lastNameAt: 0,
+    addTimes: [],
+    adding: false,
   };
   ws.user = user;
   users.set(user.id, user);
@@ -331,13 +510,34 @@ function join(ws, msg) {
 
 async function addTrack(user, msg) {
   try {
+    if (user.adding) throw new UserError('Still adding your last song.');
+    const now = Date.now();
+    user.addTimes = user.addTimes.filter((at) => now - at < 60000);
+    if (user.addTimes.length >= ADDS_PER_MINUTE) {
+      throw new UserError(
+        "You're adding songs too fast. Try again in a minute.",
+      );
+    }
     if (user.list.length >= MAX_LIST) {
       throw new UserError(`Your list is full (${MAX_LIST} songs).`);
     }
     const videoId = parseVideoId(msg.url);
     if (!videoId) throw new UserError("That doesn't look like a YouTube link.");
-    const meta = await lookupVideo(videoId);
+    if (user.list.some((track) => track.videoId === videoId)) {
+      throw new UserError("That song's already in your list.");
+    }
+    user.addTimes.push(now);
+    user.adding = true;
+    let meta;
+    try {
+      meta = await lookupVideo(videoId);
+    } finally {
+      user.adding = false;
+    }
     if (!users.has(user.id)) return;
+    if (user.list.length >= MAX_LIST) {
+      throw new UserError(`Your list is full (${MAX_LIST} songs).`);
+    }
     if (user.list.some((track) => track.videoId === videoId)) {
       throw new UserError("That song's already in your list.");
     }
@@ -356,24 +556,29 @@ function handle(ws, msg) {
     return;
   }
   if (!user) return;
+  const now = Date.now();
 
   switch (msg.t) {
     case 'setName':
+      if (now - user.lastNameAt < NAME_INTERVAL_MS) {
+        notify(user, 'Wait a moment before changing your name again.');
+        break;
+      }
+      user.lastNameAt = now;
       user.name = clean(msg.name, MAX_NAME) || 'Guest';
       broadcastState();
       break;
 
-    case 'move': {
-      const now = Date.now();
+    case 'move':
       // The DJ stands in the booth; the floor is for everyone else.
       if (now - user.lastMoveAt < MOVE_INTERVAL_MS) break;
       if (current && current.djId === user.id) break;
       user.lastMoveAt = now;
       user.x = clamp01(msg.x);
       user.y = clamp01(msg.y);
-      broadcast({ t: 'moved', id: user.id, x: user.x, y: user.y });
+      pendingMoves.set(user.id, { id: user.id, x: user.x, y: user.y });
+      scheduleFlush();
       break;
-    }
 
     case 'addTrack':
       addTrack(user, msg).catch((err) => console.error('addTrack:', err));
@@ -394,15 +599,23 @@ function handle(ws, msg) {
     case 'setDJ':
       if (!msg.on) {
         leaveQueue(user);
-      } else if (!djQueue.includes(user.id)) {
-        if (!user.list.length) {
-          notify(user, 'Add a song to your list first.');
-          break;
-        }
-        djQueue.push(user.id);
-        if (current) broadcastState();
-        else advance();
+        break;
       }
+      if (djQueue.includes(user.id)) break;
+      if (!user.list.length) {
+        notify(user, 'Add a song to your list first.');
+        break;
+      }
+      if (
+        djQueue.filter((id) => users.get(id).ip === user.ip).length >=
+        MAX_DJS_PER_IP
+      ) {
+        notify(user, `Only ${MAX_DJS_PER_IP} DJs per connection, sorry.`);
+        break;
+      }
+      djQueue.push(user.id);
+      if (current) broadcastState();
+      else advance();
       break;
 
     case 'skip':
@@ -420,10 +633,10 @@ function handle(ws, msg) {
       if (
         current &&
         current.playId === msg.playId &&
-        current.durationSource !== 'api' &&
-        Date.now() - current.startedAt > 5000
+        current.durationSource !== 'api'
       ) {
-        advance();
+        current.endedBy.add(user.ip);
+        if (roomAgrees(current.endedBy)) advance();
       }
       break;
 
@@ -431,8 +644,8 @@ function handle(ws, msg) {
       // One listener failing (say, region-locked) shouldn't skip the song
       // for the room, but most of the room failing should.
       if (current && current.playId === msg.playId) {
-        current.errors.add(user.id);
-        if (current.errors.size * 2 >= users.size) advance();
+        current.erroredBy.add(user.ip);
+        if (roomAgrees(current.erroredBy)) advance();
       }
       break;
 
@@ -451,13 +664,30 @@ const server = http.createServer((req, res) => {
 const wss = new WebSocketServer({
   server,
   maxPayload: 64 * 1024,
-  verifyClient: ({ origin }) =>
-    ALLOWED_ORIGINS.includes('*') || ALLOWED_ORIGINS.includes(origin),
+  verifyClient: ({ origin, req }, done) => {
+    if (!ALLOWED_ORIGINS.includes('*') && !ALLOWED_ORIGINS.includes(origin)) {
+      done(false, 403);
+    } else if (wss.clients.size >= MAX_CONNECTIONS) {
+      done(false, 503);
+    } else if (
+      (connectionsByIp.get(clientIp(req)) || 0) >= MAX_CONNECTIONS_PER_IP
+    ) {
+      done(false, 429);
+    } else {
+      done(true);
+    }
+  },
 });
 
-wss.on('connection', (ws) => {
+wss.on('connection', (ws, req) => {
+  ws.ip = clientIp(req);
+  connectionsByIp.set(ws.ip, (connectionsByIp.get(ws.ip) || 0) + 1);
   ws.isAlive = true;
   ws.budget = { windowStart: Date.now(), count: 0 };
+
+  // ws reports protocol violations (oversized or malformed frames) as an
+  // 'error' event; unhandled, that would throw and take the whole room down.
+  ws.on('error', () => ws.terminate());
   ws.on('pong', () => {
     ws.isAlive = true;
   });
@@ -482,6 +712,9 @@ wss.on('connection', (ws) => {
   });
 
   ws.on('close', () => {
+    const left = connectionsByIp.get(ws.ip) - 1;
+    if (left > 0) connectionsByIp.set(ws.ip, left);
+    else connectionsByIp.delete(ws.ip);
     const user = ws.user;
     if (!user) return;
     users.delete(user.id);
@@ -489,6 +722,8 @@ wss.on('connection', (ws) => {
     else broadcastState();
   });
 });
+
+wss.on('error', (err) => console.error('WebSocket server error:', err.message));
 
 // Drop connections that vanished without a close frame (sleeping laptops,
 // dead mobile radios) so ghosts don't hold a spot in the DJ queue.
@@ -504,10 +739,20 @@ const heartbeat = setInterval(() => {
 }, 30000);
 wss.on('close', () => clearInterval(heartbeat));
 
-server.listen(PORT, HOST, () => {
-  console.log(
-    `DJ server listening on ${HOST || '*'}:${PORT} (durations from ${
-      YOUTUBE_API_KEY ? 'the YouTube Data API' : 'listener players'
-    }; origins: ${ALLOWED_ORIGINS.join(', ')})`,
-  );
-});
+const describe = (where) =>
+  `DJ server listening on ${where} (durations from ${
+    YOUTUBE_API_KEY ? 'the YouTube Data API' : 'listener players'
+  }; origins: ${ALLOWED_ORIGINS.join(', ')})`;
+
+if (SOCKET_PATH) {
+  // A crashed run can leave the socket file behind, which blocks listen().
+  fs.rmSync(SOCKET_PATH, { force: true });
+  server.listen(SOCKET_PATH, () => {
+    // nginx runs as its own user and needs write access to connect. The
+    // socket only ever reaches this app, so world-writable is fine.
+    fs.chmodSync(SOCKET_PATH, 0o666);
+    console.log(describe(SOCKET_PATH));
+  });
+} else {
+  server.listen(PORT, HOST, () => console.log(describe(`${HOST}:${PORT}`)));
+}

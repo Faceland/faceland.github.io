@@ -2,12 +2,15 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 // The room server lives outside GitHub Pages (see dj-server/). In development
 // it defaults to port 8787 on whatever host served the page, so phones on the
-// LAN can join a dev session too.
+// LAN can join a dev session (start dj-server with HOST=0.0.0.0 for that).
+// "localhost" is pinned to IPv4 because dj-server binds 127.0.0.1 by default.
+const devHost =
+  window.location.hostname === 'localhost'
+    ? '127.0.0.1'
+    : window.location.hostname;
 const SERVER_URL =
   process.env.REACT_APP_DJ_SERVER_URL ||
-  (process.env.NODE_ENV === 'development'
-    ? `ws://${window.location.hostname}:8787`
-    : '');
+  (process.env.NODE_ENV === 'development' ? `ws://${devHost}:8787` : '');
 
 const STORAGE_KEY = 'faceland.dj';
 
@@ -40,6 +43,7 @@ export const useDJRoom = () => {
   const [room, setRoom] = useState(EMPTY_ROOM);
   const [me, setMe] = useState(null);
   const [list, setList] = useState(() => loadSaved().list || []);
+  const [savedName] = useState(() => loadSaved().name);
   const [notice, setNotice] = useState(null);
   const [adding, setAdding] = useState(false);
 
@@ -90,14 +94,18 @@ export const useDJRoom = () => {
             },
           });
           break;
-        case 'moved':
+        case 'moves': {
+          // The server batches everyone's steps into one message per tick.
+          const moved = new Map(msg.moves.map((move) => [move.id, move]));
           setRoom((prev) => ({
             ...prev,
-            users: prev.users.map((user) =>
-              user.id === msg.id ? { ...user, x: msg.x, y: msg.y } : user,
-            ),
+            users: prev.users.map((user) => {
+              const move = moved.get(user.id);
+              return move ? { ...user, x: move.x, y: move.y } : user;
+            }),
           }));
           break;
+        }
         case 'welcome':
           setMe({ id: msg.id, name: msg.name, emoji: msg.emoji });
           save({ name: msg.name, emoji: msg.emoji });
@@ -188,7 +196,7 @@ export const useDJRoom = () => {
   return {
     status,
     entered,
-    savedName: loadSaved().name,
+    savedName,
     room,
     me,
     list,
