@@ -199,7 +199,32 @@ const DJFloor = ({ users, meId, reactions, playing, canMove, onMove }) => {
   );
 };
 
-const NowPlaying = ({ current, dj }) => {
+// The room's position, as a bar that runs itself to the end of the song in
+// CSS. Its timing is worked out once when it mounts and never touched again;
+// the parent re-keys it to restart (new song, length learned, pause/play).
+const LiveBar = ({ startPerf, duration, snapTarget }) => {
+  const [timing] = useState(() => {
+    const elapsed = (performance.now() - startPerf) / 1000;
+    return {
+      from: clamp(elapsed / duration, 0, 1),
+      remaining: Math.max(0, duration - elapsed),
+    };
+  });
+  return (
+    <div
+      className={`djProgress__live${snapTarget ? ' djProgress__live--snap' : ''}`}
+      style={{
+        '--from': timing.from,
+        animationDuration: `${timing.remaining}s`,
+      }}
+    />
+  );
+};
+
+// `pausedAt`: where this listener's own video is stopped (seconds), or null
+// while they're listening along with the room.
+const NowPlaying = ({ current, dj, pausedAt }) => {
+  // Only the clock text ticks each second; the bars animate on their own.
   const [, tick] = useState(0);
   useEffect(() => {
     if (!current) return undefined;
@@ -209,9 +234,7 @@ const NowPlaying = ({ current, dj }) => {
 
   if (!current) return <div className="djNowPlaying" />;
   const elapsed = (performance.now() - current.startPerf) / 1000;
-  const progress = current.duration
-    ? clamp(elapsed / current.duration, 0, 1)
-    : 0;
+  const paused = pausedAt !== null && pausedAt !== undefined;
   return (
     <div className="djNowPlaying">
       <p className="djNowPlaying__title" title={current.title}>
@@ -223,7 +246,25 @@ const NowPlaying = ({ current, dj }) => {
         {current.duration ? ` / ${formatTime(current.duration)}` : ''}
       </p>
       <div className="djNowPlaying__bar">
-        <div style={{ width: `${progress * 100}%` }} />
+        {current.duration ? (
+          <>
+            {/* Paused: white is where Play will snap you to (the room). */}
+            <LiveBar
+              key={`${current.playId}-${current.duration}-${paused}`}
+              startPerf={current.startPerf}
+              duration={current.duration}
+              snapTarget={paused}
+            />
+            {paused && (
+              <div
+                className="djProgress__mine"
+                style={{
+                  transform: `scaleX(${clamp(pausedAt / current.duration, 0, 1)})`,
+                }}
+              />
+            )}
+          </>
+        ) : null}
       </div>
     </div>
   );
@@ -693,6 +734,7 @@ export const DJ = () => {
     reactions,
     actions,
   } = useDJRoom();
+  const [pausedAt, setPausedAt] = useState(null);
   const { users, current } = room;
   const dj = current && users.find((user) => user.id === current.djId);
   const amDJ = !!(me && current && current.djId === me.id);
@@ -738,10 +780,11 @@ export const DJ = () => {
               onDuration={actions.reportDuration}
               onEnded={actions.reportEnded}
               onError={actions.reportError}
+              onPauseChange={setPausedAt}
             />
             <BoothControls me={me} current={current} actions={actions} />
           </div>
-          <NowPlaying current={current} dj={dj} />
+          <NowPlaying current={current} dj={dj} pausedAt={pausedAt} />
           <DJFloor
             users={users.filter((user) => !current || user.id !== current.djId)}
             meId={me && me.id}

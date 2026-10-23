@@ -84,6 +84,12 @@ The box also runs the Minecraft servers (AMP), so the room is fenced in:
   Vote to skip passes at half the room, where the room is the IPs active in
   the last minute (`AFK_SECONDS`) plus anyone who voted, one vote per IP.
   Like/Cheer animations are rate-limited server-side too.
+- **Bandwidth:** messages over 1 KB are compressed (permessage-deflate,
+  typically ~4x smaller room updates). Floor moves are compact
+  `[id, x, y]` triples (protocol v2; older pages that don't send `v: 2` get
+  the old object format until that path is removed). Background tabs and
+  the join screen don't get moves or reactions, and players only report a
+  song's length when the room doesn't already know it.
 
 Everything is in memory. Restarting the server empties the room; people's
 names and song lists survive because their browsers keep them and send them

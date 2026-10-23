@@ -148,6 +148,10 @@ const isVideoId = (value) => typeof value === 'string' && VIDEO_ID.test(value);
 
 const clamp01 = (value) => Math.min(1, Math.max(0, Number(value) || 0));
 
+// Floor positions are 0..1; three decimals is finer than any screen needs and
+// keeps every message that carries positions short.
+const position = (value) => Math.round(clamp01(value) * 1000) / 1000;
+
 const pick = (items) => items[Math.floor(Math.random() * items.length)];
 
 const remember = (map, key, value) => {
@@ -232,19 +236,35 @@ function snapshot() {
   };
 }
 
-// Chat goes only to people who joined (spectators on the join screen don't
-// need it), and is never stored: it's relayed once and forgotten.
-function broadcastToMembers(message) {
+// For things only people in the room need. Spectators on the join screen
+// don't get chat, moves or reactions; `onlyVisible` also skips tabs in the
+// background, which still get chat and state (the music) but not the floor's
+// animation traffic nobody is watching.
+//
+// `legacy` builds the same message for pages from before protocol v2 (still
+// open in someone's tab after a deploy); it's only built if one is here.
+// Remove it once those pages have aged out.
+function broadcastToMembers(message, { onlyVisible = false, legacy } = {}) {
   const data = JSON.stringify(message);
-  for (const user of users.values()) sendRaw(user.ws, data);
+  let legacyData = null;
+  for (const user of users.values()) {
+    if (onlyVisible && user.ws.hidden) continue;
+    if (legacy && user.protocol < 2) {
+      legacyData = legacyData || JSON.stringify(legacy());
+      sendRaw(user.ws, legacyData);
+    } else {
+      sendRaw(user.ws, data);
+    }
+  }
 }
 
 // Everything the room hears goes out from here, at most once per
 // BROADCAST_INTERVAL_MS however fast people act: the full state if anything
 // changed (it includes positions), otherwise just the latest moves, plus any
-// chat and reactions since the last flush.
+// chat and reactions since the last flush. Chat is relayed once and never
+// stored. Moves are compact [id, x, y] triples with x/y in thousandths.
 let stateDirty = false;
-const pendingMoves = new Map(); // user id -> { id, x, y }
+const pendingMoves = new Map(); // user id -> [id, x, y]
 let pendingChat = [];
 let pendingReactions = [];
 let flushTimer = null;
@@ -258,13 +278,26 @@ function flush() {
     if (current) current.shownNeeded = state.current.skip.needed;
     broadcast(state);
   } else if (pendingMoves.size) {
-    broadcast({ t: 'moves', moves: [...pendingMoves.values()] });
+    const moves = [...pendingMoves.values()];
+    broadcastToMembers(
+      { t: 'moves', moves },
+      {
+        onlyVisible: true,
+        legacy: () => ({
+          t: 'moves',
+          moves: moves.map(([id, x, y]) => ({ id, x: x / 1000, y: y / 1000 })),
+        }),
+      },
+    );
   }
   if (pendingChat.length) {
     broadcastToMembers({ t: 'chat', messages: pendingChat });
   }
   if (pendingReactions.length) {
-    broadcast({ t: 'reactions', reactions: pendingReactions });
+    broadcastToMembers(
+      { t: 'reactions', reactions: pendingReactions },
+      { onlyVisible: true },
+    );
   }
   stateDirty = false;
   pendingMoves.clear();
@@ -582,11 +615,13 @@ function join(ws, msg) {
     id: crypto.randomUUID().slice(0, 8),
     ws,
     ip: ws.ip,
+    // 2 = compact moves. Pages from before that send no version.
+    protocol: Number(msg.v) || 1,
     name: (name && !nameProblem(name) && name) || 'Guest',
     emoji: EMOJIS.includes(msg.emoji) ? msg.emoji : pick(EMOJIS),
     // Somewhere in the middle of the floor until they choose a spot.
-    x: 0.15 + Math.random() * 0.7,
-    y: 0.3 + Math.random() * 0.5,
+    x: position(0.15 + Math.random() * 0.7),
+    y: position(0.3 + Math.random() * 0.5),
     list,
     lastMoveAt: 0,
     lastNameAt: 0,
@@ -697,10 +732,14 @@ function handle(ws, msg) {
       user.lastNameAt = now;
       const name = clean(msg.name, MAX_NAME) || 'Guest';
       const problem = nameProblem(name);
-      if (problem) notify(user, problem);
-      else user.name = name;
-      // Even on a refusal: the fresh state snaps their name box back.
-      broadcastState();
+      if (problem) {
+        notify(user, problem);
+        // Only they need the state again, to snap their name box back.
+        send(ws, snapshot());
+      } else if (name !== user.name) {
+        user.name = name;
+        broadcastState();
+      }
       break;
     }
 
@@ -713,9 +752,13 @@ function handle(ws, msg) {
       if (now - user.lastMoveAt < MOVE_INTERVAL_MS) break;
       if (current && current.djId === user.id) break;
       user.lastMoveAt = now;
-      user.x = clamp01(msg.x);
-      user.y = clamp01(msg.y);
-      pendingMoves.set(user.id, { id: user.id, x: user.x, y: user.y });
+      user.x = position(msg.x);
+      user.y = position(msg.y);
+      pendingMoves.set(user.id, [
+        user.id,
+        Math.round(user.x * 1000),
+        Math.round(user.y * 1000),
+      ]);
       scheduleFlush();
       break;
 
@@ -779,6 +822,7 @@ function handle(ws, msg) {
     case 'voteSkip': {
       // The DJ has a real Skip button instead.
       if (!current || current.djId === user.id) break;
+      if (Boolean(msg.on) === current.skipVotes.has(user.id)) break;
       if (msg.on) current.skipVotes.add(user.id);
       else current.skipVotes.delete(user.id);
       const tally = skipTally();
@@ -802,6 +846,18 @@ function handle(ws, msg) {
       ) {
         current.endedBy.add(user.ip);
         if (roomAgrees(current.endedBy)) advance();
+      }
+      break;
+
+    case 'visibility':
+      // Not activity: a tab going to the background isn't the person doing
+      // something. Coming back gets a fresh snapshot (positions included),
+      // at most every 2 s so toggling can't be used to pull snapshots.
+      if (Boolean(msg.hidden) === Boolean(ws.hidden)) break;
+      ws.hidden = Boolean(msg.hidden);
+      if (!ws.hidden && now - (ws.resyncedAt || 0) > 2000) {
+        ws.resyncedAt = now;
+        send(ws, snapshot());
       }
       break;
 
@@ -829,6 +885,17 @@ const server = http.createServer((req, res) => {
 const wss = new WebSocketServer({
   server,
   maxPayload: 64 * 1024,
+  // Standard WebSocket compression (browsers negotiate it automatically),
+  // for the messages where it pays off: room snapshots, song lists and big
+  // batches are repetitive JSON that shrinks several-fold. Tiny messages skip
+  // it, and no context takeover keeps the per-connection memory small.
+  perMessageDeflate: {
+    threshold: 1024,
+    zlibDeflateOptions: { level: 6, memLevel: 7 },
+    serverNoContextTakeover: true,
+    clientNoContextTakeover: true,
+    concurrencyLimit: 10,
+  },
   verifyClient: ({ origin, req }, done) => {
     if (!ALLOWED_ORIGINS.includes('*') && !ALLOWED_ORIGINS.includes(origin)) {
       done(false, 403);

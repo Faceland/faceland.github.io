@@ -72,10 +72,26 @@ export const useDJRoom = () => {
     const saved = loadSaved();
     send({
       t: 'hello',
+      // Protocol 2: floor moves arrive as compact [id, x, y] triples.
+      v: 2,
       name: saved.name,
       emoji: saved.emoji,
       list: saved.list,
     });
+    // Background tabs skip the floor's animation traffic (see below).
+    if (document.hidden) send({ t: 'visibility', hidden: true });
+  }, [send]);
+
+  // While this tab is in the background the server stops sending floor
+  // moves and reactions (the music and room state keep coming); coming back
+  // fetches a fresh snapshot. Saves bandwidth for everyone listening in a tab
+  // they aren't looking at.
+  useEffect(() => {
+    const report = () => {
+      if (joinedRef.current) send({ t: 'visibility', hidden: document.hidden });
+    };
+    document.addEventListener('visibilitychange', report);
+    return () => document.removeEventListener('visibilitychange', report);
   }, [send]);
 
   useEffect(() => {
@@ -106,8 +122,16 @@ export const useDJRoom = () => {
           });
           break;
         case 'moves': {
-          // The server batches everyone's steps into one message per tick.
-          const moved = new Map(msg.moves.map((move) => [move.id, move]));
+          // The server batches everyone's steps into one message per tick,
+          // as compact [id, x, y] triples in thousandths. (Objects are the
+          // older format, still accepted while the server updates.)
+          const moved = new Map(
+            msg.moves.map((move) =>
+              Array.isArray(move)
+                ? [move[0], { x: move[1] / 1000, y: move[2] / 1000 }]
+                : [move.id, move],
+            ),
+          );
           setRoom((prev) => ({
             ...prev,
             users: prev.users.map((user) => {

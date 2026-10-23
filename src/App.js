@@ -1,7 +1,7 @@
 import './App.scss';
 import './animations.scss';
 
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Store from './Store';
 
@@ -16,7 +16,6 @@ import { Portrait } from './pages/Portrait/Portrait';
 import { Vote } from './pages/Vote/Vote';
 import { Map } from './pages/Map/Map';
 import { Gems } from './pages/Gems/Gems';
-import { DJ } from './pages/DJ/DJ';
 import { NotFound } from './pages/NotFound/NotFound';
 import { SEO } from './components/SEO/SEO';
 import { GuidesLayout } from './pages/Guides/GuidesLayout';
@@ -45,6 +44,20 @@ import { GuildsGuide } from './pages/Guides/GuildsGuide';
 import { OutpostsGuide } from './pages/Guides/OutpostsGuide';
 import { DungeonsGuide } from './pages/Guides/DungeonsGuide';
 import { ArenasGuide } from './pages/Guides/ArenasGuide';
+
+// The DJ room is its own download: its realtime client, chat filter and word
+// list would otherwise ship with every page on the site.
+const DJ = lazy(() =>
+  import('./pages/DJ/DJ').then((module) => ({ default: module.DJ })),
+);
+
+// The header plus the room's dark background, so nothing flashes while the
+// DJ chunk loads.
+const DJLoading = () => (
+  <div className="App" style={{ minHeight: '100vh', background: '#141019' }}>
+    <HeaderBar fancy={false} />
+  </div>
+);
 
 function App() {
   return (
@@ -88,7 +101,14 @@ function App() {
           <Route path="gems" element={<Gems />} />
           {/* Not pre-rendered or in the sitemap: it's a live room that needs
               the dj-server/ backend, with nothing useful to index. */}
-          <Route path="dj" element={<DJ />} />
+          <Route
+            path="dj"
+            element={
+              <Suspense fallback={<DJLoading />}>
+                <DJ />
+              </Suspense>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Store>

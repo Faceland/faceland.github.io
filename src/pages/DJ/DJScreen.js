@@ -78,7 +78,14 @@ const Icon = ({ name }) => {
 // YouTube's own control bar is turned off (controls=0, a documented player
 // parameter); the bar under the video drives the player through its API.
 // Nothing is ever drawn over the player itself.
-export const DJScreen = ({ current, joined, onDuration, onEnded, onError }) => {
+export const DJScreen = ({
+  current,
+  joined,
+  onDuration,
+  onEnded,
+  onError,
+  onPauseChange,
+}) => {
   const hostRef = useRef(null);
   const playerRef = useRef(null);
   const currentRef = useRef(current);
@@ -95,12 +102,18 @@ export const DJScreen = ({ current, joined, onDuration, onEnded, onError }) => {
   const pausedRef = useRef(false);
 
   currentRef.current = current;
-  callbacksRef.current = { onDuration, onEnded, onError };
+  callbacksRef.current = { onDuration, onEnded, onError, onPauseChange };
   volumeRef.current = volume;
 
+  // Also tells the page where this listener's video stopped (seconds), so
+  // the progress bar can show it against the room's live position.
   const markPaused = useCallback((value) => {
     pausedRef.current = value;
     setPaused(value);
+    const player = playerRef.current;
+    callbacksRef.current.onPauseChange(
+      value && player ? player.getCurrentTime() : null,
+    );
   }, []);
 
   const syncTrack = useCallback(() => {
@@ -121,8 +134,12 @@ export const DJScreen = ({ current, joined, onDuration, onEnded, onError }) => {
       startSeconds: Math.max(0, targetTime(cur)),
     };
     // Paused listeners get the new song loaded but not playing.
-    if (pausedRef.current) player.cueVideoById(video);
-    else player.loadVideoById(video);
+    if (pausedRef.current) {
+      player.cueVideoById(video);
+      callbacksRef.current.onPauseChange(video.startSeconds);
+    } else {
+      player.loadVideoById(video);
+    }
   }, []);
 
   const resync = useCallback(() => {
@@ -131,8 +148,15 @@ export const DJScreen = ({ current, joined, onDuration, onEnded, onError }) => {
     if (!player || !cur || loadedRef.current !== cur.playId) return;
     if (player.getPlayerState() !== window.YT.PlayerState.PLAYING) return;
 
+    // Only report a length the room doesn't already have, so a crowd
+    // doesn't send the server the same number once each per song.
     const duration = player.getDuration();
-    if (duration > 0 && Math.abs(duration - reportedRef.current) > 1) {
+    const known = cur.duration && Math.abs(cur.duration - duration) <= 1;
+    if (
+      duration > 0 &&
+      !known &&
+      Math.abs(duration - reportedRef.current) > 1
+    ) {
       reportedRef.current = duration;
       callbacksRef.current.onDuration(cur.playId, duration);
     }

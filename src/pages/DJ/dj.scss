@@ -363,15 +363,47 @@ $dj-glow: #8f5cff;
 }
 
 .djNowPlaying__bar {
+  position: relative;
   height: 3px;
   border-radius: 2px;
   background: $dj-line;
   overflow: hidden;
+}
 
-  div {
-    height: 100%;
-    background: $dj-glow;
-    transition: width 1s linear;
+// Full-width bars scaled from the left edge: scaling is compositor-only, so
+// the running animation costs no layout or repaint work.
+.djProgress__live,
+.djProgress__mine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $dj-glow;
+  transform-origin: left center;
+}
+
+// The room's position. Runs from --from to the end over the time remaining
+// (both set inline once); see LiveBar in DJ.js.
+.djProgress__live {
+  transform: scaleX(var(--from));
+  animation-name: djProgress;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+// While paused it turns white (where Play will snap you to) and your own
+// stopped position sits on top of it in purple.
+.djProgress__live--snap {
+  background: #fff;
+}
+
+@keyframes djProgress {
+  from {
+    transform: scaleX(var(--from));
+  }
+  to {
+    transform: scaleX(1);
   }
 }
 
