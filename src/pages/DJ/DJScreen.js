@@ -35,6 +35,12 @@ const loadYouTubeApi = () => {
 
 const targetTime = (current) => (performance.now() - current.startPerf) / 1000;
 
+const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+// A press shorter than this on the volume button toggles mute; holding it
+// longer opens the slider.
+const HOLD_MS = 250;
+
 // Volume is a per-browser preference, so it survives reloads.
 const loadVolume = () => {
   try {
@@ -70,22 +76,133 @@ const Icon = ({ name }) => {
   );
 };
 
+// The room's position, as a bar that runs itself to the end of the song in
+// CSS. Its timing is worked out once when it mounts and never touched again;
+// the parent re-keys it to restart (new song, length learned, pause/play).
+const LiveBar = ({ startPerf, duration, snapTarget }) => {
+  const [timing] = useState(() => {
+    const elapsed = (performance.now() - startPerf) / 1000;
+    return {
+      from: clamp(elapsed / duration, 0, 1),
+      remaining: Math.max(0, duration - elapsed),
+    };
+  });
+  return (
+    <div
+      className={`djProgress__live${snapTarget ? ' djProgress__live--snap' : ''}`}
+      style={{
+        '--from': timing.from,
+        animationDuration: `${timing.remaining}s`,
+      }}
+    />
+  );
+};
+
+// Volume button: a quick click (or tap) mutes and unmutes, back to the
+// previous level; holding it, or hovering with a mouse, pops out a vertical
+// slider. The pop-out opens downward, away from the video.
+const VolumeControl = ({ volume, setVolume }) => {
+  const [open, setOpen] = useState(false);
+  const holdRef = useRef(null);
+  const wrapRef = useRef(null);
+  const silent = volume.muted || volume.level === 0;
+  const shown = silent ? 0 : volume.level;
+
+  useEffect(() => {
+    if (!open) return undefined;
+    const away = (event) => {
+      if (!wrapRef.current.contains(event.target)) setOpen(false);
+    };
+    document.addEventListener('pointerdown', away);
+    return () => document.removeEventListener('pointerdown', away);
+  }, [open]);
+
+  useEffect(() => () => clearTimeout(holdRef.current), []);
+
+  // Unmuting from zero would stay silent, so that brings it back up.
+  const toggleMute = () =>
+    setVolume((v) =>
+      silent ? { level: v.level || 50, muted: false } : { ...v, muted: true },
+    );
+  const nudge = (delta) =>
+    setVolume((v) => ({
+      level: clamp((v.muted ? 0 : v.level) + delta, 0, 100),
+      muted: false,
+    }));
+  const cancelHold = () => {
+    clearTimeout(holdRef.current);
+    holdRef.current = null;
+  };
+
+  return (
+    <div
+      className="djVolume"
+      ref={wrapRef}
+      onPointerEnter={(e) => e.pointerType === 'mouse' && setOpen(true)}
+      onPointerLeave={(e) => e.pointerType === 'mouse' && setOpen(false)}
+    >
+      <button
+        className="djScreen__button djVolume__button"
+        aria-label={silent ? 'Unmute' : 'Mute'}
+        aria-expanded={open}
+        title="Click to mute, hold for volume"
+        onPointerDown={(event) => {
+          if (event.button !== 0) return;
+          holdRef.current = setTimeout(() => {
+            holdRef.current = null;
+            setOpen(true);
+          }, HOLD_MS);
+        }}
+        onPointerUp={() => {
+          if (!holdRef.current) return; // it was a hold
+          cancelHold();
+          toggleMute();
+        }}
+        onPointerCancel={cancelHold}
+        onContextMenu={(event) => event.preventDefault()}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            toggleMute();
+          } else if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+            event.preventDefault();
+            setOpen(true);
+            nudge(event.key === 'ArrowUp' ? 5 : -5);
+          }
+        }}
+      >
+        <Icon name={silent ? 'muted' : 'volume'} />
+      </button>
+      {open && (
+        <div className="djVolume__pop">
+          <input
+            type="range"
+            className="djVolume__slider"
+            min="0"
+            max="100"
+            step="1"
+            value={shown}
+            aria-label="Volume"
+            style={{ '--fill': `${shown}%` }}
+            onChange={(event) =>
+              setVolume({ level: Number(event.target.value), muted: false })
+            }
+          />
+        </div>
+      )}
+    </div>
+  );
+};
+
 // The booth's video. Every listener plays the room's song from YouTube on
 // their own and keeps nudging themselves to where the room is. Ads need no
 // special handling: while one plays, this listener just falls behind, and the
 // first check after the song starts jumps them forward to the room.
 //
 // YouTube's own control bar is turned off (controls=0, a documented player
-// parameter); the bar under the video drives the player through its API.
-// Nothing is ever drawn over the player itself.
-export const DJScreen = ({
-  current,
-  joined,
-  onDuration,
-  onEnded,
-  onError,
-  onPauseChange,
-}) => {
+// parameter); the bar under the video (play/pause, progress, volume) drives
+// the player through its API. Nothing is ever drawn over the player itself.
+export const DJScreen = ({ current, joined, onDuration, onEnded, onError }) => {
   const hostRef = useRef(null);
   const playerRef = useRef(null);
   const currentRef = useRef(current);
@@ -100,20 +217,19 @@ export const DJScreen = ({
   // on, and pressing play again jumps back to where the room is.
   const [paused, setPaused] = useState(false);
   const pausedRef = useRef(false);
+  // Where this listener's video stopped (seconds), shown on the progress bar
+  // against the room's live position while they're paused.
+  const [pausedAt, setPausedAt] = useState(null);
 
   currentRef.current = current;
-  callbacksRef.current = { onDuration, onEnded, onError, onPauseChange };
+  callbacksRef.current = { onDuration, onEnded, onError };
   volumeRef.current = volume;
 
-  // Also tells the page where this listener's video stopped (seconds), so
-  // the progress bar can show it against the room's live position.
   const markPaused = useCallback((value) => {
     pausedRef.current = value;
     setPaused(value);
     const player = playerRef.current;
-    callbacksRef.current.onPauseChange(
-      value && player ? player.getCurrentTime() : null,
-    );
+    setPausedAt(value && player ? player.getCurrentTime() : null);
   }, []);
 
   const syncTrack = useCallback(() => {
@@ -136,7 +252,7 @@ export const DJScreen = ({
     // Paused listeners get the new song loaded but not playing.
     if (pausedRef.current) {
       player.cueVideoById(video);
-      callbacksRef.current.onPauseChange(video.startSeconds);
+      setPausedAt(video.startSeconds);
     } else {
       player.loadVideoById(video);
     }
@@ -267,8 +383,6 @@ export const DJScreen = ({
     }
   };
 
-  const silent = volume.muted || volume.level === 0;
-  const shownLevel = silent ? 0 : volume.level;
   const messages = {
     blocked:
       'Your browser blocked autoplay. Press play below (or tap the video) to listen.',
@@ -315,35 +429,28 @@ export const DJScreen = ({
           >
             <Icon name={paused ? 'play' : 'pause'} />
           </button>
-          <button
-            className="djScreen__button"
-            onClick={() => {
-              // Unmuting from zero would stay silent, so bring it back up.
-              setVolume((v) =>
-                silent
-                  ? { level: v.level || 50, muted: false }
-                  : { ...v, muted: true },
-              );
-            }}
-            aria-label={silent ? 'Unmute' : 'Mute'}
-            title={silent ? 'Unmute' : 'Mute'}
-          >
-            <Icon name={silent ? 'muted' : 'volume'} />
-          </button>
-          <input
-            type="range"
-            className="djScreen__volume"
-            min="0"
-            max="100"
-            step="1"
-            value={shownLevel}
-            aria-label="Volume"
-            style={{ '--fill': `${shownLevel}%` }}
-            onChange={(event) =>
-              setVolume({ level: Number(event.target.value), muted: false })
-            }
-          />
-          {paused && current && <span className="djScreen__state">Paused</span>}
+          <div className="djScreen__progress">
+            {current && current.duration ? (
+              <>
+                {/* Paused: white is where Play will snap you to (the room). */}
+                <LiveBar
+                  key={`${current.playId}-${current.duration}-${paused}`}
+                  startPerf={current.startPerf}
+                  duration={current.duration}
+                  snapTarget={paused}
+                />
+                {paused && pausedAt !== null && (
+                  <div
+                    className="djProgress__mine"
+                    style={{
+                      transform: `scaleX(${clamp(pausedAt / current.duration, 0, 1)})`,
+                    }}
+                  />
+                )}
+              </>
+            ) : null}
+          </div>
+          <VolumeControl volume={volume} setVolume={setVolume} />
         </div>
       )}
       {joined && current && problem && (

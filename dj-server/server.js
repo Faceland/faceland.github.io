@@ -232,6 +232,7 @@ function snapshot() {
         needed: tally.needed,
         voters: [...current.skipVotes].filter((id) => users.has(id)),
       },
+      likes: [...current.likes].filter((id) => users.has(id)),
     },
   };
 }
@@ -373,6 +374,7 @@ function play(dj) {
     endedBy: new Set(), // IPs whose player reported the song ended
     erroredBy: new Set(), // IPs whose player couldn't play it
     skipVotes: new Set(), // user ids that voted to skip
+    likes: new Set(), // user ids that like it (every 2 make skipping harder)
     shownNeeded: null, // the "votes needed" the room last saw
   };
   scheduleEnd();
@@ -423,23 +425,30 @@ function leaveQueue(user) {
 // person with many tabs) can't skip songs for everybody else.
 const roomAgrees = (ips) => ips.size * 2 > roomIps().size;
 
-// Vote to skip: the song skips once votes reach half the room. The room is
-// everyone active in the last AFK_MS plus anyone who already voted, and both
-// sides count distinct IPs, so one person with several tabs gets one vote.
+// Vote to skip: the song skips once votes reach half the room, plus one more
+// for every 2 likes. The room is everyone active in the last AFK_MS plus
+// anyone who already voted. Votes, likes and the room all count distinct IPs,
+// so one person with several tabs gets one vote and one like.
 function skipTally() {
   const now = Date.now();
-  const voterIps = new Set();
-  for (const id of current.skipVotes) {
-    const user = users.get(id);
-    if (user) voterIps.add(user.ip);
-  }
+  const ipsOf = (ids) => {
+    const ips = new Set();
+    for (const id of ids) {
+      const user = users.get(id);
+      if (user) ips.add(user.ip);
+    }
+    return ips;
+  };
+  const voterIps = ipsOf(current.skipVotes);
   const room = new Set(voterIps);
   for (const user of users.values()) {
     if (now - user.activeAt < AFK_MS) room.add(user.ip);
   }
   return {
     votes: voterIps.size,
-    needed: Math.max(1, Math.ceil(room.size / 2)),
+    needed:
+      Math.max(1, Math.ceil(room.size / 2)) +
+      Math.floor(ipsOf(current.likes).size / 2),
   };
 }
 
@@ -806,10 +815,21 @@ function handle(ws, msg) {
 
     case 'react':
       if (!REACTIONS.includes(msg.kind)) break;
+      // No liking or cheering your own song.
+      if (current && current.djId === user.id) break;
       if (msg.kind === 'like') {
-        // Un-liking only changes the button; liking is what animates.
-        if (!msg.on || !current) break;
-        if (now - user.lastLikeAt < LIKE_INTERVAL_MS) break;
+        if (!current) break;
+        const liked = Boolean(msg.on);
+        if (liked === current.likes.has(user.id)) break;
+        if (liked) current.likes.add(user.id);
+        else current.likes.delete(user.id);
+        // Likes change how many skip votes are needed; an un-like can be
+        // what lets a standing vote pass.
+        const tally = skipTally();
+        if (tally.votes >= tally.needed) advance();
+        else broadcastState();
+        // Only liking animates, at most once a second.
+        if (!liked || now - user.lastLikeAt < LIKE_INTERVAL_MS) break;
         user.lastLikeAt = now;
       } else {
         if (now - user.lastCheerAt < CHEER_INTERVAL_MS) break;

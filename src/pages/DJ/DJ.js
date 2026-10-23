@@ -209,32 +209,10 @@ const DJFloor = ({ users, meId, reactions, playing, canMove, onMove }) => {
   );
 };
 
-// The room's position, as a bar that runs itself to the end of the song in
-// CSS. Its timing is worked out once when it mounts and never touched again;
-// the parent re-keys it to restart (new song, length learned, pause/play).
-const LiveBar = ({ startPerf, duration, snapTarget }) => {
-  const [timing] = useState(() => {
-    const elapsed = (performance.now() - startPerf) / 1000;
-    return {
-      from: clamp(elapsed / duration, 0, 1),
-      remaining: Math.max(0, duration - elapsed),
-    };
-  });
-  return (
-    <div
-      className={`djProgress__live${snapTarget ? ' djProgress__live--snap' : ''}`}
-      style={{
-        '--from': timing.from,
-        animationDuration: `${timing.remaining}s`,
-      }}
-    />
-  );
-};
-
-// `pausedAt`: where this listener's own video is stopped (seconds), or null
-// while they're listening along with the room.
-const NowPlaying = ({ current, dj, pausedAt }) => {
-  // Only the clock text ticks each second; the bars animate on their own.
+// Above the video: "Now Playing: Title (1:02/3:45)", wrapping rather than
+// truncating. Only this line ticks each second (the progress bar under the
+// video animates itself).
+const NowPlayingTitle = ({ current }) => {
   const [, tick] = useState(0);
   useEffect(() => {
     if (!current) return undefined;
@@ -242,41 +220,20 @@ const NowPlaying = ({ current, dj, pausedAt }) => {
     return () => clearInterval(interval);
   }, [current]);
 
-  if (!current) return <div className="djNowPlaying" />;
-  const elapsed = (performance.now() - current.startPerf) / 1000;
-  const paused = pausedAt !== null && pausedAt !== undefined;
+  if (!current) return null;
+  const elapsed = clamp(
+    (performance.now() - current.startPerf) / 1000,
+    0,
+    current.duration || Infinity,
+  );
   return (
-    <div className="djNowPlaying">
-      <p className="djNowPlaying__title" title={current.title}>
-        {current.title}
-      </p>
-      <p className="djNowPlaying__meta">
-        {dj ? `${dj.emoji} ${dj.name}` : 'Someone'} &middot;{' '}
-        {formatTime(elapsed)}
-        {current.duration ? ` / ${formatTime(current.duration)}` : ''}
-      </p>
-      <div className="djNowPlaying__bar">
-        {current.duration ? (
-          <>
-            {/* Paused: white is where Play will snap you to (the room). */}
-            <LiveBar
-              key={`${current.playId}-${current.duration}-${paused}`}
-              startPerf={current.startPerf}
-              duration={current.duration}
-              snapTarget={paused}
-            />
-            {paused && (
-              <div
-                className="djProgress__mine"
-                style={{
-                  transform: `scaleX(${clamp(pausedAt / current.duration, 0, 1)})`,
-                }}
-              />
-            )}
-          </>
-        ) : null}
-      </div>
-    </div>
+    <p className="djNowTitle">
+      Now Playing: {current.title}{' '}
+      <span className="djNowTitle__time">
+        ({formatTime(elapsed)}
+        {current.duration ? `/${formatTime(current.duration)}` : ''})
+      </span>
+    </p>
   );
 };
 
@@ -687,15 +644,12 @@ const Panel = ({ me, room, list, adding, actions, onMinimize }) => {
 
 const CHEER_COOLDOWN_MS = 3000;
 
-// Beside the screen: Like / Cheer (pure fun: your emoji hops for everyone)
-// and the room's vote to skip.
+// Beside the screen: Like (every 2 likes make the song one vote harder to
+// skip), Cheer (just your emoji hopping for everyone) and the vote to skip,
+// whose light red fill shows how close the room is. Likes and votes are
+// server state; the DJ can't like or cheer their own song.
 const BoothControls = ({ me, current, actions }) => {
-  const [liked, setLiked] = useState(false);
   const [cheerCooling, setCheerCooling] = useState(false);
-  const playId = current && current.playId;
-
-  // A like is for a song, so a new song starts un-liked.
-  useEffect(() => setLiked(false), [playId]);
 
   useEffect(() => {
     if (!cheerCooling) return undefined;
@@ -704,8 +658,10 @@ const BoothControls = ({ me, current, actions }) => {
   }, [cheerCooling]);
 
   const skip = current && current.skip;
+  const liked = !!(me && current && (current.likes || []).includes(me.id));
   const voted = !!(me && skip && skip.voters.includes(me.id));
   const amDJ = !!(me && current && current.djId === me.id);
+  const progress = skip ? clamp(skip.votes / skip.needed, 0, 1) : 0;
 
   return (
     <div className="djBooth__controls">
@@ -713,17 +669,14 @@ const BoothControls = ({ me, current, actions }) => {
         <button
           className={`djReact${liked ? ' djReact--on' : ''}`}
           aria-pressed={liked}
-          disabled={!me || !current}
-          onClick={() => {
-            setLiked(!liked);
-            actions.react('like', !liked);
-          }}
+          disabled={!me || !current || amDJ}
+          onClick={() => actions.react('like', !liked)}
         >
           <span aria-hidden="true">👍</span>Like
         </button>
         <button
           className="djReact"
-          disabled={!me || cheerCooling}
+          disabled={!me || cheerCooling || amDJ}
           onClick={() => {
             setCheerCooling(true);
             actions.react('cheer');
@@ -732,22 +685,20 @@ const BoothControls = ({ me, current, actions }) => {
           <span aria-hidden="true">🎉</span>Cheer
         </button>
       </div>
-      <div className="djBooth__row djBooth__row--skip">
-        <button
-          className={`djReact djReact--skip${voted ? ' djReact--on' : ''}`}
-          aria-pressed={voted}
-          disabled={!me || !current || amDJ}
-          title={amDJ ? 'Use Skip song in the panel instead' : undefined}
-          onClick={() => actions.voteSkip(!voted)}
-        >
-          {voted ? 'Voted to skip' : 'Vote to skip'}
-        </button>
-        <span className="djBooth__votes">
-          {skip
-            ? `${skip.votes}/${skip.needed} votes to skip`
-            : 'Nothing playing'}
-        </span>
-      </div>
+      <button
+        className={`djReact djReact--skip${voted ? ' djReact--voted' : ''}`}
+        aria-pressed={voted}
+        disabled={!me || !current || amDJ}
+        title={amDJ ? 'Use Skip song in the panel instead' : undefined}
+        onClick={() => actions.voteSkip(!voted)}
+      >
+        <span
+          className="djReact__fill"
+          aria-hidden="true"
+          style={{ transform: `scaleX(${progress})` }}
+        />
+        <span className="djReact__label">Vote to skip</span>
+      </button>
     </div>
   );
 };
@@ -876,7 +827,6 @@ export const DJ = () => {
     reactions,
     actions,
   } = useDJRoom();
-  const [pausedAt, setPausedAt] = useState(null);
   const [{ mobile }] = useContext(Context);
   const stageRef = useRef(null);
   const { users, current } = room;
@@ -923,6 +873,7 @@ export const DJ = () => {
           />
         )}
         <section ref={stageRef} className="djStage" aria-label="DJ room">
+          <NowPlayingTitle current={current} />
           <div className="djBooth">
             <div className="djBooth__dj">
               {dj && (
@@ -946,11 +897,9 @@ export const DJ = () => {
               onDuration={actions.reportDuration}
               onEnded={actions.reportEnded}
               onError={actions.reportError}
-              onPauseChange={setPausedAt}
             />
             <BoothControls me={me} current={current} actions={actions} />
           </div>
-          <NowPlaying current={current} dj={dj} pausedAt={pausedAt} />
           <DJFloor
             users={users.filter((user) => !current || user.id !== current.djId)}
             meId={me && me.id}

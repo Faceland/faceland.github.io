@@ -81,9 +81,10 @@ The box also runs the Minecraft servers (AMP), so the room is fenced in:
   most of the room's IPs agree. A YouTube API key makes song lengths
   server-side facts, which removes even that. Chat is batched into the same
   broadcasts, goes only to people who joined, and is rate-limited per person.
-  Vote to skip passes at half the room, where the room is the IPs active in
-  the last minute (`AFK_SECONDS`) plus anyone who voted, one vote per IP.
-  Like/Cheer animations are rate-limited server-side too.
+  Vote to skip passes at half the room, plus one more vote for every 2 likes,
+  where the room is the IPs active in the last minute (`AFK_SECONDS`) plus
+  anyone who voted; one vote and one like per IP. The DJ can't like or cheer
+  their own song. Like/Cheer animations are rate-limited server-side too.
 - **Bandwidth:** messages over 1 KB are compressed (permessage-deflate,
   typically ~4x smaller room updates). Floor moves are compact
   `[id, x, y]` triples (protocol v2; older pages that don't send `v: 2` get
