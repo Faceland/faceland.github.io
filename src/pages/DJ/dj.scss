@@ -61,10 +61,15 @@ $dj-glow: #8f5cff;
     margin: var(--dj-gap) var(--dj-gap) var(--dj-gap) 0;
   }
 
-  .djNowTitle,
   .djBooth {
     padding-left: var(--dj-side);
     padding-right: var(--dj-side);
+  }
+
+  // Margins, not padding: its width is what the ticker measures and fades.
+  .djNowTitle {
+    margin-left: var(--dj-side);
+    margin-right: var(--dj-side);
   }
 
   .djFloor__area {
@@ -105,37 +110,30 @@ $dj-glow: #8f5cff;
   padding: 12px 16px 14px;
 }
 
-// "Now Playing: Title (time/duration)" above the booth. Wraps, never cut off.
+// "Now Playing: Title (time/duration)" (or "Waiting for a DJ...") above the
+// booth, always on one line; see NowPlayingTitle in DJ.js. Its side space is
+// margin, never padding, since its own width is what the ticker measures.
 .djNowTitle {
   flex: none;
-  margin: 0;
-  padding: 16px 16px 0;
+  margin: 0 16px;
+  padding: 16px 0 0;
+  overflow: hidden;
   color: $dj-cream;
   font-weight: 700;
   line-height: 1.35;
   text-align: center;
-  overflow-wrap: anywhere;
+  white-space: nowrap;
+}
+
+// Inline-blocks, so ResizeObserver can tell when the text outgrows the line.
+.djNowTitle__track,
+.djNowTitle__copy {
+  display: inline-block;
 }
 
 .djNowTitle__time {
   color: #c2b8d0;
   font-weight: 600;
-  white-space: nowrap;
-}
-
-// Phones: the title stays on one line (see NowPlayingTitle in DJ.js). The
-// copies are inline-blocks so ResizeObserver can tell when they overflow.
-.djNowTitle--line {
-  margin: 0 16px;
-  padding-left: 0;
-  padding-right: 0;
-  overflow: hidden;
-  white-space: nowrap;
-
-  .djNowTitle__track,
-  .djNowTitle__copy {
-    display: inline-block;
-  }
 }
 
 // Too long to fit: it scrolls by as a ticker, fading out at both edges. The
@@ -1274,10 +1272,14 @@ $dj-glow: #8f5cff;
       margin: var(--dj-gap) var(--dj-gap) var(--dj-gap) calc(var(--dj-gap) / 2);
     }
 
-    .djNowTitle,
     .djBooth {
       padding-left: 16px;
       padding-right: 16px;
+    }
+
+    .djNowTitle {
+      margin-left: 16px;
+      margin-right: 16px;
     }
 
     .djFloor__area {
