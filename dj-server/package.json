@@ -1,0 +1,16 @@
+{
+  "name": "faceland-dj-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Realtime room server for the face.land/dj page",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}

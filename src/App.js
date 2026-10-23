@@ -16,6 +16,7 @@ import { Portrait } from './pages/Portrait/Portrait';
 import { Vote } from './pages/Vote/Vote';
 import { Map } from './pages/Map/Map';
 import { Gems } from './pages/Gems/Gems';
+import { DJ } from './pages/DJ/DJ';
 import { NotFound } from './pages/NotFound/NotFound';
 import { SEO } from './components/SEO/SEO';
 import { GuidesLayout } from './pages/Guides/GuidesLayout';
@@ -85,6 +86,9 @@ function App() {
           </Route>
           <Route path="facepals" element={<Portrait />} />
           <Route path="gems" element={<Gems />} />
+          {/* Not pre-rendered or in the sitemap: it's a live room that needs
+              the dj-server/ backend, with nothing useful to index. */}
+          <Route path="dj" element={<DJ />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Store>

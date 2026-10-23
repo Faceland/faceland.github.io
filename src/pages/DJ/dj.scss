@@ -1,0 +1,667 @@
+// The DJ room is one non-scrolling viewport on desktop: the fixed 50px navbar,
+// then the stage (booth + dance floor) beside a control panel. Narrow screens
+// stack the panel under a full-height stage and let the page scroll.
+$dj-bg: #141019;
+$dj-panel: #1c1a22;
+$dj-line: #2c2836;
+$dj-text: #e8e2f0;
+$dj-muted: #9a91a8;
+$dj-cream: #f4e4bf;
+$dj-accent: #48ba3b;
+$dj-glow: #8f5cff;
+
+.DJPage {
+  --dj-emoji-size: 46px;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: $dj-bg;
+  color: $dj-text;
+}
+
+.djRoom {
+  display: flex;
+  height: calc(100vh - 50px);
+  height: calc(100dvh - 50px);
+}
+
+.djStage {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse 70% 45% at 50% 0%,
+      rgba($dj-glow, 0.35),
+      rgba($dj-glow, 0) 70%
+    ),
+    $dj-bg;
+}
+
+// --- Booth -------------------------------------------------------------------
+
+.djBooth {
+  flex: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 20px 16px 0;
+}
+
+// The DJ stands beside the screen, never on it: YouTube's terms forbid
+// drawing anything over the player. The spacer mirrors this column so the
+// screen stays centred.
+.djBooth__dj,
+.djBooth__spacer {
+  flex: 0 0 104px;
+  margin: 0 12px;
+}
+
+.djBooth__dj {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.djBooth__djEmoji {
+  font-size: 64px;
+  line-height: 1;
+  animation: djBob 0.45s ease-in-out infinite alternate;
+}
+
+.djBooth__djName {
+  max-width: 100%;
+  margin-top: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 700;
+  color: $dj-cream;
+}
+
+.djScreen {
+  flex: none;
+}
+
+// YouTube requires at least a 200x200 viewport for embedded players.
+.djScreen__frame {
+  position: relative;
+  width: 400px;
+  height: 225px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #000;
+  box-shadow:
+    0 0 0 2px #2a2238,
+    0 0 40px rgba($dj-glow, 0.45);
+}
+
+.djScreen__player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
+.djScreen__idle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: $dj-muted;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.djScreen__thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+}
+
+.djScreen__problem {
+  max-width: 400px;
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #ffb4a8;
+  text-align: center;
+}
+
+.djNowPlaying {
+  flex: none;
+  width: 100%;
+  max-width: 432px;
+  min-height: 58px;
+  margin: 0 auto;
+  padding: 8px 16px 10px;
+  text-align: center;
+}
+
+.djNowPlaying__title {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 700;
+  color: $dj-cream;
+}
+
+.djNowPlaying__meta {
+  margin: 2px 0 6px;
+  font-size: 12px;
+  color: $dj-muted;
+}
+
+.djNowPlaying__bar {
+  height: 3px;
+  border-radius: 2px;
+  background: $dj-line;
+  overflow: hidden;
+
+  div {
+    height: 100%;
+    background: $dj-glow;
+    transition: width 1s linear;
+  }
+}
+
+// --- Dance floor -------------------------------------------------------------
+
+.djFloor {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 160px;
+  border-top: 2px solid rgba($dj-glow, 0.6);
+  box-shadow: 0 -6px 24px -8px rgba($dj-glow, 0.7);
+  background: linear-gradient(to bottom, #1d1530, #0d0a12);
+  touch-action: manipulation;
+  user-select: none;
+}
+
+.djFloor--walkable {
+  cursor: pointer;
+}
+
+.djFloor__grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+
+  line {
+    stroke: rgba($dj-glow, 0.22);
+    stroke-width: 1;
+  }
+}
+
+// A zero-size anchor at the spot the user clicked: their feet go here.
+.djAvatar {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transition:
+    left 0.9s ease-in-out,
+    top 0.9s ease-in-out;
+  pointer-events: none;
+}
+
+.djAvatar__body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-50%);
+  line-height: 1;
+  transition: font-size 0.9s ease-in-out;
+
+  // Contact shadow, sized in em so it scales with the emoji.
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -0.08em;
+    width: 0.8em;
+    height: 0.18em;
+    margin-left: -0.4em;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: -1;
+  }
+}
+
+.djAvatar__emoji {
+  display: inline-block;
+  font-family:
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+  transform-origin: bottom center;
+}
+
+.djFloor--playing .djAvatar__emoji {
+  animation: djBob 0.45s ease-in-out infinite alternate;
+}
+
+.djAvatar__name {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  transform: translateX(-50%);
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 5px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.45);
+  color: $dj-text;
+  transition: font-size 0.9s ease-in-out;
+}
+
+.djAvatar--self .djAvatar__name {
+  background: rgba($dj-accent, 0.85);
+  color: #fff;
+  font-weight: 700;
+}
+
+@keyframes djBob {
+  from {
+    transform: translateY(0) rotate(-3deg);
+  }
+  to {
+    transform: translateY(-12%) rotate(3deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .djFloor--playing .djAvatar__emoji,
+  .djBooth__djEmoji {
+    animation: none;
+  }
+
+  .djAvatar,
+  .djAvatar__body,
+  .djAvatar__name {
+    transition: none;
+  }
+}
+
+// Bottom of the stage, well clear of the player (nothing may cover it).
+.djBanner {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+  margin: 0;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background: #b33d3d;
+  color: #fff;
+  font-size: 13px;
+}
+
+// --- Join screen -------------------------------------------------------------
+
+.djJoin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(10, 8, 14, 0.72);
+}
+
+.djJoin__card {
+  width: 100%;
+  max-width: 340px;
+  padding: 24px;
+  border: 1px solid $dj-line;
+  border-radius: 8px;
+  background: $dj-panel;
+  text-align: center;
+
+  h1 {
+    margin: 0 0 4px;
+    font-size: 28px;
+    font-weight: 700;
+    color: $dj-cream;
+  }
+}
+
+.djJoin__status,
+.djJoin__playing {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: $dj-muted;
+}
+
+.djJoin__playing strong {
+  color: $dj-text;
+}
+
+.djJoin__label {
+  display: block;
+  margin: 16px 0 6px;
+  font-size: 13px;
+  text-align: left;
+  color: $dj-muted;
+}
+
+.djJoin__card .djButton {
+  width: 100%;
+  margin-top: 12px;
+}
+
+// --- Controls ------------------------------------------------------------------
+
+.djInput {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid $dj-line;
+  border-radius: 4px;
+  background: $dj-bg;
+  color: $dj-text;
+  font-size: 14px;
+
+  &:focus {
+    border-color: $dj-glow;
+  }
+}
+
+.djButton {
+  padding: 8px 14px;
+  border-radius: 4px;
+  background: #2c2836;
+  color: $dj-text;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover:not(:disabled) {
+    background: #3a3546;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
+.djButton--primary {
+  background: $dj-accent;
+  color: #fff;
+
+  &:hover:not(:disabled) {
+    background: #6ad45e;
+  }
+}
+
+.djIconButton {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  color: $dj-muted;
+  font-size: 13px;
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    background: $dj-line;
+    color: $dj-text;
+  }
+
+  &:disabled {
+    visibility: hidden;
+  }
+}
+
+.djHint {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: $dj-muted;
+}
+
+// --- Panel -------------------------------------------------------------------
+
+.djPanel {
+  box-sizing: border-box;
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 0 16px 16px;
+  border-left: 1px solid $dj-line;
+  background: $dj-panel;
+  text-align: left;
+
+  h2 {
+    margin: 0 0 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $dj-muted;
+  }
+}
+
+.djPanel__section {
+  padding: 16px 0;
+  border-bottom: 1px solid $dj-line;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.djPanel__me {
+  display: flex;
+  align-items: center;
+
+  .djPanel__name {
+    flex: 1 1 auto;
+    margin-left: 10px;
+    font-weight: 700;
+  }
+}
+
+.djPanel__meEmoji {
+  font-size: 34px;
+  line-height: 1;
+}
+
+.djControls p {
+  margin: 0 0 8px;
+}
+
+.djControls__row .djButton + .djButton {
+  margin-left: 8px;
+}
+
+.djQueue {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: center;
+    padding: 3px 0;
+    font-size: 14px;
+
+    > span:first-child {
+      width: 26px;
+      font-size: 18px;
+    }
+  }
+}
+
+.djQueue--self {
+  color: $dj-accent;
+  font-weight: 700;
+}
+
+.djQueue__now {
+  margin-left: auto;
+  font-size: 12px;
+  color: $dj-cream;
+}
+
+.djAddTrack {
+  display: flex;
+
+  .djButton {
+    margin-left: 8px;
+  }
+}
+
+.djTracks {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: djTrack;
+
+  li {
+    display: flex;
+    align-items: center;
+    padding: 4px 0;
+    font-size: 13px;
+    counter-increment: djTrack;
+
+    &::before {
+      content: counter(djTrack);
+      flex: none;
+      width: 22px;
+      color: $dj-muted;
+      font-size: 12px;
+    }
+
+    &:first-child .djTracks__title {
+      color: $dj-cream;
+      font-weight: 700;
+    }
+  }
+}
+
+.djTracks__title {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.djTracks__time {
+  flex: none;
+  margin: 0 4px 0 8px;
+  color: $dj-muted;
+  font-size: 12px;
+}
+
+.djToast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4000;
+  max-width: calc(100% - 32px);
+  padding: 10px 16px;
+  border-radius: 6px;
+  background: #2c2836;
+  color: $dj-text;
+  font-size: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+// --- Narrow screens ------------------------------------------------------------
+
+@media (max-width: 940px) {
+  .DJPage {
+    height: auto;
+    overflow: visible;
+  }
+
+  .djRoom {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .djStage {
+    flex: none;
+    height: calc(100vh - 50px);
+    height: calc(100dvh - 50px);
+    min-height: 480px;
+  }
+
+  .djPanel {
+    flex: none;
+    overflow: visible;
+    border-left: 0;
+    border-top: 1px solid $dj-line;
+  }
+}
+
+@media (max-width: 680px) {
+  .DJPage {
+    --dj-emoji-size: 34px;
+  }
+
+  // The DJ moves above the screen, as a compact badge.
+  .djBooth {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 12px;
+  }
+
+  .djBooth__dj {
+    flex: none;
+    flex-direction: row;
+    min-height: 32px;
+    margin: 0 0 8px;
+  }
+
+  .djBooth__djEmoji {
+    font-size: 28px;
+  }
+
+  .djBooth__djName {
+    margin: 0 0 0 8px;
+  }
+
+  .djBooth__spacer {
+    display: none;
+  }
+
+  .djScreen__frame {
+    width: 356px;
+    max-width: calc(100vw - 32px);
+    height: 200px;
+  }
+}
