@@ -748,9 +748,15 @@ const LookEditor = ({ look, onDone, onCancel }) => {
   );
 };
 
+// Your songs that didn't play out last time (outlined in the list).
+const OUTCOME_WARNINGS = {
+  skipped: 'This song skipped last time it was played!',
+  failed: 'This song failed to play last time!',
+};
+
 // On desktop the panel has no title; as a mobile pop-out it gets one, with
 // the minimize button.
-const Panel = ({ me, room, list, adding, actions, onMinimize }) => {
+const Panel = ({ me, room, list, outcomes, adding, actions, onMinimize }) => {
   const [editing, setEditing] = useState(false);
   const head = onMinimize && <CardHead title="You" onMinimize={onMinimize} />;
   if (!me) {
@@ -828,35 +834,48 @@ const Panel = ({ me, room, list, adding, actions, onMinimize }) => {
           <AddTrackForm adding={adding} onAdd={actions.addTrack} />
           {list.length ? (
             <ol className="djTracks">
-              {list.map((track, index) => (
-                <li key={track.key}>
-                  <span className="djTracks__title" title={track.title}>
-                    {track.title}
-                  </span>
-                  {track.duration ? (
-                    <span className="djTracks__time">
-                      {formatTime(track.duration)}
+              {list.map((track, index) => {
+                const outcome = outcomes[track.videoId];
+                const warning = OUTCOME_WARNINGS[outcome];
+                return (
+                  <li
+                    key={track.key}
+                    className={outcome ? `djTracks--${outcome}` : undefined}
+                    title={warning}
+                  >
+                    <span
+                      className="djTracks__title"
+                      title={
+                        warning ? `${track.title}\n${warning}` : track.title
+                      }
+                    >
+                      {track.title}
                     </span>
-                  ) : null}
-                  <button
-                    className="djIconButton"
-                    title="Play next"
-                    aria-label={`Play ${track.title} next`}
-                    disabled={index === 0}
-                    onClick={() => actions.bumpTrack(track.key)}
-                  >
-                    ⤒
-                  </button>
-                  <button
-                    className="djIconButton"
-                    title="Remove"
-                    aria-label={`Remove ${track.title}`}
-                    onClick={() => actions.removeTrack(track.key)}
-                  >
-                    ✕
-                  </button>
-                </li>
-              ))}
+                    {track.duration ? (
+                      <span className="djTracks__time">
+                        {formatTime(track.duration)}
+                      </span>
+                    ) : null}
+                    <button
+                      className="djIconButton"
+                      title="Play next"
+                      aria-label={`Play ${track.title} next`}
+                      disabled={index === 0}
+                      onClick={() => actions.bumpTrack(track.key)}
+                    >
+                      ⤒
+                    </button>
+                    <button
+                      className="djIconButton"
+                      title="Remove"
+                      aria-label={`Remove ${track.title}`}
+                      onClick={() => actions.removeTrack(track.key)}
+                    >
+                      ✕
+                    </button>
+                  </li>
+                );
+              })}
             </ol>
           ) : (
             <p className="djHint">
@@ -1065,6 +1084,7 @@ export const DJ = () => {
     chat,
     chatNotice,
     reactions,
+    outcomes,
     actions,
   } = useDJRoom();
   const [{ mobile }] = useContext(Context);
@@ -1168,6 +1188,7 @@ export const DJ = () => {
             me={me}
             room={room}
             list={list}
+            outcomes={outcomes}
             adding={adding}
             actions={actions}
           />
@@ -1181,7 +1202,7 @@ export const DJ = () => {
           self={self}
           chat={chat}
           chatNotice={chatNotice}
-          panel={{ me, room, list, adding, actions }}
+          panel={{ me, room, list, outcomes, adding, actions }}
         />
       )}
       <Toast notice={notice} />

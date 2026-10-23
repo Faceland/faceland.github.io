@@ -1316,10 +1316,14 @@ img.djArt--fit {
   list-style: none;
   counter-reset: djTrack;
 
+  // The transparent border is there so an outlined (skipped or failed)
+  // song takes no more room than the rest.
   li {
     display: flex;
     align-items: center;
-    padding: 4px 0;
+    padding: 3px 2px 3px 0;
+    border: 1px solid transparent;
+    border-radius: $dj-radius;
     font-size: 13px;
     counter-increment: djTrack;
 
@@ -1336,6 +1340,17 @@ img.djArt--fit {
       font-weight: 700;
     }
   }
+}
+
+// Skipped / failed to play last time it came up (see OUTCOME_WARNINGS).
+.djTracks li.djTracks--skipped {
+  border-color: #e8c547;
+  background: rgba(#e8c547, 0.08);
+}
+
+.djTracks li.djTracks--failed {
+  border-color: #e05a5a;
+  background: rgba(#e05a5a, 0.08);
 }
 
 .djTracks__title {

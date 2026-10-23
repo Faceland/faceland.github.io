@@ -55,6 +55,9 @@ export const useDJRoom = () => {
   const [adding, setAdding] = useState(false);
   const [chat, setChat] = useState([]);
   const [chatNotice, setChatNotice] = useState(null);
+  // videoId -> 'skipped' | 'failed': how your songs went the last time they
+  // played. Deliberately only kept here, so a reload clears it.
+  const [outcomes, setOutcomes] = useState({});
   // user id -> { kind, at } for avatars mid-animation.
   const [reactions, setReactions] = useState({});
 
@@ -162,6 +165,14 @@ export const useDJRoom = () => {
           setList(msg.list);
           setAdding(false);
           save({ list: msg.list });
+          break;
+        case 'outcome':
+          setOutcomes((prev) => {
+            const next = { ...prev };
+            if (msg.outcome === 'played') delete next[msg.videoId];
+            else next[msg.videoId] = msg.outcome;
+            return next;
+          });
           break;
         case 'chat':
           setChat((prev) => prev.concat(msg.messages).slice(-CHAT_LINES_KEPT));
@@ -288,6 +299,7 @@ export const useDJRoom = () => {
     chat,
     chatNotice,
     reactions,
+    outcomes,
     actions,
   };
 };

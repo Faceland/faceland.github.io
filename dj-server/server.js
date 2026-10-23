@@ -343,7 +343,7 @@ function scheduleEnd() {
     wait = current.duration * 1000 + grace - elapsed;
   }
   wait = Math.min(wait, MAX_TRACK_SECONDS * 1000 - elapsed);
-  endTimer = setTimeout(advance, Math.max(0, wait));
+  endTimer = setTimeout(() => advance('played'), Math.max(0, wait));
 }
 
 function setDuration(seconds, source) {
@@ -400,15 +400,25 @@ function play(dj) {
       })
       .catch((err) => {
         // Gone private, unembeddable or live since it was added: skip it.
-        if (err.permanent && current && current.playId === playId) advance();
+        if (err.permanent && current && current.playId === playId) {
+          advance('failed');
+        }
       });
   }
 }
 
 // Ends whatever is playing (if anything) and hands the booth to the next DJ.
-function advance() {
+// How the song went ('played', 'skipped' or 'failed') goes to its DJ, whose
+// page marks it in their list until they reload; nothing else keeps it.
+function advance(outcome) {
   clearTimeout(endTimer);
-  if (current) clearTimeout(current.skipTimer);
+  if (current) {
+    clearTimeout(current.skipTimer);
+    const dj = users.get(current.djId);
+    if (dj && outcome) {
+      send(dj.ws, { t: 'outcome', videoId: current.videoId, outcome });
+    }
+  }
   if (current && djQueue[0] === current.djId) djQueue.push(djQueue.shift());
   current = null;
   while (djQueue.length) {
@@ -426,7 +436,7 @@ function advance() {
 function leaveQueue(user) {
   if (!djQueue.includes(user.id)) return;
   djQueue = djQueue.filter((id) => id !== user.id);
-  if (current && current.djId === user.id) advance();
+  if (current && current.djId === user.id) advance('skipped');
   else broadcastState();
 }
 
@@ -490,7 +500,7 @@ function trySkip(tally = skipTally()) {
     }
     return false;
   }
-  advance();
+  advance('skipped');
   return true;
 }
 
@@ -884,7 +894,9 @@ function handle(ws, msg) {
       break;
 
     case 'skip':
-      if (current && current.djId === user.id && !djLocked(user)) advance();
+      if (current && current.djId === user.id && !djLocked(user)) {
+        advance('skipped');
+      }
       break;
 
     case 'react':
@@ -935,7 +947,7 @@ function handle(ws, msg) {
         current.durationSource !== 'api'
       ) {
         current.endedBy.add(user.ip);
-        if (roomAgrees(current.endedBy)) advance();
+        if (roomAgrees(current.endedBy)) advance('played');
       }
       break;
 
@@ -956,7 +968,7 @@ function handle(ws, msg) {
       // for the room, but most of the room failing should.
       if (current && current.playId === msg.playId) {
         current.erroredBy.add(user.ip);
-        if (roomAgrees(current.erroredBy)) advance();
+        if (roomAgrees(current.erroredBy)) advance('failed');
       }
       break;
 
