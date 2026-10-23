@@ -14,7 +14,7 @@ const SERVER_URL =
 
 const STORAGE_KEY = 'faceland.dj';
 
-// No accounts: name, emoji and song list just live in this browser.
+// No accounts: name, look and song list just live in this browser.
 const loadSaved = () => {
   try {
     return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
@@ -76,6 +76,8 @@ export const useDJRoom = () => {
       v: 2,
       name: saved.name,
       emoji: saved.emoji,
+      eyes: saved.eyes,
+      hat: saved.hat,
       list: saved.list,
     });
     // Background tabs skip the floor's animation traffic (see below).
@@ -148,8 +150,13 @@ export const useDJRoom = () => {
           break;
         }
         case 'welcome':
-          setMe({ id: msg.id, name: msg.name, emoji: msg.emoji });
-          save({ name: msg.name, emoji: msg.emoji });
+          setMe({ id: msg.id, name: msg.name });
+          save({
+            name: msg.name,
+            emoji: msg.emoji,
+            eyes: msg.eyes,
+            hat: msg.hat,
+          });
           break;
         case 'list':
           setList(msg.list);
@@ -236,6 +243,11 @@ export const useDJRoom = () => {
     setName: (name) => {
       save({ name });
       send({ t: 'setName', name });
+    },
+    // { emoji, eyes, hat }; no eyes or hat is null.
+    setLook: (look) => {
+      save(look);
+      send({ t: 'setLook', ...look });
     },
     addTrack: (url) => {
       setAdding(true);

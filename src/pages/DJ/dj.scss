@@ -654,6 +654,27 @@ $dj-glow: #8f5cff;
   animation: djBob 0.45s ease-in-out infinite alternate;
 }
 
+// An avatar picture (face, eyes and hat; see avatarArt.js). It's drawn with
+// room around the face's 1em square (ART_SIDE etc. there) that these
+// negative margins hand back, so it takes up exactly a 1em text emoji's
+// space and the hat simply spills out over the top.
+img.djArt {
+  display: block;
+  width: 1.8em;
+  height: 1.9em;
+  max-width: none;
+  margin: -0.8em -0.4em -0.1em;
+  user-select: none;
+}
+
+// Or the whole picture, fitted to its box.
+img.djArt--fit {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: contain;
+}
+
 .djAvatar__name {
   position: absolute;
   top: 4px;
@@ -691,6 +712,9 @@ $dj-glow: #8f5cff;
 // (with the confetti) matches REACTION_MS in useDJRoom.js.
 .djHop {
   display: inline-block;
+  // Sit on the bottom of the line (an image has no baseline of its own), so
+  // feet stay where they were with text emoji.
+  vertical-align: bottom;
 }
 
 .djHop--go {
@@ -1129,9 +1153,115 @@ $dj-glow: #8f5cff;
   }
 }
 
-.djPanel__meEmoji {
-  font-size: 34px;
+// Your avatar beside your name, which opens the look editor.
+.djPanel__look {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  padding: 2px;
+  border: 1px solid $dj-line;
+  border-radius: $dj-radius;
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
+
+  &:hover:not(:disabled),
+  &.djPanel__look--on {
+    border-color: rgba($dj-glow, 0.8);
+    background: rgba($dj-glow, 0.12);
+  }
+}
+
+// --- Look editor ----------------------------------------------------------------
+
+.djLook__preview {
+  height: 120px;
+  margin-bottom: 12px;
+  padding: 4px;
+  border-radius: $dj-radius;
+  background: linear-gradient(rgba($dj-glow, 0.04), rgba($dj-glow, 0.18));
+}
+
+.djLook__tabs {
+  display: flex;
+  margin-bottom: 10px;
+  border-bottom: 1px solid $dj-line;
+}
+
+.djLook__tab {
+  flex: 1 1 0;
+  margin-bottom: -1px;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+  color: $dj-muted;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:hover {
+    color: $dj-text;
+  }
+}
+
+.djLook__tab--on {
+  border-bottom-color: $dj-glow;
+  color: $dj-text;
+}
+
+.djLook__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(38px, 1fr));
+  gap: 4px;
+}
+
+.djLook__option {
+  height: 38px;
+  border: 1px solid transparent;
+  border-radius: $dj-radius;
+  background: rgba(255, 255, 255, 0.04);
+  color: $dj-muted;
+  font-family:
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+  font-size: 22px;
   line-height: 1;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.09);
+  }
+}
+
+.djLook__option--none {
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.djLook__option--on {
+  border-color: $dj-glow;
+  background: rgba($dj-glow, 0.25);
+
+  &:hover {
+    background: rgba($dj-glow, 0.3);
+  }
+}
+
+.djLook__actions {
+  display: flex;
+  margin-top: 14px;
+
+  .djButton:first-child {
+    margin-right: auto;
+  }
+
+  .djButton + .djButton {
+    margin-left: 8px;
+  }
 }
 
 .djControls p {
@@ -1429,6 +1559,11 @@ $dj-glow: #8f5cff;
   font-size: 26px;
   line-height: 1;
   cursor: pointer;
+
+  img.djArt--fit {
+    width: 44px;
+    height: 46px;
+  }
 
   & + & {
     margin-top: 12px;

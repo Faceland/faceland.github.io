@@ -15,11 +15,15 @@ import {
   nameProblem,
   rateLimitWait,
 } from './chatRules';
+import { lookImage } from './avatarArt';
+import { EYES, FACES, HATS } from './avatarParts';
 import { DJScreen } from './DJScreen';
 import { useDJRoom } from './useDJRoom';
 import './dj.scss';
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+const pick = (items) => items[Math.floor(Math.random() * items.length)];
 
 const formatTime = (seconds) => {
   const s = Math.max(0, Math.floor(seconds));
@@ -114,17 +118,36 @@ const Confetti = ({ kind, fromAngle = 20, toAngle = 160 }) => {
   );
 };
 
-// An emoji that hops and spins, with confetti, whenever its person reacts.
+// Someone's face with their eyes and hat, drawn as one image (see
+// avatarArt.js). It lays out like a 1em emoji, the hat spilling over the
+// top; `djArt--fit` instead fits the whole picture in its box. Without
+// canvas it's just the face.
+const AvatarArt = ({ look, className = '', style }) => {
+  const src = lookImage(look);
+  return src ? (
+    <img
+      className={`djArt ${className}`}
+      style={style}
+      src={src}
+      alt=""
+      draggable="false"
+    />
+  ) : (
+    <span className={className} style={style}>
+      {look.emoji}
+    </span>
+  );
+};
+
+// An avatar that hops and spins, with confetti, whenever its person reacts.
 // Keying on the reaction restarts the animation for every new one.
-const ReactiveEmoji = ({ emoji, reaction, className, style, burst }) => (
+const ReactiveAvatar = ({ look, reaction, className, style, burst }) => (
   <>
     <span
       key={reaction ? `hop-${reaction.at}` : 'idle'}
       className={`djHop${reaction ? ' djHop--go' : ''}`}
     >
-      <span className={className} style={style}>
-        {emoji}
-      </span>
+      <AvatarArt look={look} className={className} style={style} />
     </span>
     {reaction && (
       <Confetti
@@ -153,8 +176,8 @@ const Avatar = ({ user, self, reaction }) => {
         className="djAvatar__body"
         style={{ fontSize: `calc(var(--dj-emoji-size) * ${scale})` }}
       >
-        <ReactiveEmoji
-          emoji={user.emoji}
+        <ReactiveAvatar
+          look={user}
           reaction={reaction}
           className="djAvatar__emoji"
           style={{ animationDelay: `-${hash(user.id) % 700}ms` }}
@@ -635,9 +658,99 @@ const DJControls = ({ me, room, list, actions }) => {
   );
 };
 
+const LOOK_TABS = [
+  { key: 'emoji', label: 'Face', options: FACES.map((emoji) => ({ emoji })) },
+  { key: 'eyes', label: 'Eyes', options: EYES, optional: true },
+  { key: 'hat', label: 'Hat', options: HATS, optional: true },
+];
+
+// An accessory at random, but now and then none.
+const maybePick = (parts) => (Math.random() < 0.25 ? null : pick(parts).emoji);
+
+const lookOf = (user) => ({
+  emoji: user.emoji,
+  eyes: user.eyes || null,
+  hat: user.hat || null,
+});
+
+// Pick a face, eyes and a hat, previewed as you go; Done sends it to the
+// room. Shown in the panel in place of everything else while open.
+const LookEditor = ({ look, onDone, onCancel }) => {
+  const [draft, setDraft] = useState(look);
+  const [tab, setTab] = useState('emoji');
+  const shown = LOOK_TABS.find((entry) => entry.key === tab);
+  const option = (emoji, label, content = emoji) => (
+    <button
+      key={emoji || 'none'}
+      className={`djLook__option${emoji ? '' : ' djLook__option--none'}${
+        draft[tab] === emoji ? ' djLook__option--on' : ''
+      }`}
+      aria-pressed={draft[tab] === emoji}
+      aria-label={label}
+      title={label}
+      onClick={() => setDraft({ ...draft, [tab]: emoji })}
+    >
+      {content}
+    </button>
+  );
+
+  return (
+    <section className="djPanel__section djLook" aria-label="Your look">
+      <div className="djLook__preview">
+        <AvatarArt look={draft} className="djArt--fit" />
+      </div>
+      <div className="djLook__tabs" role="tablist">
+        {LOOK_TABS.map((entry) => (
+          <button
+            key={entry.key}
+            role="tab"
+            aria-selected={entry.key === tab}
+            className={`djLook__tab${
+              entry.key === tab ? ' djLook__tab--on' : ''
+            }`}
+            onClick={() => setTab(entry.key)}
+          >
+            {entry.label}
+          </button>
+        ))}
+      </div>
+      <div className="djLook__grid" role="tabpanel" aria-label={shown.label}>
+        {shown.optional && option(null, 'None', 'None')}
+        {shown.options.map((entry) => option(entry.emoji, entry.name))}
+      </div>
+      <div className="djLook__actions">
+        <button
+          className="djButton"
+          title="Random look"
+          aria-label="Random look"
+          onClick={() =>
+            setDraft({
+              emoji: pick(FACES),
+              eyes: maybePick(EYES),
+              hat: maybePick(HATS),
+            })
+          }
+        >
+          🎲
+        </button>
+        <button className="djButton" onClick={onCancel}>
+          Cancel
+        </button>
+        <button
+          className="djButton djButton--primary"
+          onClick={() => onDone(draft)}
+        >
+          Done
+        </button>
+      </div>
+    </section>
+  );
+};
+
 // On desktop the panel has no title; as a mobile pop-out it gets one, with
 // the minimize button.
 const Panel = ({ me, room, list, adding, actions, onMinimize }) => {
+  const [editing, setEditing] = useState(false);
   const head = onMinimize && <CardHead title="You" onMinimize={onMinimize} />;
   if (!me) {
     return (
@@ -658,15 +771,37 @@ const Panel = ({ me, room, list, adding, actions, onMinimize }) => {
       {head}
       <div className="djPanel__scroll djScroll">
         <section className="djPanel__section djPanel__me">
-          <span className="djPanel__meEmoji">{self.emoji}</span>
+          <button
+            className={`djPanel__look${editing ? ' djPanel__look--on' : ''}`}
+            onClick={() => setEditing(!editing)}
+            disabled={!self.emoji}
+            aria-expanded={editing}
+            aria-label="Change your look"
+            title="Change your look"
+          >
+            {self.emoji && <AvatarArt look={self} className="djArt--fit" />}
+          </button>
           <NameField name={self.name} onCommit={actions.setName} />
         </section>
 
-        <section className="djPanel__section">
+        {editing && (
+          <LookEditor
+            look={lookOf(self)}
+            onCancel={() => setEditing(false)}
+            onDone={(look) => {
+              const before = lookOf(self);
+              if (Object.keys(look).some((key) => look[key] !== before[key]))
+                actions.setLook(look);
+              setEditing(false);
+            }}
+          />
+        )}
+
+        <section className="djPanel__section" hidden={editing}>
           <DJControls me={me} room={room} list={list} actions={actions} />
         </section>
 
-        <section className="djPanel__section">
+        <section className="djPanel__section" hidden={editing}>
           <h2>DJ queue</h2>
           {room.djQueue.length ? (
             <ol className="djQueue">
@@ -687,7 +822,7 @@ const Panel = ({ me, room, list, adding, actions, onMinimize }) => {
           )}
         </section>
 
-        <section className="djPanel__section djPanel__list">
+        <section className="djPanel__section djPanel__list" hidden={editing}>
           <h2>Your list</h2>
           <AddTrackForm adding={adding} onAdd={actions.addTrack} />
           {list.length ? (
@@ -816,7 +951,15 @@ const Toast = ({ notice }) => {
 // While a song plays, a pop-out stops just below the video and its controls
 // and never covers the player (YouTube's terms forbid anything in front of
 // it); with nothing playing it takes the whole screen under the header.
-const MobileSheets = ({ stageRef, playing, me, chat, chatNotice, panel }) => {
+const MobileSheets = ({
+  stageRef,
+  playing,
+  me,
+  self,
+  chat,
+  chatNotice,
+  panel,
+}) => {
   const [open, setOpen] = useState(null); // 'chat' | 'panel' | null
   const [lastSeen, setLastSeen] = useState(null); // last chat id read
   const [top, setTop] = useState(null);
@@ -859,7 +1002,11 @@ const MobileSheets = ({ stageRef, playing, me, chat, chatNotice, panel }) => {
             onClick={() => setOpen('panel')}
             aria-label="Open your name, DJ controls and song list"
           >
-            <span aria-hidden="true">{me ? me.emoji : '🎧'}</span>
+            {self ? (
+              <AvatarArt look={self} className="djArt--fit" />
+            ) : (
+              <span aria-hidden="true">🎧</span>
+            )}
           </button>
           <button
             className="djBubble"
@@ -924,6 +1071,7 @@ export const DJ = () => {
   const { users, current } = room;
   const dj = current && users.find((user) => user.id === current.djId);
   const amDJ = !!(me && current && current.djId === me.id);
+  const self = me && users.find((user) => user.id === me.id);
 
   // Phones: the page is exactly one screen and never scrolls (only the
   // pop-outs do); no rubber-banding or pull-to-refresh moving it either.
@@ -972,8 +1120,8 @@ export const DJ = () => {
                 <>
                   <span className="djBooth__djBody">
                     {/* Confetti flies up and left, away from the video. */}
-                    <ReactiveEmoji
-                      emoji={dj.emoji}
+                    <ReactiveAvatar
+                      look={dj}
                       reaction={reactions[dj.id]}
                       className="djBooth__djEmoji"
                       burst={{ fromAngle: 95, toAngle: 175 }}
@@ -1029,6 +1177,7 @@ export const DJ = () => {
           stageRef={stageRef}
           playing={!!current}
           me={me}
+          self={self}
           chat={chat}
           chatNotice={chatNotice}
           panel={{ me, room, list, adding, actions }}

@@ -13,6 +13,11 @@ what's said while they're there. Messages and names pass the rules in
 messages per 5 seconds / 12 per minute). The page runs an identical copy,
 `src/pages/DJ/chatRules.js`, for instant feedback; change both together.
 
+Avatars are a face emoji plus optional eyes and a hat, from the lists in
+`avatarParts.js` (the page has the same lists in `src/pages/DJ/avatarParts.js`;
+change both together). The server only checks choices against them; drawing
+happens in each browser (see `scripts/dj-avatars/`).
+
 ## Run locally
 
 ```sh
@@ -59,7 +64,7 @@ Ship a change from the repo root (`npm ci` installs exactly what
 `package-lock.json` pins, without running any package scripts):
 
 ```sh
-scp dj-server/server.js dj-server/chatRules.js dj-server/package.json dj-server/package-lock.json root@199.127.61.235:/opt/faceland-dj/
+scp dj-server/server.js dj-server/chatRules.js dj-server/avatarParts.js dj-server/package.json dj-server/package-lock.json root@199.127.61.235:/opt/faceland-dj/
 ssh root@199.127.61.235 "cd /opt/faceland-dj && npm ci --omit=dev --ignore-scripts && systemctl restart faceland-dj"
 ```
 

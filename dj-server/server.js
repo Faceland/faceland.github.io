@@ -22,6 +22,7 @@ const {
   nameProblem,
   rateLimitWait,
 } = require('./chatRules');
+const { FACES, EYES, HATS } = require('./avatarParts');
 
 // In production nginx connects over a Unix socket (SOCKET_PATH), so the
 // service needs no loopback networking at all. Otherwise it listens on
@@ -77,6 +78,7 @@ const MAX_DJS_PER_IP = 2;
 const MESSAGES_PER_SECOND = 20;
 const MOVE_INTERVAL_MS = 100;
 const NAME_INTERVAL_MS = 2000;
+const LOOK_INTERVAL_MS = 1000;
 const BROADCAST_INTERVAL_MS = 150;
 const MAX_BUFFERED_BYTES = 256 * 1024;
 // Outbound YouTube lookups: one at a time per person, a few a minute each,
@@ -96,6 +98,7 @@ const LIKE_INTERVAL_MS = 1000;
 // reports from players (duration, ended, errors) don't.
 const ACTIVE_ACTIONS = new Set([
   'setName',
+  'setLook',
   'chat',
   'move',
   'react',
@@ -107,15 +110,6 @@ const ACTIVE_ACTIONS = new Set([
   'voteSkip',
 ]);
 const MAX_CACHED_VIDEOS = 5000;
-
-// prettier-ignore
-const EMOJIS = [
-  '🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐨', '🐯', '🦁', '🐮',
-  '🐷', '🐸', '🐵', '🐔', '🐧', '🐤', '🦆', '🦉', '🐺', '🐗', '🐴', '🦄',
-  '🐝', '🐛', '🦋', '🐌', '🐞', '🐢', '🐍', '🦖', '🐙', '🦑', '🦀', '🐡',
-  '🐠', '🐬', '🐳', '🦈', '🐊', '🦒', '🦘', '🦔', '🐲', '👽', '🤖', '👻',
-  '🎃', '💀', '🤡', '🧙', '🧛', '🧟', '🍄', '🌵', '🍕', '🍩', '🌝', '🦩',
-];
 
 const VIDEO_ID = /^[\w-]{11}$/;
 
@@ -160,6 +154,8 @@ const clamp01 = (value) => Math.min(1, Math.max(0, Number(value) || 0));
 const position = (value) => Math.round(clamp01(value) * 1000) / 1000;
 
 const pick = (items) => items[Math.floor(Math.random() * items.length)];
+// An accessory from the list, or none.
+const part = (value, options) => (options.includes(value) ? value : null);
 
 const remember = (map, key, value) => {
   map.set(key, value);
@@ -217,10 +213,13 @@ function snapshot() {
   const tally = current && skipTally();
   return {
     t: 'state',
-    users: [...users.values()].map(({ id, name, emoji, x, y }) => ({
+    users: [...users.values()].map(({ id, name, emoji, eyes, hat, x, y }) => ({
       id,
       name,
       emoji,
+      // Only sent when worn.
+      ...(eyes && { eyes }),
+      ...(hat && { hat }),
       x,
       y,
     })),
@@ -670,13 +669,16 @@ function join(ws, msg) {
     // 2 = compact moves. Pages from before that send no version.
     protocol: Number(msg.v) || 1,
     name: (name && !nameProblem(name) && name) || 'Guest',
-    emoji: EMOJIS.includes(msg.emoji) ? msg.emoji : pick(EMOJIS),
+    emoji: FACES.includes(msg.emoji) ? msg.emoji : pick(FACES),
+    eyes: part(msg.eyes, EYES),
+    hat: part(msg.hat, HATS),
     // Somewhere in the middle of the floor until they choose a spot.
     x: position(0.15 + Math.random() * 0.7),
     y: position(0.3 + Math.random() * 0.5),
     list,
     lastMoveAt: 0,
     lastNameAt: 0,
+    lastLookAt: 0,
     addTimes: [],
     adding: false,
     chatTimes: [],
@@ -687,7 +689,14 @@ function join(ws, msg) {
   };
   ws.user = user;
   users.set(user.id, user);
-  send(ws, { t: 'welcome', id: user.id, name: user.name, emoji: user.emoji });
+  send(ws, {
+    t: 'welcome',
+    id: user.id,
+    name: user.name,
+    emoji: user.emoji,
+    eyes: user.eyes,
+    hat: user.hat,
+  });
   sendList(user);
   broadcastState();
 }
@@ -790,6 +799,26 @@ function handle(ws, msg) {
         send(ws, snapshot());
       } else if (name !== user.name) {
         user.name = name;
+        broadcastState();
+      }
+      break;
+    }
+
+    case 'setLook': {
+      // The editor only sends this on Done, so this rarely bites.
+      if (now - user.lastLookAt < LOOK_INTERVAL_MS) {
+        notify(user, 'Wait a moment before changing your look again.');
+        send(ws, snapshot());
+        break;
+      }
+      user.lastLookAt = now;
+      if (!FACES.includes(msg.emoji)) break;
+      const eyes = part(msg.eyes, EYES);
+      const hat = part(msg.hat, HATS);
+      if (msg.emoji !== user.emoji || eyes !== user.eyes || hat !== user.hat) {
+        user.emoji = msg.emoji;
+        user.eyes = eyes;
+        user.hat = hat;
         broadcastState();
       }
       break;
