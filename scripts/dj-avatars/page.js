@@ -185,14 +185,17 @@ function faceAnchor(glyph) {
   }
   tops.sort((a, b) => a - b);
   const top = tops.length ? tops[tops.length >> 1] : box.y;
-  return [
+  const anchor = [
     (mx - box.x) / box.w,
     (my - box.y) / box.h,
-    spacing / box.w,
+    Math.hypot(r.cx - l.cx, r.cy - l.cy) / box.w,
     ((left + right) / 2 - box.x) / box.w,
     (top - box.y) / box.h,
     (right - left) / box.w,
   ];
+  // Eyes at a clear slant (🤪, 🥴) tilt the eyewear to match.
+  const tilt = (Math.atan2(r.cy - l.cy, r.cx - l.cx) * 180) / Math.PI;
+  return Math.abs(tilt) >= 8 ? anchor.concat(Math.round(tilt)) : anchor;
 }
 
 // Glasses: the alpha-weighted centres of the left and right halves.
@@ -251,29 +254,35 @@ function hatAnchor(glyph) {
   return [(sx / n - box.x) / box.w, (row + 1) / box.h, 1];
 }
 
-// Looks drawn through the site's own drawLook, in a grid.
-function drawSheet(looks, glyphOf, faces, accessories, cols) {
-  const em = 64;
+// Looks drawn through the site's own drawLook, a labelled row each:
+// rows are [{ label, looks, glyphOf, faces, accessories }].
+function drawGrid(rows, em = 64) {
+  const label = 70;
   const cw = Math.round((1 + 2 * art.ART_SIDE) * em);
   const ch = Math.round((1 + art.ART_TOP + art.ART_BOTTOM) * em);
   const canvas = document.createElement('canvas');
-  canvas.width = cols * cw;
-  canvas.height = Math.ceil(looks.length / cols) * ch;
+  canvas.width = label + Math.max(...rows.map((row) => row.looks.length)) * cw;
+  canvas.height = rows.length * ch;
   const g = canvas.getContext('2d');
   g.fillStyle = '#2a2633';
   g.fillRect(0, 0, canvas.width, canvas.height);
-  looks.forEach((look, i) => {
-    const x = (i % cols) * cw;
-    const y = Math.floor(i / cols) * ch;
-    g.strokeStyle = 'rgba(255, 255, 255, 0.12)';
-    g.strokeRect(x + 0.5, y + 0.5, cw - 1, ch - 1);
-    g.save();
-    g.translate(x, y);
-    g.beginPath();
-    g.rect(0, 0, cw, ch);
-    g.clip();
-    art.drawLook(g, look, em, glyphOf, faces, accessories);
-    g.restore();
+  rows.forEach((row, r) => {
+    g.fillStyle = '#ffeb3b';
+    g.font = 'bold 14px sans-serif';
+    g.fillText(row.label, 8, r * ch + ch / 2);
+    row.looks.forEach((look, i) => {
+      const x = label + i * cw;
+      const y = r * ch;
+      g.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+      g.strokeRect(x + 0.5, y + 0.5, cw - 1, ch - 1);
+      g.save();
+      g.translate(x, y);
+      g.beginPath();
+      g.rect(0, 0, cw, ch);
+      g.clip();
+      art.drawLook(g, look, em, row.glyphOf, row.faces, row.accessories);
+      g.restore();
+    });
   });
   return canvas.toDataURL('image/png');
 }

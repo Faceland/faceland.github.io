@@ -30,9 +30,13 @@ export const ART_BOTTOM = 0.1;
 // Pixels per em in the image: sharp at the largest avatar on a 2x screen.
 const ART_PX = 128;
 
-// Eyes midpoint (x, y), eye spacing, hat point (x, y) and head width, for a
-// face with no anchors (a system we don't know).
+// Fallbacks for anything without anchors (avatarAnchors.js has the
+// formats): a typical round face, and an accessory centered and a unit wide.
 const DEFAULT_FACE = [0.5, 0.42, 0.34, 0.5, 0, 0.9];
+const DEFAULT_PLACEMENT = [0.5, 0.5, 1, 0, 0, 0];
+// Accessory layers (see avatarAnchors.js).
+const BEHIND = 1;
+const SPLIT = 2;
 // Glasses are at most this many head widths across.
 const MAX_GLASSES = 1.15;
 
@@ -184,12 +188,18 @@ export const emojiVendor = () => {
 
 // Draws `part` (a glyph) at `scale` image pixels per glyph pixel, with its
 // point (px, py) (fractions of its ink box) on (x, y), turned `tilt`
-// degrees about that point.
-const place = (g, part, [px, py], scale, x, y, tilt = 0) => {
+// degrees about that point; `aboveOnly` draws just what's above the point.
+const place = (g, part, [px, py], scale, x, y, tilt = 0, aboveOnly = false) => {
   const { canvas, box } = part;
   g.save();
   g.translate(x, y);
   if (tilt) g.rotate((tilt * Math.PI) / 180);
+  if (aboveOnly) {
+    const far = canvas.width * scale * 2;
+    g.beginPath();
+    g.rect(-far, -far, 2 * far, far);
+    g.clip();
+  }
   g.drawImage(
     canvas,
     -(box.x + px * box.w) * scale,
@@ -212,57 +222,73 @@ export const drawLook = (g, look, em, glyphOf, faces, accessories) => {
   const h = face.box.h * k;
   const x = (ART_SIDE + 0.5) * em - w / 2;
   const y = (ART_TOP + 0.5) * em - h / 2;
-  const [ex, ey, es, hx, hy, hw] = faces[look.emoji] || DEFAULT_FACE;
+  const [ex, ey, es, hx, hy, hw, eyeTilt = 0, headTilt = 0] =
+    faces[look.emoji] || DEFAULT_FACE;
+  const spacing = es * w;
+  const head = hw * w;
 
-  const hat = hatsByEmoji[look.hat];
-  const drawHat = () => {
-    const part = glyphOf(hat.emoji);
-    const head = hw * w;
-    const [ax, ay, width] = accessories[hat.emoji] || [0.5, 1, 1];
-    const scale = (hat.fit * head) / (width * part.box.w);
+  // Puts an accessory on the spot (sx, sy) by this system's placement for
+  // it: `unit` px per eye spacing or head width, the whole thing turned
+  // `turn` degrees with the face. `behindFace` says which pass this is
+  // (each accessory draws in its layer's: a split one in both). `side` -1
+  // mirrors its offset and tilt (a pair's left one); `max` caps its width.
+  const wear = (emoji, sx, sy, unit, turn, behindFace, side = 1, max = 1e9) => {
+    const part = glyphOf(emoji);
+    const [px, py, size, dx, dy, tilt, layer = 0] =
+      accessories[emoji] || DEFAULT_PLACEMENT;
+    if (behindFace ? !layer : layer === BEHIND) return;
+    const r = (turn * Math.PI) / 180;
+    const ox = side * dx * unit;
+    const oy = dy * unit;
     place(
       g,
       part,
-      [ax, ay],
-      scale,
-      x + hx * w + (hat.dx || 0) * head,
-      y + hy * h + hat.sink * head,
-      hat.tilt,
+      [px, py],
+      Math.min(size * unit, max) / part.box.w,
+      sx + ox * Math.cos(r) - oy * Math.sin(r),
+      sy + ox * Math.sin(r) + oy * Math.cos(r),
+      turn + side * tilt,
+      !behindFace && layer === SPLIT,
     );
   };
-  // Headphones go behind the head, so only the band and the cups' outer
-  // edges show.
-  if (hat && hat.behind) drawHat();
-  place(g, face, [0, 0], k, x, y);
 
+  const hat = hatsByEmoji[look.hat];
+  const drawHat = (behindFace) =>
+    hat && wear(hat.emoji, x + hx * w, y + hy * h, head, headTilt, behindFace);
   const eyes = eyesByEmoji[look.eyes];
-  if (eyes) {
-    const part = glyphOf(eyes.emoji);
-    const spacing = es * w;
+  const drawEyes = (behindFace) => {
+    if (!eyes) return;
+    const mx = x + ex * w;
+    const my = y + ey * h;
     if (eyes.kind === 'pair') {
-      const scale = (eyes.size * spacing) / Math.max(part.box.w, part.box.h);
-      [-0.5, 0.5].forEach((side) =>
-        place(
-          g,
-          part,
-          [0.5, 0.5],
-          scale,
-          x + ex * w + side * spacing,
-          y + ey * h,
+      // One on each eye, along the (maybe slanted) eye line.
+      const r = (eyeTilt * Math.PI) / 180;
+      [-1, 1].forEach((side) =>
+        wear(
+          eyes.emoji,
+          mx + (side * spacing * Math.cos(r)) / 2,
+          my + (side * spacing * Math.sin(r)) / 2,
+          spacing,
+          eyeTilt,
+          behindFace,
+          side,
         ),
       );
     } else {
-      const [ax, ay, lenses] = accessories[eyes.emoji] || [0.5, 0.5, 0.5];
-      // Lenses on the eyes, but never much wider than the head (wide-set
-      // eyes, like a frog's, would otherwise get enormous glasses).
-      const scale = Math.min(
-        (eyes.fit * spacing) / (lenses * part.box.w),
-        (MAX_GLASSES * hw * w) / part.box.w,
-      );
-      place(g, part, [ax, ay], scale, x + ex * w, y + ey * h);
+      // Never much wider than the head: wide-set eyes, like a frog's, would
+      // otherwise get enormous glasses.
+      const max = MAX_GLASSES * head;
+      wear(eyes.emoji, mx, my, spacing, eyeTilt, behindFace, 1, max);
     }
-  }
-  if (hat && !hat.behind) drawHat();
+  };
+
+  // Whatever's worn behind the face (headphones, so only the band and the
+  // cups' edges show), the face, then everything in front of it.
+  drawHat(true);
+  drawEyes(true);
+  place(g, face, [0, 0], k, x, y);
+  drawEyes(false);
+  drawHat(false);
 };
 
 const images = new Map();

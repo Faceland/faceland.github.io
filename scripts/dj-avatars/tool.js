@@ -1,11 +1,13 @@
 // Avatar anchor tool for the DJ room: measures where eyes and hats go on
 // each system's emoji and writes src/pages/DJ/avatarAnchors.js. See
 // README.md. Usage: node scripts/dj-avatars/tool.js <step>...
-//   fetch     download every system's art for the faces and accessories
-//   measure   detect anchors and signatures on it        -> work/auto.json
-//   build     auto.json + overrides.json                 -> avatarAnchors.js
-//   sheets    review sheets drawn by the site's own code -> work/sheets/
-//   annotate=win11:🐮,apple:🎃   zoomed, gridded glyphs  -> work/sheets/
+//   fetch     download each system's art for faces and accessories (new ones)
+//   measure   detect anchors and signatures on it           -> work/auto.json
+//   build     auto.json + tuning.json                       -> avatarAnchors.js
+//   sheets    review sheets drawn by the site's own code    -> work/sheets/
+//             (sheets=faces or sheets=🎩,👓 for just some; samples=🌵,🐞
+//             to review on other faces, em=128 to zoom in)
+//   annotate=win11:🐮,apple:🎃   zoomed, gridded glyphs     -> work/sheets/
 const fs = require('fs');
 const path = require('path');
 const puppeteer = require('puppeteer');
@@ -13,7 +15,7 @@ const puppeteer = require('puppeteer');
 const ROOT = path.join(__dirname, '..', '..');
 const DJ = path.join(ROOT, 'src', 'pages', 'DJ');
 const WORK = path.join(__dirname, 'work');
-const OVERRIDES = path.join(__dirname, 'overrides.json');
+const TUNING = path.join(__dirname, 'tuning.json');
 
 // System -> Emojipedia's name for it. Windows 10 has no current set there:
 // it's drawn from this machine's Segoe UI Emoji, so measure on Windows 10.
@@ -33,6 +35,21 @@ const PROBES = {
   '🐶': 'Dog face/Color/dog_face_color.svg',
   '🧑': 'Person/Default/Color/person_color_default.svg',
 };
+// The faces every accessory is reviewed on.
+const SAMPLE_FACES = [
+  '😀',
+  '😜',
+  '💩',
+  '🐶',
+  '🐸',
+  '🐰',
+  '🧑',
+  '👩',
+  '💁',
+  '🐞',
+  '🐌',
+  '🌵',
+];
 
 // The site's ES modules as plain scripts.
 const asScript = (file) =>
@@ -45,11 +62,8 @@ const asScript = (file) =>
 const parts = new Function(
   `${asScript(path.join(DJ, 'avatarParts.js'))}; return { FACES, EYES, HATS };`,
 )();
-const ALL = [
-  ...parts.FACES,
-  ...parts.EYES.map((part) => part.emoji),
-  ...parts.HATS.map((part) => part.emoji),
-];
+const ACCESSORIES = [...parts.EYES, ...parts.HATS];
+const ALL = [...parts.FACES, ...ACCESSORIES.map((part) => part.emoji)];
 
 const codepoints = (emoji) =>
   [...emoji].map((c) => c.codePointAt(0).toString(16)).join('-');
@@ -64,11 +78,13 @@ const save = (file, dataUrl) => {
 async function fetchRefs() {
   const headers = { 'User-Agent': 'Mozilla/5.0 (faceland avatar anchor tool)' };
   for (const emoji of ALL) {
+    const have = Object.entries(SYSTEMS).every(
+      ([system, vendor]) => !vendor || fs.existsSync(refFile(system, emoji)),
+    );
+    if (have) continue;
     const res = await fetch(
       `https://emojipedia.org/${encodeURIComponent(emoji)}`,
-      {
-        headers,
-      },
+      { headers },
     );
     const html = await res.text();
     const latest = {};
@@ -98,10 +114,11 @@ async function fetchRefs() {
     await sleep(300);
   }
   for (const [emoji, file] of Object.entries(PROBES)) {
+    const out = refFile('win11color', emoji, 'svg');
+    if (fs.existsSync(out)) continue;
     const res = await fetch(
       `https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/${encodeURI(file)}`,
     );
-    const out = refFile('win11color', emoji, 'svg');
     fs.mkdirSync(path.dirname(out), { recursive: true });
     fs.writeFileSync(out, await res.text());
   }
@@ -199,46 +216,76 @@ async function measure() {
     path.join(WORK, 'auto.json'),
     JSON.stringify(result, null, 1),
   );
+  const tuning = JSON.parse(fs.readFileSync(TUNING, 'utf8'));
+  // Detections that can't be right (ear tips or a pattern taken for eyes,
+  // a head with no width) are as bad as none.
+  const implausible = ([, ey, spacing, , hy, width]) =>
+    ey < 0.12 || ey <= hy || spacing > 0.6 || width < 0.15;
   for (const [system, faces] of Object.entries(result.faces)) {
-    const missed = Object.keys(faces).filter((emoji) => !faces[emoji]);
-    if (missed.length)
+    const untuned = Object.keys(faces).filter(
+      (emoji) => !(tuning.faces[system] || {})[emoji],
+    );
+    const missed = untuned.filter((emoji) => !faces[emoji]);
+    const odd = untuned.filter(
+      (emoji) => faces[emoji] && implausible(faces[emoji]),
+    );
+    if (missed.length) {
       console.log(`${system}: no eyes found on ${missed.join(' ')}`);
+    }
+    if (odd.length) {
+      console.log(`${system}: implausible anchors on ${odd.join(' ')}`);
+    }
   }
+}
+
+const LAYERS = ['front', 'behind', 'split'];
+
+// One accessory's placement on one system, [x, y, size, dx, dy, tilt,
+// layer] (see avatarAnchors.js): measured where the tool can, then the
+// "default" tuning, then the system's own. A glasses `fit` (lens spacing in
+// eye spacings) becomes a size through the measured lens spacing.
+function placement(part, system, measured, tuning) {
+  const p = { x: 0.5, y: 0.5, size: 1, dx: 0, dy: 0, tilt: 0, layer: 'front' };
+  if (measured) [p.x, p.y] = measured;
+  for (const source of ['default', system]) {
+    const tuned = (tuning.accessories[source] || {})[part.emoji] || {};
+    if (tuned.fit !== undefined) p.size = tuned.fit / measured[2];
+    for (const key of Object.keys(p)) {
+      if (tuned[key] !== undefined) p[key] = tuned[key];
+    }
+  }
+  const layer = LAYERS.indexOf(p.layer);
+  if (layer < 0) throw new Error(`${part.emoji}: unknown layer ${p.layer}`);
+  const values = [p.x, p.y, p.size, p.dx, p.dy, p.tilt];
+  return layer ? values.concat(layer) : values;
 }
 
 function build() {
   const auto = JSON.parse(
     fs.readFileSync(path.join(WORK, 'auto.json'), 'utf8'),
   );
-  const overrides = JSON.parse(fs.readFileSync(OVERRIDES, 'utf8'));
+  const tuning = JSON.parse(fs.readFileSync(TUNING, 'utf8'));
   const round = (values) => values.map((v) => Math.round(v * 1000) / 1000);
-  const pick = (kind, system, emoji) =>
-    (overrides[kind][system] || {})[emoji] || auto[kind][system][emoji];
   const missing = [];
-  const table = (kind, emojis) =>
-    Object.fromEntries(
-      Object.keys(SYSTEMS).map((system) => [
-        system,
-        Object.fromEntries(
-          emojis.flatMap((emoji) => {
-            const anchor = pick(kind, system, emoji);
-            if (!anchor) missing.push(`${system} ${emoji}`);
-            return anchor ? [[emoji, round(anchor)]] : [];
-          }),
-        ),
-      ]),
-    );
-  const faces = table('faces', parts.FACES);
-  const accessories = table('accessories', [
-    ...parts.EYES.filter((part) => part.kind === 'glasses').map(
-      (part) => part.emoji,
-    ),
-    ...parts.HATS.map((part) => part.emoji),
-  ]);
+  const faces = {};
+  const accessories = {};
+  for (const system of Object.keys(SYSTEMS)) {
+    faces[system] = {};
+    for (const emoji of parts.FACES) {
+      const anchor =
+        (tuning.faces[system] || {})[emoji] || auto.faces[system][emoji];
+      if (anchor) faces[system][emoji] = round(anchor);
+      else missing.push(`${system} ${emoji}`);
+    }
+    accessories[system] = {};
+    for (const part of ACCESSORIES) {
+      accessories[system][part.emoji] = round(
+        placement(part, system, auto.accessories[system][part.emoji], tuning),
+      );
+    }
+  }
   if (missing.length) {
-    console.log(
-      `No anchors (add them to overrides.json): ${missing.join(', ')}`,
-    );
+    console.log(`No anchors (add them to tuning.json): ${missing.join(', ')}`);
   }
   const signatures = Object.fromEntries(
     Object.keys(SYSTEMS).map((system) => [
@@ -257,24 +304,31 @@ function build() {
             .join('\n')}\n  },`,
       )
       .join('\n');
-  const source = `// Generated by scripts/dj-avatars/tool.js: put fixes in
-// scripts/dj-avatars/overrides.json and rebuild rather than editing here.
+  const source = `// Generated by scripts/dj-avatars/tool.js: tune in
+// scripts/dj-avatars/tuning.json and rebuild rather than editing here.
 //
-// Where accessories go on each system's emoji, as fractions of the glyph's
-// ink box (0,0 its top left, 1,1 its bottom right; spacings and widths are
-// fractions of its width). Keyed by emoji font: Apple (iOS, macOS), Google
-// (Android, ChromeOS, Linux), Samsung, Windows 11, Windows 10 and Twemoji
-// (Firefox on some systems).
+// Where accessories go on each system's emoji, and how big. Points are
+// fractions of a glyph's ink box (0,0 its top left, 1,1 its bottom right).
+// Keyed by emoji font: Apple (iOS, macOS), Google (Android, ChromeOS,
+// Linux), Samsung, Windows 11, Windows 10 and Twemoji (Firefox on some
+// systems).
 
-// Faces: [eyes x, eyes y, eye spacing, hat x, hat y, head width]; the eyes
-// point is the midpoint between the eyes, the hat point the top of the
-// head above it.
+// Faces: [eyes x, eyes y, eye spacing, hat x, hat y, head width, eye tilt,
+// head tilt]. The eyes point is midway between the eyes, the hat point the
+// top of the head; spacing and width are fractions of the ink box's width;
+// the tilts (degrees, clockwise, only when not 0) turn whatever's worn there.
 export const FACE_ANCHORS = {
 ${rows(faces)}
 };
 
-// Glasses: [lenses' midpoint x, y, lens spacing]. Hats: [x, y, width]: the
-// point that sits on the hat point, and the width that's sized to the head.
+// Accessories: [x, y, size, dx, dy, tilt, layer]. Point (x, y) of the
+// accessory goes on the face's eyes point (eyes; a pair on each eye) or hat
+// point (hats), moved by (dx, dy), and it's \`size\` wide. Eyes measure all
+// three in eye spacings, hats in head widths. \`tilt\` turns it (degrees,
+// clockwise; a pair's left one turns and moves the mirror way). \`layer\`,
+// only when not 0: 1 draws it behind the face; 2 behind the face with the
+// part above (x, y) again in front (a helmet's dome over the head, its
+// chin strap behind the face).
 export const ACCESSORY_ANCHORS = {
 ${rows(accessories)}
 };
@@ -299,47 +353,55 @@ ${Object.entries(signatures)
   console.log('Wrote src/pages/DJ/avatarAnchors.js');
 }
 
-// Per system: every face in glasses and a hat, and a few faces in every
-// accessory.
-async function sheets() {
+// faces-<system>.png: every face in glasses and a hat. <accessory>.png: one
+// accessory on the sample faces, a row per system, to compare and tune.
+async function sheets(only, samples, em) {
   const anchors = asScript(path.join(DJ, 'avatarAnchors.js'));
+  const wanted = only
+    ? ACCESSORIES.filter((part) => only.includes(part.emoji))
+    : ACCESSORIES;
   const result = await inBrowser(
-    async (urls, systems, anchors) => {
+    async (urls, systems, anchors, wanted, samples, withFaces, em) => {
       // eslint-disable-next-line no-new-func
       const { FACE_ANCHORS, ACCESSORY_ANCHORS } = new Function(
         `${anchors}; return { FACE_ANCHORS, ACCESSORY_ANCHORS };`,
       )();
-      const samples = ['😀', '😜', '🐶', '🐸', '🧑', '👩', '💁', '🐰'];
       const out = {};
+      const glyphSets = {};
       for (const system of systems) {
-        const glyphOf = await loadGlyphs(urls[system]);
-        const draw = (looks, cols) =>
-          drawSheet(
-            looks,
-            glyphOf,
-            FACE_ANCHORS[system],
-            ACCESSORY_ANCHORS[system],
-            cols,
-          );
-        out[`${system}-faces`] = draw(
-          parts.FACES.map((emoji, i) => ({
+        glyphSets[system] = await loadGlyphs(urls[system]);
+      }
+      const row = (system, looks, label = system) => ({
+        label,
+        looks,
+        glyphOf: glyphSets[system],
+        faces: FACE_ANCHORS[system],
+        accessories: ACCESSORY_ANCHORS[system],
+      });
+      if (withFaces) {
+        for (const system of systems) {
+          const looks = parts.FACES.map((emoji, i) => ({
             emoji,
             eyes: i % 2 ? '👓' : '🕶️',
             hat: i % 2 ? '👑' : '🎩',
-          })),
-          10,
-        );
-        out[`${system}-eyes`] = draw(
-          samples.flatMap((emoji) =>
-            parts.EYES.map((part) => ({ emoji, eyes: part.emoji })),
+          }));
+          const rows = [];
+          for (let i = 0; i < looks.length; i += 12) {
+            rows.push(row(system, looks.slice(i, i + 12), i ? '' : system));
+          }
+          out[`faces-${system}`] = drawGrid(rows, em);
+        }
+      }
+      for (const { emoji, kind } of wanted) {
+        const slot = kind ? 'eyes' : 'hat';
+        out[emoji] = drawGrid(
+          systems.map((system) =>
+            row(
+              system,
+              samples.map((face) => ({ emoji: face, [slot]: emoji })),
+            ),
           ),
-          parts.EYES.length,
-        );
-        out[`${system}-hats`] = draw(
-          samples.flatMap((emoji) =>
-            parts.HATS.map((part) => ({ emoji, hat: part.emoji })),
-          ),
-          parts.HATS.length,
+          em,
         );
       }
       return out;
@@ -347,11 +409,16 @@ async function sheets() {
     refUrls(),
     Object.keys(SYSTEMS),
     anchors,
+    wanted,
+    samples,
+    !only || only.includes('faces'),
+    em,
   );
   for (const [name, url] of Object.entries(result)) {
-    save(path.join(WORK, 'sheets', `${name}.png`), url);
+    const file = name.startsWith('faces-') ? name : codepoints(name);
+    save(path.join(WORK, 'sheets', `${file}.png`), url);
   }
-  console.log('Wrote work/sheets/');
+  console.log(`Wrote ${Object.keys(result).length} sheets to work/sheets/`);
 }
 
 async function annotate(items) {
@@ -372,13 +439,25 @@ async function annotate(items) {
 
 (async () => {
   const steps = process.argv.slice(2);
-  if (!steps.length)
+  if (!steps.length) {
     console.log('Steps: fetch measure build sheets annotate=system:emoji,...');
+  }
   fs.mkdirSync(WORK, { recursive: true });
   if (steps.includes('fetch')) await fetchRefs();
   if (steps.includes('measure')) await measure();
   if (steps.includes('build')) build();
-  if (steps.includes('sheets')) await sheets();
+  const sheet = steps.find((step) => /^sheets(=|$)/.test(step));
+  const option = (name) => {
+    const found = steps.find((step) => step.startsWith(`${name}=`));
+    return found && found.slice(name.length + 1);
+  };
+  if (sheet) {
+    await sheets(
+      sheet.includes('=') ? sheet.slice(7).split(',') : null,
+      option('samples') ? option('samples').split(',') : SAMPLE_FACES,
+      Number(option('em')) || 64,
+    );
+  }
   const marked = steps.find((step) => step.startsWith('annotate='));
   if (marked) {
     await annotate(
