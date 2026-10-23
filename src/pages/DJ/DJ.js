@@ -399,7 +399,7 @@ const NameField = ({ name, onCommit }) => {
     if (next !== name) onCommit(next);
   };
   return (
-    <div className="djPanel__name">
+    <div className="djAccount__name">
       <input
         className="djInput"
         aria-label="Your name"
@@ -494,7 +494,7 @@ const DJChat = ({
   };
 
   return (
-    <aside className="djChat" aria-label="Chat">
+    <aside className="djCard djChat" aria-label="Chat">
       <CardHead title="Chat" onMinimize={onMinimize} />
       <ol
         ref={logRef}
@@ -599,63 +599,95 @@ const useLockedUntil = (until) => {
   return remaining > 0;
 };
 
-const DJControls = ({ me, room, list, actions }) => {
-  const { current, djQueue } = room;
-  const place = djQueue.indexOf(me.id);
-  const onDecks = !!(current && current.djId === me.id);
+// How many of the people up next the queue lists by name.
+const QUEUE_SHOWN = 3;
+
+// Left of the DJ in the booth: who's up next (the next three, plus you,
+// numbered by your place, if you're further back), how many more are
+// waiting, and your Join / Leave DJ Queue (and, on the decks, Skip Turn).
+const DJQueue = ({ me, room, list, actions }) => {
+  const { current, djQueue, users } = room;
+  const byId = Object.fromEntries(users.map((user) => [user.id, user]));
+  const onDecks = !!(me && current && current.djId === me.id);
+  const inQueue = !!(me && djQueue.includes(me.id));
   // Skipping or leaving starts a new video for everyone, so (like a vote
   // skip) the server only allows it 10s into your song; dimmed until then.
   const locked = useLockedUntil(onDecks ? current.unlockPerf : 0);
+  const lockedTitle = locked ? 'Available 10 seconds into your song' : '';
 
-  if (onDecks) {
-    const lockedTitle = locked ? 'Available 10 seconds into your song' : '';
-    return (
-      <div className="djControls">
-        <p>You&apos;re on the decks! 🎧</p>
-        <div className="djControls__row">
+  // While a song plays its DJ is djQueue[0] (and already in the booth).
+  const upNext = (current ? djQueue.slice(1) : djQueue).filter(
+    (id) => byId[id],
+  );
+  const shown = upNext
+    .slice(0, QUEUE_SHOWN)
+    .map((id, index) => ({ id, place: index + 1 }));
+  const myPlace = me ? upNext.indexOf(me.id) : -1;
+  if (myPlace >= QUEUE_SHOWN) shown.push({ id: me.id, place: myPlace + 1 });
+  const others = upNext.length - shown.length;
+
+  const leave = (
+    <button
+      className="djButton djButton--danger"
+      onClick={() => actions.setDJ(false)}
+      disabled={!me || (onDecks && locked)}
+      title={onDecks ? lockedTitle : ''}
+    >
+      Leave DJ Queue
+    </button>
+  );
+
+  return (
+    <section className="djQueueBox" aria-label="DJ queue">
+      <h2>DJ queue</h2>
+      {shown.length ? (
+        <ol className="djQueue">
+          {shown.map(({ id, place }) => (
+            <li
+              key={id}
+              className={me && id === me.id ? 'djQueue--self' : undefined}
+            >
+              <span className="djQueue__place">{place}</span>
+              <span className="djQueue__emoji">{byId[id].emoji}</span>
+              <span className="djQueue__name">{byId[id].name}</span>
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <p className="djHint">
+          {current ? 'Nobody up next.' : 'Nobody yet. Be the first!'}
+        </p>
+      )}
+      {others > 0 && (
+        <p className="djQueue__others">
+          ...and {others} {others === 1 ? 'other' : 'others'}!
+        </p>
+      )}
+      <div className="djQueue__buttons">
+        {onDecks && (
           <button
             className="djButton"
             onClick={actions.skip}
             disabled={locked}
             title={lockedTitle}
           >
-            Skip song
+            Skip Turn
           </button>
+        )}
+        {inQueue ? (
+          leave
+        ) : (
           <button
-            className="djButton"
-            onClick={() => actions.setDJ(false)}
-            disabled={locked}
-            title={lockedTitle}
+            className="djButton djButton--primary"
+            onClick={() => actions.setDJ(true)}
+            disabled={!me || !list.length}
+            title={me && !list.length ? 'Add a song to your list first' : ''}
           >
-            Leave booth
+            Join DJ Queue
           </button>
-        </div>
+        )}
       </div>
-    );
-  }
-  if (place >= 0) {
-    return (
-      <div className="djControls">
-        <p>
-          You&apos;re up after {place} {place === 1 ? 'song' : 'songs'}.
-        </p>
-        <button className="djButton" onClick={() => actions.setDJ(false)}>
-          Leave the queue
-        </button>
-      </div>
-    );
-  }
-  return (
-    <div className="djControls">
-      <button
-        className="djButton djButton--primary"
-        onClick={() => actions.setDJ(true)}
-        disabled={!list.length}
-      >
-        Start DJing
-      </button>
-      {!list.length && <p className="djHint">Add a song to your list first.</p>}
-    </div>
+    </section>
   );
 };
 
@@ -675,7 +707,8 @@ const lookOf = (user) => ({
 });
 
 // Pick a face, eyes and a hat, previewed as you go; Done sends it to the
-// room. Shown in the panel in place of everything else while open.
+// room. Opens in your name card, which takes over your list's space while
+// it's open; just the options scroll.
 const LookEditor = ({ look, onDone, onCancel }) => {
   const [draft, setDraft] = useState(look);
   const [tab, setTab] = useState('emoji');
@@ -696,7 +729,7 @@ const LookEditor = ({ look, onDone, onCancel }) => {
   );
 
   return (
-    <section className="djPanel__section djLook" aria-label="Your look">
+    <section className="djLook" aria-label="Your look">
       <div className="djLook__preview">
         <AvatarArt look={draft} className="djArt--fit" />
       </div>
@@ -715,7 +748,11 @@ const LookEditor = ({ look, onDone, onCancel }) => {
           </button>
         ))}
       </div>
-      <div className="djLook__grid" role="tabpanel" aria-label={shown.label}>
+      <div
+        className="djLook__grid djScroll"
+        role="tabpanel"
+        aria-label={shown.label}
+      >
         {shown.optional && option(null, 'None', 'None')}
         {shown.options.map((entry) => option(entry.emoji, entry.name))}
       </div>
@@ -754,44 +791,41 @@ const OUTCOME_WARNINGS = {
   failed: 'This song failed to play last time!',
 };
 
-// On desktop the panel has no title; as a mobile pop-out it gets one, with
-// the minimize button.
+// Your name and look on one card, your song list on another below it (on
+// desktop, and stacked the same way in the mobile pop-out, where the first
+// card gets the title and minimize button). Only the list scrolls; while the
+// look editor is open it takes the list's space instead.
 const Panel = ({ me, room, list, outcomes, adding, actions, onMinimize }) => {
   const [editing, setEditing] = useState(false);
-  const head = onMinimize && <CardHead title="You" onMinimize={onMinimize} />;
-  if (!me) {
-    return (
-      <aside className="djPanel">
-        {head}
-        <div className="djPanel__scroll djScroll">
-          <p className="djHint">Reconnecting&hellip;</p>
-        </div>
-      </aside>
-    );
-  }
-  const byId = Object.fromEntries(room.users.map((user) => [user.id, user]));
-  const self = byId[me.id] || me;
+  const self = me && (room.users.find((user) => user.id === me.id) || me);
 
   return (
-    // The card itself doesn't scroll (its glow never repaints); this does.
-    <aside className="djPanel">
-      {head}
-      <div className="djPanel__scroll djScroll">
-        <section className="djPanel__section djPanel__me">
-          <button
-            className={`djPanel__look${editing ? ' djPanel__look--on' : ''}`}
-            onClick={() => setEditing(!editing)}
-            disabled={!self.emoji}
-            aria-expanded={editing}
-            aria-label="Change your look"
-            title="Change your look"
-          >
-            {self.emoji && <AvatarArt look={self} className="djArt--fit" />}
-          </button>
-          <NameField name={self.name} onCommit={actions.setName} />
-        </section>
-
-        {editing && (
+    <div className="djSide">
+      <aside
+        className={`djCard djAccount${editing ? ' djAccount--editing' : ''}`}
+        aria-label="You"
+      >
+        {onMinimize && <CardHead title="You" onMinimize={onMinimize} />}
+        {self ? (
+          <div className="djAccount__me">
+            <button
+              className={`djAccount__look${
+                editing ? ' djAccount__look--on' : ''
+              }`}
+              onClick={() => setEditing(!editing)}
+              disabled={!self.emoji}
+              aria-expanded={editing}
+              aria-label="Change your look"
+              title="Change your look"
+            >
+              {self.emoji && <AvatarArt look={self} className="djArt--fit" />}
+            </button>
+            <NameField name={self.name} onCommit={actions.setName} />
+          </div>
+        ) : (
+          <p className="djHint djAccount__me">Reconnecting&hellip;</p>
+        )}
+        {self && editing && (
           <LookEditor
             look={lookOf(self)}
             onCancel={() => setEditing(false)}
@@ -803,33 +837,16 @@ const Panel = ({ me, room, list, outcomes, adding, actions, onMinimize }) => {
             }}
           />
         )}
+      </aside>
 
-        <section className="djPanel__section" hidden={editing}>
-          <DJControls me={me} room={room} list={list} actions={actions} />
-        </section>
-
-        <section className="djPanel__section" hidden={editing}>
-          <h2>DJ queue</h2>
-          {room.djQueue.length ? (
-            <ol className="djQueue">
-              {room.djQueue.map((id, index) => {
-                const user = byId[id];
-                if (!user) return null;
-                const onDecks = index === 0 && room.current;
-                return (
-                  <li key={id} className={id === me.id ? 'djQueue--self' : ''}>
-                    <span>{user.emoji}</span> {user.name}
-                    {onDecks && <span className="djQueue__now">🎧 now</span>}
-                  </li>
-                );
-              })}
-            </ol>
-          ) : (
-            <p className="djHint">Nobody yet. Be the first!</p>
-          )}
-        </section>
-
-        <section className="djPanel__section djPanel__list" hidden={editing}>
+      {/* The card doesn't scroll (its glow never repaints); its inside does.
+          Hidden rather than unmounted, so a half-pasted link survives. */}
+      <aside
+        className="djCard djPlaylist"
+        aria-label="Your list"
+        hidden={editing}
+      >
+        <div className="djPlaylist__scroll djScroll">
           <h2>Your list</h2>
           <AddTrackForm adding={adding} onAdd={actions.addTrack} />
           {list.length ? (
@@ -879,13 +896,13 @@ const Panel = ({ me, room, list, outcomes, adding, actions, onMinimize }) => {
             </ol>
           ) : (
             <p className="djHint">
-              Your top song plays when it&apos;s your turn, then moves to the
-              bottom.
+              Add a song to join the DJ queue. Your top song plays when
+              it&apos;s your turn, then moves to the bottom.
             </p>
           )}
-        </section>
-      </div>
-    </aside>
+        </div>
+      </aside>
+    </div>
   );
 };
 
@@ -1020,7 +1037,7 @@ const MobileSheets = ({
           <button
             className="djBubble"
             onClick={() => setOpen('panel')}
-            aria-label="Open your name, DJ controls and song list"
+            aria-label="Open your name, look and song list"
           >
             {self ? (
               <AvatarArt look={self} className="djArt--fit" />
@@ -1136,21 +1153,26 @@ export const DJ = () => {
         <section ref={stageRef} className="djStage" aria-label="DJ room">
           <NowPlayingTitle current={current} />
           <div className="djBooth">
-            <div className="djBooth__dj">
-              {dj && (
-                <>
-                  <span className="djBooth__djBody">
-                    {/* Confetti flies up and left, away from the video. */}
-                    <ReactiveAvatar
-                      look={dj}
-                      reaction={reactions[dj.id]}
-                      className="djBooth__djEmoji"
-                      burst={{ fromAngle: 95, toAngle: 175 }}
-                    />
-                  </span>
-                  <span className="djBooth__djName">🎧 {dj.name}</span>
-                </>
+            <div className="djBooth__side">
+              {entered && (
+                <DJQueue me={me} room={room} list={list} actions={actions} />
               )}
+              <div className="djBooth__dj">
+                {dj && (
+                  <>
+                    <span className="djBooth__djBody">
+                      {/* Confetti flies up and left, away from the video. */}
+                      <ReactiveAvatar
+                        look={dj}
+                        reaction={reactions[dj.id]}
+                        className="djBooth__djEmoji"
+                        burst={{ fromAngle: 95, toAngle: 175 }}
+                      />
+                    </span>
+                    <span className="djBooth__djName">🎧 {dj.name}</span>
+                  </>
+                )}
+              </div>
             </div>
             <DJScreen
               current={current}

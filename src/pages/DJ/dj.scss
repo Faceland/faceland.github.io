@@ -55,7 +55,7 @@ $dj-glow: #8f5cff;
     margin: var(--dj-gap) 0 var(--dj-gap) var(--dj-gap);
   }
 
-  .djPanel {
+  .djSide {
     grid-column: 3;
     grid-row: 1;
     margin: var(--dj-gap) var(--dj-gap) var(--dj-gap) 0;
@@ -99,9 +99,10 @@ $dj-glow: #8f5cff;
 
 // --- Booth -------------------------------------------------------------------
 
-// DJ | screen | controls. The equal outer columns keep the screen centred
-// whatever is beside it, and never shrink below their content, so nothing
-// can slide over the screen: YouTube's terms forbid drawing over the player.
+// Queue + DJ | screen | controls. The equal outer columns keep the screen
+// centred whatever is beside it, and never shrink below their content, so
+// nothing can slide over the screen: YouTube's terms forbid drawing over the
+// player.
 .djBooth {
   flex: none;
   display: grid;
@@ -188,14 +189,102 @@ $dj-glow: #8f5cff;
   }
 }
 
-.djBooth__dj {
+// The DJ queue, then the DJ (a fixed width, so the queue doesn't jump when
+// a song starts or stops).
+.djBooth__side {
   justify-self: end;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.djBooth__dj {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 160px;
-  margin-right: 24px;
+  width: 96px;
   text-align: center;
+}
+
+.djQueueBox {
+  box-sizing: border-box;
+  width: 150px;
+  margin-right: 12px;
+  text-align: left;
+
+  h2 {
+    margin: 0 0 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $dj-muted;
+  }
+
+  .djHint {
+    margin: 0 0 4px;
+  }
+}
+
+.djQueue {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    padding: 2px 0;
+    font-size: 13px;
+  }
+}
+
+.djQueue__place {
+  flex: none;
+  width: 16px;
+  color: $dj-muted;
+  font-size: 12px;
+}
+
+.djQueue__emoji {
+  flex: none;
+  margin-right: 5px;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.djQueue__name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.djQueue--self {
+  color: $dj-accent;
+  font-weight: 700;
+}
+
+.djQueue__others {
+  margin: 2px 0 0 16px;
+  font-size: 12px;
+  color: $dj-muted;
+}
+
+.djQueue__buttons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+
+  .djButton {
+    padding: 7px 10px;
+    font-size: 13px;
+  }
+
+  .djButton + .djButton {
+    margin-top: 6px;
+  }
 }
 
 .djBooth__djBody {
@@ -936,6 +1025,15 @@ img.djArt--fit {
   }
 }
 
+.djButton--danger {
+  background: #c94545;
+  color: #fff;
+
+  &:hover:not(:disabled) {
+    background: #df5a5a;
+  }
+}
+
 .djIconButton {
   flex: none;
   width: 26px;
@@ -1010,8 +1108,7 @@ img.djArt--fit {
 // animated, no blur filters or backdrop effects), so it's painted once, and
 // the scrolling happens in an inner element, which doesn't repaint it.
 // `contain: paint` keeps any repaint inside a card from spreading outside it.
-.djChat,
-.djPanel {
+.djCard {
   box-sizing: border-box;
   z-index: 1;
   display: flex;
@@ -1024,10 +1121,13 @@ img.djArt--fit {
   overflow: hidden;
   contain: paint;
   text-align: left;
+
+  &[hidden] {
+    display: none;
+  }
 }
 
-.djPanel h2,
-.djChat h2 {
+.djCard h2 {
   margin: 0 0 8px;
   font-size: 12px;
   font-weight: 700;
@@ -1118,33 +1218,37 @@ img.djArt--fit {
   margin: -4px 14px 12px;
 }
 
-.djPanel {
+// The right-hand column: your name card, then your song list filling the
+// rest (or, while the look editor is open, the name card filling it all).
+.djSide {
   grid-area: panel;
-}
-
-// Inset from the card's top, right and bottom edges, so its scrollbar is too.
-.djPanel__scroll {
-  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
   min-height: 0;
-  margin: 4px 4px 4px 0;
-  padding: 0 8px 10px 14px;
 }
 
-.djPanel__section {
-  padding: 16px 0;
-  border-bottom: 1px solid $dj-line;
-
-  &:last-child {
-    border-bottom: 0;
-  }
+.djAccount {
+  flex: none;
 }
 
-.djPanel__me {
+.djAccount--editing {
+  flex: 1 1 auto;
+}
+
+.djPlaylist {
+  flex: 1 1 auto;
+  margin-top: 10px;
+}
+
+.djAccount__me {
+  flex: none;
   display: flex;
   align-items: center;
+  margin: 0;
+  padding: 14px;
 }
 
-.djPanel__name {
+.djAccount__name {
   flex: 1 1 auto;
   min-width: 0;
   margin-left: 10px;
@@ -1154,8 +1258,16 @@ img.djArt--fit {
   }
 }
 
+// Inset from the card's top, right and bottom edges, so its scrollbar is too.
+.djPlaylist__scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: 4px 4px 4px 0;
+  padding: 12px 8px 10px 14px;
+}
+
 // Your avatar beside your name, which opens the look editor.
-.djPanel__look {
+.djAccount__look {
   flex: none;
   display: flex;
   align-items: center;
@@ -1172,13 +1284,29 @@ img.djArt--fit {
     background-color 0.2s ease-in-out;
 
   &:hover:not(:disabled),
-  &.djPanel__look--on {
+  &.djAccount__look--on {
     border-color: rgba($dj-glow, 0.8);
     background: rgba($dj-glow, 0.12);
   }
 }
 
 // --- Look editor ----------------------------------------------------------------
+
+// Fills the name card; only the options scroll, inset like the list's.
+.djLook {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 0 4px 14px 14px;
+}
+
+.djLook__preview,
+.djLook__tabs,
+.djLook__actions {
+  flex: none;
+  margin-right: 10px;
+}
 
 .djLook__preview {
   height: 120px;
@@ -1215,9 +1343,14 @@ img.djArt--fit {
 }
 
 .djLook__grid {
+  flex: 0 1 auto;
+  min-height: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(38px, 1fr));
+  grid-auto-rows: 38px;
+  align-content: start;
   gap: 4px;
+  padding-right: 6px;
 }
 
 .djLook__option {
@@ -1263,43 +1396,6 @@ img.djArt--fit {
   .djButton + .djButton {
     margin-left: 8px;
   }
-}
-
-.djControls p {
-  margin: 0 0 8px;
-}
-
-.djControls__row .djButton + .djButton {
-  margin-left: 8px;
-}
-
-.djQueue {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-
-  li {
-    display: flex;
-    align-items: center;
-    padding: 3px 0;
-    font-size: 14px;
-
-    > span:first-child {
-      width: 26px;
-      font-size: 18px;
-    }
-  }
-}
-
-.djQueue--self {
-  color: $dj-accent;
-  font-weight: 700;
-}
-
-.djQueue__now {
-  margin-left: auto;
-  font-size: 12px;
-  color: $dj-cream;
 }
 
 .djAddTrack {
@@ -1385,6 +1481,15 @@ img.djArt--fit {
 
 // --- Narrow screens ------------------------------------------------------------
 
+// The booth (queue, DJ, screen, controls) needs ~960px between the cards, so
+// just above the stacked layout the cards narrow to leave it that (220px at
+// 1431px wide; 268px again from 1536px).
+@media (max-width: 1535px) {
+  .djRoom--entered {
+    --dj-card: calc(50vw - 500px);
+  }
+}
+
 // Too narrow for cards beside the booth (it needs ~850px between them): the
 // stage on top at full height, then the two cards side by side below it.
 @media (max-width: 1430px) {
@@ -1413,7 +1518,7 @@ img.djArt--fit {
       margin: var(--dj-gap) calc(var(--dj-gap) / 2) var(--dj-gap) var(--dj-gap);
     }
 
-    .djPanel {
+    .djSide {
       grid-area: panel;
       margin: var(--dj-gap) var(--dj-gap) var(--dj-gap) calc(var(--dj-gap) / 2);
     }
@@ -1441,24 +1546,45 @@ img.djArt--fit {
   }
 
   .djChat,
-  .djPanel {
+  .djSide {
     height: 440px;
   }
 }
 
-// No room beside the screen: the DJ becomes a compact badge above it and the
-// Like/Cheer/skip controls sit below it.
+// No room beside the screen: the DJ becomes a compact badge above it, and
+// the queue and the Like/Cheer/skip controls sit side by side below it.
 @media (max-width: 890px) {
   .djBooth {
-    grid-template-columns: minmax(0, 1fr);
-    justify-items: center;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      'dj dj'
+      'screen screen'
+      'queue controls';
+    justify-content: center;
+  }
+
+  .djBooth__side {
+    display: contents;
   }
 
   .djBooth__dj {
+    grid-area: dj;
     justify-self: center;
     flex-direction: row;
+    width: auto;
     min-height: 32px;
     margin: 0 0 8px;
+  }
+
+  .djScreen {
+    grid-area: screen;
+  }
+
+  .djQueueBox {
+    grid-area: queue;
+    align-self: start;
+    justify-self: end;
+    margin: 10px 16px 0 0;
   }
 
   .djBooth__djBody {
@@ -1470,7 +1596,9 @@ img.djArt--fit {
   }
 
   .djBooth__controls {
-    justify-self: center;
+    grid-area: controls;
+    align-self: start;
+    justify-self: start;
     margin: 10px 0 0;
   }
 }
@@ -1492,7 +1620,7 @@ img.djArt--fit {
       margin: var(--dj-gap) var(--dj-gap) calc(var(--dj-gap) / 2);
     }
 
-    .djPanel {
+    .djSide {
       margin: calc(var(--dj-gap) / 2) var(--dj-gap) var(--dj-gap);
     }
   }
@@ -1501,12 +1629,13 @@ img.djArt--fit {
     height: 360px;
   }
 
-  // The panel just grows to fit here; the page scrolls instead.
-  .djPanel {
+  // Your cards just grow to fit here; the page scrolls instead.
+  .djSide {
     height: auto;
   }
 
-  .djPanel__scroll {
+  .djPlaylist__scroll,
+  .djLook__grid {
     overflow: visible;
   }
 
@@ -1623,16 +1752,26 @@ img.djArt--fit {
     display: none;
   }
 
-  // Fully opaque here: unlike on desktop, there's stage text underneath.
   .djChat,
-  .djPanel {
+  .djSide {
     flex: 1 1 auto;
     height: auto;
     margin: 0;
+  }
+
+  // Backs the gap between your two cards, so the stage doesn't show through.
+  .djSide {
+    border-radius: $dj-radius;
+    background: $dj-bg;
+  }
+
+  // Fully opaque here: unlike on desktop, there's stage text underneath.
+  .djCard {
     background: $dj-panel;
   }
 
-  .djPanel__scroll {
+  .djPlaylist__scroll,
+  .djLook__grid {
     overflow-y: auto;
   }
 }

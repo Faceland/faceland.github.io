@@ -408,8 +408,10 @@ function play(dj) {
 }
 
 // Ends whatever is playing (if anything) and hands the booth to the next DJ.
-// How the song went ('played', 'skipped' or 'failed') goes to its DJ, whose
-// page marks it in their list until they reload; nothing else keeps it.
+// How the song went ('skipped' by a vote, 'failed', or 'played', which
+// includes the DJ cutting it short themselves) goes to its DJ, whose page
+// marks skipped and failed songs in their list until they reload; nothing
+// else keeps it.
 function advance(outcome) {
   clearTimeout(endTimer);
   if (current) {
@@ -436,7 +438,7 @@ function advance(outcome) {
 function leaveQueue(user) {
   if (!djQueue.includes(user.id)) return;
   djQueue = djQueue.filter((id) => id !== user.id);
-  if (current && current.djId === user.id) advance('skipped');
+  if (current && current.djId === user.id) advance('played');
   else broadcastState();
 }
 
@@ -895,7 +897,7 @@ function handle(ws, msg) {
 
     case 'skip':
       if (current && current.djId === user.id && !djLocked(user)) {
-        advance('skipped');
+        advance('played');
       }
       break;
 
