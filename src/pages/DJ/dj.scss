@@ -892,10 +892,38 @@ $dj-glow: #8f5cff;
 
 .djChat {
   grid-area: chat;
+}
 
-  h2 {
-    flex: none;
-    padding: 14px 14px 0;
+// A card's title row (and, in a mobile pop-out, its minimize button).
+.djCard__head {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 14px 0;
+}
+
+.djCard__minimize {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin: -10px -8px 0 0;
+  border-radius: $dj-radius;
+  color: $dj-muted;
+  cursor: pointer;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background: $dj-line;
+    color: $dj-text;
   }
 }
 
@@ -1224,5 +1252,129 @@ $dj-glow: #8f5cff;
     width: 356px;
     max-width: calc(100vw - 32px);
     height: 200px;
+  }
+}
+
+// --- Phones: bubbles and pop-out cards -------------------------------------------
+
+// Set from the site's mobile detection (portrait screens), after the
+// narrow-screen rules above so it wins. The page is exactly one screen tall:
+// just the stage. Chat and the panel live in pop-outs (MobileSheets in
+// DJ.js), the only things that scroll.
+.DJPage--mobile {
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+
+  .djRoom {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+    grid-template-areas: 'stage';
+    height: calc(100vh - 50px);
+    height: calc(100dvh - 50px);
+  }
+
+  .djStage {
+    height: 100%;
+    min-height: 0;
+  }
+}
+
+// Under the site menu (z-index 999) but over the stage.
+.djBubbles {
+  position: fixed;
+  right: 14px;
+  bottom: calc(14px + env(safe-area-inset-bottom));
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.djBubble {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba($dj-glow, 0.6);
+  border-radius: 50%;
+  background: rgba($dj-panel, 0.94);
+  box-shadow: 0 0 14px rgba($dj-glow, 0.35);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+
+  & + & {
+    margin-top: 12px;
+  }
+
+  &:active {
+    transform: scale(0.94);
+  }
+}
+
+.djBubble__badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  box-sizing: border-box;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 10px;
+  background: $dj-accent;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+}
+
+// The pop-out: the same floating card, filling the screen under the header,
+// or (inline `top`, set while a song plays) everything below the video.
+.djSheet {
+  position: fixed;
+  top: 60px;
+  right: 10px;
+  bottom: calc(10px + env(safe-area-inset-bottom));
+  left: 10px;
+  z-index: 500;
+  display: flex;
+  animation: djSheetIn 0.18s ease-out;
+
+  &[hidden] {
+    display: none;
+  }
+
+  // Fully opaque here: unlike on desktop, there's stage text underneath.
+  .djChat,
+  .djPanel {
+    flex: 1 1 auto;
+    height: auto;
+    margin: 0;
+    background: $dj-panel;
+  }
+
+  .djPanel__scroll {
+    overflow-y: auto;
+  }
+}
+
+@keyframes djSheetIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .djSheet {
+    animation: none;
   }
 }

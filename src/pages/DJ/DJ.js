@@ -1,10 +1,12 @@
 import React, {
+  useContext,
   useEffect,
   useLayoutEffect,
   useMemo,
   useRef,
   useState,
 } from 'react';
+import { Context } from '../../Store';
 import { HeaderBar } from '../../components/HeaderBar/HeaderBar';
 import { SEO } from '../../components/SEO/SEO';
 import {
@@ -377,7 +379,34 @@ const NameField = ({ name, onCommit }) => {
   );
 };
 
-const DJChat = ({ messages, meId, notice, onSend }) => {
+// A card's title row; in a mobile pop-out it also gets a minimize button.
+const CardHead = ({ title, onMinimize }) => (
+  <div className="djCard__head">
+    <h2>{title}</h2>
+    {onMinimize && (
+      <button
+        className="djCard__minimize"
+        onClick={onMinimize}
+        aria-label={`Minimize ${title}`}
+        title="Minimize"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7.4 8.6 12 13.2l4.6-4.6L18 10l-6 6-6-6z" />
+        </svg>
+      </button>
+    )}
+  </div>
+);
+
+// `visible` is false while it sits minimized in a mobile pop-out.
+const DJChat = ({
+  messages,
+  meId,
+  notice,
+  onSend,
+  onMinimize,
+  visible = true,
+}) => {
   const logRef = useRef(null);
   // Follow new messages only while the reader is at (or near) the bottom.
   const pinnedRef = useRef(true);
@@ -386,10 +415,11 @@ const DJChat = ({ messages, meId, notice, onSend }) => {
   const [draft, setDraft] = useState('');
   const [problem, setProblem] = useState(null);
 
+  // (Also on being shown again: a hidden log can't scroll.)
   useLayoutEffect(() => {
     const log = logRef.current;
-    if (log && pinnedRef.current) log.scrollTop = log.scrollHeight;
-  }, [messages]);
+    if (log && visible && pinnedRef.current) log.scrollTop = log.scrollHeight;
+  }, [messages, visible]);
 
   // The server runs the same checks; its rare refusals show here too.
   useEffect(() => {
@@ -423,7 +453,7 @@ const DJChat = ({ messages, meId, notice, onSend }) => {
 
   return (
     <aside className="djChat" aria-label="Chat">
-      <h2>Chat</h2>
+      <CardHead title="Chat" onMinimize={onMinimize} />
       <ol
         ref={logRef}
         className="djChat__log djScroll"
@@ -556,10 +586,14 @@ const DJControls = ({ me, room, list, actions }) => {
   );
 };
 
-const Panel = ({ me, room, list, adding, actions }) => {
+// On desktop the panel has no title; as a mobile pop-out it gets one, with
+// the minimize button.
+const Panel = ({ me, room, list, adding, actions, onMinimize }) => {
+  const head = onMinimize && <CardHead title="You" onMinimize={onMinimize} />;
   if (!me) {
     return (
       <aside className="djPanel">
+        {head}
         <div className="djPanel__scroll djScroll">
           <p className="djHint">Reconnecting&hellip;</p>
         </div>
@@ -572,6 +606,7 @@ const Panel = ({ me, room, list, adding, actions }) => {
   return (
     // The card itself doesn't scroll (its glow never repaints); this does.
     <aside className="djPanel">
+      {head}
       <div className="djPanel__scroll djScroll">
         <section className="djPanel__section djPanel__me">
           <span className="djPanel__meEmoji">{self.emoji}</span>
@@ -732,6 +767,100 @@ const Toast = ({ notice }) => {
   ) : null;
 };
 
+// Phones: chat and the panel live in two pop-out cards, opened from bubbles
+// on the floor and minimized back to them, so the page itself never scrolls.
+// Both stay mounted while minimized, so a half-typed message survives.
+// While a song plays, a pop-out stops just below the video and its controls
+// and never covers the player (YouTube's terms forbid anything in front of
+// it); with nothing playing it takes the whole screen under the header.
+const MobileSheets = ({ stageRef, playing, me, chat, chatNotice, panel }) => {
+  const [open, setOpen] = useState(null); // 'chat' | 'panel' | null
+  const [lastSeen, setLastSeen] = useState(null); // last chat id read
+  const [top, setTop] = useState(null);
+
+  useEffect(() => {
+    if (open === 'chat' && chat.length) setLastSeen(chat[chat.length - 1].id);
+  }, [open, chat]);
+
+  useLayoutEffect(() => {
+    if (!open) return undefined;
+    const measure = () => {
+      const screen =
+        playing &&
+        stageRef.current &&
+        stageRef.current.querySelector('.djScreen');
+      setTop(
+        screen ? Math.round(screen.getBoundingClientRect().bottom + 8) : null,
+      );
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, [open, playing, stageRef]);
+
+  const unread =
+    open === 'chat'
+      ? 0
+      : chat
+          .slice(chat.findIndex((message) => message.id === lastSeen) + 1)
+          .filter((message) => !me || message.userId !== me.id).length;
+  const sheetStyle = top === null ? undefined : { top };
+  const close = () => setOpen(null);
+
+  return (
+    <>
+      {!open && (
+        <div className="djBubbles">
+          <button
+            className="djBubble"
+            onClick={() => setOpen('panel')}
+            aria-label="Open your name, DJ controls and song list"
+          >
+            <span aria-hidden="true">{me ? me.emoji : '🎧'}</span>
+          </button>
+          <button
+            className="djBubble"
+            onClick={() => setOpen('chat')}
+            aria-label={unread ? `Open chat (${unread} new)` : 'Open chat'}
+          >
+            <span aria-hidden="true">💬</span>
+            {unread > 0 && (
+              <span className="djBubble__badge">
+                {unread > 99 ? '99+' : unread}
+              </span>
+            )}
+          </button>
+        </div>
+      )}
+      <div
+        className="djSheet"
+        hidden={open !== 'chat'}
+        style={sheetStyle}
+        role="dialog"
+        aria-label="Chat"
+      >
+        <DJChat
+          messages={chat}
+          meId={me && me.id}
+          notice={chatNotice}
+          onSend={panel.actions.sendChat}
+          onMinimize={close}
+          visible={open === 'chat'}
+        />
+      </div>
+      <div
+        className="djSheet"
+        hidden={open !== 'panel'}
+        style={sheetStyle}
+        role="dialog"
+        aria-label="Your DJ panel"
+      >
+        <Panel {...panel} onMinimize={close} />
+      </div>
+    </>
+  );
+};
+
 export const DJ = () => {
   const {
     status,
@@ -748,12 +877,36 @@ export const DJ = () => {
     actions,
   } = useDJRoom();
   const [pausedAt, setPausedAt] = useState(null);
+  const [{ mobile }] = useContext(Context);
+  const stageRef = useRef(null);
   const { users, current } = room;
   const dj = current && users.find((user) => user.id === current.djId);
   const amDJ = !!(me && current && current.djId === me.id);
 
+  // Phones: the page is exactly one screen and never scrolls (only the
+  // pop-outs do); no rubber-banding or pull-to-refresh moving it either.
+  useEffect(() => {
+    if (!mobile) return undefined;
+    const { documentElement: html, body } = document;
+    const before = [
+      html.style.overflow,
+      body.style.overflow,
+      html.style.overscrollBehavior,
+    ];
+    html.style.overflow = 'hidden';
+    body.style.overflow = 'hidden';
+    html.style.overscrollBehavior = 'none';
+    return () => {
+      [
+        html.style.overflow,
+        body.style.overflow,
+        html.style.overscrollBehavior,
+      ] = before;
+    };
+  }, [mobile]);
+
   return (
-    <div className="App DJPage">
+    <div className={`App DJPage${mobile ? ' DJPage--mobile' : ''}`}>
       <SEO
         title="DJ Room"
         description="Take turns DJing YouTube music with the Faceland community."
@@ -761,7 +914,7 @@ export const DJ = () => {
       />
       <HeaderBar fancy={false} />
       <div className={`djRoom${entered ? ' djRoom--entered' : ''}`}>
-        {entered && (
+        {entered && !mobile && (
           <DJChat
             messages={chat}
             meId={me && me.id}
@@ -769,7 +922,7 @@ export const DJ = () => {
             onSend={actions.sendChat}
           />
         )}
-        <section className="djStage" aria-label="DJ room">
+        <section ref={stageRef} className="djStage" aria-label="DJ room">
           <div className="djBooth">
             <div className="djBooth__dj">
               {dj && (
@@ -820,7 +973,7 @@ export const DJ = () => {
             />
           )}
         </section>
-        {entered && (
+        {entered && !mobile && (
           <Panel
             me={me}
             room={room}
@@ -830,6 +983,16 @@ export const DJ = () => {
           />
         )}
       </div>
+      {entered && mobile && (
+        <MobileSheets
+          stageRef={stageRef}
+          playing={!!current}
+          me={me}
+          chat={chat}
+          chatNotice={chatNotice}
+          panel={{ me, room, list, adding, actions }}
+        />
+      )}
       <Toast notice={notice} />
     </div>
   );
