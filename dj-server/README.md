@@ -81,6 +81,9 @@ The box also runs the Minecraft servers (AMP), so the room is fenced in:
   most of the room's IPs agree. A YouTube API key makes song lengths
   server-side facts, which removes even that. Chat is batched into the same
   broadcasts, goes only to people who joined, and is rate-limited per person.
+  Vote to skip passes at half the room, where the room is the IPs active in
+  the last minute (`AFK_SECONDS`) plus anyone who voted, one vote per IP.
+  Like/Cheer animations are rate-limited server-side too.
 
 Everything is in memory. Restarting the server empties the room; people's
 names and song lists survive because their browsers keep them and send them

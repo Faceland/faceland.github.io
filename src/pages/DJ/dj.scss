@@ -30,7 +30,7 @@ $dj-glow: #8f5cff;
 }
 
 .djRoom--entered {
-  grid-template-columns: 280px minmax(0, 1fr) 320px;
+  grid-template-columns: 260px minmax(0, 1fr) 300px;
   grid-template-areas: 'chat stage panel';
 }
 
@@ -53,34 +53,108 @@ $dj-glow: #8f5cff;
 
 // --- Booth -------------------------------------------------------------------
 
+// DJ | screen | controls. The equal outer columns keep the screen centred
+// whatever is beside it, and never shrink below their content, so nothing
+// can slide over the screen: YouTube's terms forbid drawing over the player.
 .djBooth {
   flex: none;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  display: grid;
+  grid-template-columns: minmax(max-content, 1fr) auto minmax(max-content, 1fr);
+  align-items: end;
   padding: 20px 16px 0;
 }
 
-// The DJ stands beside the screen, never on it: YouTube's terms forbid
-// drawing anything over the player. The spacer mirrors this column so the
-// screen stays centred.
-.djBooth__dj,
-.djBooth__spacer {
-  flex: 0 0 104px;
-  margin: 0 12px;
-}
-
 .djBooth__dj {
+  justify-self: end;
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 160px;
+  margin-right: 24px;
   text-align: center;
 }
 
-.djBooth__djEmoji {
+.djBooth__djBody {
+  position: relative;
   font-size: 64px;
   line-height: 1;
+}
+
+.djBooth__djEmoji {
+  display: inline-block;
   animation: djBob 0.45s ease-in-out infinite alternate;
+}
+
+.djBooth__controls {
+  justify-self: start;
+  align-self: center;
+  margin-left: 24px;
+}
+
+.djBooth__row {
+  display: flex;
+  align-items: center;
+
+  .djReact + .djReact {
+    margin-left: 6px;
+  }
+}
+
+.djBooth__row--skip {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 14px;
+}
+
+.djBooth__votes {
+  margin-top: 4px;
+  font-size: 12px;
+  color: $dj-muted;
+  white-space: nowrap;
+}
+
+.djReact {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border: 1px solid $dj-line;
+  border-radius: 999px;
+  background: rgba($dj-panel, 0.85);
+  color: $dj-text;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out,
+    filter 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
+
+  > span {
+    margin-right: 6px;
+  }
+
+  &:hover:not(:disabled) {
+    border-color: $dj-glow;
+  }
+
+  // Also Cheer's 3-second cooldown: the button goes dark until it's back.
+  &:disabled {
+    opacity: 0.45;
+    filter: grayscale(1) brightness(0.6);
+    cursor: default;
+  }
+}
+
+.djReact--on {
+  border-color: $dj-accent;
+  background: rgba($dj-accent, 0.22);
+}
+
+.djReact--skip.djReact--on {
+  border-color: #e06666;
+  background: rgba(#b33d3d, 0.32);
 }
 
 .djBooth__djName {
@@ -301,10 +375,103 @@ $dj-glow: #8f5cff;
   }
 }
 
+// --- Reactions (Like / Cheer) ----------------------------------------------------
+
+// Wraps an emoji so the hop+spin composes with its dance bob. The 1.1s total
+// (with the confetti) matches REACTION_MS in useDJRoom.js.
+.djHop {
+  display: inline-block;
+}
+
+.djHop--go {
+  animation: djHop 0.9s cubic-bezier(0.25, 0.8, 0.35, 1);
+}
+
+@keyframes djHop {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  40% {
+    transform: translateY(-60%) rotate(200deg) scale(1.12);
+  }
+  75% {
+    transform: translateY(-8%) rotate(360deg) scale(1);
+  }
+  88% {
+    transform: translateY(-18%) rotate(360deg);
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+  }
+}
+
+// Sized in em, so the burst scales with whichever emoji it comes from.
+.djConfetti {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.djConfetti__piece {
+  position: absolute;
+  width: 0.12em;
+  height: 0.12em;
+  margin: -0.06em 0 0 -0.06em;
+  border-radius: 0.02em;
+  opacity: 0;
+  animation: djBurst 0.9s ease-out forwards;
+}
+
+@keyframes djBurst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) rotate(var(--spin)) scale(0.6);
+  }
+}
+
+.djConfetti__icon {
+  position: absolute;
+  top: -0.6em;
+  left: 0;
+  font-size: 0.4em;
+  opacity: 0;
+  animation: djFloatUp 1.1s ease-out forwards;
+}
+
+@keyframes djFloatUp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0) scale(0.6);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -0.5em) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -2.2em) scale(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .djFloor--playing .djAvatar__emoji,
-  .djBooth__djEmoji {
+  .djBooth__djEmoji,
+  .djHop--go {
     animation: none;
+  }
+
+  .djConfetti {
+    display: none;
   }
 
   .djAvatar,
@@ -718,9 +885,9 @@ $dj-glow: #8f5cff;
 
 // --- Narrow screens ------------------------------------------------------------
 
-// Too narrow for three columns (the booth row alone needs ~690px): the stage
+// Too narrow for three columns (the booth row alone needs ~820px): the stage
 // on top at full height, then chat and the panel side by side.
-@media (max-width: 1300px) {
+@media (max-width: 1380px) {
   .DJPage {
     height: auto;
     overflow: visible;
@@ -754,6 +921,45 @@ $dj-glow: #8f5cff;
   }
 }
 
+// No room beside the screen: the DJ becomes a compact badge above it and the
+// Like/Cheer/skip controls sit in a row below it.
+@media (max-width: 840px) {
+  .djBooth {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    padding-top: 12px;
+  }
+
+  .djBooth__dj {
+    justify-self: center;
+    flex-direction: row;
+    min-height: 32px;
+    margin: 0 0 8px;
+  }
+
+  .djBooth__djBody {
+    font-size: 28px;
+  }
+
+  .djBooth__djName {
+    margin: 0 0 0 8px;
+  }
+
+  .djBooth__controls {
+    justify-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 10px 0 0;
+  }
+
+  .djBooth__row--skip {
+    align-items: center;
+    margin: 0 0 0 16px;
+  }
+}
+
 // Phones: one column (stage, chat, panel) and the panel grows to fit.
 @media (max-width: 680px) {
   .DJPage {
@@ -776,32 +982,6 @@ $dj-glow: #8f5cff;
     height: auto;
     overflow: visible;
     border-left: 0;
-  }
-
-  // The DJ moves above the screen, as a compact badge.
-  .djBooth {
-    flex-direction: column;
-    align-items: center;
-    padding-top: 12px;
-  }
-
-  .djBooth__dj {
-    flex: none;
-    flex-direction: row;
-    min-height: 32px;
-    margin: 0 0 8px;
-  }
-
-  .djBooth__djEmoji {
-    font-size: 28px;
-  }
-
-  .djBooth__djName {
-    margin: 0 0 0 8px;
-  }
-
-  .djBooth__spacer {
-    display: none;
   }
 
   .djScreen__frame {

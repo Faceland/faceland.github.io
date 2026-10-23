@@ -1,4 +1,10 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, {
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { HeaderBar } from '../../components/HeaderBar/HeaderBar';
 import { SEO } from '../../components/SEO/SEO';
 import {
@@ -56,7 +62,79 @@ const FloorGrid = () => (
   </svg>
 );
 
-const Avatar = ({ user, self }) => {
+const CONFETTI_COLORS = [
+  '#8f5cff',
+  '#48ba3b',
+  '#f4e4bf',
+  '#ff6fae',
+  '#4fd1ff',
+  '#ffd23f',
+];
+
+// Confetti bursting out of an emoji, plus the reaction's own emoji floating
+// up. The burst is aimed between two angles (degrees; 0 = right, 90 = up),
+// which lets the DJ's confetti fly away from the video, never over it.
+const Confetti = ({ kind, fromAngle = 20, toAngle = 160 }) => {
+  const pieces = useMemo(
+    () =>
+      CONFETTI_COLORS.concat(CONFETTI_COLORS.slice(0, 4)).map((color, i) => {
+        const degrees =
+          fromAngle + ((toAngle - fromAngle) * (i + Math.random() * 0.8)) / 10;
+        const radians = (degrees * Math.PI) / 180;
+        const distance = 0.7 + Math.random() * 0.5;
+        return {
+          color,
+          dx: `${(Math.cos(radians) * distance).toFixed(2)}em`,
+          dy: `${(-Math.sin(radians) * distance).toFixed(2)}em`,
+          spin: `${Math.round(Math.random() * 540 - 270)}deg`,
+          delay: `${Math.round(Math.random() * 120)}ms`,
+        };
+      }),
+    [fromAngle, toAngle],
+  );
+  return (
+    <span className="djConfetti" aria-hidden="true">
+      {pieces.map((piece, i) => (
+        <span
+          key={i}
+          className="djConfetti__piece"
+          style={{
+            '--dx': piece.dx,
+            '--dy': piece.dy,
+            '--spin': piece.spin,
+            background: piece.color,
+            animationDelay: piece.delay,
+          }}
+        />
+      ))}
+      <span className="djConfetti__icon">{kind === 'like' ? '👍' : '🎉'}</span>
+    </span>
+  );
+};
+
+// An emoji that hops and spins, with confetti, whenever its person reacts.
+// Keying on the reaction restarts the animation for every new one.
+const ReactiveEmoji = ({ emoji, reaction, className, style, burst }) => (
+  <>
+    <span
+      key={reaction ? `hop-${reaction.at}` : 'idle'}
+      className={`djHop${reaction ? ' djHop--go' : ''}`}
+    >
+      <span className={className} style={style}>
+        {emoji}
+      </span>
+    </span>
+    {reaction && (
+      <Confetti
+        key={`confetti-${reaction.at}`}
+        kind={reaction.kind}
+        {...burst}
+      />
+    )}
+  </>
+);
+
+const Avatar = ({ user, self, reaction }) => {
   // Faked perspective: the nearer the bottom of the floor, the nearer the
   // viewer, so the bigger the emoji (and the later it's painted).
   const scale = 0.55 + user.y;
@@ -73,12 +151,12 @@ const Avatar = ({ user, self }) => {
         className="djAvatar__body"
         style={{ fontSize: `calc(var(--dj-emoji-size) * ${scale})` }}
       >
-        <span
+        <ReactiveEmoji
+          emoji={user.emoji}
+          reaction={reaction}
           className="djAvatar__emoji"
           style={{ animationDelay: `-${hash(user.id) % 700}ms` }}
-        >
-          {user.emoji}
-        </span>
+        />
       </div>
       <div className="djAvatar__name" style={{ fontSize: 10 + 4 * user.y }}>
         {user.name}
@@ -87,7 +165,7 @@ const Avatar = ({ user, self }) => {
   );
 };
 
-const DJFloor = ({ users, meId, playing, canMove, onMove }) => {
+const DJFloor = ({ users, meId, reactions, playing, canMove, onMove }) => {
   const floorRef = useRef(null);
 
   const handlePointerDown = (event) => {
@@ -110,7 +188,12 @@ const DJFloor = ({ users, meId, playing, canMove, onMove }) => {
     >
       <FloorGrid />
       {users.map((user) => (
-        <Avatar key={user.id} user={user} self={user.id === meId} />
+        <Avatar
+          key={user.id}
+          user={user}
+          self={user.id === meId}
+          reaction={reactions[user.id]}
+        />
       ))}
     </div>
   );
@@ -513,6 +596,73 @@ const Panel = ({ me, room, list, adding, actions }) => {
   );
 };
 
+const CHEER_COOLDOWN_MS = 3000;
+
+// Beside the screen: Like / Cheer (pure fun: your emoji hops for everyone)
+// and the room's vote to skip.
+const BoothControls = ({ me, current, actions }) => {
+  const [liked, setLiked] = useState(false);
+  const [cheerCooling, setCheerCooling] = useState(false);
+  const playId = current && current.playId;
+
+  // A like is for a song, so a new song starts un-liked.
+  useEffect(() => setLiked(false), [playId]);
+
+  useEffect(() => {
+    if (!cheerCooling) return undefined;
+    const timer = setTimeout(() => setCheerCooling(false), CHEER_COOLDOWN_MS);
+    return () => clearTimeout(timer);
+  }, [cheerCooling]);
+
+  const skip = current && current.skip;
+  const voted = !!(me && skip && skip.voters.includes(me.id));
+  const amDJ = !!(me && current && current.djId === me.id);
+
+  return (
+    <div className="djBooth__controls">
+      <div className="djBooth__row">
+        <button
+          className={`djReact${liked ? ' djReact--on' : ''}`}
+          aria-pressed={liked}
+          disabled={!me || !current}
+          onClick={() => {
+            setLiked(!liked);
+            actions.react('like', !liked);
+          }}
+        >
+          <span aria-hidden="true">👍</span>Like
+        </button>
+        <button
+          className="djReact"
+          disabled={!me || cheerCooling}
+          onClick={() => {
+            setCheerCooling(true);
+            actions.react('cheer');
+          }}
+        >
+          <span aria-hidden="true">🎉</span>Cheer
+        </button>
+      </div>
+      <div className="djBooth__row djBooth__row--skip">
+        <button
+          className={`djReact djReact--skip${voted ? ' djReact--on' : ''}`}
+          aria-pressed={voted}
+          disabled={!me || !current || amDJ}
+          title={amDJ ? 'Use Skip song in the panel instead' : undefined}
+          onClick={() => actions.voteSkip(!voted)}
+        >
+          {voted ? 'Voted to skip' : 'Vote to skip'}
+        </button>
+        <span className="djBooth__votes">
+          {skip
+            ? `${skip.votes}/${skip.needed} votes to skip`
+            : 'Nothing playing'}
+        </span>
+      </div>
+    </div>
+  );
+};
+
 const Toast = ({ notice }) => {
   const [visible, setVisible] = useState(null);
   useEffect(() => {
@@ -540,6 +690,7 @@ export const DJ = () => {
     adding,
     chat,
     chatNotice,
+    reactions,
     actions,
   } = useDJRoom();
   const { users, current } = room;
@@ -568,7 +719,15 @@ export const DJ = () => {
             <div className="djBooth__dj">
               {dj && (
                 <>
-                  <span className="djBooth__djEmoji">{dj.emoji}</span>
+                  <span className="djBooth__djBody">
+                    {/* Confetti flies up and left, away from the video. */}
+                    <ReactiveEmoji
+                      emoji={dj.emoji}
+                      reaction={reactions[dj.id]}
+                      className="djBooth__djEmoji"
+                      burst={{ fromAngle: 95, toAngle: 175 }}
+                    />
+                  </span>
                   <span className="djBooth__djName">🎧 {dj.name}</span>
                 </>
               )}
@@ -580,12 +739,13 @@ export const DJ = () => {
               onEnded={actions.reportEnded}
               onError={actions.reportError}
             />
-            <div className="djBooth__spacer" />
+            <BoothControls me={me} current={current} actions={actions} />
           </div>
           <NowPlaying current={current} dj={dj} />
           <DJFloor
             users={users.filter((user) => !current || user.id !== current.djId)}
             meId={me && me.id}
+            reactions={reactions}
             playing={!!current}
             canMove={!!me && !amDJ}
             onMove={actions.move}

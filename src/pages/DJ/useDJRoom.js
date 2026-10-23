@@ -40,6 +40,9 @@ const EMPTY_ROOM = { users: [], djQueue: [], current: null };
 // was open, and only the most recent lines of that.
 const CHAT_LINES_KEPT = 150;
 
+// How long a like/cheer animation plays (matches the CSS in dj.scss).
+export const REACTION_MS = 1100;
+
 export const useDJRoom = () => {
   const [status, setStatus] = useState(SERVER_URL ? 'connecting' : 'offline');
   // Clicked Join this visit. Stays true through reconnects, unlike `me`.
@@ -52,6 +55,8 @@ export const useDJRoom = () => {
   const [adding, setAdding] = useState(false);
   const [chat, setChat] = useState([]);
   const [chatNotice, setChatNotice] = useState(null);
+  // user id -> { kind, at } for avatars mid-animation.
+  const [reactions, setReactions] = useState({});
 
   const wsRef = useRef(null);
   // Whether we've joined, so a reconnect can rejoin without asking again.
@@ -124,6 +129,26 @@ export const useDJRoom = () => {
         case 'chat':
           setChat((prev) => prev.concat(msg.messages).slice(-CHAT_LINES_KEPT));
           break;
+        case 'reactions': {
+          // `at` doubles as a React key, so a new reaction restarts the
+          // animation even if the last one hasn't finished.
+          const now = performance.now();
+          const batch = {};
+          msg.reactions.forEach(({ id, kind }, i) => {
+            batch[id] = { kind, at: now + i };
+          });
+          setReactions((prev) => ({ ...prev, ...batch }));
+          setTimeout(() => {
+            setReactions((prev) => {
+              const next = { ...prev };
+              Object.keys(batch).forEach((id) => {
+                if (next[id] && next[id].at === batch[id].at) delete next[id];
+              });
+              return next;
+            });
+          }, REACTION_MS);
+          break;
+        }
         case 'notice':
           if (msg.scope === 'chat') {
             setChatNotice({ message: msg.message, at: Date.now() });
@@ -191,6 +216,8 @@ export const useDJRoom = () => {
     setDJ: (on) => send({ t: 'setDJ', on }),
     skip: () => send({ t: 'skip' }),
     sendChat: (text) => send({ t: 'chat', text }),
+    react: (kind, on) => send({ t: 'react', kind, on }),
+    voteSkip: (on) => send({ t: 'voteSkip', on }),
     move: (x, y) => {
       // Step locally right away; the server echoes the same spot back.
       setRoom((prev) => ({
@@ -218,6 +245,7 @@ export const useDJRoom = () => {
     adding,
     chat,
     chatNotice,
+    reactions,
     actions,
   };
 };

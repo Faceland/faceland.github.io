@@ -45,6 +45,9 @@ const ALLOWED_ORIGINS = (
 // Songs end at this length no matter what, so nobody can hold the booth with
 // a 10-hour video or a live stream.
 const MAX_TRACK_SECONDS = (Number(process.env.MAX_TRACK_MINUTES) || 15) * 60;
+// People idle this long stop counting toward the room size for skip votes.
+// (AFK_SECONDS mainly exists so tests don't have to wait a minute.)
+const AFK_MS = (Number(process.env.AFK_SECONDS) || 60) * 1000;
 
 const MAX_NAME = 20;
 const MAX_TITLE = 200;
@@ -76,6 +79,26 @@ const ADDS_PER_MINUTE = 10;
 const LOOKUPS_PER_SECOND = 5;
 const MAX_LOOKUPS_IN_FLIGHT = 10;
 const FAILED_LOOKUP_TTL_MS = 10 * 60 * 1000;
+// Reactions (an emoji hop + confetti everyone sees). The Cheer button has a
+// 3 s cooldown; the server allows a little jitter. Likes animate at most once
+// a second, however fast the toggle is clicked.
+const REACTIONS = ['like', 'cheer'];
+const CHEER_INTERVAL_MS = 2800;
+const LIKE_INTERVAL_MS = 1000;
+// Deliberate actions count as being around (for skip votes); the automatic
+// reports from players (duration, ended, errors) don't.
+const ACTIVE_ACTIONS = new Set([
+  'setName',
+  'chat',
+  'move',
+  'react',
+  'addTrack',
+  'removeTrack',
+  'bumpTrack',
+  'setDJ',
+  'skip',
+  'voteSkip',
+]);
 const MAX_CACHED_VIDEOS = 5000;
 
 // prettier-ignore
@@ -180,6 +203,7 @@ function broadcast(message) {
 }
 
 function snapshot() {
+  const tally = current && skipTally();
   return {
     t: 'state',
     users: [...users.values()].map(({ id, name, emoji, x, y }) => ({
@@ -199,6 +223,11 @@ function snapshot() {
       // Relative, so clients never need to agree with the server's clock:
       // the only error is one-way latency, far below the resync threshold.
       elapsed: Date.now() - current.startedAt,
+      skip: {
+        votes: tally.votes,
+        needed: tally.needed,
+        voters: [...current.skipVotes].filter((id) => users.has(id)),
+      },
     },
   };
 }
@@ -213,26 +242,34 @@ function broadcastToMembers(message) {
 // Everything the room hears goes out from here, at most once per
 // BROADCAST_INTERVAL_MS however fast people act: the full state if anything
 // changed (it includes positions), otherwise just the latest moves, plus any
-// chat said since the last flush.
+// chat and reactions since the last flush.
 let stateDirty = false;
 const pendingMoves = new Map(); // user id -> { id, x, y }
 let pendingChat = [];
+let pendingReactions = [];
 let flushTimer = null;
 let lastFlushAt = 0;
 
 function flush() {
   flushTimer = null;
   lastFlushAt = Date.now();
-  if (stateDirty) broadcast(snapshot());
-  else if (pendingMoves.size) {
+  if (stateDirty) {
+    const state = snapshot();
+    if (current) current.shownNeeded = state.current.skip.needed;
+    broadcast(state);
+  } else if (pendingMoves.size) {
     broadcast({ t: 'moves', moves: [...pendingMoves.values()] });
   }
   if (pendingChat.length) {
     broadcastToMembers({ t: 'chat', messages: pendingChat });
   }
+  if (pendingReactions.length) {
+    broadcast({ t: 'reactions', reactions: pendingReactions });
+  }
   stateDirty = false;
   pendingMoves.clear();
   pendingChat = [];
+  pendingReactions = [];
 }
 
 function scheduleFlush() {
@@ -302,6 +339,8 @@ function play(dj) {
     startedAt: Date.now(),
     endedBy: new Set(), // IPs whose player reported the song ended
     erroredBy: new Set(), // IPs whose player couldn't play it
+    skipVotes: new Set(), // user ids that voted to skip
+    shownNeeded: null, // the "votes needed" the room last saw
   };
   scheduleEnd();
 
@@ -350,6 +389,35 @@ function leaveQueue(user) {
 // from more than half of the distinct IPs in the room, so one person (or one
 // person with many tabs) can't skip songs for everybody else.
 const roomAgrees = (ips) => ips.size * 2 > roomIps().size;
+
+// Vote to skip: the song skips once votes reach half the room. The room is
+// everyone active in the last AFK_MS plus anyone who already voted, and both
+// sides count distinct IPs, so one person with several tabs gets one vote.
+function skipTally() {
+  const now = Date.now();
+  const voterIps = new Set();
+  for (const id of current.skipVotes) {
+    const user = users.get(id);
+    if (user) voterIps.add(user.ip);
+  }
+  const room = new Set(voterIps);
+  for (const user of users.values()) {
+    if (now - user.activeAt < AFK_MS) room.add(user.ip);
+  }
+  return {
+    votes: voterIps.size,
+    needed: Math.max(1, Math.ceil(room.size / 2)),
+  };
+}
+
+// Re-checks the vote after the room changes (someone left or went idle):
+// skips if it now passes, or refreshes the "x/y votes" everyone sees.
+function checkSkip() {
+  if (!current) return;
+  const tally = skipTally();
+  if (tally.votes >= tally.needed) advance();
+  else if (tally.needed !== current.shownNeeded) broadcastState();
+}
 
 // --- YouTube lookups ----------------------------------------------------------
 
@@ -526,6 +594,9 @@ function join(ws, msg) {
     adding: false,
     chatTimes: [],
     lastChat: { text: '', at: 0 },
+    activeAt: Date.now(),
+    lastLikeAt: 0,
+    lastCheerAt: 0,
   };
   ws.user = user;
   users.set(user.id, user);
@@ -615,6 +686,7 @@ function handle(ws, msg) {
   }
   if (!user) return;
   const now = Date.now();
+  if (ACTIVE_ACTIONS.has(msg.t)) user.activeAt = now;
 
   switch (msg.t) {
     case 'setName': {
@@ -688,6 +760,32 @@ function handle(ws, msg) {
     case 'skip':
       if (current && current.djId === user.id) advance();
       break;
+
+    case 'react':
+      if (!REACTIONS.includes(msg.kind)) break;
+      if (msg.kind === 'like') {
+        // Un-liking only changes the button; liking is what animates.
+        if (!msg.on || !current) break;
+        if (now - user.lastLikeAt < LIKE_INTERVAL_MS) break;
+        user.lastLikeAt = now;
+      } else {
+        if (now - user.lastCheerAt < CHEER_INTERVAL_MS) break;
+        user.lastCheerAt = now;
+      }
+      pendingReactions.push({ id: user.id, kind: msg.kind });
+      scheduleFlush();
+      break;
+
+    case 'voteSkip': {
+      // The DJ has a real Skip button instead.
+      if (!current || current.djId === user.id) break;
+      if (msg.on) current.skipVotes.add(user.id);
+      else current.skipVotes.delete(user.id);
+      const tally = skipTally();
+      if (tally.votes >= tally.needed) advance();
+      else broadcastState();
+      break;
+    }
 
     case 'duration':
       if (current && current.playId === msg.playId) {
@@ -787,6 +885,8 @@ wss.on('connection', (ws, req) => {
     users.delete(user.id);
     if (djQueue.includes(user.id)) leaveQueue(user);
     else broadcastState();
+    // A smaller room may mean the votes already cast now pass.
+    checkSkip();
   });
 });
 
@@ -804,7 +904,15 @@ const heartbeat = setInterval(() => {
     ws.ping();
   }
 }, 30000);
-wss.on('close', () => clearInterval(heartbeat));
+
+// People going idle shrink the room without sending anything, so re-check
+// the skip vote every few seconds too.
+const afkSweep = setInterval(checkSkip, 5000);
+
+wss.on('close', () => {
+  clearInterval(heartbeat);
+  clearInterval(afkSweep);
+});
 
 const describe = (where) =>
   `DJ server listening on ${where} (durations from ${
