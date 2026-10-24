@@ -35,6 +35,13 @@ const MIN_SKIP_SECONDS = Number(process.env.MIN_SKIP_SECONDS ?? 10);
 const MIN_SKIP_MS =
   (Number.isFinite(MIN_SKIP_SECONDS) ? MIN_SKIP_SECONDS : 10) * 1000;
 
+// Rooms are picked by URL: `/` is the main room (every page from before rooms
+// existed lands there) and `/r/<id>` is another. Ids are short, lower-case
+// and URL-safe; they're lower-cased on the way in so /r/Chill and /r/chill
+// are one room.
+const DEFAULT_ROOM = 'main';
+const ROOM_ID = /^[a-z0-9][a-z0-9_-]{0,31}$/;
+
 const MAX_NAME = 20;
 const MAX_TITLE = 200;
 const MAX_LIST = 100;
@@ -107,6 +114,8 @@ module.exports = {
   MAX_TRACK_SECONDS,
   AFK_MS,
   MIN_SKIP_MS,
+  DEFAULT_ROOM,
+  ROOM_ID,
   MAX_NAME,
   MAX_TITLE,
   MAX_LIST,

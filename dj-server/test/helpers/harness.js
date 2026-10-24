@@ -151,9 +151,14 @@ class Client {
     });
   }
 
-  static connect(url, { ip = nextIp(), origin = ORIGIN } = {}) {
+  // `path` picks the room: '/' (the default) is the main room, '/r/<id>'
+  // another; see server.js.
+  static connect(url, { ip = nextIp(), origin = ORIGIN, path = '/' } = {}) {
     return new Promise((resolve, reject) => {
-      const ws = new WebSocket(url, { origin, headers: { 'X-Real-IP': ip } });
+      const ws = new WebSocket(url + path, {
+        origin,
+        headers: { 'X-Real-IP': ip },
+      });
       const client = new Client(ws, ip);
       ws.once('open', () => resolve(client));
       ws.once('error', reject);
@@ -302,8 +307,8 @@ class Client {
   }
 }
 
-function expectRejected(url, { ip = nextIp(), origin = ORIGIN } = {}) {
-  return Client.connect(url, { ip, origin }).then(
+function expectRejected(url, { ip = nextIp(), origin = ORIGIN, path = '/' } = {}) {
+  return Client.connect(url, { ip, origin, path }).then(
     (client) => {
       client.terminate();
       throw new Error('expected the upgrade to be refused, but it opened');

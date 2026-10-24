@@ -1,4 +1,4 @@
-// Faceland DJ room server: the server is the authority for the room.
+// Faceland DJ room server: the server is the authority for its rooms.
 //
 // The server never touches media. It only decides who is DJing and which
 // YouTube video started when; every browser streams the video straight from
@@ -12,9 +12,9 @@
 // are dropped, outbound YouTube lookups are rate limited, and nothing a single
 // listener says can end or skip a song for the whole room.
 //
-// This file is the edge: sockets, the limits on them, and the wiring. The
-// room itself (who is here, the booth, votes, chat) is room.js; YouTube is
-// youtube.js; settings and limits are config.js.
+// This file is the edge: sockets, the limits on them, which room a connection
+// belongs to, and the wiring. A room itself (who is here, the booth, votes,
+// chat) is room.js; YouTube is youtube.js; settings and limits are config.js.
 
 const http = require('http');
 const fs = require('fs');
@@ -25,6 +25,8 @@ const {
   HOST,
   YOUTUBE_API_KEY,
   ALLOWED_ORIGINS,
+  DEFAULT_ROOM,
+  ROOM_ID,
   MAX_CONNECTIONS,
   MAX_CONNECTIONS_PER_IP,
   MESSAGES_PER_SECOND,
@@ -68,15 +70,70 @@ const transport = {
   },
 };
 
-// One room for now. Giving each room an id and picking one by URL is the
-// next step; nothing below assumes there will only ever be one.
-const room = new Room({ id: 'main', transport });
+// --- Rooms --------------------------------------------------------------------
+
+const rooms = new Map(); // id -> Room, for every room with a connection
+
+// Which room a request's URL names: `/` is the main room, `/r/<id>` another,
+// and anything else is nothing (the upgrade is refused). Ids are lower-cased
+// so /r/Chill and /r/chill are the same place.
+function roomIdFrom(url) {
+  let pathname;
+  try {
+    pathname = decodeURIComponent(new URL(url, 'http://dj').pathname);
+  } catch {
+    return null;
+  }
+  if (pathname === '/' || pathname === '') return DEFAULT_ROOM;
+  const match = /^\/r\/([^/]+)\/?$/.exec(pathname);
+  if (!match) return null;
+  const id = match[1].toLowerCase();
+  return ROOM_ID.test(id) ? id : null;
+}
+
+// Rooms exist while someone is connected to them and are made on demand, so
+// a URL nobody has visited costs nothing and an empty room keeps no timers.
+function roomFor(id) {
+  let room = rooms.get(id);
+  if (!room) {
+    room = new Room({ id, transport });
+    rooms.set(id, room);
+  }
+  return room;
+}
+
+function dropIfEmpty(room) {
+  if (room.conns.size) return;
+  room.close();
+  rooms.delete(room.id);
+}
+
+const headcount = () => {
+  let people = 0;
+  for (const room of rooms.values()) people += room.size;
+  return rooms.size > 1
+    ? `${people} in ${rooms.size} rooms`
+    : `${people} in the room`;
+};
 
 // --- Connections --------------------------------------------------------------
 
+// `/` says how many people are here in all; `/r/<id>` how many are in that
+// room (without creating it). Handy for a glance at the box and as a health
+// check.
 const server = http.createServer((req, res) => {
+  const id = roomIdFrom(req.url);
+  if (!id) {
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.end('No such room\n');
+    return;
+  }
+  const own = /^\/r\//.test(req.url);
+  const room = rooms.get(id);
   res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end(`Faceland DJ server: ${room.size} in the room\n`);
+  res.end(
+    `Faceland DJ server: ${own ? `${room ? room.size : 0} in the room` : headcount()}\n`,
+  );
 });
 
 const wss = new WebSocketServer({
@@ -96,6 +153,8 @@ const wss = new WebSocketServer({
   verifyClient: ({ origin, req }, done) => {
     if (!ALLOWED_ORIGINS.includes('*') && !ALLOWED_ORIGINS.includes(origin)) {
       done(false, 403);
+    } else if (!roomIdFrom(req.url)) {
+      done(false, 404);
     } else if (wss.clients.size >= MAX_CONNECTIONS) {
       done(false, 503);
     } else if (
@@ -109,6 +168,7 @@ const wss = new WebSocketServer({
 });
 
 wss.on('connection', (ws, req) => {
+  const room = roomFor(roomIdFrom(req.url));
   // What the room knows about this connection (see room.js).
   const conn = {
     ws,
@@ -150,6 +210,7 @@ wss.on('connection', (ws, req) => {
     if (left > 0) connectionsByIp.set(conn.ip, left);
     else connectionsByIp.delete(conn.ip);
     room.detach(conn);
+    dropIfEmpty(room);
   });
 });
 
@@ -170,12 +231,14 @@ const heartbeat = setInterval(() => {
 
 // People going idle shrink the room without sending anything, so re-check
 // the skip vote every few seconds too.
-const afkSweep = setInterval(() => room.checkSkip(), AFK_SWEEP_MS);
+const afkSweep = setInterval(() => {
+  for (const room of rooms.values()) room.checkSkip();
+}, AFK_SWEEP_MS);
 
 wss.on('close', () => {
   clearInterval(heartbeat);
   clearInterval(afkSweep);
-  room.close();
+  for (const room of rooms.values()) room.close();
 });
 
 const describe = (where) =>

@@ -39,6 +39,20 @@ page is told (`played`), so it does the same. Pages from before this
 | `util.js` | Text cleaning, ids, the rate-limited warning log, `UserError`. |
 | `chatRules.js`, `avatarParts.js` | Mirrored in the page (see above); change both together. |
 
+## Rooms
+
+A room is picked by the URL the page connects to: `/` is the main room (every
+page from before rooms existed lands there) and `/r/<id>` is another. Ids are
+1 to 32 characters, lower-case letters, digits, `-` and `_`, and are lower-cased
+on the way in. A room exists from the first connection to the last; an empty
+room keeps no state and no timers, and asking for one by URL costs nothing.
+Anything that is not a room is refused at the upgrade with 404.
+
+Everything inside a room is its own: the floor, the DJ queue, the song, votes,
+chat. The YouTube cache and lookup rate, and the per-IP connection cap, are
+shared by the whole process. `GET /` reports the headcount across rooms;
+`GET /r/<id>` reports one room without creating it.
+
 ## Run locally
 
 ```sh

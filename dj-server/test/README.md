@@ -27,6 +27,8 @@ the AFK sweep) are the slow ones.
   defaults (loopback, a test origin), hands `fn` a client factory, and tears
   everything down afterwards. `connect()` gives a spectator, `member()` a
   client that has sent `hello`.
+- Clients land in the main room unless told otherwise: `connect({ path: '/r/alpha' })`
+  or `member({ path: '/r/alpha' })` picks another (`rooms.test.js`).
 - Clients speak protocol 2 unless told otherwise: `member({ v: 3, list: [ids…] })`
   for a page that owns its playlists (`setList` / `lookup` / `played`,
   `playlists.test.js`), `member({ v: null })` for a page from before compact
