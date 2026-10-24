@@ -28,6 +28,17 @@ lookups). When a song starts, its DJ's copy rotates it to the bottom and the
 page is told (`played`), so it does the same. Pages from before this
 (protocol < 3) still use the older `addTrack` / `removeTrack` / `bumpTrack`.
 
+## Code
+
+| File | What |
+|------|------|
+| `server.js` | The edge: the HTTP + WebSocket server, connection limits, heartbeat, and wiring. Knows nothing about the room's rules. |
+| `room.js` | `Room`: who is on the floor, the DJ queue, what is playing, votes, chat, moves. Never touches a socket; sends through the transport the server gives it. |
+| `youtube.js` | Pasted link -> video id, lookups (Data API or oEmbed), the metadata and failure caches, the lookup rate limit. Shared by every room. |
+| `config.js` | Every setting read from the environment and every limit, in one place. |
+| `util.js` | Text cleaning, ids, the rate-limited warning log, `UserError`. |
+| `chatRules.js`, `avatarParts.js` | Mirrored in the page (see above); change both together. |
+
 ## Run locally
 
 ```sh
@@ -74,7 +85,7 @@ Ship a change from the repo root (`npm ci` installs exactly what
 `package-lock.json` pins, without running any package scripts):
 
 ```sh
-scp dj-server/server.js dj-server/chatRules.js dj-server/avatarParts.js dj-server/package.json dj-server/package-lock.json root@199.127.61.235:/opt/faceland-dj/
+scp dj-server/*.js dj-server/package.json dj-server/package-lock.json root@199.127.61.235:/opt/faceland-dj/
 ssh root@199.127.61.235 "cd /opt/faceland-dj && npm ci --omit=dev --ignore-scripts && systemctl restart faceland-dj"
 ```
 

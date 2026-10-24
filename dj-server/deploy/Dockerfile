@@ -21,7 +21,10 @@ COPY package.json package-lock.json ./
 RUN npm ci --omit=dev --ignore-scripts \
  && npm cache clean --force
 
-COPY server.js chatRules.js avatarParts.js ./
+# Every module at the top level of dj-server/ (server, room, youtube, config,
+# util, chatRules, avatarParts). Tests and deploy files are directories and
+# excluded by .dockerignore.
+COPY *.js ./
 
 USER djroom
 
