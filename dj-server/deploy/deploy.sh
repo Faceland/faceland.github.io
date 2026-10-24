@@ -70,6 +70,25 @@ if [ "$SKIP_SITE" != 1 ]; then
   [ -f "$SITE_SRC/build/index.html" ] || { echo "no build/index.html; build failed"; exit 1; }
 fi
 
+# Catch a bad nginx config here rather than on the box, where remote.sh would
+# stop halfway. Needs Docker locally; skipped (with a note) if it isn't there.
+if docker version >/dev/null 2>&1; then
+  step "nginx -t on the rendered config (locally, nginx:1.22)"
+  tmp="$(mktemp -d)"
+  sed "s/__HOST__/$HOST/g" "$HERE/nginx/dj.conf.tmpl" > "$tmp/dj.conf"
+  docker run --rm -v "$tmp/dj.conf:/etc/nginx/conf.d/faceland-dj.conf:ro" nginx:1.22 \
+    sh -c "mkdir -p /etc/letsencrypt/live/$HOST \
+      && openssl req -x509 -newkey rsa:2048 -nodes -subj /CN=$HOST \
+           -keyout /etc/letsencrypt/live/$HOST/privkey.pem \
+           -out /etc/letsencrypt/live/$HOST/fullchain.pem -days 1 >/dev/null 2>&1 \
+      && nginx -t" 2>&1 | tail -1
+  status=${PIPESTATUS[0]}
+  rm -rf "$tmp"
+  [ "$status" = 0 ] || { echo "nginx config is invalid; not deploying"; exit 1; }
+else
+  echo "(no local Docker: skipping the nginx -t preflight)"
+fi
+
 step "Prepare $HOST"
 ssh "${SSH_OPTS[@]}" "$SSH_ALIAS" '
   set -e

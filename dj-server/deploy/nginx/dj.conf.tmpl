@@ -5,8 +5,8 @@
 #
 # What this host serves:
 #   /       the room server's status line ("Faceland DJ server: N in the room")
-#   /ws     the room server, proxied over its Unix socket (the page connects
-#           to wss://__HOST__/ws)
+#   /ws     the room server, proxied over its Unix socket: /ws is the main
+#           room, /ws/r/<id> another (the page connects to wss://__HOST__/ws)
 #   /dj     the DJ page, from a static build of the face.land site made with
 #           REACT_APP_DJ_SERVER_URL pointing at that /ws
 #   /static/, /assets/, /favicon.ico ...   what the page loads
@@ -84,6 +84,8 @@ server {
         proxy_set_header X-Real-IP $remote_addr;
     }
 
+    # /ws is the main room; /ws/r/<id> is room <id>. Both reach the server
+    # with the /ws prefix removed (the trailing slash on proxy_pass does that).
     location = /ws {
         limit_req zone=dj_ws burst=20 nodelay;
         proxy_pass http://faceland_dj/;
@@ -102,11 +104,26 @@ server {
         proxy_send_timeout 120s;
     }
 
+    location /ws/ {
+        limit_req zone=dj_ws burst=20 nodelay;
+        proxy_pass http://faceland_dj/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $connection_upgrade;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_buffering off;
+        proxy_read_timeout 120s;
+        proxy_send_timeout 120s;
+    }
+
     # --- the page: /dj and what it loads, nothing else -------------------------
     root /srv/faceland-dj/site;
     gzip_types text/css application/javascript application/json image/svg+xml text/plain;
 
-    location ~ ^/dj/?$ {
+    # /dj is the main room, /dj/<room> another; both are the same page, which
+    # reads the room from its address and opens the matching /ws/r/<room>.
+    location ~* "^/dj(/[a-z0-9_-]{1,32})?/?$" {
         try_files /index.html =404;
     }
 

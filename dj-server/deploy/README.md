@@ -104,7 +104,12 @@ in `app/deploy` runs an older one.
 
 Open `https://<host>/dj`. That's it; the page served there already talks to
 the staging room. The bare host, `/`, shows the server's status line,
-"Faceland DJ server: N in the room".
+"Faceland DJ server: N in the room" (or "N in M rooms").
+
+Rooms: the socket at `wss://<host>/ws` is the main room, `wss://<host>/ws/r/<id>`
+is room `<id>` (short, lower-case, letters, digits, `-` and `_`), created when
+the first person arrives and dropped when the last one leaves. The page
+doesn't pick rooms yet, so everything is in the main room until it does.
 
 To run the page locally against the staging room instead (for frontend work),
 the dev page reads `REACT_APP_DJ_SERVER_URL`. In the site root:
