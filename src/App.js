@@ -120,6 +120,8 @@ function App() {
           {/* Pre-rendered (so /dj isn't served as the 404 page) but noindex
               and kept out of the sitemap: a live room has nothing to index. */}
           <Route path="dj" element={<DJRoute />} />
+          {/* /dj/<room> is another room on the same server (see useDJRoom). */}
+          <Route path="dj/:room" element={<DJRoute />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Store>

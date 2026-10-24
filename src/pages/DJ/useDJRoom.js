@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { MAX_TRACKS, usePlaylists } from './playlistModel';
 
 // The room server lives outside GitHub Pages (see dj-server/). In development
@@ -12,6 +13,12 @@ const devHost =
 const SERVER_URL =
   process.env.REACT_APP_DJ_SERVER_URL ||
   (process.env.NODE_ENV === 'development' ? `ws://${devHost}:8787` : '');
+
+// Which room: /dj is the main room and /dj/<room> another, which is /r/<room>
+// on the server. The server lower-cases and checks the id; the page just
+// passes it along.
+const roomUrl = (room) =>
+  room ? `${SERVER_URL}/r/${encodeURIComponent(room)}` : SERVER_URL;
 
 const STORAGE_KEY = 'faceland.dj';
 
@@ -55,6 +62,7 @@ const listSignature = (playlist) =>
   playlist.tracks.map((track) => track.videoId).join(',');
 
 export const useDJRoom = () => {
+  const { room: roomId } = useParams();
   const [status, setStatus] = useState(SERVER_URL ? 'connecting' : 'offline');
   // Clicked Join this visit. Stays true through reconnects, unlike `me`.
   const [entered, setEntered] = useState(false);
@@ -127,6 +135,10 @@ export const useDJRoom = () => {
     if (!SERVER_URL || navigator.userAgent.includes('ReactSnap')) {
       return undefined;
     }
+    // A different room: forget the last one's floor and chat.
+    setRoom(EMPTY_ROOM);
+    setMe(null);
+    setChat((lines) => (lines.length ? [] : lines));
     let ws;
     let retryTimer;
     let retryDelay = 1000;
@@ -240,7 +252,7 @@ export const useDJRoom = () => {
 
     const connect = () => {
       setStatus('connecting');
-      ws = new WebSocket(SERVER_URL);
+      ws = new WebSocket(roomUrl(roomId));
       wsRef.current = ws;
       ws.onopen = () => {
         retryDelay = 1000;
@@ -269,7 +281,7 @@ export const useDJRoom = () => {
       clearTimeout(retryTimer);
       ws.close();
     };
-  }, [hello]);
+  }, [hello, roomId]);
 
   // Keep the room's copy of the selected playlist current: it's what you
   // play from. Sent shortly after edits, and right away before joining the
