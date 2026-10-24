@@ -1,0 +1,17 @@
+# Faceland DJ room: HTTP-only config used just long enough to obtain the
+# first certificate. deploy/remote.sh renders __HOST__ and installs this as
+# /etc/nginx/conf.d/faceland-dj.conf, then replaces it with dj.conf.tmpl.
+server {
+    listen 80;
+    listen [::]:80;
+    server_name __HOST__;
+    server_tokens off;
+
+    location ^~ /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+    }
+
+    location / {
+        return 503;
+    }
+}

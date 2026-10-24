@@ -1,0 +1,130 @@
+# Faceland DJ staging behind nginx. deploy/remote.sh renders __HOST__ and
+# installs this as /etc/nginx/conf.d/faceland-dj.conf (Debian's nginx.conf
+# includes conf.d/*.conf inside the http block, so the maps and zones below
+# are allowed).
+#
+# What this host serves:
+#   /       the room server's status line ("Faceland DJ server: N in the room")
+#   /ws     the room server, proxied over its Unix socket (the page connects
+#           to wss://__HOST__/ws)
+#   /dj     the DJ page, from a static build of the face.land site made with
+#           REACT_APP_DJ_SERVER_URL pointing at that /ws
+#   /static/, /assets/, /favicon.ico ...   what the page loads
+#   anything else   404; the rest of face.land is not this host's business
+#
+# nginx terminates TLS and is the first line against abuse: a cap on open
+# connections per IP and a rate on new WebSocket upgrades, ahead of the
+# server's own per-IP limits.
+
+map $http_upgrade $connection_upgrade {
+    default upgrade;
+    ''      close;
+}
+
+# Build output under /static/ has content hashes in its names; everything
+# else (index.html above all) must be revalidated so a deploy shows up.
+map $uri $dj_cache_control {
+    default      "no-cache";
+    ~^/static/   "public, max-age=31536000, immutable";
+}
+
+limit_conn_zone $binary_remote_addr zone=dj_conn:10m;
+limit_req_zone  $binary_remote_addr zone=dj_ws:10m rate=5r/s;
+
+upstream faceland_dj {
+    server unix:/srv/faceland-dj/run/dj.sock;
+}
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name __HOST__;
+    server_tokens off;
+
+    location ^~ /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+    }
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name __HOST__;
+    server_tokens off;
+
+    ssl_certificate     /etc/letsencrypt/live/__HOST__/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/__HOST__/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers off;
+    ssl_session_cache shared:dj_ssl:5m;
+    ssl_session_timeout 1d;
+    ssl_session_tickets off;
+
+    # Same headers the real site sends from vercel.json, plus HSTS for this host.
+    add_header Strict-Transport-Security "max-age=31536000" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-Frame-Options "DENY" always;
+    add_header Cache-Control $dj_cache_control always;
+
+    # The server allows 6 sockets per IP; this only has to stop floods.
+    limit_conn dj_conn 20;
+    client_max_body_size 16k;
+
+    # --- the room server -------------------------------------------------------
+
+    # Its status line, handy for a glance at the box.
+    location = / {
+        proxy_pass http://faceland_dj/;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+
+    location = /ws {
+        limit_req zone=dj_ws burst=20 nodelay;
+        proxy_pass http://faceland_dj/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $connection_upgrade;
+        proxy_set_header Host $host;
+        # The server trusts this header because the connection arrives over a
+        # Unix socket (no remote address), the same contract as on the
+        # Faceland box. Never forward a client-supplied value here.
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_buffering off;
+        # The server pings every 30 s, so an idle socket is never silent for
+        # long; this just needs to be comfortably above that.
+        proxy_read_timeout 120s;
+        proxy_send_timeout 120s;
+    }
+
+    # --- the page: /dj and what it loads, nothing else -------------------------
+    root /srv/faceland-dj/site;
+    gzip_types text/css application/javascript application/json image/svg+xml text/plain;
+
+    location ~ ^/dj/?$ {
+        try_files /index.html =404;
+    }
+
+    location /static/ {
+        try_files $uri =404;
+    }
+
+    location /assets/ {
+        try_files $uri =404;
+    }
+
+    # Favicons, manifest, logos: the root-level files index.html references.
+    location ~ ^/[^/]+\.(ico|png|json|webmanifest|txt|xml)$ {
+        try_files $uri =404;
+    }
+
+    # The rest of face.land lives on face.land.
+    location / {
+        return 404;
+    }
+}

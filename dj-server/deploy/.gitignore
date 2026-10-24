@@ -1,0 +1,2 @@
+# Which box to deploy to and how to reach it. Local to each person.
+.env.deploy

@@ -1,0 +1,39 @@
+# The DJ room server as it runs on the VPS. Used by deploy/remote.sh from
+# /srv/faceland-dj/app/deploy; nothing here is specific to that path except the
+# two host paths under /srv/faceland-dj (settings file and socket directory).
+#
+# The container has no published ports. nginx on the host reaches it through
+# the Unix socket in /srv/faceland-dj/run and terminates TLS.
+services:
+  dj:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    image: faceland-dj:${DJ_TAG:-latest}
+    container_name: faceland-dj
+    restart: unless-stopped
+
+    # ALLOWED_ORIGINS, YOUTUBE_API_KEY, MIN_SKIP_SECONDS, ... (see dj.env.example)
+    env_file: /srv/faceland-dj/dj.env
+    environment:
+      SOCKET_PATH: /run/faceland-dj/dj.sock
+
+    volumes:
+      - /srv/faceland-dj/run:/run/faceland-dj
+
+    # The same fence the Faceland box puts around it: no capabilities, no
+    # privilege escalation, a read-only filesystem (the socket dir is the only
+    # thing it writes), 512 MB and one core at most.
+    read_only: true
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 512m
+    cpus: 1
+    pids_limit: 128
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
