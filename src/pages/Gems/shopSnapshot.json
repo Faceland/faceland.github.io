@@ -71,6 +71,11 @@
   },
   "recentPurchases": [
     {
+      "name": "duti02",
+      "avatar": "https://crafthead.net/avatar/64dc02745d4f42ecb3eb4069563e7a16/100",
+      "gems": 1100
+    },
+    {
       "name": "DoomDeath1313",
       "avatar": "https://crafthead.net/avatar/2df231c9b0704abc8760c7d8306d9e0d/100",
       "gems": 13000
@@ -84,12 +89,7 @@
       "name": "AtheroX1311",
       "avatar": "https://crafthead.net/avatar/99be3c12049b41969cf98312f88e1728/100",
       "gems": 1100
-    },
-    {
-      "name": "Kuba3kuk",
-      "avatar": "https://crafthead.net/avatar/3a91e8894ef4432e996636f365b80fb6/100",
-      "gems": 4200
     }
   ],
-  "scrapedAt": "2026-10-14T01:51:21.162Z"
+  "scrapedAt": "2026-11-06T00:08:46.500Z"
 }
